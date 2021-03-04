@@ -3,11 +3,22 @@ using System.Windows.Forms;
 
 namespace Clinic.View
 {
+
+    /// <summary>
+    /// The NurseAdminForm class creates form with tabs, using user controls.
+    /// Available tabs: Appointments    -   for nurse/admin
+    ///                 Patients        -   for nurse/admin
+    ///                 Visits          -   for nurse/admin
+    ///                 Nurses          -   for admin
+    /// </summary>
     public partial class NurseAdminForm : Form
     {
-
         private LoginForm theLoginForm;
 
+        /// <summary>
+        /// The constructor initializes the components
+        /// </summary>
+        /// <param name="theInputLoginForm"></param>
         public NurseAdminForm(LoginForm theInputLoginForm)
         {
             InitializeComponent();
@@ -24,7 +35,7 @@ namespace Clinic.View
         }
 
         /// <summary>
-        /// The method sets the login form
+        /// The method sets the Login form
         /// </summary>
         /// <param name="theInputLoginForm"> Inputted loginform </param>
         public void SetTheLoginForm(LoginForm theInputLoginForm)

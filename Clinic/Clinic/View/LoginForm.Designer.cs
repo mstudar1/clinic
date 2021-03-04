@@ -68,7 +68,7 @@ namespace Clinic
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(754, 41);
-            this.passwordTextBox.TabIndex = 3;
+            this.passwordTextBox.TabIndex = 2;
             this.passwordTextBox.TextChanged += new System.EventHandler(this.EntryInTextbox);
             // 
             // usenameLabel
@@ -102,7 +102,7 @@ namespace Clinic
             this.usernameTextBox.Location = new System.Drawing.Point(630, 240);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(754, 41);
-            this.usernameTextBox.TabIndex = 2;
+            this.usernameTextBox.TabIndex = 1;
             this.usernameTextBox.TextChanged += new System.EventHandler(this.EntryInTextbox);
             // 
             // tableLayoutPanel1
@@ -127,7 +127,7 @@ namespace Clinic
             this.LoginButton.Location = new System.Drawing.Point(78, 125);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(105, 46);
-            this.LoginButton.TabIndex = 4;
+            this.LoginButton.TabIndex = 3;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.CheckCredentials);

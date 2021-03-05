@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CredentialController.cs" />
     <Compile Include="DAL\ClinicDBConnection.cs" />
+    <Compile Include="DAL\CredentialDAL.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,7 +80,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controller\" />
     <Folder Include="Model\" />
     <Folder Include="UserControls\" />
   </ItemGroup>

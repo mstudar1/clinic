@@ -11,7 +11,7 @@ namespace Clinic.DAL
     public class PersonDAL
     {
         /// <summary>
-        /// Class that adds the specified Person object to the database, and returns the ID of the newly created record.
+        /// Method that adds the specified Person object to the database, and returns the ID of the newly created record.
         /// </summary>
         /// <param name="thePerson">The Person object being added to the database.</param>
         /// <returns>The ID of the newly created Person record.</returns>

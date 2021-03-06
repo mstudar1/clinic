@@ -49,6 +49,11 @@
     <Compile Include="Controller\CredentialController.cs" />
     <Compile Include="DAL\ClinicDBConnection.cs" />
     <Compile Include="DAL\CredentialDAL.cs" />
+    <Compile Include="Model\Administrator.cs" />
+    <Compile Include="Model\Doctor.cs" />
+    <Compile Include="Model\Nurse.cs" />
+    <Compile Include="Model\Patient.cs" />
+    <Compile Include="Model\Person.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,7 +85,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
     <Folder Include="UserControls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

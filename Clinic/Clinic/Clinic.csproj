@@ -46,11 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="View\LoginForm.cs">
+    <Compile Include="Controller\CredentialController.cs" />
+    <Compile Include="DAL\ClinicDBConnection.cs" />
+    <Compile Include="DAL\CredentialDAL.cs" />
+    <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <Compile Include="View\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,8 +92,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controller\" />
-    <Folder Include="DAL\" />
     <Folder Include="Model\" />
     <Folder Include="UserControls\" />
   </ItemGroup>

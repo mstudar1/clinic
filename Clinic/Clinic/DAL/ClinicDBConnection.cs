@@ -14,7 +14,7 @@ namespace Clinic.DAL
         public static SqlConnection GetConnection()
         {
             string connectionString =
-                "Data Source=localhost;Initial Catalog=Clinic;" +
+                "Data Source=localhost;Initial Catalog=cs6232-g2;" +
                 "Integrated Security=True";
 
             SqlConnection connection = new SqlConnection(connectionString);

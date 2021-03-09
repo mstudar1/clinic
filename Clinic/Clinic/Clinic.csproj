@@ -49,11 +49,13 @@
     <Compile Include="Controller\CredentialController.cs" />
     <Compile Include="Controller\PatientController.cs" />
     <Compile Include="Controller\PersonController.cs" />
+    <Compile Include="DAL\AppointmentDAL.cs" />
     <Compile Include="DAL\ClinicDBConnection.cs" />
     <Compile Include="DAL\CredentialDAL.cs" />
     <Compile Include="DAL\PatientDAL.cs" />
     <Compile Include="DAL\PersonDAL.cs" />
     <Compile Include="Model\Administrator.cs" />
+    <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\Nurse.cs" />
     <Compile Include="Model\Patient.cs" />

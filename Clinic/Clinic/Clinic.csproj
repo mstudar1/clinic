@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AppointmentController.cs" />
     <Compile Include="Controller\CredentialController.cs" />
     <Compile Include="Controller\PatientController.cs" />
     <Compile Include="Controller\PersonController.cs" />

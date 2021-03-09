@@ -39,6 +39,12 @@ namespace Clinic.DAL
             }
         }
 
+        /// <summary>
+        /// Method that returns true if the specified doctor is unavailable at the specified time.
+        /// </summary>
+        /// <param name="doctorId">The ID of the doctor in question.</param>
+        /// <param name="appointmentDateAndTime">The date and time of the appointment in question.</param>
+        /// <returns>True if the specified doctor is booked at the specified time, false otherwise.</returns>
         public bool DoctorIsBooked(int doctorId, DateTime appointmentDateAndTime)
         {
             if (doctorId < 0)

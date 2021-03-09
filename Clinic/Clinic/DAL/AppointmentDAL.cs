@@ -1,5 +1,6 @@
 ﻿using Clinic.Model;
 using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Clinic.DAL
@@ -34,6 +35,49 @@ namespace Clinic.DAL
                     insertCommand.Parameters.AddWithValue("@DoctorId", theAppointment.DoctorId);
                     insertCommand.Parameters.AddWithValue("@ReasonForVisit", theAppointment.ReasonForVisit);
                     insertCommand.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public bool DoctorIsBooked(int doctorId, DateTime appointmentDateAndTime)
+        {
+            if (doctorId < 0)
+            {
+                throw new ArgumentException("The doctor's ID cannot be negative.", "doctorId");
+            }
+
+            if (appointmentDateAndTime == null)
+            {
+                throw new ArgumentNullException("appointmentDateAndTime", "The date and time of the appointment cannot be null.");
+            }
+
+            string selectStatement =
+                "SELECT @NumberOfAppointments = COUNT(username) " +
+                "FROM Appointment " +
+                "WHERE doctorId = @DoctorId " +
+                "AND dateAndTime = @AppointmentDateAndTime";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    SqlParameter countParameter = new SqlParameter("@NumberOfAppointments", SqlDbType.Int, 1)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    selectCommand.Parameters.Add(countParameter);
+                    selectCommand.Parameters.AddWithValue("@DoctorId", doctorId);
+                    selectCommand.Parameters.AddWithValue("@AppointmentDateAndTime", appointmentDateAndTime);
+                    selectCommand.ExecuteNonQuery();
+                    if (Convert.ToInt32(countParameter.Value) == 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
             }
         }

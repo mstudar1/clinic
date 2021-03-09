@@ -87,5 +87,62 @@ namespace Clinic.DAL
                 }
             }
         }
+
+        /// <summary>
+        /// Method that revises a record for an appointment in the database.
+        /// Requires that the record has not been changed since it was retrieved.
+        /// </summary>
+        /// <param name="originalAppointment">The Appointment object that was originally retrieved.</param>
+        /// <param name="revisedAppointment">The Appointment object with the revised values.</param>
+        /// <returns>True if the operation is successful, false otherwise.</returns>
+        public bool EditAppointment(Appointment originalAppointment, Appointment revisedAppointment)
+        {
+            if (originalAppointment == null)
+            {
+                throw new ArgumentNullException("originalAppointment", "The original appointment cannot be null.");
+            }
+
+            if (revisedAppointment == null)
+            {
+                throw new ArgumentNullException("revisedAppointment", "The revised appointment cannot be null.");
+            }
+
+            string updateStatement =
+                "UPDATE Appointment SET " +
+                    "patientId = @RevisedPatientId, " +
+                    "dateAndTime = @RevisedDateAndTime, " +
+                    "doctorId = @RevisedDoctorId, " +
+                    "reasonForVisit = @RevisedReasonForVisit " +
+                "WHERE patientId = @OriginalPatientId " +
+                    "AND dateAndTime = @OriginalDateAndTime " +
+                    "AND doctorId = @OriginalDoctorId " +
+                    "AND reasonForVisit = @OriginalReasonForVisit";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                {
+                    updateCommand.Parameters.AddWithValue("@OriginalPatientId", originalAppointment.PatientId);
+                    updateCommand.Parameters.AddWithValue("@OriginalDateAndTime", originalAppointment.DateAndTime);
+                    updateCommand.Parameters.AddWithValue("@OriginalDoctorId", originalAppointment.DoctorId);
+                    updateCommand.Parameters.AddWithValue("@OriginalReasonForVisit", originalAppointment.ReasonForVisit);
+                    updateCommand.Parameters.AddWithValue("@RevisedPatientId", revisedAppointment.PatientId);
+                    updateCommand.Parameters.AddWithValue("@RevisedDateAndTime", revisedAppointment.DateAndTime);
+                    updateCommand.Parameters.AddWithValue("@RevisedDoctorId", revisedAppointment.DoctorId);
+                    updateCommand.Parameters.AddWithValue("@RevisedReasonForVisit", revisedAppointment.ReasonForVisit);
+
+                    int count = updateCommand.ExecuteNonQuery();
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
     }
 }

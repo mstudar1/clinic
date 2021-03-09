@@ -31,6 +31,9 @@ namespace Clinic.View
         {
             this.activeUsernameLabel = new System.Windows.Forms.Label();
             this.LogputButton = new System.Windows.Forms.Button();
+            this.nurseAdminTabControl = new System.Windows.Forms.TabControl();
+            this.nurseTabPage = new System.Windows.Forms.TabPage();
+            this.nurseAdminTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // activeUsernameLabel
@@ -54,15 +57,37 @@ namespace Clinic.View
             this.LogputButton.Text = "Logout";
             this.LogputButton.UseVisualStyleBackColor = true;
             // 
+            // nurseAdminTabControl
+            // 
+            this.nurseAdminTabControl.Controls.Add(this.nurseTabPage);
+            this.nurseAdminTabControl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.nurseAdminTabControl.Font = new System.Drawing.Font("Microsoft Tai Le", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nurseAdminTabControl.Location = new System.Drawing.Point(0, 94);
+            this.nurseAdminTabControl.Name = "nurseAdminTabControl";
+            this.nurseAdminTabControl.SelectedIndex = 0;
+            this.nurseAdminTabControl.Size = new System.Drawing.Size(1478, 850);
+            this.nurseAdminTabControl.TabIndex = 2;
+            // 
+            // nurseTabPage
+            // 
+            this.nurseTabPage.Location = new System.Drawing.Point(4, 42);
+            this.nurseTabPage.Name = "nurseTabPage";
+            this.nurseTabPage.Size = new System.Drawing.Size(1470, 804);
+            this.nurseTabPage.TabIndex = 0;
+            this.nurseTabPage.Text = "Nurse";
+            this.nurseTabPage.UseVisualStyleBackColor = true;
+            // 
             // NurseAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1478, 944);
+            this.Controls.Add(this.nurseAdminTabControl);
             this.Controls.Add(this.LogputButton);
             this.Controls.Add(this.activeUsernameLabel);
             this.Name = "NurseAdminForm";
             this.Text = "Nurse/Admin Form";
+            this.nurseAdminTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -72,5 +97,7 @@ namespace Clinic.View
 
         private System.Windows.Forms.Label activeUsernameLabel;
         private System.Windows.Forms.Button LogputButton;
+        private System.Windows.Forms.TabControl nurseAdminTabControl;
+        private System.Windows.Forms.TabPage nurseTabPage;
     }
 }

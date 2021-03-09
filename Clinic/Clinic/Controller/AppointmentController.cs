@@ -53,5 +53,27 @@ namespace Clinic.Controller
 
             return this.appointmentSource.DoctorIsBooked(doctorId, appointmentDateAndTime);
         }
+
+        /// <summary>
+        /// Method that revises a record for an appointment in the database.
+        /// Requires that the record has not been changed since it was retrieved.
+        /// </summary>
+        /// <param name="originalAppointment">The Appointment object that was originally retrieved.</param>
+        /// <param name="revisedAppointment">The Appointment object with the revised values.</param>
+        /// <returns>True if the operation is successful, false otherwise.</returns>
+        public bool EditAppointment(Appointment originalAppointment, Appointment revisedAppointment)
+        {
+            if (originalAppointment == null)
+            {
+                throw new ArgumentNullException("originalAppointment", "The original appointment cannot be null.");
+            }
+
+            if (revisedAppointment == null)
+            {
+                throw new ArgumentNullException("revisedAppointment", "The revised appointment cannot be null.");
+            }
+
+            return this.appointmentSource.EditAppointment(originalAppointment, revisedAppointment);
+        }
     }
 }

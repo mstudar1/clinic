@@ -33,23 +33,25 @@ namespace Clinic.View
             this.LogputButton = new System.Windows.Forms.Button();
             this.nurseAdminTabControl = new System.Windows.Forms.TabControl();
             this.nurseTabPage = new System.Windows.Forms.TabPage();
+            this.nurse1 = new Clinic.UserControls.Nurse();
             this.nurseAdminTabControl.SuspendLayout();
+            this.nurseTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // activeUsernameLabel
             // 
             this.activeUsernameLabel.AutoSize = true;
-            this.activeUsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.activeUsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.activeUsernameLabel.Location = new System.Drawing.Point(1168, 29);
             this.activeUsernameLabel.Name = "activeUsernameLabel";
-            this.activeUsernameLabel.Size = new System.Drawing.Size(24, 36);
+            this.activeUsernameLabel.Size = new System.Drawing.Size(21, 30);
             this.activeUsernameLabel.TabIndex = 0;
             this.activeUsernameLabel.Text = ".";
             // 
             // LogputButton
             // 
             this.LogputButton.AutoSize = true;
-            this.LogputButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogputButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogputButton.Location = new System.Drawing.Point(1342, 24);
             this.LogputButton.Name = "LogputButton";
             this.LogputButton.Size = new System.Drawing.Size(124, 46);
@@ -70,12 +72,22 @@ namespace Clinic.View
             // 
             // nurseTabPage
             // 
+            this.nurseTabPage.Controls.Add(this.nurse1);
             this.nurseTabPage.Location = new System.Drawing.Point(4, 42);
             this.nurseTabPage.Name = "nurseTabPage";
             this.nurseTabPage.Size = new System.Drawing.Size(1470, 804);
             this.nurseTabPage.TabIndex = 0;
             this.nurseTabPage.Text = "Nurse";
             this.nurseTabPage.UseVisualStyleBackColor = true;
+            // 
+            // nurse1
+            // 
+            this.nurse1.Location = new System.Drawing.Point(10, 8);
+            this.nurse1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.nurse1.Name = "nurse1";
+            this.nurse1.Size = new System.Drawing.Size(1450, 786);
+            this.nurse1.TabIndex = 0;
+            this.nurse1.Load += new System.EventHandler(this.nurse1_Load);
             // 
             // NurseAdminForm
             // 
@@ -88,6 +100,7 @@ namespace Clinic.View
             this.Name = "NurseAdminForm";
             this.Text = "Nurse/Admin Form";
             this.nurseAdminTabControl.ResumeLayout(false);
+            this.nurseTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,5 +112,6 @@ namespace Clinic.View
         private System.Windows.Forms.Button LogputButton;
         private System.Windows.Forms.TabControl nurseAdminTabControl;
         private System.Windows.Forms.TabPage nurseTabPage;
+        private UserControls.Nurse nurse1;
     }
 }

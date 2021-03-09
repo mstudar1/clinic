@@ -42,5 +42,10 @@ namespace Clinic.View
         {
             this.theLoginForm = theInputLoginForm;
         }
+
+        private void nurse1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace Clinic.View
             this.passwordLabel = new System.Windows.Forms.Label();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.callCredentialsAreValidMethodButton = new System.Windows.Forms.Button();
+            this.credentialsAreValidButton = new System.Windows.Forms.Button();
             this.dataAccessTestTabControl = new System.Windows.Forms.TabControl();
             this.credentialControllerTabPage = new System.Windows.Forms.TabPage();
             this.patientControllerTabPage = new System.Windows.Forms.TabPage();
@@ -67,7 +67,7 @@ namespace Clinic.View
             // 
             // credentialsAreValidGroupBox
             // 
-            this.credentialsAreValidGroupBox.Controls.Add(this.callCredentialsAreValidMethodButton);
+            this.credentialsAreValidGroupBox.Controls.Add(this.credentialsAreValidButton);
             this.credentialsAreValidGroupBox.Controls.Add(this.passwordTextBox);
             this.credentialsAreValidGroupBox.Controls.Add(this.usernameTextBox);
             this.credentialsAreValidGroupBox.Controls.Add(this.passwordLabel);
@@ -111,14 +111,15 @@ namespace Clinic.View
             this.passwordTextBox.Size = new System.Drawing.Size(189, 20);
             this.passwordTextBox.TabIndex = 3;
             // 
-            // callCredentialsAreValidMethodButton
+            // credentialsAreValidButton
             // 
-            this.callCredentialsAreValidMethodButton.Location = new System.Drawing.Point(67, 70);
-            this.callCredentialsAreValidMethodButton.Name = "callCredentialsAreValidMethodButton";
-            this.callCredentialsAreValidMethodButton.Size = new System.Drawing.Size(189, 23);
-            this.callCredentialsAreValidMethodButton.TabIndex = 4;
-            this.callCredentialsAreValidMethodButton.Text = "Call CredentialsAreValid Method";
-            this.callCredentialsAreValidMethodButton.UseVisualStyleBackColor = true;
+            this.credentialsAreValidButton.Location = new System.Drawing.Point(67, 70);
+            this.credentialsAreValidButton.Name = "credentialsAreValidButton";
+            this.credentialsAreValidButton.Size = new System.Drawing.Size(189, 23);
+            this.credentialsAreValidButton.TabIndex = 4;
+            this.credentialsAreValidButton.Text = "Call CredentialsAreValid Method";
+            this.credentialsAreValidButton.UseVisualStyleBackColor = true;
+            this.credentialsAreValidButton.Click += new System.EventHandler(this.CredentialsAreValidButton_Click);
             // 
             // dataAccessTestTabControl
             // 
@@ -137,7 +138,7 @@ namespace Clinic.View
             this.credentialControllerTabPage.Location = new System.Drawing.Point(4, 22);
             this.credentialControllerTabPage.Name = "credentialControllerTabPage";
             this.credentialControllerTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.credentialControllerTabPage.Size = new System.Drawing.Size(324, 238);
+            this.credentialControllerTabPage.Size = new System.Drawing.Size(324, 242);
             this.credentialControllerTabPage.TabIndex = 0;
             this.credentialControllerTabPage.Text = "CredentialController";
             this.credentialControllerTabPage.UseVisualStyleBackColor = true;
@@ -149,7 +150,7 @@ namespace Clinic.View
             this.patientControllerTabPage.Location = new System.Drawing.Point(4, 22);
             this.patientControllerTabPage.Name = "patientControllerTabPage";
             this.patientControllerTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.patientControllerTabPage.Size = new System.Drawing.Size(324, 238);
+            this.patientControllerTabPage.Size = new System.Drawing.Size(324, 242);
             this.patientControllerTabPage.TabIndex = 1;
             this.patientControllerTabPage.Text = "PatientController";
             this.patientControllerTabPage.UseVisualStyleBackColor = true;
@@ -184,6 +185,7 @@ namespace Clinic.View
             this.addPatientButton.TabIndex = 0;
             this.addPatientButton.Text = "Add John Doe Patient";
             this.addPatientButton.UseVisualStyleBackColor = true;
+            this.addPatientButton.Click += new System.EventHandler(this.AddPatientButton_Click);
             // 
             // editPatientGroupBox
             // 
@@ -203,6 +205,7 @@ namespace Clinic.View
             this.editPatientButton.TabIndex = 0;
             this.editPatientButton.Text = "Change Patient Name to Jane Doe";
             this.editPatientButton.UseVisualStyleBackColor = true;
+            this.editPatientButton.Click += new System.EventHandler(this.EditPatientButton_Click);
             // 
             // addAppointmentGroupBox
             // 
@@ -222,6 +225,7 @@ namespace Clinic.View
             this.addAppointmentButton.TabIndex = 0;
             this.addAppointmentButton.Text = "Add Appointment for John Doe";
             this.addAppointmentButton.UseVisualStyleBackColor = true;
+            this.addAppointmentButton.Click += new System.EventHandler(this.AddAppointmentButton_Click);
             // 
             // doctorIsBookedGroupBox
             // 
@@ -245,6 +249,7 @@ namespace Clinic.View
             this.doctorIsBookedButton.TabIndex = 4;
             this.doctorIsBookedButton.Text = "Call DoctorIsBooked Method";
             this.doctorIsBookedButton.UseVisualStyleBackColor = true;
+            this.doctorIsBookedButton.Click += new System.EventHandler(this.DoctorIsBookedButton_Click);
             // 
             // doctorIdTextBox
             // 
@@ -289,6 +294,7 @@ namespace Clinic.View
             this.editAppointmentButton.TabIndex = 0;
             this.editAppointmentButton.Text = "Edit Appointment for John Doe";
             this.editAppointmentButton.UseVisualStyleBackColor = true;
+            this.editAppointmentButton.Click += new System.EventHandler(this.EditAppointmentButton_Click);
             // 
             // dateAndTimeTextBox
             // 
@@ -327,7 +333,7 @@ namespace Clinic.View
         #endregion
 
         private System.Windows.Forms.GroupBox credentialsAreValidGroupBox;
-        private System.Windows.Forms.Button callCredentialsAreValidMethodButton;
+        private System.Windows.Forms.Button credentialsAreValidButton;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.Label passwordLabel;

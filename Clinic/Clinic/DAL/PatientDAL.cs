@@ -111,6 +111,11 @@ namespace Clinic.DAL
         /// <returns>A list of patients with the specified date of birth.</returns>
         public List<Patient> FindPatients(DateTime dateOfBirth)
         {
+            if (dateOfBirth == null)
+            {
+                throw new ArgumentNullException("dateOfBirth", "The date of birth cannot be null.");
+            }
+
             List<Patient> patientList = new List<Patient>();
 
             string selectStatement =
@@ -172,6 +177,16 @@ namespace Clinic.DAL
         /// <returns>A list of patients with the specified names.</returns>
         public List<Patient> FindPatients(string lastName, string firstName)
         {
+            if (string.IsNullOrEmpty(lastName))
+            {
+                throw new ArgumentNullException("lastName", "The last name cannot be null or empty.");
+            }
+
+            if (string.IsNullOrEmpty(firstName))
+            {
+                throw new ArgumentNullException("firstname", "The first name cannot be null or empty.");
+            }
+
             List<Patient> patientList = new List<Patient>();
 
             string selectStatement =
@@ -235,6 +250,16 @@ namespace Clinic.DAL
         /// <returns>A list of patients with the specified date of birth and last name.</returns>
         public List<Patient> FindPatients(DateTime dateOfBirth, string lastName)
         {
+            if (dateOfBirth == null)
+            {
+                throw new ArgumentNullException("dateOfBirth", "The date of birth cannot be null.");
+            }
+
+            if (string.IsNullOrEmpty(lastName))
+            {
+                throw new ArgumentNullException("lastName", "The last name cannot be null or empty.");
+            }
+
             List<Patient> patientList = new List<Patient>();
 
             string selectStatement =

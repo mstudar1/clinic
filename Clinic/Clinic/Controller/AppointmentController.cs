@@ -1,6 +1,7 @@
 ﻿using Clinic.DAL;
 using Clinic.Model;
 using System;
+using System.Collections.Generic;
 
 namespace Clinic.Controller
 {
@@ -74,6 +75,21 @@ namespace Clinic.Controller
             }
 
             return this.appointmentSource.EditAppointment(originalAppointment, revisedAppointment);
+        }
+
+        /// <summary>
+        /// Method that returns a list of all appointments for the specified patient.
+        /// </summary>
+        /// <param name="patientId">The ID of the patient being searched for.</param>
+        /// <returns>A list of all appointments for the specified patient.</returns>
+        public List<Appointment> FindAppointments(int patientId)
+        {
+            if (patientId < 0)
+            {
+                throw new ArgumentException("The patient ID cannot be negative.", "patientId");
+            }
+
+            return this.appointmentSource.FindAppointments(patientId);
         }
     }
 }

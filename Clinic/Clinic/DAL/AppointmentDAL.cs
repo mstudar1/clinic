@@ -153,6 +153,11 @@ namespace Clinic.DAL
         /// <returns>A list of all appointments for the specified patient.</returns>
         public List<Appointment> FindAppointments(int patientId)
         {
+            if (patientId < 0)
+            {
+                throw new ArgumentException("The patient ID cannot be negative.", "patientId");
+            }
+
             List<Appointment> appointmentList = new List<Appointment>();
 
             string selectStatement =

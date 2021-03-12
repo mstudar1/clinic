@@ -1,5 +1,6 @@
 ﻿using Clinic.Model;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -143,6 +144,47 @@ namespace Clinic.DAL
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Method that returns a list of all appointments for the specified patient.
+        /// </summary>
+        /// <param name="patientId">The ID of the patient being searched for.</param>
+        /// <returns>A list of all appointments for the specified patient.</returns>
+        public List<Appointment> FindAppointments(int patientId)
+        {
+            List<Appointment> appointmentList = new List<Appointment>();
+
+            string selectStatement =
+                "SELECT dateAndTime, doctorId, reasonForVisit " +
+                "FROM Appointment " +
+                "WHERE patientId = @PatientId " +
+                "ORDER BY dateAndTime ASC";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@PatientId", patientId);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        int dateAndTimeOrdinal = reader.GetOrdinal("dateAndTime");
+                        int doctorIdOrdinal = reader.GetOrdinal("doctorId");
+                        int reasonForVisitOrdinal = reader.GetOrdinal("reasonForVisit");
+                        while (reader.Read())
+                        {
+                            Appointment theAppointment = new Appointment();
+                            theAppointment.PatientId = patientId;
+                            if (!reader.IsDBNull(dateAndTimeOrdinal)) { theAppointment.DateAndTime = reader.GetDateTime(dateAndTimeOrdinal); }
+                            if (!reader.IsDBNull(doctorIdOrdinal)) { theAppointment.DoctorId = reader.GetInt32(doctorIdOrdinal); }
+                            if (!reader.IsDBNull(reasonForVisitOrdinal)) { theAppointment.ReasonForVisit = reader.GetString(reasonForVisitOrdinal); }
+                            appointmentList.Add(theAppointment);
+                        }
+                    }
+                }
+            }
+            return appointmentList;
         }
     }
 }

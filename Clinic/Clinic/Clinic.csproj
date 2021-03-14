@@ -97,6 +97,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\AppointmentUserControl.resx">
+      <DependentUpon>AppointmentUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\NurseUserControl.resx">
       <DependentUpon>NurseUserControl.cs</DependentUpon>
     </EmbeddedResource>

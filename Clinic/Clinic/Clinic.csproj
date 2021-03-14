@@ -74,6 +74,18 @@
     <Compile Include="UserControls\NurseUserControl.Designer.cs">
       <DependentUpon>NurseUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\PatientUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\PatientUserControl.Designer.cs">
+      <DependentUpon>PatientUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VisitUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\VisitUserControl.Designer.cs">
+      <DependentUpon>VisitUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

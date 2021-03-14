@@ -148,6 +148,8 @@ namespace Clinic
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1478, 944);
             this.Controls.Add(this.LoginTableLayoutPanel);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "LoginForm";
             this.Text = "Login Form";
             this.LoginTableLayoutPanel.ResumeLayout(false);

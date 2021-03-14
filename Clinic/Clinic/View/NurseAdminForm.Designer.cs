@@ -30,9 +30,9 @@ namespace Clinic.View
         private void InitializeComponent()
         {
             this.activeUsernameLabel = new System.Windows.Forms.Label();
-            this.LogputButton = new System.Windows.Forms.Button();
             this.nurseAdminTabControl = new System.Windows.Forms.TabControl();
             this.nurseTabPage = new System.Windows.Forms.TabPage();
+            this.logoutLinkLabel = new System.Windows.Forms.LinkLabel();
             this.nurse1 = new Clinic.UserControls.Nurse();
             this.nurseAdminTabControl.SuspendLayout();
             this.nurseTabPage.SuspendLayout();
@@ -48,17 +48,6 @@ namespace Clinic.View
             this.activeUsernameLabel.TabIndex = 0;
             this.activeUsernameLabel.Text = ".";
             // 
-            // LogputButton
-            // 
-            this.LogputButton.AutoSize = true;
-            this.LogputButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogputButton.Location = new System.Drawing.Point(1342, 24);
-            this.LogputButton.Name = "LogputButton";
-            this.LogputButton.Size = new System.Drawing.Size(124, 46);
-            this.LogputButton.TabIndex = 1;
-            this.LogputButton.Text = "Logout";
-            this.LogputButton.UseVisualStyleBackColor = true;
-            // 
             // nurseAdminTabControl
             // 
             this.nurseAdminTabControl.Controls.Add(this.nurseTabPage);
@@ -69,6 +58,7 @@ namespace Clinic.View
             this.nurseAdminTabControl.SelectedIndex = 0;
             this.nurseAdminTabControl.Size = new System.Drawing.Size(1478, 850);
             this.nurseAdminTabControl.TabIndex = 2;
+            this.nurseAdminTabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.RefreshNurseList);
             // 
             // nurseTabPage
             // 
@@ -80,25 +70,39 @@ namespace Clinic.View
             this.nurseTabPage.Text = "Nurse";
             this.nurseTabPage.UseVisualStyleBackColor = true;
             // 
+            // logoutLinkLabel
+            // 
+            this.logoutLinkLabel.AutoSize = true;
+            this.logoutLinkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutLinkLabel.Location = new System.Drawing.Point(1316, 29);
+            this.logoutLinkLabel.Name = "logoutLinkLabel";
+            this.logoutLinkLabel.Size = new System.Drawing.Size(96, 30);
+            this.logoutLinkLabel.TabIndex = 3;
+            this.logoutLinkLabel.TabStop = true;
+            this.logoutLinkLabel.Text = "Logout";
+            this.logoutLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LogoutLink_LinkClicked);
+            // 
             // nurse1
             // 
             this.nurse1.Location = new System.Drawing.Point(10, 8);
-            this.nurse1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.nurse1.Margin = new System.Windows.Forms.Padding(5);
             this.nurse1.Name = "nurse1";
             this.nurse1.Size = new System.Drawing.Size(1450, 786);
             this.nurse1.TabIndex = 0;
-            this.nurse1.Load += new System.EventHandler(this.nurse1_Load);
             // 
             // NurseAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1478, 944);
+            this.Controls.Add(this.logoutLinkLabel);
             this.Controls.Add(this.nurseAdminTabControl);
-            this.Controls.Add(this.LogputButton);
             this.Controls.Add(this.activeUsernameLabel);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NurseAdminForm";
             this.Text = "Nurse/Admin Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ApplicationFormsClosing);
             this.nurseAdminTabControl.ResumeLayout(false);
             this.nurseTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -109,9 +113,9 @@ namespace Clinic.View
         #endregion
 
         private System.Windows.Forms.Label activeUsernameLabel;
-        private System.Windows.Forms.Button LogputButton;
         private System.Windows.Forms.TabControl nurseAdminTabControl;
         private System.Windows.Forms.TabPage nurseTabPage;
         private UserControls.Nurse nurse1;
+        private System.Windows.Forms.LinkLabel logoutLinkLabel;
     }
 }

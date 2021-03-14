@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Clinic.View
@@ -43,7 +44,28 @@ namespace Clinic.View
             this.theLoginForm = theInputLoginForm;
         }
 
-        private void nurse1_Load(object sender, EventArgs e)
+        // Exits the program when the NurseAdminForm 'X' is clicked
+        private void ApplicationFormsClosing(object sender, FormClosingEventArgs e)
+        {
+            var loginFormToShow = Application.OpenForms.Cast<Form>().FirstOrDefault(c => c is LoginForm);
+            loginFormToShow.Close();
+
+        }
+
+        private void LogoutLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // calling an old LoginForm and Shows it
+            this.theLoginForm.SetNurseAdminForm(this);
+            this.theLoginForm.Show();
+            this.Hide();
+        }
+
+        private void RefreshNurseList(object sender, EventArgs e)
+        {
+           // this.displayOpenIncidentsUserControl1.RefreshData();
+        }
+
+        private void RefreshNurseList(object sender, TabControlEventArgs e)
         {
 
         }

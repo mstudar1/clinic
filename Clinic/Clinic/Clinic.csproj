@@ -62,11 +62,11 @@
     <Compile Include="Model\Nurse.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Person.cs" />
-    <Compile Include="UserControls\Nurse.cs">
+    <Compile Include="UserControls\NurseUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\Nurse.Designer.cs">
-      <DependentUpon>Nurse.cs</DependentUpon>
+    <Compile Include="UserControls\NurseUserControl.Designer.cs">
+      <DependentUpon>NurseUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
@@ -91,8 +91,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControls\Nurse.resx">
-      <DependentUpon>Nurse.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\NurseUserControl.resx">
+      <DependentUpon>NurseUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

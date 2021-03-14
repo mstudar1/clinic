@@ -62,6 +62,12 @@
     <Compile Include="Model\Nurse.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Person.cs" />
+    <Compile Include="UserControls\AppointmentUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AppointmentUserControl.Designer.cs">
+      <DependentUpon>AppointmentUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\NurseUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -57,5 +57,34 @@ namespace Clinic.DAL
                 }
             }
         }
+
+        private string GetRole(string username)
+        {
+            if (string.IsNullOrEmpty(username))
+            {
+                throw new ArgumentNullException("username", "The username cannot be null or empty.");
+            }
+
+            string selectStatement =
+                "SELECT @Role = role " +
+                "FROM Credential " +
+                "WHERE username = @Username ";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    SqlParameter roleParameter = new SqlParameter("@Role", SqlDbType.VarChar)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    selectCommand.Parameters.Add(roleParameter);
+                    selectCommand.Parameters.AddWithValue("@Username", username);
+                    selectCommand.ExecuteNonQuery();
+                    return roleParameter.Value.ToString();
+                }
+            }
+        }
     }
 }

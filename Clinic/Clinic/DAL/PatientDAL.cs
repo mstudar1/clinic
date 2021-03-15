@@ -119,9 +119,21 @@ namespace Clinic.DAL
             List<Patient> patientList = new List<Patient>();
 
             string selectStatement =
-                "SELECT i.ProductCode, i.DateOpened, c.Name AS CustomerName, t.Name AS TechnicianName, i.Title " +
+                "SELECT Patient.patientId, " +
+                    "Person.personId, " +
+                    "Person.lastName, " +
+                    "Person.firstName, " +
+                    "Person.dateOfBirth, " +
+                    "Person.ssn, " +
+                    "Person.gender, " +
+                    "Person.phoneNumber, " +
+                    "Person.addressLine1, " +
+                    "Person.addressLine2, " +
+                    "Person.city, " +
+                    "Person.state, " +
+                    "Person.zipCode " +
                 "FROM Patient " +
-                "LEFT JOIN Person ON Patient.personId = Person.personId " +
+                    "LEFT JOIN Person ON Patient.personId = Person.personId " +
                 "WHERE Person.dateOfBirth = @DateOfBirth";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
@@ -190,11 +202,23 @@ namespace Clinic.DAL
             List<Patient> patientList = new List<Patient>();
 
             string selectStatement =
-                "SELECT i.ProductCode, i.DateOpened, c.Name AS CustomerName, t.Name AS TechnicianName, i.Title " +
+                "SELECT Patient.patientId, " +
+                    "Person.personId, " +
+                    "Person.lastName, " +
+                    "Person.firstName, " +
+                    "Person.dateOfBirth, " +
+                    "Person.ssn, " +
+                    "Person.gender, " +
+                    "Person.phoneNumber, " +
+                    "Person.addressLine1, " +
+                    "Person.addressLine2, " +
+                    "Person.city, " +
+                    "Person.state, " +
+                    "Person.zipCode " +
                 "FROM Patient " +
-                "LEFT JOIN Person ON Patient.personId = Person.personId " +
+                    "LEFT JOIN Person ON Patient.personId = Person.personId " +
                 "WHERE Person.lastName = @LastName " +
-                "AND Person.firstName = @FirstName";
+                    "AND Person.firstName = @FirstName";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -263,11 +287,23 @@ namespace Clinic.DAL
             List<Patient> patientList = new List<Patient>();
 
             string selectStatement =
-                "SELECT i.ProductCode, i.DateOpened, c.Name AS CustomerName, t.Name AS TechnicianName, i.Title " +
+                "SELECT Patient.patientId, " +
+                    "Person.personId, " +
+                    "Person.lastName, " +
+                    "Person.firstName, " +
+                    "Person.dateOfBirth, " +
+                    "Person.ssn, " +
+                    "Person.gender, " +
+                    "Person.phoneNumber, " +
+                    "Person.addressLine1, " +
+                    "Person.addressLine2, " +
+                    "Person.city, " +
+                    "Person.state, " +
+                    "Person.zipCode " +
                 "FROM Patient " +
-                "LEFT JOIN Person ON Patient.personId = Person.personId " +
+                    "LEFT JOIN Person ON Patient.personId = Person.personId " +
                 "WHERE Person.dateOfBirth = @DateOfBirth " +
-                "AND Person.lastName = @LastName";
+                    "AND Person.lastName = @LastName";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {

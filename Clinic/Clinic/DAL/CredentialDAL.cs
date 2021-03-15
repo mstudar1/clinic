@@ -184,5 +184,102 @@ namespace Clinic.DAL
             }
             return theNurse;
         }
+
+        private Administrator GetAdministrator(string username)
+        {
+            if (string.IsNullOrEmpty(username))
+            {
+                throw new ArgumentNullException("username", "The username cannot be null or empty.");
+            }
+
+            Administrator theAdministrator = new Administrator();
+
+            string selectStatement =
+                "SELECT @AdministratorId = a.administratorId, " +
+                "@PersonId = p.personId, " +
+                "@LastName = p.lastName, " +
+                "@FirstName = p.firstName, " +
+                "@DateOfBirth = p.dateOfBirth, " +
+                "@SocialSecurityNumber = p.ssn, " +
+                "@Gender = p.gender, " +
+                "@PhoneNumber = p.phoneNumber, " +
+                "@AddressLine1 = p.addressLine1, " +
+                "@AddressLine2 = p.addressLine2, " +
+                "@City = p.city, " +
+                "@State = p.state, " +
+                "@ZipCode = p.zipCode " +
+                "FROM Credential c " +
+                "JOIN Administrator a ON c.personId = a.personId " +
+                "JOIN Person p ON c.personId = p.personId " +
+                "WHERE c.username = @Username";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@Username", username);
+
+                    SqlParameter administratorIdParameter = new SqlParameter("@AdministratorId", SqlDbType.Int, 1);
+                    SqlParameter personIdParameter = new SqlParameter("@PersonId", SqlDbType.Int, 1);
+                    SqlParameter lastNameParameter = new SqlParameter("@LastName", SqlDbType.VarChar, 50);
+                    SqlParameter firstNameParameter = new SqlParameter("@FirstName", SqlDbType.VarChar, 50);
+                    SqlParameter dateOfBirthParameter = new SqlParameter("@DateOfBirth", SqlDbType.DateTime);
+                    SqlParameter socialSecurityNumberParameter = new SqlParameter("@SocialSecurityNumber", SqlDbType.VarChar, 50);
+                    SqlParameter genderParameter = new SqlParameter("@Gender", SqlDbType.Char, 1);
+                    SqlParameter phoneNumberParameter = new SqlParameter("@PhoneNumber", SqlDbType.Char, 10);
+                    SqlParameter addressLine1Parameter = new SqlParameter("@AddressLine1", SqlDbType.VarChar, 50);
+                    SqlParameter addressLine2Parameter = new SqlParameter("@AddressLine2", SqlDbType.VarChar, 50);
+                    SqlParameter cityParameter = new SqlParameter("@City", SqlDbType.VarChar, 50);
+                    SqlParameter stateParameter = new SqlParameter("@State", SqlDbType.Char, 2);
+                    SqlParameter zipCodeParameter = new SqlParameter("@ZipCode", SqlDbType.Char, 5);
+
+                    administratorIdParameter.Direction = ParameterDirection.Output;
+                    personIdParameter.Direction = ParameterDirection.Output;
+                    lastNameParameter.Direction = ParameterDirection.Output;
+                    firstNameParameter.Direction = ParameterDirection.Output;
+                    dateOfBirthParameter.Direction = ParameterDirection.Output;
+                    socialSecurityNumberParameter.Direction = ParameterDirection.Output;
+                    genderParameter.Direction = ParameterDirection.Output;
+                    phoneNumberParameter.Direction = ParameterDirection.Output;
+                    addressLine1Parameter.Direction = ParameterDirection.Output;
+                    addressLine2Parameter.Direction = ParameterDirection.Output;
+                    cityParameter.Direction = ParameterDirection.Output;
+                    stateParameter.Direction = ParameterDirection.Output;
+                    zipCodeParameter.Direction = ParameterDirection.Output;
+
+                    selectCommand.Parameters.Add(administratorIdParameter);
+                    selectCommand.Parameters.Add(personIdParameter);
+                    selectCommand.Parameters.Add(lastNameParameter);
+                    selectCommand.Parameters.Add(firstNameParameter);
+                    selectCommand.Parameters.Add(dateOfBirthParameter);
+                    selectCommand.Parameters.Add(socialSecurityNumberParameter);
+                    selectCommand.Parameters.Add(genderParameter);
+                    selectCommand.Parameters.Add(phoneNumberParameter);
+                    selectCommand.Parameters.Add(addressLine1Parameter);
+                    selectCommand.Parameters.Add(addressLine2Parameter);
+                    selectCommand.Parameters.Add(cityParameter);
+                    selectCommand.Parameters.Add(stateParameter);
+                    selectCommand.Parameters.Add(zipCodeParameter);
+
+                    selectCommand.ExecuteNonQuery();
+
+                    if (!administratorIdParameter.Value.Equals(DBNull.Value)) { theAdministrator.AdministratorId = int.Parse(administratorIdParameter.Value.ToString()); }
+                    if (!personIdParameter.Value.Equals(DBNull.Value)) { theAdministrator.PersonId = int.Parse(personIdParameter.Value.ToString()); }
+                    if (!lastNameParameter.Value.Equals(DBNull.Value)) { theAdministrator.LastName = lastNameParameter.Value.ToString(); }
+                    if (!firstNameParameter.Value.Equals(DBNull.Value)) { theAdministrator.FirstName = firstNameParameter.Value.ToString(); }
+                    if (!dateOfBirthParameter.Value.Equals(DBNull.Value)) { theAdministrator.DateOfBirth = (DateTime)dateOfBirthParameter.Value; }
+                    if (!socialSecurityNumberParameter.Value.Equals(DBNull.Value)) { theAdministrator.SocialSecurityNumber = socialSecurityNumberParameter.Value.ToString(); }
+                    if (!genderParameter.Value.Equals(DBNull.Value)) { theAdministrator.Gender = genderParameter.Value.ToString(); }
+                    if (!phoneNumberParameter.Value.Equals(DBNull.Value)) { theAdministrator.PhoneNumber = phoneNumberParameter.Value.ToString(); }
+                    if (!addressLine1Parameter.Value.Equals(DBNull.Value)) { theAdministrator.AddressLine1 = addressLine1Parameter.Value.ToString(); }
+                    if (!addressLine2Parameter.Value.Equals(DBNull.Value)) { theAdministrator.AddressLine2 = addressLine2Parameter.Value.ToString(); }
+                    if (!cityParameter.Value.Equals(DBNull.Value)) { theAdministrator.City = cityParameter.Value.ToString(); }
+                    if (!stateParameter.Value.Equals(DBNull.Value)) { theAdministrator.State = stateParameter.Value.ToString(); }
+                    if (!zipCodeParameter.Value.Equals(DBNull.Value)) { theAdministrator.ZipCode = zipCodeParameter.Value.ToString(); }
+                }
+            }
+            return theAdministrator;
+        }
     }
 }

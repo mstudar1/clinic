@@ -54,20 +54,20 @@ namespace Clinic
             this.LoginTableLayoutPanel.Location = new System.Drawing.Point(12, 12);
             this.LoginTableLayoutPanel.Name = "LoginTableLayoutPanel";
             this.LoginTableLayoutPanel.RowCount = 3;
-            this.LoginTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 71.88264F));
-            this.LoginTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.11736F));
-            this.LoginTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 524F));
-            this.LoginTableLayoutPanel.Size = new System.Drawing.Size(1464, 920);
+            this.LoginTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.14111F));
+            this.LoginTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.8589F));
+            this.LoginTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 296F));
+            this.LoginTableLayoutPanel.Size = new System.Drawing.Size(754, 520);
             this.LoginTableLayoutPanel.TabIndex = 0;
             // 
             // passwordTextBox
             // 
             this.passwordTextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTextBox.Location = new System.Drawing.Point(630, 351);
+            this.passwordTextBox.Location = new System.Drawing.Point(316, 180);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
-            this.passwordTextBox.Size = new System.Drawing.Size(754, 41);
+            this.passwordTextBox.Size = new System.Drawing.Size(405, 41);
             this.passwordTextBox.TabIndex = 2;
             this.passwordTextBox.TextChanged += new System.EventHandler(this.EntryInTextbox);
             // 
@@ -76,7 +76,7 @@ namespace Clinic
             this.usenameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.usenameLabel.AutoSize = true;
             this.usenameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usenameLabel.Location = new System.Drawing.Point(385, 248);
+            this.usenameLabel.Location = new System.Drawing.Point(118, 141);
             this.usenameLabel.Name = "usenameLabel";
             this.usenameLabel.Size = new System.Drawing.Size(162, 36);
             this.usenameLabel.TabIndex = 0;
@@ -88,7 +88,7 @@ namespace Clinic
             this.passwordLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLabel.Location = new System.Drawing.Point(386, 359);
+            this.passwordLabel.Location = new System.Drawing.Point(119, 187);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(161, 36);
             this.passwordLabel.TabIndex = 1;
@@ -99,9 +99,9 @@ namespace Clinic
             // 
             this.usernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.usernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameTextBox.Location = new System.Drawing.Point(630, 240);
+            this.usernameTextBox.Location = new System.Drawing.Point(316, 133);
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(754, 41);
+            this.usernameTextBox.Size = new System.Drawing.Size(405, 41);
             this.usernameTextBox.TabIndex = 1;
             this.usernameTextBox.TextChanged += new System.EventHandler(this.EntryInTextbox);
             // 
@@ -112,19 +112,19 @@ namespace Clinic
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.56493F));
             this.tableLayoutPanel1.Controls.Add(this.LoginButton, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.errorMessageLabel, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(553, 398);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(286, 226);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.39516F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.60484F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(901, 504);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(465, 291);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // LoginButton
             // 
             this.LoginButton.AutoSize = true;
             this.LoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginButton.Location = new System.Drawing.Point(78, 125);
+            this.LoginButton.Location = new System.Drawing.Point(42, 73);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(105, 46);
             this.LoginButton.TabIndex = 3;
@@ -136,7 +136,7 @@ namespace Clinic
             // 
             this.errorMessageLabel.AutoSize = true;
             this.errorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.errorMessageLabel.Location = new System.Drawing.Point(78, 0);
+            this.errorMessageLabel.Location = new System.Drawing.Point(42, 0);
             this.errorMessageLabel.Name = "errorMessageLabel";
             this.errorMessageLabel.Size = new System.Drawing.Size(19, 29);
             this.errorMessageLabel.TabIndex = 5;
@@ -146,9 +146,12 @@ namespace Clinic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1478, 944);
+            this.ClientSize = new System.Drawing.Size(778, 544);
             this.Controls.Add(this.LoginTableLayoutPanel);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Form";
             this.LoginTableLayoutPanel.ResumeLayout(false);
             this.LoginTableLayoutPanel.PerformLayout();

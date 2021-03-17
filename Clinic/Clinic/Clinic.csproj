@@ -33,8 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Clinic">
+      <HintPath>obj\Debug\Clinic.exe</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,6 +67,29 @@
     <Compile Include="Model\Nurse.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Person.cs" />
+    <Compile Include="UserControls\AppointmentUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AppointmentUserControl.Designer.cs">
+      <DependentUpon>AppointmentUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\NurseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\NurseUserControl.Designer.cs">
+      <DependentUpon>NurseUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PatientUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\PatientUserControl.Designer.cs">
+      <DependentUpon>PatientUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VisitUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\VisitUserControl.Designer.cs">
+      <DependentUpon>VisitUserControl.cs</DependentUpon>
     <Compile Include="Model\Visit.cs" />
     <Compile Include="View\DataAccessTestForm.cs">
       <SubType>Form</SubType>
@@ -93,6 +120,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\AppointmentUserControl.resx">
+      <DependentUpon>AppointmentUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\NurseUserControl.resx">
+      <DependentUpon>NurseUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PatientUserControl.resx">
+      <DependentUpon>PatientUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\VisitUserControl.resx">
+      <DependentUpon>VisitUserControl.cs</DependentUpon>
     <EmbeddedResource Include="View\DataAccessTestForm.resx">
       <DependentUpon>DataAccessTestForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,8 +153,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserControls\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

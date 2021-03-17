@@ -1,5 +1,6 @@
 ﻿using Clinic.Model;
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace Clinic.DAL
@@ -101,6 +102,253 @@ namespace Clinic.DAL
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Method that finds all patients in the database with the specified date of birth.
+        /// </summary>
+        /// <param name="dateOfBirth">The date of birth being searched for.</param>
+        /// <returns>A list of patients with the specified date of birth.</returns>
+        public List<Patient> FindPatients(DateTime dateOfBirth)
+        {
+            if (dateOfBirth == null)
+            {
+                throw new ArgumentNullException("dateOfBirth", "The date of birth cannot be null.");
+            }
+
+            List<Patient> patientList = new List<Patient>();
+
+            string selectStatement =
+                "SELECT Patient.patientId, " +
+                    "Person.personId, " +
+                    "Person.lastName, " +
+                    "Person.firstName, " +
+                    "Person.dateOfBirth, " +
+                    "Person.ssn, " +
+                    "Person.gender, " +
+                    "Person.phoneNumber, " +
+                    "Person.addressLine1, " +
+                    "Person.addressLine2, " +
+                    "Person.city, " +
+                    "Person.state, " +
+                    "Person.zipCode " +
+                "FROM Patient " +
+                    "LEFT JOIN Person ON Patient.personId = Person.personId " +
+                "WHERE Person.dateOfBirth = @DateOfBirth";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        int personIdOrdinal = reader.GetOrdinal("personId");
+                        int patientIdOrdinal = reader.GetOrdinal("patientId");
+                        int lastNameOrdinal = reader.GetOrdinal("lastName");
+                        int firstNameOrdinal = reader.GetOrdinal("firstName");
+                        int dateOfBirthOrdinal = reader.GetOrdinal("dateOfBirth");
+                        int ssnOrdinal = reader.GetOrdinal("ssn");
+                        int genderOrdinal = reader.GetOrdinal("gender");
+                        int phoneNumberOrdinal = reader.GetOrdinal("phoneNumber");
+                        int addressLine1Ordinal = reader.GetOrdinal("addressLine1");
+                        int addressLine2Ordinal = reader.GetOrdinal("addressLine2");
+                        int cityOrdinal = reader.GetOrdinal("city");
+                        int stateOrdinal = reader.GetOrdinal("state");
+                        int zipCodeOrdinal = reader.GetOrdinal("zipCode");
+                        while (reader.Read())
+                        {
+                            Patient thePatient = new Patient();
+                            if (!reader.IsDBNull(personIdOrdinal)) { thePatient.PersonId = reader.GetInt32(personIdOrdinal); }
+                            if (!reader.IsDBNull(patientIdOrdinal)) { thePatient.PatientId = reader.GetInt32(patientIdOrdinal); }
+                            if (!reader.IsDBNull(lastNameOrdinal)) { thePatient.LastName = reader.GetString(lastNameOrdinal); }
+                            if (!reader.IsDBNull(firstNameOrdinal)) { thePatient.FirstName = reader.GetString(firstNameOrdinal); }
+                            if (!reader.IsDBNull(dateOfBirthOrdinal)) { thePatient.DateOfBirth = reader.GetDateTime(dateOfBirthOrdinal); }
+                            if (!reader.IsDBNull(ssnOrdinal)) { thePatient.SocialSecurityNumber = reader.GetString(ssnOrdinal); }
+                            if (!reader.IsDBNull(genderOrdinal)) { thePatient.Gender = reader.GetString(genderOrdinal); }
+                            if (!reader.IsDBNull(phoneNumberOrdinal)) { thePatient.PhoneNumber = reader.GetString(phoneNumberOrdinal); }
+                            if (!reader.IsDBNull(addressLine1Ordinal)) { thePatient.AddressLine1 = reader.GetString(addressLine1Ordinal); }
+                            if (!reader.IsDBNull(addressLine2Ordinal)) { thePatient.AddressLine2 = reader.GetString(addressLine2Ordinal); }
+                            if (!reader.IsDBNull(cityOrdinal)) { thePatient.City = reader.GetString(cityOrdinal); }
+                            if (!reader.IsDBNull(stateOrdinal)) { thePatient.State = reader.GetString(stateOrdinal); }
+                            if (!reader.IsDBNull(zipCodeOrdinal)) { thePatient.ZipCode = reader.GetString(zipCodeOrdinal); }
+                            patientList.Add(thePatient);
+                        }
+                    }
+                }
+            }
+            return patientList;
+        }
+
+        /// <summary>
+        /// Method that finds all patients in the database with the specified last and first names.
+        /// </summary>
+        /// <param name="lastName">The last name of the patient(s).</param>
+        /// <param name="firstName">The first name of the patient(s).</param>
+        /// <returns>A list of patients with the specified names.</returns>
+        public List<Patient> FindPatients(string lastName, string firstName)
+        {
+            if (string.IsNullOrEmpty(lastName))
+            {
+                throw new ArgumentNullException("lastName", "The last name cannot be null or empty.");
+            }
+
+            if (string.IsNullOrEmpty(firstName))
+            {
+                throw new ArgumentNullException("firstname", "The first name cannot be null or empty.");
+            }
+
+            List<Patient> patientList = new List<Patient>();
+
+            string selectStatement =
+                "SELECT Patient.patientId, " +
+                    "Person.personId, " +
+                    "Person.lastName, " +
+                    "Person.firstName, " +
+                    "Person.dateOfBirth, " +
+                    "Person.ssn, " +
+                    "Person.gender, " +
+                    "Person.phoneNumber, " +
+                    "Person.addressLine1, " +
+                    "Person.addressLine2, " +
+                    "Person.city, " +
+                    "Person.state, " +
+                    "Person.zipCode " +
+                "FROM Patient " +
+                    "LEFT JOIN Person ON Patient.personId = Person.personId " +
+                "WHERE Person.lastName = @LastName " +
+                    "AND Person.firstName = @FirstName";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@LastName", lastName);
+                    selectCommand.Parameters.AddWithValue("@FirstName", firstName);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        int personIdOrdinal = reader.GetOrdinal("personId");
+                        int patientIdOrdinal = reader.GetOrdinal("patientId");
+                        int lastNameOrdinal = reader.GetOrdinal("lastName");
+                        int firstNameOrdinal = reader.GetOrdinal("firstName");
+                        int dateOfBirthOrdinal = reader.GetOrdinal("dateOfBirth");
+                        int ssnOrdinal = reader.GetOrdinal("ssn");
+                        int genderOrdinal = reader.GetOrdinal("gender");
+                        int phoneNumberOrdinal = reader.GetOrdinal("phoneNumber");
+                        int addressLine1Ordinal = reader.GetOrdinal("addressLine1");
+                        int addressLine2Ordinal = reader.GetOrdinal("addressLine2");
+                        int cityOrdinal = reader.GetOrdinal("city");
+                        int stateOrdinal = reader.GetOrdinal("state");
+                        int zipCodeOrdinal = reader.GetOrdinal("zipCode");
+                        while (reader.Read())
+                        {
+                            Patient thePatient = new Patient();
+                            if (!reader.IsDBNull(personIdOrdinal)) { thePatient.PersonId = reader.GetInt32(personIdOrdinal); }
+                            if (!reader.IsDBNull(patientIdOrdinal)) { thePatient.PatientId = reader.GetInt32(patientIdOrdinal); }
+                            if (!reader.IsDBNull(lastNameOrdinal)) { thePatient.LastName = reader.GetString(lastNameOrdinal); }
+                            if (!reader.IsDBNull(firstNameOrdinal)) { thePatient.FirstName = reader.GetString(firstNameOrdinal); }
+                            if (!reader.IsDBNull(dateOfBirthOrdinal)) { thePatient.DateOfBirth = reader.GetDateTime(dateOfBirthOrdinal); }
+                            if (!reader.IsDBNull(ssnOrdinal)) { thePatient.SocialSecurityNumber = reader.GetString(ssnOrdinal); }
+                            if (!reader.IsDBNull(genderOrdinal)) { thePatient.Gender = reader.GetString(genderOrdinal); }
+                            if (!reader.IsDBNull(phoneNumberOrdinal)) { thePatient.PhoneNumber = reader.GetString(phoneNumberOrdinal); }
+                            if (!reader.IsDBNull(addressLine1Ordinal)) { thePatient.AddressLine1 = reader.GetString(addressLine1Ordinal); }
+                            if (!reader.IsDBNull(addressLine2Ordinal)) { thePatient.AddressLine2 = reader.GetString(addressLine2Ordinal); }
+                            if (!reader.IsDBNull(cityOrdinal)) { thePatient.City = reader.GetString(cityOrdinal); }
+                            if (!reader.IsDBNull(stateOrdinal)) { thePatient.State = reader.GetString(stateOrdinal); }
+                            if (!reader.IsDBNull(zipCodeOrdinal)) { thePatient.ZipCode = reader.GetString(zipCodeOrdinal); }
+                            patientList.Add(thePatient);
+                        }
+                    }
+                }
+            }
+            return patientList;
+        }
+
+        /// <summary>
+        /// Method that finds all patients in the database with the specified date of birth and last name.
+        /// </summary>
+        /// <param name="dateOfBirth">The date of birth being searched for.</param>
+        /// <param name="lastName">The last name of the patient(s).</param>
+        /// <returns>A list of patients with the specified date of birth and last name.</returns>
+        public List<Patient> FindPatients(DateTime dateOfBirth, string lastName)
+        {
+            if (dateOfBirth == null)
+            {
+                throw new ArgumentNullException("dateOfBirth", "The date of birth cannot be null.");
+            }
+
+            if (string.IsNullOrEmpty(lastName))
+            {
+                throw new ArgumentNullException("lastName", "The last name cannot be null or empty.");
+            }
+
+            List<Patient> patientList = new List<Patient>();
+
+            string selectStatement =
+                "SELECT Patient.patientId, " +
+                    "Person.personId, " +
+                    "Person.lastName, " +
+                    "Person.firstName, " +
+                    "Person.dateOfBirth, " +
+                    "Person.ssn, " +
+                    "Person.gender, " +
+                    "Person.phoneNumber, " +
+                    "Person.addressLine1, " +
+                    "Person.addressLine2, " +
+                    "Person.city, " +
+                    "Person.state, " +
+                    "Person.zipCode " +
+                "FROM Patient " +
+                    "LEFT JOIN Person ON Patient.personId = Person.personId " +
+                "WHERE Person.dateOfBirth = @DateOfBirth " +
+                    "AND Person.lastName = @LastName";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
+                    selectCommand.Parameters.AddWithValue("@LastName", lastName);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        int personIdOrdinal = reader.GetOrdinal("personId");
+                        int patientIdOrdinal = reader.GetOrdinal("patientId");
+                        int lastNameOrdinal = reader.GetOrdinal("lastName");
+                        int firstNameOrdinal = reader.GetOrdinal("firstName");
+                        int dateOfBirthOrdinal = reader.GetOrdinal("dateOfBirth");
+                        int ssnOrdinal = reader.GetOrdinal("ssn");
+                        int genderOrdinal = reader.GetOrdinal("gender");
+                        int phoneNumberOrdinal = reader.GetOrdinal("phoneNumber");
+                        int addressLine1Ordinal = reader.GetOrdinal("addressLine1");
+                        int addressLine2Ordinal = reader.GetOrdinal("addressLine2");
+                        int cityOrdinal = reader.GetOrdinal("city");
+                        int stateOrdinal = reader.GetOrdinal("state");
+                        int zipCodeOrdinal = reader.GetOrdinal("zipCode");
+                        while (reader.Read())
+                        {
+                            Patient thePatient = new Patient();
+                            if (!reader.IsDBNull(personIdOrdinal)) { thePatient.PersonId = reader.GetInt32(personIdOrdinal); }
+                            if (!reader.IsDBNull(patientIdOrdinal)) { thePatient.PatientId = reader.GetInt32(patientIdOrdinal); }
+                            if (!reader.IsDBNull(lastNameOrdinal)) { thePatient.LastName = reader.GetString(lastNameOrdinal); }
+                            if (!reader.IsDBNull(firstNameOrdinal)) { thePatient.FirstName = reader.GetString(firstNameOrdinal); }
+                            if (!reader.IsDBNull(dateOfBirthOrdinal)) { thePatient.DateOfBirth = reader.GetDateTime(dateOfBirthOrdinal); }
+                            if (!reader.IsDBNull(ssnOrdinal)) { thePatient.SocialSecurityNumber = reader.GetString(ssnOrdinal); }
+                            if (!reader.IsDBNull(genderOrdinal)) { thePatient.Gender = reader.GetString(genderOrdinal); }
+                            if (!reader.IsDBNull(phoneNumberOrdinal)) { thePatient.PhoneNumber = reader.GetString(phoneNumberOrdinal); }
+                            if (!reader.IsDBNull(addressLine1Ordinal)) { thePatient.AddressLine1 = reader.GetString(addressLine1Ordinal); }
+                            if (!reader.IsDBNull(addressLine2Ordinal)) { thePatient.AddressLine2 = reader.GetString(addressLine2Ordinal); }
+                            if (!reader.IsDBNull(cityOrdinal)) { thePatient.City = reader.GetString(cityOrdinal); }
+                            if (!reader.IsDBNull(stateOrdinal)) { thePatient.State = reader.GetString(stateOrdinal); }
+                            if (!reader.IsDBNull(zipCodeOrdinal)) { thePatient.ZipCode = reader.GetString(zipCodeOrdinal); }
+                            patientList.Add(thePatient);
+                        }
+                    }
+                }
+            }
+            return patientList;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Clinic.DAL;
 using Clinic.Model;
 using System;
+using System.Collections.Generic;
 
 namespace Clinic.Controller
 {
@@ -59,6 +60,63 @@ namespace Clinic.Controller
             }
 
             return this.patientSource.EditPatient(originalPatient, revisedPatient);
+        }
+
+        /// <summary>
+        /// Method that finds all patients in the database with the specified date of birth.
+        /// </summary>
+        /// <param name="dateOfBirth">The date of birth being searched for.</param>
+        /// <returns>A list of patients with the specified date of birth.</returns>
+        public List<Patient> FindPatients(DateTime dateOfBirth)
+        {
+            if (dateOfBirth == null)
+            {
+                throw new ArgumentNullException("dateOfBirth", "The date of birth cannot be null.");
+            }
+
+            return this.patientSource.FindPatients(dateOfBirth);
+        }
+
+        /// <summary>
+        /// Method that finds all patients in the database with the specified last and first names.
+        /// </summary>
+        /// <param name="lastName">The last name of the patient(s).</param>
+        /// <param name="firstName">The first name of the patient(s).</param>
+        /// <returns>A list of patients with the specified names.</returns>
+        public List<Patient> FindPatients(string lastName, string firstName)
+        {
+            if (string.IsNullOrEmpty(lastName))
+            {
+                throw new ArgumentNullException("lastName", "The last name cannot be null or empty.");
+            }
+
+            if (string.IsNullOrEmpty(firstName))
+            {
+                throw new ArgumentNullException("firstname", "The first name cannot be null or empty.");
+            }
+
+            return this.patientSource.FindPatients(lastName, firstName);
+        }
+
+        /// <summary>
+        /// Method that finds all patients in the database with the specified date of birth and last name.
+        /// </summary>
+        /// <param name="dateOfBirth">The date of birth being searched for.</param>
+        /// <param name="lastName">The last name of the patient(s).</param>
+        /// <returns>A list of patients with the specified date of birth and last name.</returns>
+        public List<Patient> FindPatients(DateTime dateOfBirth, string lastName)
+        {
+            if (dateOfBirth == null)
+            {
+                throw new ArgumentNullException("dateOfBirth", "The date of birth cannot be null.");
+            }
+
+            if (string.IsNullOrEmpty(lastName))
+            {
+                throw new ArgumentNullException("lastName", "The last name cannot be null or empty.");
+            }
+
+            return this.patientSource.FindPatients(dateOfBirth, lastName);
         }
     }
 }

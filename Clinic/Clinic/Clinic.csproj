@@ -50,14 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AppointmentController.cs" />
     <Compile Include="Controller\CredentialController.cs" />
     <Compile Include="Controller\PatientController.cs" />
     <Compile Include="Controller\PersonController.cs" />
+    <Compile Include="Controller\VisitController.cs" />
+    <Compile Include="DAL\AppointmentDAL.cs" />
     <Compile Include="DAL\ClinicDBConnection.cs" />
     <Compile Include="DAL\CredentialDAL.cs" />
     <Compile Include="DAL\PatientDAL.cs" />
     <Compile Include="DAL\PersonDAL.cs" />
+    <Compile Include="DAL\VisitDAL.cs" />
     <Compile Include="Model\Administrator.cs" />
+    <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\Nurse.cs" />
     <Compile Include="Model\Patient.cs" />
@@ -85,6 +90,12 @@
     </Compile>
     <Compile Include="UserControls\VisitUserControl.Designer.cs">
       <DependentUpon>VisitUserControl.cs</DependentUpon>
+    <Compile Include="Model\Visit.cs" />
+    <Compile Include="View\DataAccessTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DataAccessTestForm.Designer.cs">
+      <DependentUpon>DataAccessTestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
@@ -120,6 +131,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\VisitUserControl.resx">
       <DependentUpon>VisitUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="View\DataAccessTestForm.resx">
+      <DependentUpon>DataAccessTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

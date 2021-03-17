@@ -64,10 +64,10 @@ namespace Clinic.UserControls
             this.tableLayoutPanel1.Location = new System.Drawing.Point(9, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.45361F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.54639F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 316F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.74725F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.25275F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 310F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(809, 452);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -77,11 +77,11 @@ namespace Clinic.UserControls
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.847736F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.15226F));
             this.tableLayoutPanel2.Controls.Add(this.setAppointmentButton, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 47);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 53);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(803, 41);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(803, 39);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // setAppointmentButton
@@ -91,7 +91,7 @@ namespace Clinic.UserControls
             this.setAppointmentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.setAppointmentButton.Location = new System.Drawing.Point(74, 3);
             this.setAppointmentButton.Name = "setAppointmentButton";
-            this.setAppointmentButton.Size = new System.Drawing.Size(200, 35);
+            this.setAppointmentButton.Size = new System.Drawing.Size(200, 33);
             this.setAppointmentButton.TabIndex = 0;
             this.setAppointmentButton.Text = "Set Appointment";
             this.setAppointmentButton.UseVisualStyleBackColor = true;
@@ -99,16 +99,16 @@ namespace Clinic.UserControls
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.27807F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.72192F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.58187F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.41813F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
             this.tableLayoutPanel3.Controls.Add(this.resetButton, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.appointmentsLabel, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 94);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 98);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(803, 38);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(803, 40);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // resetButton
@@ -116,9 +116,9 @@ namespace Clinic.UserControls
             this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.resetButton.AutoSize = true;
             this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetButton.Location = new System.Drawing.Point(639, 3);
+            this.resetButton.Location = new System.Drawing.Point(630, 3);
             this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(106, 32);
+            this.resetButton.Size = new System.Drawing.Size(106, 34);
             this.resetButton.TabIndex = 1;
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
@@ -128,7 +128,7 @@ namespace Clinic.UserControls
             this.appointmentsLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.appointmentsLabel.AutoSize = true;
             this.appointmentsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appointmentsLabel.Location = new System.Drawing.Point(10, 2);
+            this.appointmentsLabel.Location = new System.Drawing.Point(14, 4);
             this.appointmentsLabel.Name = "appointmentsLabel";
             this.appointmentsLabel.Size = new System.Drawing.Size(198, 36);
             this.appointmentsLabel.TabIndex = 2;
@@ -148,7 +148,7 @@ namespace Clinic.UserControls
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(803, 38);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(803, 44);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
             // searchButton
@@ -158,7 +158,7 @@ namespace Clinic.UserControls
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchButton.Location = new System.Drawing.Point(697, 3);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(99, 32);
+            this.searchButton.Size = new System.Drawing.Size(99, 38);
             this.searchButton.TabIndex = 0;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -167,7 +167,7 @@ namespace Clinic.UserControls
             // 
             this.appDateTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.appDateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appDateTextBox.Location = new System.Drawing.Point(515, 3);
+            this.appDateTextBox.Location = new System.Drawing.Point(515, 4);
             this.appDateTextBox.Name = "appDateTextBox";
             this.appDateTextBox.Size = new System.Drawing.Size(176, 35);
             this.appDateTextBox.TabIndex = 1;
@@ -177,7 +177,7 @@ namespace Clinic.UserControls
             // 
             this.nameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameTextBox.Location = new System.Drawing.Point(281, 3);
+            this.nameTextBox.Location = new System.Drawing.Point(281, 4);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(228, 35);
             this.nameTextBox.TabIndex = 2;
@@ -196,9 +196,9 @@ namespace Clinic.UserControls
             this.deleteColumnHeader});
             this.NursListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NursListView.HideSelection = false;
-            this.NursListView.Location = new System.Drawing.Point(28, 138);
+            this.NursListView.Location = new System.Drawing.Point(14, 144);
             this.NursListView.Name = "NursListView";
-            this.NursListView.Size = new System.Drawing.Size(752, 311);
+            this.NursListView.Size = new System.Drawing.Size(780, 305);
             this.NursListView.TabIndex = 3;
             this.NursListView.UseCompatibleStateImageBehavior = false;
             this.NursListView.View = System.Windows.Forms.View.Details;
@@ -207,25 +207,25 @@ namespace Clinic.UserControls
             // 
             this.nameClumnHeader.Text = "Name";
             this.nameClumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nameClumnHeader.Width = 190;
+            this.nameClumnHeader.Width = 185;
             // 
             // dobColumnHeader
             // 
             this.dobColumnHeader.Text = "DOB";
             this.dobColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.dobColumnHeader.Width = 90;
+            this.dobColumnHeader.Width = 110;
             // 
             // doctorClumnHeader
             // 
             this.doctorClumnHeader.Text = "Doctor";
             this.doctorClumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.doctorClumnHeader.Width = 190;
+            this.doctorClumnHeader.Width = 185;
             // 
             // dateColumnHeader
             // 
             this.dateColumnHeader.Text = "Date";
             this.dateColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.dateColumnHeader.Width = 90;
+            this.dateColumnHeader.Width = 110;
             // 
             // viewColumnHeader
             // 

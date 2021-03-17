@@ -76,10 +76,10 @@ namespace Clinic.View
             // 
             // appointmentUserControl1
             // 
-            this.appointmentUserControl1.Location = new System.Drawing.Point(5, 5);
+            this.appointmentUserControl1.Location = new System.Drawing.Point(2, 3);
             this.appointmentUserControl1.Margin = new System.Windows.Forms.Padding(5);
             this.appointmentUserControl1.Name = "appointmentUserControl1";
-            this.appointmentUserControl1.Size = new System.Drawing.Size(1455, 823);
+            this.appointmentUserControl1.Size = new System.Drawing.Size(1468, 825);
             this.appointmentUserControl1.TabIndex = 0;
             // 
             // visitTabPage
@@ -94,10 +94,10 @@ namespace Clinic.View
             // 
             // visitUserControl1
             // 
-            this.visitUserControl1.Location = new System.Drawing.Point(5, 5);
+            this.visitUserControl1.Location = new System.Drawing.Point(3, 2);
             this.visitUserControl1.Margin = new System.Windows.Forms.Padding(5);
             this.visitUserControl1.Name = "visitUserControl1";
-            this.visitUserControl1.Size = new System.Drawing.Size(1460, 821);
+            this.visitUserControl1.Size = new System.Drawing.Size(1467, 826);
             this.visitUserControl1.TabIndex = 0;
             // 
             // patientTabPage
@@ -112,10 +112,10 @@ namespace Clinic.View
             // 
             // patientUserControl1
             // 
-            this.patientUserControl1.Location = new System.Drawing.Point(5, 5);
+            this.patientUserControl1.Location = new System.Drawing.Point(3, 2);
             this.patientUserControl1.Margin = new System.Windows.Forms.Padding(5);
             this.patientUserControl1.Name = "patientUserControl1";
-            this.patientUserControl1.Size = new System.Drawing.Size(1460, 795);
+            this.patientUserControl1.Size = new System.Drawing.Size(1467, 826);
             this.patientUserControl1.TabIndex = 0;
             // 
             // nurseTabPage
@@ -130,10 +130,10 @@ namespace Clinic.View
             // 
             // nurse1
             // 
-            this.nurse1.Location = new System.Drawing.Point(10, 8);
+            this.nurse1.Location = new System.Drawing.Point(2, 3);
             this.nurse1.Margin = new System.Windows.Forms.Padding(5);
             this.nurse1.Name = "nurse1";
-            this.nurse1.Size = new System.Drawing.Size(1450, 786);
+            this.nurse1.Size = new System.Drawing.Size(1468, 825);
             this.nurse1.TabIndex = 0;
             // 
             // logoutLinkLabel

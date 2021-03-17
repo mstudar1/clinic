@@ -29,29 +29,23 @@ namespace Clinic.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.activeUsernameLabel = new System.Windows.Forms.Label();
             this.nurseAdminTabControl = new System.Windows.Forms.TabControl();
             this.appointmentTabPage = new System.Windows.Forms.TabPage();
-            this.visitTabPage = new System.Windows.Forms.TabPage();
-            this.patientTabPage = new System.Windows.Forms.TabPage();
-            this.nurseTabPage = new System.Windows.Forms.TabPage();
-            this.logoutLinkLabel = new System.Windows.Forms.LinkLabel();
             this.appointmentUserControl1 = new Clinic.UserControls.AppointmentUserControl();
+            this.visitTabPage = new System.Windows.Forms.TabPage();
+            this.visitUserControl1 = new Clinic.UserControls.VisitUserControl();
+            this.patientTabPage = new System.Windows.Forms.TabPage();
+            this.patientUserControl1 = new Clinic.UserControls.PatientUserControl();
+            this.nurseTabPage = new System.Windows.Forms.TabPage();
             this.nurse1 = new Clinic.UserControls.Nurse();
+            this.logoutLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.activeUsernameLabel = new System.Windows.Forms.Label();
             this.nurseAdminTabControl.SuspendLayout();
             this.appointmentTabPage.SuspendLayout();
+            this.visitTabPage.SuspendLayout();
+            this.patientTabPage.SuspendLayout();
             this.nurseTabPage.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // activeUsernameLabel
-            // 
-            this.activeUsernameLabel.AutoSize = true;
-            this.activeUsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.activeUsernameLabel.Location = new System.Drawing.Point(1168, 29);
-            this.activeUsernameLabel.Name = "activeUsernameLabel";
-            this.activeUsernameLabel.Size = new System.Drawing.Size(21, 30);
-            this.activeUsernameLabel.TabIndex = 0;
-            this.activeUsernameLabel.Text = ".";
             // 
             // nurseAdminTabControl
             // 
@@ -62,10 +56,10 @@ namespace Clinic.View
             this.nurseAdminTabControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.nurseAdminTabControl.Font = new System.Drawing.Font("Microsoft Tai Le", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nurseAdminTabControl.ItemSize = new System.Drawing.Size(200, 40);
-            this.nurseAdminTabControl.Location = new System.Drawing.Point(0, 86);
+            this.nurseAdminTabControl.Location = new System.Drawing.Point(0, 68);
             this.nurseAdminTabControl.Name = "nurseAdminTabControl";
             this.nurseAdminTabControl.SelectedIndex = 0;
-            this.nurseAdminTabControl.Size = new System.Drawing.Size(1478, 858);
+            this.nurseAdminTabControl.Size = new System.Drawing.Size(1478, 876);
             this.nurseAdminTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.nurseAdminTabControl.TabIndex = 2;
             this.nurseAdminTabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.RefreshNurseList);
@@ -75,58 +69,64 @@ namespace Clinic.View
             this.appointmentTabPage.Controls.Add(this.appointmentUserControl1);
             this.appointmentTabPage.Location = new System.Drawing.Point(4, 44);
             this.appointmentTabPage.Name = "appointmentTabPage";
-            this.appointmentTabPage.Size = new System.Drawing.Size(1470, 810);
+            this.appointmentTabPage.Size = new System.Drawing.Size(1470, 828);
             this.appointmentTabPage.TabIndex = 1;
             this.appointmentTabPage.Text = "Appointments";
             this.appointmentTabPage.UseVisualStyleBackColor = true;
-            // 
-            // visitTabPage
-            // 
-            this.visitTabPage.Location = new System.Drawing.Point(4, 44);
-            this.visitTabPage.Name = "visitTabPage";
-            this.visitTabPage.Size = new System.Drawing.Size(1470, 810);
-            this.visitTabPage.TabIndex = 2;
-            this.visitTabPage.Text = "Visits";
-            this.visitTabPage.UseVisualStyleBackColor = true;
-            // 
-            // patientTabPage
-            // 
-            this.patientTabPage.Location = new System.Drawing.Point(4, 44);
-            this.patientTabPage.Name = "patientTabPage";
-            this.patientTabPage.Size = new System.Drawing.Size(1470, 810);
-            this.patientTabPage.TabIndex = 3;
-            this.patientTabPage.Text = "Patients";
-            this.patientTabPage.UseVisualStyleBackColor = true;
-            // 
-            // nurseTabPage
-            // 
-            this.nurseTabPage.Controls.Add(this.nurse1);
-            this.nurseTabPage.Location = new System.Drawing.Point(4, 44);
-            this.nurseTabPage.Name = "nurseTabPage";
-            this.nurseTabPage.Size = new System.Drawing.Size(1470, 810);
-            this.nurseTabPage.TabIndex = 0;
-            this.nurseTabPage.Text = "Nurse";
-            this.nurseTabPage.UseVisualStyleBackColor = true;
-            // 
-            // logoutLinkLabel
-            // 
-            this.logoutLinkLabel.AutoSize = true;
-            this.logoutLinkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logoutLinkLabel.Location = new System.Drawing.Point(1316, 29);
-            this.logoutLinkLabel.Name = "logoutLinkLabel";
-            this.logoutLinkLabel.Size = new System.Drawing.Size(96, 30);
-            this.logoutLinkLabel.TabIndex = 3;
-            this.logoutLinkLabel.TabStop = true;
-            this.logoutLinkLabel.Text = "Logout";
-            this.logoutLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LogoutLink_LinkClicked);
             // 
             // appointmentUserControl1
             // 
             this.appointmentUserControl1.Location = new System.Drawing.Point(5, 5);
             this.appointmentUserControl1.Margin = new System.Windows.Forms.Padding(5);
             this.appointmentUserControl1.Name = "appointmentUserControl1";
-            this.appointmentUserControl1.Size = new System.Drawing.Size(1455, 795);
+            this.appointmentUserControl1.Size = new System.Drawing.Size(1455, 823);
             this.appointmentUserControl1.TabIndex = 0;
+            // 
+            // visitTabPage
+            // 
+            this.visitTabPage.Controls.Add(this.visitUserControl1);
+            this.visitTabPage.Location = new System.Drawing.Point(4, 44);
+            this.visitTabPage.Name = "visitTabPage";
+            this.visitTabPage.Size = new System.Drawing.Size(1470, 828);
+            this.visitTabPage.TabIndex = 2;
+            this.visitTabPage.Text = "Visits";
+            this.visitTabPage.UseVisualStyleBackColor = true;
+            // 
+            // visitUserControl1
+            // 
+            this.visitUserControl1.Location = new System.Drawing.Point(5, 5);
+            this.visitUserControl1.Margin = new System.Windows.Forms.Padding(5);
+            this.visitUserControl1.Name = "visitUserControl1";
+            this.visitUserControl1.Size = new System.Drawing.Size(1460, 821);
+            this.visitUserControl1.TabIndex = 0;
+            // 
+            // patientTabPage
+            // 
+            this.patientTabPage.Controls.Add(this.patientUserControl1);
+            this.patientTabPage.Location = new System.Drawing.Point(4, 44);
+            this.patientTabPage.Name = "patientTabPage";
+            this.patientTabPage.Size = new System.Drawing.Size(1470, 828);
+            this.patientTabPage.TabIndex = 3;
+            this.patientTabPage.Text = "Patients";
+            this.patientTabPage.UseVisualStyleBackColor = true;
+            // 
+            // patientUserControl1
+            // 
+            this.patientUserControl1.Location = new System.Drawing.Point(5, 5);
+            this.patientUserControl1.Margin = new System.Windows.Forms.Padding(5);
+            this.patientUserControl1.Name = "patientUserControl1";
+            this.patientUserControl1.Size = new System.Drawing.Size(1460, 795);
+            this.patientUserControl1.TabIndex = 0;
+            // 
+            // nurseTabPage
+            // 
+            this.nurseTabPage.Controls.Add(this.nurse1);
+            this.nurseTabPage.Location = new System.Drawing.Point(4, 44);
+            this.nurseTabPage.Name = "nurseTabPage";
+            this.nurseTabPage.Size = new System.Drawing.Size(1470, 828);
+            this.nurseTabPage.TabIndex = 0;
+            this.nurseTabPage.Text = "Nurse";
+            this.nurseTabPage.UseVisualStyleBackColor = true;
             // 
             // nurse1
             // 
@@ -135,6 +135,28 @@ namespace Clinic.View
             this.nurse1.Name = "nurse1";
             this.nurse1.Size = new System.Drawing.Size(1450, 786);
             this.nurse1.TabIndex = 0;
+            // 
+            // logoutLinkLabel
+            // 
+            this.logoutLinkLabel.AutoSize = true;
+            this.logoutLinkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutLinkLabel.Location = new System.Drawing.Point(1332, 19);
+            this.logoutLinkLabel.Name = "logoutLinkLabel";
+            this.logoutLinkLabel.Size = new System.Drawing.Size(96, 30);
+            this.logoutLinkLabel.TabIndex = 3;
+            this.logoutLinkLabel.TabStop = true;
+            this.logoutLinkLabel.Text = "Logout";
+            this.logoutLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LogoutLink_LinkClicked);
+            // 
+            // activeUsernameLabel
+            // 
+            this.activeUsernameLabel.AutoSize = true;
+            this.activeUsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.activeUsernameLabel.Location = new System.Drawing.Point(1171, 19);
+            this.activeUsernameLabel.Name = "activeUsernameLabel";
+            this.activeUsernameLabel.Size = new System.Drawing.Size(20, 30);
+            this.activeUsernameLabel.TabIndex = 0;
+            this.activeUsernameLabel.Text = ".";
             // 
             // NurseAdminForm
             // 
@@ -147,10 +169,13 @@ namespace Clinic.View
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NurseAdminForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nurse/Admin Form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ApplicationFormsClosing);
             this.nurseAdminTabControl.ResumeLayout(false);
             this.appointmentTabPage.ResumeLayout(false);
+            this.visitTabPage.ResumeLayout(false);
+            this.patientTabPage.ResumeLayout(false);
             this.nurseTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -158,8 +183,6 @@ namespace Clinic.View
         }
 
         #endregion
-
-        private System.Windows.Forms.Label activeUsernameLabel;
         private System.Windows.Forms.TabControl nurseAdminTabControl;
         private System.Windows.Forms.TabPage nurseTabPage;
         private UserControls.Nurse nurse1;
@@ -167,6 +190,9 @@ namespace Clinic.View
         private System.Windows.Forms.TabPage appointmentTabPage;
         private System.Windows.Forms.TabPage visitTabPage;
         private System.Windows.Forms.TabPage patientTabPage;
+        private UserControls.PatientUserControl patientUserControl1;
+        private UserControls.VisitUserControl visitUserControl1;
+        private System.Windows.Forms.Label activeUsernameLabel;
         private UserControls.AppointmentUserControl appointmentUserControl1;
     }
 }

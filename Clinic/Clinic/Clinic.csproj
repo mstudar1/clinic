@@ -118,6 +118,9 @@
     <EmbeddedResource Include="UserControls\PatientUserControl.resx">
       <DependentUpon>PatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\VisitUserControl.resx">
+      <DependentUpon>VisitUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

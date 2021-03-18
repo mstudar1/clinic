@@ -90,6 +90,7 @@
     </Compile>
     <Compile Include="UserControls\VisitUserControl.Designer.cs">
       <DependentUpon>VisitUserControl.cs</DependentUpon>
+	</Compile>
     <Compile Include="Model\Visit.cs" />
     <Compile Include="View\DataAccessTestForm.cs">
       <SubType>Form</SubType>
@@ -131,6 +132,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\VisitUserControl.resx">
       <DependentUpon>VisitUserControl.cs</DependentUpon>
+	</EmbeddedResource>
     <EmbeddedResource Include="View\DataAccessTestForm.resx">
       <DependentUpon>DataAccessTestForm.cs</DependentUpon>
     </EmbeddedResource>

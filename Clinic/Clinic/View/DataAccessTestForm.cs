@@ -57,6 +57,7 @@ namespace Clinic.View
         {
             Patient originalPatient = new Patient
             {
+                PersonId = 14,
                 LastName = "Doe",
                 FirstName = "John",
                 DateOfBirth = new DateTime(1970, 6, 1),
@@ -67,11 +68,12 @@ namespace Clinic.View
                 City = "Rome",
                 State = "GA",
                 ZipCode = "12345",
-                PatientId = 1
+                PatientId = 5
             };
 
             Patient revisedPatient = new Patient
             {
+                PersonId = 14,
                 LastName = "Doe",
                 FirstName = "Jane",
                 DateOfBirth = new DateTime(1970, 6, 1),
@@ -82,7 +84,7 @@ namespace Clinic.View
                 City = "Rome",
                 State = "GA",
                 ZipCode = "12345",
-                PatientId = 1
+                PatientId = 5
             };
 
             bool result = this.thePatientController.EditPatient(originalPatient, revisedPatient);

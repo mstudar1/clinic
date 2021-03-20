@@ -75,14 +75,20 @@ namespace Clinic.DAL
 
             if (originalPatient.PersonId != revisedPatient.PersonId)
             {
-                throw new ArgumentException("The ID must be the same for both Patient objects.");
+                throw new ArgumentException("The person ID must be the same for both Patient objects.");
             }
 
-            this.thePersonDAL.EditPerson(originalPatient, revisedPatient);
+            if (originalPatient.PatientId != revisedPatient.PatientId)
+            {
+                throw new ArgumentException("The patient ID must be the same for both Patient objects.");
+            }
 
+            return this.thePersonDAL.EditPerson(originalPatient, revisedPatient);
+
+            /*
             string updateStatement =
                 "UPDATE Patient SET " +
-                    "patientId = @RevisedPatientId, " +
+                    "patientId = @RevisedPatientId " +
                 "WHERE personId = @PersonId " +
                     "AND patientId = @OriginalPatientId";
 
@@ -106,6 +112,7 @@ namespace Clinic.DAL
                     }
                 }
             }
+            */
         }
 
         /// <summary>

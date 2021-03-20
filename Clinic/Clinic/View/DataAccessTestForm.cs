@@ -117,7 +117,7 @@ namespace Clinic.View
         {
             Appointment originalAppointment = new Appointment
             {
-                PatientId = 1,
+                PatientId = 5,
                 DateAndTime = new DateTime(2021, 4, 15, 8, 0, 0),
                 DoctorId = 1,
                 ReasonForVisit = "Routine checkup"
@@ -125,7 +125,7 @@ namespace Clinic.View
 
             Appointment revisedAppointment = new Appointment
             {
-                PatientId = 1,
+                PatientId = 5,
                 DateAndTime = new DateTime(2021, 4, 10, 9, 0, 0),
                 DoctorId = 1,
                 ReasonForVisit = "Routine checkup"

@@ -59,7 +59,7 @@ namespace Clinic.DAL
             }
 
             string selectStatement =
-                "SELECT @NumberOfAppointments = COUNT(username) " +
+                "SELECT @NumberOfAppointments = COUNT(appointmentId) " +
                 "FROM Appointment " +
                 "WHERE doctorId = @DoctorId " +
                 "AND dateAndTime = @AppointmentDateAndTime";

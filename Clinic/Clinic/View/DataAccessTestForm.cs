@@ -169,5 +169,14 @@ namespace Clinic.View
                 MessageBox.Show("Person ID: " + currentPatient.PersonId + "\n" + "Name: " + currentPatient.FirstName + " " + currentPatient.LastName);
             }
         }
+
+        private void FindAppointmentsButton_Click(object sender, EventArgs e)
+        {
+            List<Appointment> appointments = this.theAppointmentController.FindAppointments(int.Parse(this.patientIdTextBox.Text));
+            foreach (Appointment currentAppointment in appointments)
+            {
+                MessageBox.Show("Patient ID: " + currentAppointment.PatientId + "\n" + "Doctor ID: " + currentAppointment.DoctorId);
+            }
+        }
     }
 }

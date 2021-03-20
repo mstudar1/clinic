@@ -73,6 +73,10 @@ namespace Clinic.View
             this.findPatientsButton3 = new System.Windows.Forms.Button();
             this.dateOfBirthTextBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.findAppointmentsGroupBox = new System.Windows.Forms.GroupBox();
+            this.findAppointmentsButton = new System.Windows.Forms.Button();
+            this.patientIdTextBox = new System.Windows.Forms.TextBox();
+            this.patientIdLabel = new System.Windows.Forms.Label();
             this.credentialsAreValidGroupBox.SuspendLayout();
             this.dataAccessTestTabControl.SuspendLayout();
             this.credentialControllerTabPage.SuspendLayout();
@@ -87,6 +91,7 @@ namespace Clinic.View
             this.doctorIsBookedGroupBox.SuspendLayout();
             this.addAppointmentGroupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.findAppointmentsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // credentialsAreValidGroupBox
@@ -384,13 +389,14 @@ namespace Clinic.View
             // 
             // appointmentControllerTabPage
             // 
+            this.appointmentControllerTabPage.Controls.Add(this.findAppointmentsGroupBox);
             this.appointmentControllerTabPage.Controls.Add(this.editAppointmentGroupBox);
             this.appointmentControllerTabPage.Controls.Add(this.doctorIsBookedGroupBox);
             this.appointmentControllerTabPage.Controls.Add(this.addAppointmentGroupBox);
             this.appointmentControllerTabPage.Location = new System.Drawing.Point(4, 25);
             this.appointmentControllerTabPage.Margin = new System.Windows.Forms.Padding(4);
             this.appointmentControllerTabPage.Name = "appointmentControllerTabPage";
-            this.appointmentControllerTabPage.Size = new System.Drawing.Size(435, 415);
+            this.appointmentControllerTabPage.Size = new System.Drawing.Size(435, 508);
             this.appointmentControllerTabPage.TabIndex = 2;
             this.appointmentControllerTabPage.Text = "AppointmentController";
             this.appointmentControllerTabPage.UseVisualStyleBackColor = true;
@@ -565,6 +571,49 @@ namespace Clinic.View
             this.label4.TabIndex = 3;
             this.label4.Text = "DOB";
             // 
+            // findAppointmentsGroupBox
+            // 
+            this.findAppointmentsGroupBox.Controls.Add(this.findAppointmentsButton);
+            this.findAppointmentsGroupBox.Controls.Add(this.patientIdTextBox);
+            this.findAppointmentsGroupBox.Controls.Add(this.patientIdLabel);
+            this.findAppointmentsGroupBox.Location = new System.Drawing.Point(8, 288);
+            this.findAppointmentsGroupBox.Margin = new System.Windows.Forms.Padding(4);
+            this.findAppointmentsGroupBox.Name = "findAppointmentsGroupBox";
+            this.findAppointmentsGroupBox.Padding = new System.Windows.Forms.Padding(4);
+            this.findAppointmentsGroupBox.Size = new System.Drawing.Size(349, 90);
+            this.findAppointmentsGroupBox.TabIndex = 4;
+            this.findAppointmentsGroupBox.TabStop = false;
+            this.findAppointmentsGroupBox.Text = "FindAppointments";
+            // 
+            // findAppointmentsButton
+            // 
+            this.findAppointmentsButton.Location = new System.Drawing.Point(132, 51);
+            this.findAppointmentsButton.Margin = new System.Windows.Forms.Padding(4);
+            this.findAppointmentsButton.Name = "findAppointmentsButton";
+            this.findAppointmentsButton.Size = new System.Drawing.Size(209, 28);
+            this.findAppointmentsButton.TabIndex = 4;
+            this.findAppointmentsButton.Text = "Call FindAppointments Method";
+            this.findAppointmentsButton.UseVisualStyleBackColor = true;
+            this.findAppointmentsButton.Click += new System.EventHandler(this.FindAppointmentsButton_Click);
+            // 
+            // patientIdTextBox
+            // 
+            this.patientIdTextBox.Location = new System.Drawing.Point(132, 21);
+            this.patientIdTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.patientIdTextBox.Name = "patientIdTextBox";
+            this.patientIdTextBox.Size = new System.Drawing.Size(208, 22);
+            this.patientIdTextBox.TabIndex = 2;
+            // 
+            // patientIdLabel
+            // 
+            this.patientIdLabel.AutoSize = true;
+            this.patientIdLabel.Location = new System.Drawing.Point(8, 25);
+            this.patientIdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.patientIdLabel.Name = "patientIdLabel";
+            this.patientIdLabel.Size = new System.Drawing.Size(86, 21);
+            this.patientIdLabel.TabIndex = 0;
+            this.patientIdLabel.Text = "Patient ID";
+            // 
             // DataAccessTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -597,6 +646,8 @@ namespace Clinic.View
             this.addAppointmentGroupBox.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.findAppointmentsGroupBox.ResumeLayout(false);
+            this.findAppointmentsGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -647,5 +698,9 @@ namespace Clinic.View
         private System.Windows.Forms.Button findPatientsButton3;
         private System.Windows.Forms.TextBox dateOfBirthTextBox2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox findAppointmentsGroupBox;
+        private System.Windows.Forms.Button findAppointmentsButton;
+        private System.Windows.Forms.TextBox patientIdTextBox;
+        private System.Windows.Forms.Label patientIdLabel;
     }
 }

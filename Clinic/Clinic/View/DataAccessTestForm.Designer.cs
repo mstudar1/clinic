@@ -37,7 +37,21 @@ namespace Clinic.View
             this.usernameLabel = new System.Windows.Forms.Label();
             this.dataAccessTestTabControl = new System.Windows.Forms.TabControl();
             this.credentialControllerTabPage = new System.Windows.Forms.TabPage();
+            this.getUserGroupBox = new System.Windows.Forms.GroupBox();
+            this.getUserButton = new System.Windows.Forms.Button();
+            this.getUserUsernameTextBox = new System.Windows.Forms.TextBox();
+            this.getUserUsernameLabel = new System.Windows.Forms.Label();
             this.patientControllerTabPage = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.findPatientsButton2 = new System.Windows.Forms.Button();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.findPatientsGroupBox = new System.Windows.Forms.GroupBox();
+            this.findPatientsButton = new System.Windows.Forms.Button();
+            this.dateOfBirthTextBox = new System.Windows.Forms.TextBox();
+            this.dateOfBirthLabel = new System.Windows.Forms.Label();
             this.editPatientGroupBox = new System.Windows.Forms.GroupBox();
             this.editPatientButton = new System.Windows.Forms.Button();
             this.addPatientGroupBox = new System.Windows.Forms.GroupBox();
@@ -53,21 +67,26 @@ namespace Clinic.View
             this.doctorIdLabel = new System.Windows.Forms.Label();
             this.addAppointmentGroupBox = new System.Windows.Forms.GroupBox();
             this.addAppointmentButton = new System.Windows.Forms.Button();
-            this.getUserGroupBox = new System.Windows.Forms.GroupBox();
-            this.getUserUsernameTextBox = new System.Windows.Forms.TextBox();
-            this.getUserUsernameLabel = new System.Windows.Forms.Label();
-            this.getUserButton = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lastNameTextBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.findPatientsButton3 = new System.Windows.Forms.Button();
+            this.dateOfBirthTextBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.credentialsAreValidGroupBox.SuspendLayout();
             this.dataAccessTestTabControl.SuspendLayout();
             this.credentialControllerTabPage.SuspendLayout();
+            this.getUserGroupBox.SuspendLayout();
             this.patientControllerTabPage.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.findPatientsGroupBox.SuspendLayout();
             this.editPatientGroupBox.SuspendLayout();
             this.addPatientGroupBox.SuspendLayout();
             this.appointmentControllerTabPage.SuspendLayout();
             this.editAppointmentGroupBox.SuspendLayout();
             this.doctorIsBookedGroupBox.SuspendLayout();
             this.addAppointmentGroupBox.SuspendLayout();
-            this.getUserGroupBox.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // credentialsAreValidGroupBox
@@ -78,9 +97,9 @@ namespace Clinic.View
             this.credentialsAreValidGroupBox.Controls.Add(this.passwordLabel);
             this.credentialsAreValidGroupBox.Controls.Add(this.usernameLabel);
             this.credentialsAreValidGroupBox.Location = new System.Drawing.Point(8, 7);
-            this.credentialsAreValidGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.credentialsAreValidGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.credentialsAreValidGroupBox.Name = "credentialsAreValidGroupBox";
-            this.credentialsAreValidGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.credentialsAreValidGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.credentialsAreValidGroupBox.Size = new System.Drawing.Size(349, 128);
             this.credentialsAreValidGroupBox.TabIndex = 0;
             this.credentialsAreValidGroupBox.TabStop = false;
@@ -89,7 +108,7 @@ namespace Clinic.View
             // credentialsAreValidButton
             // 
             this.credentialsAreValidButton.Location = new System.Drawing.Point(89, 86);
-            this.credentialsAreValidButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.credentialsAreValidButton.Margin = new System.Windows.Forms.Padding(4);
             this.credentialsAreValidButton.Name = "credentialsAreValidButton";
             this.credentialsAreValidButton.Size = new System.Drawing.Size(252, 28);
             this.credentialsAreValidButton.TabIndex = 4;
@@ -100,7 +119,7 @@ namespace Clinic.View
             // passwordTextBox
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(89, 53);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(251, 22);
             this.passwordTextBox.TabIndex = 3;
@@ -108,7 +127,7 @@ namespace Clinic.View
             // usernameTextBox
             // 
             this.usernameTextBox.Location = new System.Drawing.Point(89, 21);
-            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(251, 22);
             this.usernameTextBox.TabIndex = 2;
@@ -139,10 +158,10 @@ namespace Clinic.View
             this.dataAccessTestTabControl.Controls.Add(this.patientControllerTabPage);
             this.dataAccessTestTabControl.Controls.Add(this.appointmentControllerTabPage);
             this.dataAccessTestTabControl.Location = new System.Drawing.Point(17, 16);
-            this.dataAccessTestTabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataAccessTestTabControl.Margin = new System.Windows.Forms.Padding(4);
             this.dataAccessTestTabControl.Name = "dataAccessTestTabControl";
             this.dataAccessTestTabControl.SelectedIndex = 0;
-            this.dataAccessTestTabControl.Size = new System.Drawing.Size(443, 330);
+            this.dataAccessTestTabControl.Size = new System.Drawing.Size(443, 537);
             this.dataAccessTestTabControl.TabIndex = 1;
             // 
             // credentialControllerTabPage
@@ -150,34 +169,180 @@ namespace Clinic.View
             this.credentialControllerTabPage.Controls.Add(this.getUserGroupBox);
             this.credentialControllerTabPage.Controls.Add(this.credentialsAreValidGroupBox);
             this.credentialControllerTabPage.Location = new System.Drawing.Point(4, 25);
-            this.credentialControllerTabPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.credentialControllerTabPage.Margin = new System.Windows.Forms.Padding(4);
             this.credentialControllerTabPage.Name = "credentialControllerTabPage";
-            this.credentialControllerTabPage.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.credentialControllerTabPage.Size = new System.Drawing.Size(435, 301);
+            this.credentialControllerTabPage.Padding = new System.Windows.Forms.Padding(4);
+            this.credentialControllerTabPage.Size = new System.Drawing.Size(435, 415);
             this.credentialControllerTabPage.TabIndex = 0;
             this.credentialControllerTabPage.Text = "CredentialController";
             this.credentialControllerTabPage.UseVisualStyleBackColor = true;
             // 
+            // getUserGroupBox
+            // 
+            this.getUserGroupBox.Controls.Add(this.getUserButton);
+            this.getUserGroupBox.Controls.Add(this.getUserUsernameTextBox);
+            this.getUserGroupBox.Controls.Add(this.getUserUsernameLabel);
+            this.getUserGroupBox.Location = new System.Drawing.Point(8, 142);
+            this.getUserGroupBox.Name = "getUserGroupBox";
+            this.getUserGroupBox.Size = new System.Drawing.Size(349, 92);
+            this.getUserGroupBox.TabIndex = 1;
+            this.getUserGroupBox.TabStop = false;
+            this.getUserGroupBox.Text = "GetUser";
+            // 
+            // getUserButton
+            // 
+            this.getUserButton.Location = new System.Drawing.Point(88, 49);
+            this.getUserButton.Margin = new System.Windows.Forms.Padding(4);
+            this.getUserButton.Name = "getUserButton";
+            this.getUserButton.Size = new System.Drawing.Size(252, 28);
+            this.getUserButton.TabIndex = 5;
+            this.getUserButton.Text = "Call GetUser Method";
+            this.getUserButton.UseVisualStyleBackColor = true;
+            this.getUserButton.Click += new System.EventHandler(this.GetUserButton_Click);
+            // 
+            // getUserUsernameTextBox
+            // 
+            this.getUserUsernameTextBox.Location = new System.Drawing.Point(89, 19);
+            this.getUserUsernameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.getUserUsernameTextBox.Name = "getUserUsernameTextBox";
+            this.getUserUsernameTextBox.Size = new System.Drawing.Size(251, 22);
+            this.getUserUsernameTextBox.TabIndex = 4;
+            // 
+            // getUserUsernameLabel
+            // 
+            this.getUserUsernameLabel.AutoSize = true;
+            this.getUserUsernameLabel.Location = new System.Drawing.Point(8, 23);
+            this.getUserUsernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.getUserUsernameLabel.Name = "getUserUsernameLabel";
+            this.getUserUsernameLabel.Size = new System.Drawing.Size(73, 17);
+            this.getUserUsernameLabel.TabIndex = 3;
+            this.getUserUsernameLabel.Text = "Username";
+            // 
             // patientControllerTabPage
             // 
+            this.patientControllerTabPage.Controls.Add(this.groupBox2);
+            this.patientControllerTabPage.Controls.Add(this.groupBox1);
+            this.patientControllerTabPage.Controls.Add(this.findPatientsGroupBox);
             this.patientControllerTabPage.Controls.Add(this.editPatientGroupBox);
             this.patientControllerTabPage.Controls.Add(this.addPatientGroupBox);
             this.patientControllerTabPage.Location = new System.Drawing.Point(4, 25);
-            this.patientControllerTabPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.patientControllerTabPage.Margin = new System.Windows.Forms.Padding(4);
             this.patientControllerTabPage.Name = "patientControllerTabPage";
-            this.patientControllerTabPage.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.patientControllerTabPage.Size = new System.Drawing.Size(435, 301);
+            this.patientControllerTabPage.Padding = new System.Windows.Forms.Padding(4);
+            this.patientControllerTabPage.Size = new System.Drawing.Size(435, 508);
             this.patientControllerTabPage.TabIndex = 1;
             this.patientControllerTabPage.Text = "PatientController";
             this.patientControllerTabPage.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.firstNameTextBox);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.findPatientsButton2);
+            this.groupBox1.Controls.Add(this.lastNameTextBox);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(8, 249);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(349, 119);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "FindPatients";
+            // 
+            // firstNameTextBox
+            // 
+            this.firstNameTextBox.Location = new System.Drawing.Point(89, 49);
+            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(251, 22);
+            this.firstNameTextBox.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 53);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 17);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "First name";
+            // 
+            // findPatientsButton2
+            // 
+            this.findPatientsButton2.Location = new System.Drawing.Point(88, 79);
+            this.findPatientsButton2.Margin = new System.Windows.Forms.Padding(4);
+            this.findPatientsButton2.Name = "findPatientsButton2";
+            this.findPatientsButton2.Size = new System.Drawing.Size(252, 28);
+            this.findPatientsButton2.TabIndex = 2;
+            this.findPatientsButton2.Text = "Call FindPatients Method";
+            this.findPatientsButton2.UseVisualStyleBackColor = true;
+            this.findPatientsButton2.Click += new System.EventHandler(this.FindPatientsButton2_Click);
+            // 
+            // lastNameTextBox
+            // 
+            this.lastNameTextBox.Location = new System.Drawing.Point(89, 19);
+            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(251, 22);
+            this.lastNameTextBox.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 23);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 17);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Last name";
+            // 
+            // findPatientsGroupBox
+            // 
+            this.findPatientsGroupBox.Controls.Add(this.findPatientsButton);
+            this.findPatientsGroupBox.Controls.Add(this.dateOfBirthTextBox);
+            this.findPatientsGroupBox.Controls.Add(this.dateOfBirthLabel);
+            this.findPatientsGroupBox.Location = new System.Drawing.Point(8, 151);
+            this.findPatientsGroupBox.Name = "findPatientsGroupBox";
+            this.findPatientsGroupBox.Size = new System.Drawing.Size(349, 92);
+            this.findPatientsGroupBox.TabIndex = 1;
+            this.findPatientsGroupBox.TabStop = false;
+            this.findPatientsGroupBox.Text = "FindPatients";
+            // 
+            // findPatientsButton
+            // 
+            this.findPatientsButton.Location = new System.Drawing.Point(88, 49);
+            this.findPatientsButton.Margin = new System.Windows.Forms.Padding(4);
+            this.findPatientsButton.Name = "findPatientsButton";
+            this.findPatientsButton.Size = new System.Drawing.Size(252, 28);
+            this.findPatientsButton.TabIndex = 1;
+            this.findPatientsButton.Text = "Call FindPatients Method";
+            this.findPatientsButton.UseVisualStyleBackColor = true;
+            this.findPatientsButton.Click += new System.EventHandler(this.FindPatientsButton_Click);
+            // 
+            // dateOfBirthTextBox
+            // 
+            this.dateOfBirthTextBox.Location = new System.Drawing.Point(89, 19);
+            this.dateOfBirthTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.dateOfBirthTextBox.Name = "dateOfBirthTextBox";
+            this.dateOfBirthTextBox.Size = new System.Drawing.Size(251, 22);
+            this.dateOfBirthTextBox.TabIndex = 0;
+            // 
+            // dateOfBirthLabel
+            // 
+            this.dateOfBirthLabel.AutoSize = true;
+            this.dateOfBirthLabel.Location = new System.Drawing.Point(8, 23);
+            this.dateOfBirthLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dateOfBirthLabel.Name = "dateOfBirthLabel";
+            this.dateOfBirthLabel.Size = new System.Drawing.Size(38, 17);
+            this.dateOfBirthLabel.TabIndex = 3;
+            this.dateOfBirthLabel.Text = "DOB";
             // 
             // editPatientGroupBox
             // 
             this.editPatientGroupBox.Controls.Add(this.editPatientButton);
             this.editPatientGroupBox.Location = new System.Drawing.Point(8, 80);
-            this.editPatientGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editPatientGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.editPatientGroupBox.Name = "editPatientGroupBox";
-            this.editPatientGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editPatientGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.editPatientGroupBox.Size = new System.Drawing.Size(349, 64);
             this.editPatientGroupBox.TabIndex = 1;
             this.editPatientGroupBox.TabStop = false;
@@ -186,7 +351,7 @@ namespace Clinic.View
             // editPatientButton
             // 
             this.editPatientButton.Location = new System.Drawing.Point(9, 25);
-            this.editPatientButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editPatientButton.Margin = new System.Windows.Forms.Padding(4);
             this.editPatientButton.Name = "editPatientButton";
             this.editPatientButton.Size = new System.Drawing.Size(329, 28);
             this.editPatientButton.TabIndex = 0;
@@ -198,9 +363,9 @@ namespace Clinic.View
             // 
             this.addPatientGroupBox.Controls.Add(this.addPatientButton);
             this.addPatientGroupBox.Location = new System.Drawing.Point(8, 7);
-            this.addPatientGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addPatientGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.addPatientGroupBox.Name = "addPatientGroupBox";
-            this.addPatientGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addPatientGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.addPatientGroupBox.Size = new System.Drawing.Size(349, 65);
             this.addPatientGroupBox.TabIndex = 0;
             this.addPatientGroupBox.TabStop = false;
@@ -209,7 +374,7 @@ namespace Clinic.View
             // addPatientButton
             // 
             this.addPatientButton.Location = new System.Drawing.Point(9, 25);
-            this.addPatientButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addPatientButton.Margin = new System.Windows.Forms.Padding(4);
             this.addPatientButton.Name = "addPatientButton";
             this.addPatientButton.Size = new System.Drawing.Size(329, 28);
             this.addPatientButton.TabIndex = 0;
@@ -223,9 +388,9 @@ namespace Clinic.View
             this.appointmentControllerTabPage.Controls.Add(this.doctorIsBookedGroupBox);
             this.appointmentControllerTabPage.Controls.Add(this.addAppointmentGroupBox);
             this.appointmentControllerTabPage.Location = new System.Drawing.Point(4, 25);
-            this.appointmentControllerTabPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.appointmentControllerTabPage.Margin = new System.Windows.Forms.Padding(4);
             this.appointmentControllerTabPage.Name = "appointmentControllerTabPage";
-            this.appointmentControllerTabPage.Size = new System.Drawing.Size(435, 301);
+            this.appointmentControllerTabPage.Size = new System.Drawing.Size(435, 415);
             this.appointmentControllerTabPage.TabIndex = 2;
             this.appointmentControllerTabPage.Text = "AppointmentController";
             this.appointmentControllerTabPage.UseVisualStyleBackColor = true;
@@ -234,9 +399,9 @@ namespace Clinic.View
             // 
             this.editAppointmentGroupBox.Controls.Add(this.editAppointmentButton);
             this.editAppointmentGroupBox.Location = new System.Drawing.Point(8, 215);
-            this.editAppointmentGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editAppointmentGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.editAppointmentGroupBox.Name = "editAppointmentGroupBox";
-            this.editAppointmentGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editAppointmentGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.editAppointmentGroupBox.Size = new System.Drawing.Size(349, 65);
             this.editAppointmentGroupBox.TabIndex = 3;
             this.editAppointmentGroupBox.TabStop = false;
@@ -245,7 +410,7 @@ namespace Clinic.View
             // editAppointmentButton
             // 
             this.editAppointmentButton.Location = new System.Drawing.Point(9, 25);
-            this.editAppointmentButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editAppointmentButton.Margin = new System.Windows.Forms.Padding(4);
             this.editAppointmentButton.Name = "editAppointmentButton";
             this.editAppointmentButton.Size = new System.Drawing.Size(329, 28);
             this.editAppointmentButton.TabIndex = 0;
@@ -261,9 +426,9 @@ namespace Clinic.View
             this.doctorIsBookedGroupBox.Controls.Add(this.dateAndTimeLabel);
             this.doctorIsBookedGroupBox.Controls.Add(this.doctorIdLabel);
             this.doctorIsBookedGroupBox.Location = new System.Drawing.Point(8, 80);
-            this.doctorIsBookedGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.doctorIsBookedGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.doctorIsBookedGroupBox.Name = "doctorIsBookedGroupBox";
-            this.doctorIsBookedGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.doctorIsBookedGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.doctorIsBookedGroupBox.Size = new System.Drawing.Size(349, 128);
             this.doctorIsBookedGroupBox.TabIndex = 2;
             this.doctorIsBookedGroupBox.TabStop = false;
@@ -272,7 +437,7 @@ namespace Clinic.View
             // dateAndTimeTextBox
             // 
             this.dateAndTimeTextBox.Location = new System.Drawing.Point(132, 53);
-            this.dateAndTimeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateAndTimeTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.dateAndTimeTextBox.Name = "dateAndTimeTextBox";
             this.dateAndTimeTextBox.Size = new System.Drawing.Size(208, 22);
             this.dateAndTimeTextBox.TabIndex = 5;
@@ -280,7 +445,7 @@ namespace Clinic.View
             // doctorIsBookedButton
             // 
             this.doctorIsBookedButton.Location = new System.Drawing.Point(132, 85);
-            this.doctorIsBookedButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.doctorIsBookedButton.Margin = new System.Windows.Forms.Padding(4);
             this.doctorIsBookedButton.Name = "doctorIsBookedButton";
             this.doctorIsBookedButton.Size = new System.Drawing.Size(209, 28);
             this.doctorIsBookedButton.TabIndex = 4;
@@ -291,7 +456,7 @@ namespace Clinic.View
             // doctorIdTextBox
             // 
             this.doctorIdTextBox.Location = new System.Drawing.Point(132, 21);
-            this.doctorIdTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.doctorIdTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.doctorIdTextBox.Name = "doctorIdTextBox";
             this.doctorIdTextBox.Size = new System.Drawing.Size(208, 22);
             this.doctorIdTextBox.TabIndex = 2;
@@ -320,9 +485,9 @@ namespace Clinic.View
             // 
             this.addAppointmentGroupBox.Controls.Add(this.addAppointmentButton);
             this.addAppointmentGroupBox.Location = new System.Drawing.Point(8, 7);
-            this.addAppointmentGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addAppointmentGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.addAppointmentGroupBox.Name = "addAppointmentGroupBox";
-            this.addAppointmentGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addAppointmentGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.addAppointmentGroupBox.Size = new System.Drawing.Size(349, 65);
             this.addAppointmentGroupBox.TabIndex = 1;
             this.addAppointmentGroupBox.TabStop = false;
@@ -331,7 +496,7 @@ namespace Clinic.View
             // addAppointmentButton
             // 
             this.addAppointmentButton.Location = new System.Drawing.Point(9, 25);
-            this.addAppointmentButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addAppointmentButton.Margin = new System.Windows.Forms.Padding(4);
             this.addAppointmentButton.Name = "addAppointmentButton";
             this.addAppointmentButton.Size = new System.Drawing.Size(329, 28);
             this.addAppointmentButton.TabIndex = 0;
@@ -339,54 +504,74 @@ namespace Clinic.View
             this.addAppointmentButton.UseVisualStyleBackColor = true;
             this.addAppointmentButton.Click += new System.EventHandler(this.AddAppointmentButton_Click);
             // 
-            // getUserGroupBox
+            // groupBox2
             // 
-            this.getUserGroupBox.Controls.Add(this.getUserButton);
-            this.getUserGroupBox.Controls.Add(this.getUserUsernameTextBox);
-            this.getUserGroupBox.Controls.Add(this.getUserUsernameLabel);
-            this.getUserGroupBox.Location = new System.Drawing.Point(8, 142);
-            this.getUserGroupBox.Name = "getUserGroupBox";
-            this.getUserGroupBox.Size = new System.Drawing.Size(349, 92);
-            this.getUserGroupBox.TabIndex = 1;
-            this.getUserGroupBox.TabStop = false;
-            this.getUserGroupBox.Text = "GetUser";
+            this.groupBox2.Controls.Add(this.lastNameTextBox2);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.findPatientsButton3);
+            this.groupBox2.Controls.Add(this.dateOfBirthTextBox2);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Location = new System.Drawing.Point(8, 374);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(349, 119);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "FindPatients";
             // 
-            // getUserUsernameTextBox
+            // lastNameTextBox2
             // 
-            this.getUserUsernameTextBox.Location = new System.Drawing.Point(89, 19);
-            this.getUserUsernameTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.getUserUsernameTextBox.Name = "getUserUsernameTextBox";
-            this.getUserUsernameTextBox.Size = new System.Drawing.Size(251, 22);
-            this.getUserUsernameTextBox.TabIndex = 4;
+            this.lastNameTextBox2.Location = new System.Drawing.Point(89, 49);
+            this.lastNameTextBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.lastNameTextBox2.Name = "lastNameTextBox2";
+            this.lastNameTextBox2.Size = new System.Drawing.Size(251, 22);
+            this.lastNameTextBox2.TabIndex = 1;
             // 
-            // getUserUsernameLabel
+            // label3
             // 
-            this.getUserUsernameLabel.AutoSize = true;
-            this.getUserUsernameLabel.Location = new System.Drawing.Point(8, 23);
-            this.getUserUsernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.getUserUsernameLabel.Name = "getUserUsernameLabel";
-            this.getUserUsernameLabel.Size = new System.Drawing.Size(73, 17);
-            this.getUserUsernameLabel.TabIndex = 3;
-            this.getUserUsernameLabel.Text = "Username";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 53);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 17);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Last name";
             // 
-            // getUserButton
+            // findPatientsButton3
             // 
-            this.getUserButton.Location = new System.Drawing.Point(88, 49);
-            this.getUserButton.Margin = new System.Windows.Forms.Padding(4);
-            this.getUserButton.Name = "getUserButton";
-            this.getUserButton.Size = new System.Drawing.Size(252, 28);
-            this.getUserButton.TabIndex = 5;
-            this.getUserButton.Text = "Call GetUser Method";
-            this.getUserButton.UseVisualStyleBackColor = true;
-            this.getUserButton.Click += new System.EventHandler(this.GetUserButton_Click);
+            this.findPatientsButton3.Location = new System.Drawing.Point(88, 79);
+            this.findPatientsButton3.Margin = new System.Windows.Forms.Padding(4);
+            this.findPatientsButton3.Name = "findPatientsButton3";
+            this.findPatientsButton3.Size = new System.Drawing.Size(252, 28);
+            this.findPatientsButton3.TabIndex = 2;
+            this.findPatientsButton3.Text = "Call FindPatients Method";
+            this.findPatientsButton3.UseVisualStyleBackColor = true;
+            this.findPatientsButton3.Click += new System.EventHandler(this.FindPatientsButton3_Click);
+            // 
+            // dateOfBirthTextBox2
+            // 
+            this.dateOfBirthTextBox2.Location = new System.Drawing.Point(89, 19);
+            this.dateOfBirthTextBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.dateOfBirthTextBox2.Name = "dateOfBirthTextBox2";
+            this.dateOfBirthTextBox2.Size = new System.Drawing.Size(251, 22);
+            this.dateOfBirthTextBox2.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 23);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 21);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "DOB";
             // 
             // DataAccessTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(468, 358);
+            this.ClientSize = new System.Drawing.Size(468, 564);
             this.Controls.Add(this.dataAccessTestTabControl);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DataAccessTestForm";
@@ -396,7 +581,13 @@ namespace Clinic.View
             this.credentialsAreValidGroupBox.PerformLayout();
             this.dataAccessTestTabControl.ResumeLayout(false);
             this.credentialControllerTabPage.ResumeLayout(false);
+            this.getUserGroupBox.ResumeLayout(false);
+            this.getUserGroupBox.PerformLayout();
             this.patientControllerTabPage.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.findPatientsGroupBox.ResumeLayout(false);
+            this.findPatientsGroupBox.PerformLayout();
             this.editPatientGroupBox.ResumeLayout(false);
             this.addPatientGroupBox.ResumeLayout(false);
             this.appointmentControllerTabPage.ResumeLayout(false);
@@ -404,8 +595,8 @@ namespace Clinic.View
             this.doctorIsBookedGroupBox.ResumeLayout(false);
             this.doctorIsBookedGroupBox.PerformLayout();
             this.addAppointmentGroupBox.ResumeLayout(false);
-            this.getUserGroupBox.ResumeLayout(false);
-            this.getUserGroupBox.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -440,5 +631,21 @@ namespace Clinic.View
         private System.Windows.Forms.Button getUserButton;
         private System.Windows.Forms.TextBox getUserUsernameTextBox;
         private System.Windows.Forms.Label getUserUsernameLabel;
+        private System.Windows.Forms.GroupBox findPatientsGroupBox;
+        private System.Windows.Forms.Button findPatientsButton;
+        private System.Windows.Forms.TextBox dateOfBirthTextBox;
+        private System.Windows.Forms.Label dateOfBirthLabel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button findPatientsButton2;
+        private System.Windows.Forms.TextBox lastNameTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox firstNameTextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox lastNameTextBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button findPatientsButton3;
+        private System.Windows.Forms.TextBox dateOfBirthTextBox2;
+        private System.Windows.Forms.Label label4;
     }
 }

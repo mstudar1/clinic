@@ -142,5 +142,32 @@ namespace Clinic.View
             MessageBox.Show("Person ID: " + result.PersonId + "\n" + 
                 "Name: " + result.FirstName + " " + result.LastName);
         }
+
+        private void FindPatientsButton_Click(object sender, EventArgs e)
+        {
+            List<Patient> patients = this.thePatientController.FindPatients(DateTime.Parse(this.dateOfBirthTextBox.Text));
+            foreach (Patient currentPatient in patients)
+            {
+                MessageBox.Show("Person ID: " + currentPatient.PersonId + "\n" + "Name: " + currentPatient.FirstName + " " + currentPatient.LastName);
+            }
+        }
+
+        private void FindPatientsButton2_Click(object sender, EventArgs e)
+        {
+            List<Patient> patients = this.thePatientController.FindPatients(this.lastNameTextBox.Text, this.firstNameTextBox.Text);
+            foreach (Patient currentPatient in patients)
+            {
+                MessageBox.Show("Person ID: " + currentPatient.PersonId + "\n" + "Name: " + currentPatient.FirstName + " " + currentPatient.LastName);
+            }
+        }
+
+        private void FindPatientsButton3_Click(object sender, EventArgs e)
+        {
+            List<Patient> patients = this.thePatientController.FindPatients(DateTime.Parse(this.dateOfBirthTextBox2.Text), this.lastNameTextBox2.Text);
+            foreach (Patient currentPatient in patients)
+            {
+                MessageBox.Show("Person ID: " + currentPatient.PersonId + "\n" + "Name: " + currentPatient.FirstName + " " + currentPatient.LastName);
+            }
+        }
     }
 }

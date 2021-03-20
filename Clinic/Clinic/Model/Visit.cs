@@ -5,7 +5,7 @@
     /// </summary>
     public class Visit
     {
-        public Appointment AssociatedAppointment { get; set; }
+        public int AppointmentId { get; set; }
 
         public double Weight { get; set; }
 

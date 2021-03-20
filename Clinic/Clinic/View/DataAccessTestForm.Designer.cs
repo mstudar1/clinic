@@ -77,6 +77,9 @@ namespace Clinic.View
             this.findAppointmentsButton = new System.Windows.Forms.Button();
             this.patientIdTextBox = new System.Windows.Forms.TextBox();
             this.patientIdLabel = new System.Windows.Forms.Label();
+            this.addVisitTabPage = new System.Windows.Forms.TabPage();
+            this.addVisitGroupBox = new System.Windows.Forms.GroupBox();
+            this.addVisitButton = new System.Windows.Forms.Button();
             this.credentialsAreValidGroupBox.SuspendLayout();
             this.dataAccessTestTabControl.SuspendLayout();
             this.credentialControllerTabPage.SuspendLayout();
@@ -92,6 +95,8 @@ namespace Clinic.View
             this.addAppointmentGroupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.findAppointmentsGroupBox.SuspendLayout();
+            this.addVisitTabPage.SuspendLayout();
+            this.addVisitGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // credentialsAreValidGroupBox
@@ -162,6 +167,7 @@ namespace Clinic.View
             this.dataAccessTestTabControl.Controls.Add(this.credentialControllerTabPage);
             this.dataAccessTestTabControl.Controls.Add(this.patientControllerTabPage);
             this.dataAccessTestTabControl.Controls.Add(this.appointmentControllerTabPage);
+            this.dataAccessTestTabControl.Controls.Add(this.addVisitTabPage);
             this.dataAccessTestTabControl.Location = new System.Drawing.Point(17, 16);
             this.dataAccessTestTabControl.Margin = new System.Windows.Forms.Padding(4);
             this.dataAccessTestTabControl.Name = "dataAccessTestTabControl";
@@ -177,7 +183,7 @@ namespace Clinic.View
             this.credentialControllerTabPage.Margin = new System.Windows.Forms.Padding(4);
             this.credentialControllerTabPage.Name = "credentialControllerTabPage";
             this.credentialControllerTabPage.Padding = new System.Windows.Forms.Padding(4);
-            this.credentialControllerTabPage.Size = new System.Drawing.Size(435, 415);
+            this.credentialControllerTabPage.Size = new System.Drawing.Size(435, 508);
             this.credentialControllerTabPage.TabIndex = 0;
             this.credentialControllerTabPage.Text = "CredentialController";
             this.credentialControllerTabPage.UseVisualStyleBackColor = true;
@@ -614,6 +620,40 @@ namespace Clinic.View
             this.patientIdLabel.TabIndex = 0;
             this.patientIdLabel.Text = "Patient ID";
             // 
+            // addVisitTabPage
+            // 
+            this.addVisitTabPage.Controls.Add(this.addVisitGroupBox);
+            this.addVisitTabPage.Location = new System.Drawing.Point(4, 25);
+            this.addVisitTabPage.Name = "addVisitTabPage";
+            this.addVisitTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.addVisitTabPage.Size = new System.Drawing.Size(435, 508);
+            this.addVisitTabPage.TabIndex = 3;
+            this.addVisitTabPage.Text = "VisitController";
+            this.addVisitTabPage.UseVisualStyleBackColor = true;
+            // 
+            // addVisitGroupBox
+            // 
+            this.addVisitGroupBox.Controls.Add(this.addVisitButton);
+            this.addVisitGroupBox.Location = new System.Drawing.Point(7, 7);
+            this.addVisitGroupBox.Margin = new System.Windows.Forms.Padding(4);
+            this.addVisitGroupBox.Name = "addVisitGroupBox";
+            this.addVisitGroupBox.Padding = new System.Windows.Forms.Padding(4);
+            this.addVisitGroupBox.Size = new System.Drawing.Size(349, 65);
+            this.addVisitGroupBox.TabIndex = 1;
+            this.addVisitGroupBox.TabStop = false;
+            this.addVisitGroupBox.Text = "AddVisit";
+            // 
+            // addVisitButton
+            // 
+            this.addVisitButton.Location = new System.Drawing.Point(9, 25);
+            this.addVisitButton.Margin = new System.Windows.Forms.Padding(4);
+            this.addVisitButton.Name = "addVisitButton";
+            this.addVisitButton.Size = new System.Drawing.Size(329, 28);
+            this.addVisitButton.TabIndex = 0;
+            this.addVisitButton.Text = "Add Visit";
+            this.addVisitButton.UseVisualStyleBackColor = true;
+            this.addVisitButton.Click += new System.EventHandler(this.AddVisitButton_Click);
+            // 
             // DataAccessTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -648,6 +688,8 @@ namespace Clinic.View
             this.groupBox2.PerformLayout();
             this.findAppointmentsGroupBox.ResumeLayout(false);
             this.findAppointmentsGroupBox.PerformLayout();
+            this.addVisitTabPage.ResumeLayout(false);
+            this.addVisitGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -702,5 +744,8 @@ namespace Clinic.View
         private System.Windows.Forms.Button findAppointmentsButton;
         private System.Windows.Forms.TextBox patientIdTextBox;
         private System.Windows.Forms.Label patientIdLabel;
+        private System.Windows.Forms.TabPage addVisitTabPage;
+        private System.Windows.Forms.GroupBox addVisitGroupBox;
+        private System.Windows.Forms.Button addVisitButton;
     }
 }

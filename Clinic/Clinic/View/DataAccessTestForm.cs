@@ -17,6 +17,7 @@ namespace Clinic.View
         private readonly CredentialController theCredentialController;
         private readonly PatientController thePatientController;
         private readonly AppointmentController theAppointmentController;
+        private readonly VisitController theVisitController;
 
         public DataAccessTestForm()
         {
@@ -24,6 +25,7 @@ namespace Clinic.View
             this.theCredentialController = new CredentialController();
             this.thePatientController = new PatientController();
             this.theAppointmentController = new AppointmentController();
+            this.theVisitController = new VisitController();
         }
 
         private void CredentialsAreValidButton_Click(object sender, EventArgs e)
@@ -177,6 +179,23 @@ namespace Clinic.View
             {
                 MessageBox.Show("Patient ID: " + currentAppointment.PatientId + "\n" + "Doctor ID: " + currentAppointment.DoctorId);
             }
+        }
+
+        private void AddVisitButton_Click(object sender, EventArgs e)
+        {
+            Visit newVisit = new Visit
+            {
+                AppointmentId = 6,
+                Weight = 180,
+                SystolicBloodPressure = 120,
+                DiastolicBloodPressure = 80,
+                BodyTemperature = 98.6,
+                Pulse = 60,
+                Symptoms = "None",
+                NurseId = 2
+            };
+
+            this.theVisitController.AddVisit(newVisit);
         }
     }
 }

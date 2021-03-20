@@ -31,11 +31,16 @@ namespace Clinic.DAL
                 throw new ArgumentNullException("thePatient", "The patient cannot be null.");
             }
 
+            if (thePatient.PatientId != default)
+            {
+                throw new ArgumentException("The Patient object being passed in cannot have an ID, because one will be assigned by the database.");
+            }
+
             int personId = this.thePersonDAL.AddPerson(thePatient);
 
             string insertStatement =
-                "INSERT Patient (personId, patientId) " +
-                "VALUES (@PersonId, @PatientId)";
+                "INSERT Patient (personId) " +
+                "VALUES (@PersonId)";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -43,7 +48,6 @@ namespace Clinic.DAL
                 using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
                 {
                     insertCommand.Parameters.AddWithValue("@PersonId", personId);
-                    insertCommand.Parameters.AddWithValue("@PatientId", thePatient.PatientId);
                     insertCommand.ExecuteNonQuery();
                 }
             }

@@ -47,8 +47,7 @@ namespace Clinic.View
                 AddressLine1 = "123 Maple Street",
                 City = "Rome",
                 State = "GA",
-                ZipCode = "12345",
-                PatientId = 1
+                ZipCode = "12345"
             };
 
             this.thePatientController.AddPatient(newPatient);

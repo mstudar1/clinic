@@ -31,7 +31,7 @@ namespace Clinic.View
             string username = this.usernameTextBox.Text;
             string password = this.passwordTextBox.Text;
             bool result = this.theCredentialController.CredentialsAreValid(username, password);
-            MessageBox.Show(result.ToString());
+            MessageBox.Show("Valid? " + result.ToString());
         }
 
         private void AddPatientButton_Click(object sender, EventArgs e)
@@ -133,6 +133,13 @@ namespace Clinic.View
             bool result = this.theAppointmentController.EditAppointment(originalAppointment, revisedAppointment);
 
             MessageBox.Show(result.ToString());
+        }
+
+        private void GetUserButton_Click(object sender, EventArgs e)
+        {
+            Person result = this.theCredentialController.GetUser(this.getUserUsernameTextBox.Text);
+            MessageBox.Show("Person ID: " + result.PersonId + "\n" + 
+                "Name: " + result.FirstName + " " + result.LastName);
         }
     }
 }

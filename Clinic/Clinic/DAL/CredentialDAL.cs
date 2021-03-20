@@ -31,7 +31,7 @@ namespace Clinic.DAL
             string selectStatement =
                 "SELECT @NumberOfMatchingUsers = COUNT(username) " +
                 "FROM Credential " +
-                "WHERE username = @Username " +
+                "WHERE userName = @Username " +
                 "AND password = @Password";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
@@ -78,7 +78,7 @@ namespace Clinic.DAL
             if (this.GetRole(username).Equals("Nurse"))
             {
                 return this.GetNurse(username);
-            } else if (this.GetRole(username).Equals("Administrator"))
+            } else if (this.GetRole(username).Equals("Admin"))
             {
                 return this.GetAdministrator(username);
             } else
@@ -97,14 +97,14 @@ namespace Clinic.DAL
             string selectStatement =
                 "SELECT @Role = role " +
                 "FROM Credential " +
-                "WHERE username = @Username ";
+                "WHERE userName = @Username";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
                 connection.Open();
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
-                    SqlParameter roleParameter = new SqlParameter("@Role", SqlDbType.VarChar)
+                    SqlParameter roleParameter = new SqlParameter("@Role", SqlDbType.VarChar, 50)
                     {
                         Direction = ParameterDirection.Output
                     };

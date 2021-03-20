@@ -37,9 +37,21 @@ namespace Clinic.DAL
                     insertCommand.Parameters.AddWithValue("@DateOfBirth", thePerson.DateOfBirth);
                     insertCommand.Parameters.AddWithValue("@SocialSecurityNumber", thePerson.SocialSecurityNumber);
                     insertCommand.Parameters.AddWithValue("@Gender", thePerson.Gender);
-                    insertCommand.Parameters.AddWithValue("@PhoneNumber", thePerson.PhoneNumber);
+                    if (thePerson.PhoneNumber == default)
+                    {
+                        insertCommand.Parameters.AddWithValue("@PhoneNumber", DBNull.Value);
+                    } else
+                    {
+                        insertCommand.Parameters.AddWithValue("@PhoneNumber", thePerson.PhoneNumber);
+                    }
                     insertCommand.Parameters.AddWithValue("@AddressLine1", thePerson.AddressLine1);
-                    insertCommand.Parameters.AddWithValue("@AddressLine2", thePerson.AddressLine2);
+                    if (thePerson.AddressLine2 == default)
+                    {
+                        insertCommand.Parameters.AddWithValue("@AddressLine2", DBNull.Value);
+                    } else
+                    {
+                        insertCommand.Parameters.AddWithValue("@AddressLine2", thePerson.AddressLine2);
+                    }
                     insertCommand.Parameters.AddWithValue("@City", thePerson.City);
                     insertCommand.Parameters.AddWithValue("@State", thePerson.State);
                     insertCommand.Parameters.AddWithValue("@ZipCode", thePerson.ZipCode);
@@ -112,7 +124,6 @@ namespace Clinic.DAL
                     updateCommand.Parameters.AddWithValue("@OriginalDateOfBirth", originalPerson.DateOfBirth);
                     updateCommand.Parameters.AddWithValue("@OriginalSocialSecurityNumber", originalPerson.SocialSecurityNumber);
                     updateCommand.Parameters.AddWithValue("@OriginalGender", originalPerson.Gender);
-                    updateCommand.Parameters.AddWithValue("@OriginalPhoneNumber", originalPerson.PhoneNumber);
                     updateCommand.Parameters.AddWithValue("@OriginalAddressLine1", originalPerson.AddressLine1);
                     updateCommand.Parameters.AddWithValue("@OriginalCity", originalPerson.City);
                     updateCommand.Parameters.AddWithValue("@OriginalState", originalPerson.State);
@@ -122,12 +133,29 @@ namespace Clinic.DAL
                     updateCommand.Parameters.AddWithValue("@RevisedDateOfBirth", revisedPerson.DateOfBirth);
                     updateCommand.Parameters.AddWithValue("@RevisedSocialSecurityNumber", revisedPerson.SocialSecurityNumber);
                     updateCommand.Parameters.AddWithValue("@RevisedGender", revisedPerson.Gender);
-                    updateCommand.Parameters.AddWithValue("@RevisedPhoneNumber", revisedPerson.PhoneNumber);
                     updateCommand.Parameters.AddWithValue("@RevisedAddressLine1", revisedPerson.AddressLine1);
                     updateCommand.Parameters.AddWithValue("@RevisedCity", revisedPerson.City);
                     updateCommand.Parameters.AddWithValue("@RevisedState", revisedPerson.State);
                     updateCommand.Parameters.AddWithValue("@RevisedZipCode", revisedPerson.ZipCode);
-                    
+
+                    if (originalPerson.PhoneNumber == default)
+                    {
+                        updateCommand.Parameters.AddWithValue("@OriginalPhoneNumber", DBNull.Value);
+                    }
+                    else
+                    {
+                        updateCommand.Parameters.AddWithValue("@OriginalPhoneNumber", originalPerson.PhoneNumber);
+                    }
+
+                    if (revisedPerson.PhoneNumber == default)
+                    {
+                        updateCommand.Parameters.AddWithValue("@RevisedPhoneNumber", DBNull.Value);
+                    }
+                    else
+                    {
+                        updateCommand.Parameters.AddWithValue("@RevisedPhoneNumber", revisedPerson.PhoneNumber);
+                    }
+
                     if (originalPerson.AddressLine2 == default)
                     {
                         updateCommand.Parameters.AddWithValue("@OriginalAddressLine2", DBNull.Value);

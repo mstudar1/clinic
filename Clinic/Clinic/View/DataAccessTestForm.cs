@@ -96,7 +96,7 @@ namespace Clinic.View
         {
             Appointment newAppointment = new Appointment
             {
-                PatientId = 1,
+                PatientId = 5,
                 DateAndTime = new DateTime(2021, 4, 15, 8, 0, 0),
                 DoctorId = 1,
                 ReasonForVisit = "Routine checkup"

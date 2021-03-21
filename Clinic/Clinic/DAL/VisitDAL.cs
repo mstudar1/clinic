@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Clinic.DAL
 {
@@ -85,11 +86,11 @@ namespace Clinic.DAL
                             Visit theVisit = new Visit();
                             if (!reader.IsDBNull(appointmentIdOrdinal)) { theVisit.AppointmentId = reader.GetInt32(appointmentIdOrdinal); }
                             if (!reader.IsDBNull(nurseIdOrdinal)) { theVisit.NurseId = reader.GetInt32(nurseIdOrdinal); }
-                            if (!reader.IsDBNull(weightOrdinal)) { theVisit.Weight = reader.GetDouble(weightOrdinal); }
+                            if (!reader.IsDBNull(weightOrdinal)) { theVisit.Weight = (double)reader.GetDecimal(weightOrdinal); }
                             if (!reader.IsDBNull(pulseOrdinal)) { theVisit.Pulse = reader.GetInt32(pulseOrdinal); }
                             if (!reader.IsDBNull(systolicBloodPressureOrdinal)) { theVisit.SystolicBloodPressure = reader.GetInt32(systolicBloodPressureOrdinal); }
                             if (!reader.IsDBNull(diastolicBloodPressureOrdinal)) { theVisit.DiastolicBloodPressure = reader.GetInt32(diastolicBloodPressureOrdinal); }
-                            if (!reader.IsDBNull(bodyTemperatureOrdinal)) { theVisit.BodyTemperature = reader.GetDouble(bodyTemperatureOrdinal); }
+                            if (!reader.IsDBNull(bodyTemperatureOrdinal)) { theVisit.BodyTemperature = (double)reader.GetDecimal(bodyTemperatureOrdinal); }
                             if (!reader.IsDBNull(symptomsOrdinal)) { theVisit.Symptoms = reader.GetString(symptomsOrdinal); }
                             visitList.Add(theVisit);
                         }

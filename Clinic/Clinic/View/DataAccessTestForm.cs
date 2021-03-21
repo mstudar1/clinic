@@ -197,5 +197,14 @@ namespace Clinic.View
 
             this.theVisitController.AddVisit(newVisit);
         }
+
+        private void FindVisitsButton_Click(object sender, EventArgs e)
+        {
+            List<Visit> visits = this.theVisitController.FindVisits(int.Parse(this.patientIdTextBox1.Text));
+            foreach (Visit currentVisit in visits)
+            {
+                MessageBox.Show("Appointment ID: " + currentVisit.AppointmentId + "\n" + "Weight: " + currentVisit.Weight);
+            }
+        }
     }
 }

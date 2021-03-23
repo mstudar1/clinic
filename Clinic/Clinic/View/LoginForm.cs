@@ -11,7 +11,7 @@ namespace Clinic
     /// </summary>
     public partial class LoginForm : Form
     {
-        NurseAdminForm theNurseAdminForm;
+        private NurseAdminForm theNurseAdminForm;
 
         /// <summary>
         /// The constructor initializes the components

@@ -41,12 +41,12 @@ namespace Clinic.UserControls
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.NursListView = new System.Windows.Forms.ListView();
             this.firstNameClumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lastNameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dobColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.addressClumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.viewColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.editColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.deleteColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lastNameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -95,13 +95,14 @@ namespace Clinic.UserControls
             this.registerPatientButton.TabIndex = 0;
             this.registerPatientButton.Text = "Register Patient";
             this.registerPatientButton.UseVisualStyleBackColor = true;
+            this.registerPatientButton.Click += new System.EventHandler(this.RegisterPatientButton_Click);
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.12851F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.87148F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
             this.tableLayoutPanel3.Controls.Add(this.resetButton, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.listOfPatientsLabel, 0, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 94);
@@ -116,7 +117,7 @@ namespace Clinic.UserControls
             this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.resetButton.AutoSize = true;
             this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetButton.Location = new System.Drawing.Point(638, 3);
+            this.resetButton.Location = new System.Drawing.Point(637, 3);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(106, 34);
             this.resetButton.TabIndex = 1;
@@ -128,7 +129,7 @@ namespace Clinic.UserControls
             this.listOfPatientsLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.listOfPatientsLabel.AutoSize = true;
             this.listOfPatientsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listOfPatientsLabel.Location = new System.Drawing.Point(15, 4);
+            this.listOfPatientsLabel.Location = new System.Drawing.Point(14, 4);
             this.listOfPatientsLabel.Name = "listOfPatientsLabel";
             this.listOfPatientsLabel.Size = new System.Drawing.Size(210, 36);
             this.listOfPatientsLabel.TabIndex = 2;
@@ -140,7 +141,7 @@ namespace Clinic.UserControls
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.35203F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.64797F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 182F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 107F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
             this.tableLayoutPanel4.Controls.Add(this.searchButton, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.dobTextBox, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.nameTextBox, 1, 0);
@@ -156,7 +157,7 @@ namespace Clinic.UserControls
             this.searchButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.searchButton.AutoSize = true;
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(698, 3);
+            this.searchButton.Location = new System.Drawing.Point(697, 3);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(99, 32);
             this.searchButton.TabIndex = 0;
@@ -167,7 +168,7 @@ namespace Clinic.UserControls
             // 
             this.dobTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dobTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dobTextBox.Location = new System.Drawing.Point(516, 3);
+            this.dobTextBox.Location = new System.Drawing.Point(515, 3);
             this.dobTextBox.Name = "dobTextBox";
             this.dobTextBox.Size = new System.Drawing.Size(176, 35);
             this.dobTextBox.TabIndex = 1;
@@ -177,7 +178,7 @@ namespace Clinic.UserControls
             // 
             this.nameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameTextBox.Location = new System.Drawing.Point(282, 3);
+            this.nameTextBox.Location = new System.Drawing.Point(281, 3);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(228, 35);
             this.nameTextBox.TabIndex = 2;
@@ -209,6 +210,12 @@ namespace Clinic.UserControls
             this.firstNameClumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.firstNameClumnHeader.Width = 160;
             // 
+            // lastNameColumnHeader
+            // 
+            this.lastNameColumnHeader.Text = "Last Name";
+            this.lastNameColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lastNameColumnHeader.Width = 160;
+            // 
             // dobColumnHeader
             // 
             this.dobColumnHeader.Text = "DOB";
@@ -238,12 +245,6 @@ namespace Clinic.UserControls
             this.deleteColumnHeader.Text = "Delete";
             this.deleteColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.deleteColumnHeader.Width = 90;
-            // 
-            // lastNameColumnHeader
-            // 
-            this.lastNameColumnHeader.Text = "Last Name";
-            this.lastNameColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.lastNameColumnHeader.Width = 160;
             // 
             // PatientUserControl
             // 

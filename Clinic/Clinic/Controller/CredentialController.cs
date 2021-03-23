@@ -58,5 +58,21 @@ namespace Clinic.Controller
 
             return this.credentialSource.GetUser(username);
         }
+
+        /// <summary>
+        /// Method that returns the type of the user for the given username.
+        /// It can be either nurse or admin
+        /// </summary>
+        /// <param name="username"> The username of the user</param>
+        /// <returns></returns>
+        public string GetUserRole(string username)
+        {
+            if (string.IsNullOrEmpty(username))
+            {
+                throw new ArgumentNullException("username", "The username cannot be null or empty.");
+            }
+
+            return this.credentialSource.GetRole(username);
+        }
     }
 }

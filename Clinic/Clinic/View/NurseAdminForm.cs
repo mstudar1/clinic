@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clinic.Controller;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -15,6 +16,7 @@ namespace Clinic.View
     public partial class NurseAdminForm : Form
     {
         private LoginForm theLoginForm;
+        private CredentialController theCredentialController;
 
         /// <summary>
         /// The constructor initializes the components
@@ -24,6 +26,7 @@ namespace Clinic.View
         {
             InitializeComponent();
             this.theLoginForm = theInputLoginForm;
+            theCredentialController = new CredentialController();
         }
 
         /// <summary>
@@ -65,9 +68,23 @@ namespace Clinic.View
            // this.displayOpenIncidentsUserControl1.RefreshData();
         }
 
-        private void RefreshNurseList(object sender, TabControlEventArgs e)
+        /// <summary>
+        /// Method displays the Nurse tab only if the logged in user is admin and hides the Nurse tab for the nurses.
+        /// </summary>
+        public void ShowNurseTabOnlyForAdmin()
         {
-
+            if (this.nurseAdminTabControl.TabPages.Contains(nurseTabPage))
+            {
+                if (theCredentialController.GetUserRole(this.activeUsernameLabel.Text) == "Nurse")
+                {
+                    this.nurseAdminTabControl.TabPages.Remove(nurseTabPage);
+                }
+            } 
+            else
+            {
+                this.nurseAdminTabControl.TabPages.Add(nurseTabPage);
+            }
         }
+
     }
 }

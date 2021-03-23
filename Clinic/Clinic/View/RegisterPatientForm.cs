@@ -12,5 +12,7 @@ namespace Clinic.View
             InitializeComponent();
             this.thePatientUserControl = theInputPatientUserControl;
         }
+
+ 
     }
 }

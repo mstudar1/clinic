@@ -87,7 +87,7 @@ namespace Clinic.DAL
             }
         }
 
-        private string GetRole(string username)
+        public string GetRole(string username)
         {
             if (string.IsNullOrEmpty(username))
             {

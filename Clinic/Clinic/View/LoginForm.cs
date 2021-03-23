@@ -1,4 +1,5 @@
-﻿using Clinic.View;
+﻿using Clinic.Controller;
+using Clinic.View;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace Clinic
     public partial class LoginForm : Form
     {
         private NurseAdminForm theNurseAdminForm;
+        private readonly CredentialController theCredentialController;
 
         /// <summary>
         /// The constructor initializes the components
@@ -20,6 +22,8 @@ namespace Clinic
         {
             InitializeComponent();
             this.theNurseAdminForm = null;
+            this.theCredentialController = new CredentialController();
+
         }
 
         /// <summary>
@@ -34,7 +38,10 @@ namespace Clinic
 
         private void CheckCredentials(object sender, EventArgs e)
         {
-            if (usernameTextBox.Text == "admin" && passwordTextBox.Text == "admin")
+            string username = this.usernameTextBox.Text;
+            string password = this.passwordTextBox.Text;
+            bool result = this.theCredentialController.CredentialsAreValid(username, password);
+            if (result)
             {
                 if (this.theNurseAdminForm == null)
                 {
@@ -44,6 +51,9 @@ namespace Clinic
                 {
                     this.theNurseAdminForm.SetTheLoginForm(this);
                 }
+                this.theNurseAdminForm.SetActiveUsername(username);
+                this.theNurseAdminForm.ShowNurseTabOnlyForAdmin();
+
                 theNurseAdminForm.Show();
                 theNurseAdminForm.SetActiveUsername(usernameTextBox.Text);
 

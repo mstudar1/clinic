@@ -82,7 +82,10 @@ namespace Clinic.View
             } 
             else
             {
-                this.nurseAdminTabControl.TabPages.Add(nurseTabPage);
+                if (theCredentialController.GetUserRole(this.activeUsernameLabel.Text) == "Admin")
+                {
+                    this.nurseAdminTabControl.TabPages.Add(nurseTabPage);
+                }
             }
         }
 

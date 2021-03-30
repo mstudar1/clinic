@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using Clinic.Controller;
 using Clinic.UserControls;
 
 namespace Clinic.View
@@ -9,6 +10,7 @@ namespace Clinic.View
     public partial class AddNurseForm : Form
     {
         private NurseUserControl theNurseUserControl;
+        private NurseController controller;
 
         /// <summary>
         /// Constructor for the add nurse form
@@ -18,6 +20,16 @@ namespace Clinic.View
         {
             InitializeComponent();
             this.theNurseUserControl = theInputNurseUserControl;
+        }
+
+        private void AddNurseButton_Click(object sender, System.EventArgs e)
+        {
+            string firstName = this.firstNameTextBox.Text;
+            string lastName = this.lastNameTextBox.Text;
+            try
+            {
+                this.controller.AddNurse();
+            }
         }
     }
     

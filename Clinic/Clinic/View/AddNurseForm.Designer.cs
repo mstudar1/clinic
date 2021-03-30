@@ -441,6 +441,7 @@ namespace Clinic.View
             this.addNurseButton.TabIndex = 14;
             this.addNurseButton.Text = "Add Nurse";
             this.addNurseButton.UseVisualStyleBackColor = true;
+            this.addNurseButton.Click += new System.EventHandler(this.AddNurseButton_Click);
             // 
             // tableLayoutPanel1
             // 

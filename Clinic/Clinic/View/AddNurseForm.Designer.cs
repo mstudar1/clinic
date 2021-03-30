@@ -74,10 +74,10 @@ namespace Clinic.View
             // 
             this.zipTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.zipTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zipTextBox.Location = new System.Drawing.Point(241, 11);
+            this.zipTextBox.Location = new System.Drawing.Point(157, 436);
             this.zipTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.zipTextBox.Name = "zipTextBox";
-            this.zipTextBox.Size = new System.Drawing.Size(102, 26);
+            this.zipTextBox.Size = new System.Drawing.Size(322, 26);
             this.zipTextBox.TabIndex = 13;
             // 
             // cityTextBox
@@ -88,7 +88,7 @@ namespace Clinic.View
             this.cityTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(157, 26);
-            this.cityTextBox.TabIndex = 12;
+            this.cityTextBox.TabIndex = 11;
             // 
             // cityLabel
             // 
@@ -110,9 +110,9 @@ namespace Clinic.View
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.17728F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.82271F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
-            this.tableLayoutPanel4.Controls.Add(this.zipTextBox, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.zipLlabel, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.stateTextBox, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.cityTextBox, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.stateLabel, 1, 0);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(134, 380);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -126,7 +126,7 @@ namespace Clinic.View
             this.zipLlabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.zipLlabel.AutoSize = true;
             this.zipLlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zipLlabel.Location = new System.Drawing.Point(202, 19);
+            this.zipLlabel.Location = new System.Drawing.Point(95, 444);
             this.zipLlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.zipLlabel.Name = "zipLlabel";
             this.zipLlabel.Size = new System.Drawing.Size(35, 20);
@@ -329,18 +329,18 @@ namespace Clinic.View
             // 
             this.stateTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.stateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stateTextBox.Location = new System.Drawing.Point(241, 3);
+            this.stateTextBox.Location = new System.Drawing.Point(241, 11);
             this.stateTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.stateTextBox.Name = "stateTextBox";
             this.stateTextBox.Size = new System.Drawing.Size(102, 26);
-            this.stateTextBox.TabIndex = 11;
+            this.stateTextBox.TabIndex = 12;
             // 
             // stateLabel
             // 
             this.stateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.stateLabel.AutoSize = true;
             this.stateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stateLabel.Location = new System.Drawing.Point(185, 11);
+            this.stateLabel.Location = new System.Drawing.Point(185, 19);
             this.stateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.stateLabel.Name = "stateLabel";
             this.stateLabel.Size = new System.Drawing.Size(52, 20);
@@ -352,10 +352,10 @@ namespace Clinic.View
             // 
             this.address2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.address2TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address2TextBox.Location = new System.Drawing.Point(22, 3);
+            this.address2TextBox.Location = new System.Drawing.Point(23, 3);
             this.address2TextBox.Margin = new System.Windows.Forms.Padding(2);
             this.address2TextBox.Name = "address2TextBox";
-            this.address2TextBox.Size = new System.Drawing.Size(157, 26);
+            this.address2TextBox.Size = new System.Drawing.Size(320, 26);
             this.address2TextBox.TabIndex = 10;
             // 
             // addressLabel
@@ -407,12 +407,8 @@ namespace Clinic.View
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.62327F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.37673F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
-            this.tableLayoutPanel2.Controls.Add(this.stateTextBox, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.stateLabel, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.address2TextBox, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(134, 345);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
@@ -454,7 +450,7 @@ namespace Clinic.View
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.09836F));
             this.tableLayoutPanel1.Controls.Add(this.cancelButton, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.addNurseButton, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(164, 469);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(164, 491);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -484,8 +480,8 @@ namespace Clinic.View
             // 
             this.registerPatientTableLayoutPanel.ColumnCount = 2;
             this.registerPatientTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.56233F));
-            this.registerPatientTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.43768F));
-            this.registerPatientTableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 1, 9);
+            this.registerPatientTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.43767F));
+            this.registerPatientTableLayoutPanel.Controls.Add(this.zipLlabel, 0, 9);
             this.registerPatientTableLayoutPanel.Controls.Add(this.addressLabel, 0, 6);
             this.registerPatientTableLayoutPanel.Controls.Add(this.phoneNumberTextBox, 1, 5);
             this.registerPatientTableLayoutPanel.Controls.Add(this.address1TextBox, 1, 6);
@@ -503,10 +499,12 @@ namespace Clinic.View
             this.registerPatientTableLayoutPanel.Controls.Add(this.tableLayoutPanel3, 1, 4);
             this.registerPatientTableLayoutPanel.Controls.Add(this.cityLabel, 0, 8);
             this.registerPatientTableLayoutPanel.Controls.Add(this.tableLayoutPanel4, 1, 8);
+            this.registerPatientTableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 1, 10);
+            this.registerPatientTableLayoutPanel.Controls.Add(this.zipTextBox, 1, 9);
             this.registerPatientTableLayoutPanel.Location = new System.Drawing.Point(23, 5);
             this.registerPatientTableLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.registerPatientTableLayoutPanel.Name = "registerPatientTableLayoutPanel";
-            this.registerPatientTableLayoutPanel.RowCount = 10;
+            this.registerPatientTableLayoutPanel.RowCount = 11;
             this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 71.59091F));
             this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.40909F));
             this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
@@ -516,7 +514,8 @@ namespace Clinic.View
             this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.registerPatientTableLayoutPanel.Size = new System.Drawing.Size(481, 562);
             this.registerPatientTableLayoutPanel.TabIndex = 1;
             // 

@@ -17,7 +17,7 @@ namespace Clinic.Controller
         }
 
         /// <summary>
-        /// Method that adds the specified Patient object to the Person and Patient tables in the database.
+        /// Method that adds the specified Nurse object to the Person and Nurse tables in the database.
         /// </summary>
         /// <param name="thePatient">The Patient object being added to the database.</param>
         public void AddNurse(Nurse theNurse)

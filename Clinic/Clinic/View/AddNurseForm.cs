@@ -1,5 +1,7 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using Clinic.Controller;
+using Clinic.Model;
 using Clinic.UserControls;
 
 namespace Clinic.View
@@ -10,7 +12,7 @@ namespace Clinic.View
     public partial class AddNurseForm : Form
     {
         private NurseUserControl theNurseUserControl;
-        private NurseController controller;
+        private NurseController theNursecontroller;
 
         /// <summary>
         /// Constructor for the add nurse form
@@ -20,15 +22,53 @@ namespace Clinic.View
         {
             InitializeComponent();
             this.theNurseUserControl = theInputNurseUserControl;
+            this.theNursecontroller = new NurseController();
         }
 
+        /// <summary>
+        /// When add button is clicked a Person object is created with the form information.  The person temporarily has an id of -1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddNurseButton_Click(object sender, System.EventArgs e)
         {
             string firstName = this.firstNameTextBox.Text;
             string lastName = this.lastNameTextBox.Text;
+            //string dobString = this.yearTextBox + "-" + this.monthComboBox.Text + "-" + this.dayComboBox.Text;
+            //DateTime dob = DateTime.ParseExact(dobString, "yyyy-MM-dd", null);
+            int year = int.Parse(this.yearTextBox.Text);
+            int month = int.Parse(this.monthComboBox.Text);
+            int day = int.Parse(this.dayComboBox.Text);
+            DateTime dob = new DateTime(year, month, day);
+            string ssn = this.ssnTextBox.Text;
+            string gender = this.genderComboBox.Text;
+            string phone = this.phoneNumberTextBox.Text;
+            string address1 = this.address1TextBox.Text;
+            string address2 = this.address2TextBox.Text;
+            string city = this.cityTextBox.Text;
+            string state = this.stateTextBox.Text;
+            string zip = this.zipTextBox.Text;
             try
             {
-                this.controller.AddNurse();
+                Nurse newNurse = new Nurse
+                {
+                    LastName = lastName,
+                    FirstName = firstName,
+                    DateOfBirth = dob,
+                    SocialSecurityNumber = ssn,
+                    Gender = gender,
+                    PhoneNumber = phone,
+                    AddressLine1 = address1,
+                    City = city,
+                    State = state,
+                    ZipCode = zip
+                };
+                this.theNursecontroller.AddNurse(newNurse);
+                this.noticeLabel.Text = "Success";  //TODO:  Need to better validate this entry in DB before providing this message 
+            }
+            catch(Exception ex)
+            {
+                this.noticeLabel.Text = "Error. Form data not submitted (" + ex.Message + "). Please fix and try again. ";
             }
         }
     }

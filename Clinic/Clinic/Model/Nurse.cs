@@ -6,5 +6,7 @@
     public class Nurse : Person
     {
         public int NurseId { get; set; }
+
+
     }
 }

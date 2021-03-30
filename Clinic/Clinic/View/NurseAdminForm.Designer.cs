@@ -37,7 +37,7 @@ namespace Clinic.View
             this.patientTabPage = new System.Windows.Forms.TabPage();
             this.patientUserControl1 = new Clinic.UserControls.PatientUserControl();
             this.nurseTabPage = new System.Windows.Forms.TabPage();
-            this.nurse1 = new Clinic.UserControls.Nurse();
+            this.nurse1 = new Clinic.UserControls.NurseUserControl();
             this.logoutLinkLabel = new System.Windows.Forms.LinkLabel();
             this.activeUsernameLabel = new System.Windows.Forms.Label();
             this.nurseAdminTabControl.SuspendLayout();
@@ -185,7 +185,7 @@ namespace Clinic.View
         #endregion
         private System.Windows.Forms.TabControl nurseAdminTabControl;
         private System.Windows.Forms.TabPage nurseTabPage;
-        private UserControls.Nurse nurse1;
+        private UserControls.NurseUserControl nurse1;
         private System.Windows.Forms.LinkLabel logoutLinkLabel;
         private System.Windows.Forms.TabPage appointmentTabPage;
         private System.Windows.Forms.TabPage visitTabPage;

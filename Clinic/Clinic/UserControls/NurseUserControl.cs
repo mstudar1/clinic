@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using Clinic.View;
+using System.Windows.Forms;
 
 namespace Clinic.UserControls
 {
@@ -7,11 +8,27 @@ namespace Clinic.UserControls
     /// The NurseUserControl class creates user control to be added in the NurseAdminForm form's "Nurse" tab.
     /// Nurse controler let's admin to see the list of nurses, add a new nurse to the list, edit and delete existing nurse list.
     /// </summary>
-    public partial class Nurse : UserControl
+    public partial class NurseUserControl : UserControl
     {
-        public Nurse()
+        private AddNurseForm theAddNurseForm;
+
+        /// <summary>
+        /// Initialize the form
+        /// </summary>
+        public NurseUserControl()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// When button clicked the add nurse form should be called
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RegisterNurseButton_Click(object sender, System.EventArgs e)
+        {
+            this.theAddNurseForm = new AddNurseForm(this);
+            theAddNurseForm.Show();
         }
     }
 }

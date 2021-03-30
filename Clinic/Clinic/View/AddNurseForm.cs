@@ -1,20 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using Clinic.UserControls;
 
 namespace Clinic.View
 {
+    /// <summary>
+    /// This is the popup form for entering nurse information when adding a new nurse to the system
+    /// </summary>
     public partial class AddNurseForm : Form
     {
-        public AddNurseForm()
+        private NurseUserControl theNurseUserControl;
+
+        /// <summary>
+        /// Constructor for the add nurse form
+        /// </summary>
+        /// <param name="theInputNurseUserControl">the refering usercontrol</param>
+        public AddNurseForm(NurseUserControl theInputNurseUserControl)
         {
             InitializeComponent();
+            this.theNurseUserControl = theInputNurseUserControl;
         }
     }
+    
+
 }

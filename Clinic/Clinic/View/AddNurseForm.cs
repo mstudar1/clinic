@@ -11,8 +11,8 @@ namespace Clinic.View
     /// </summary>
     public partial class AddNurseForm : Form
     {
-        private NurseUserControl theNurseUserControl;
-        private NurseController theNursecontroller;
+        private readonly NurseUserControl theNurseUserControl;
+        private readonly NurseController theNursecontroller;
 
         /// <summary>
         /// Constructor for the add nurse form
@@ -26,7 +26,7 @@ namespace Clinic.View
         }
 
         /// <summary>
-        /// When add button is clicked a Person object is created with the form information.  The person temporarily has an id of -1
+        /// When add button is clicked a Person and Nurse entry is created in the DB with the form information.  
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -34,8 +34,6 @@ namespace Clinic.View
         {
             string firstName = this.firstNameTextBox.Text;
             string lastName = this.lastNameTextBox.Text;
-            //string dobString = this.yearTextBox + "-" + this.monthComboBox.Text + "-" + this.dayComboBox.Text;
-            //DateTime dob = DateTime.ParseExact(dobString, "yyyy-MM-dd", null);
             int year = int.Parse(this.yearTextBox.Text);
             int month = int.Parse(this.monthComboBox.Text);
             int day = int.Parse(this.dayComboBox.Text);
@@ -59,12 +57,13 @@ namespace Clinic.View
                     Gender = gender,
                     PhoneNumber = phone,
                     AddressLine1 = address1,
+                    AddressLine2 = address2,
                     City = city,
                     State = state,
                     ZipCode = zip
                 };
                 this.theNursecontroller.AddNurse(newNurse);
-                this.noticeLabel.Text = "Success";  //TODO:  Need to better validate this entry in DB before providing this message 
+                this.noticeLabel.Text = "Success";  //TODO:  Replace with pop up success message followed by close form 
             }
             catch(Exception ex)
             {

@@ -16,5 +16,15 @@ namespace Clinic.UserControls
         {
             InitializeComponent();
         }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

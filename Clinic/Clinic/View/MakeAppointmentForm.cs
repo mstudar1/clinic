@@ -43,7 +43,13 @@ namespace Clinic.View
         private void searchPatientButton_Click(object sender, EventArgs e)
         {
             this.patientList = this.patientController.FindPatients(this.searchPatientLastNameTextBox.Text, this.searchPatientFirstNameTextBox.Text);
-            this.patientSearchResultListView.Items.Clear();
+            //this.patientSearchResultListView.Items.Clear();
+
+            //this.patientSearchResultListView.Columns.Clear();
+            //this.patientSearchResultListView.Columns.Add("Last Name");
+            //this.patientSearchResultListView.Columns.Add("First Name");
+            //this.patientSearchResultListView.Columns.Add("D.O.B.");
+            //this.patientSearchResultListView.Columns.Add("Person ID");
 
             foreach (Patient current in this.patientList)
             {

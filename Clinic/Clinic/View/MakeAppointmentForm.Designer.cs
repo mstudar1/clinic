@@ -49,6 +49,10 @@ namespace Clinic.View
             this.appointmentTimeListView = new System.Windows.Forms.ListView();
             this.patientSearchResultListView = new System.Windows.Forms.ListView();
             this.searchPatientButton = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -243,13 +247,21 @@ namespace Clinic.View
             // 
             // patientSearchResultListView
             // 
+            this.patientSearchResultListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
             this.tableLayoutPanel1.SetColumnSpan(this.patientSearchResultListView, 2);
+            this.patientSearchResultListView.FullRowSelect = true;
             this.patientSearchResultListView.HideSelection = false;
             this.patientSearchResultListView.Location = new System.Drawing.Point(158, 28);
+            this.patientSearchResultListView.MultiSelect = false;
             this.patientSearchResultListView.Name = "patientSearchResultListView";
-            this.patientSearchResultListView.Size = new System.Drawing.Size(458, 57);
+            this.patientSearchResultListView.Size = new System.Drawing.Size(458, 69);
             this.patientSearchResultListView.TabIndex = 4;
             this.patientSearchResultListView.UseCompatibleStateImageBehavior = false;
+            this.patientSearchResultListView.View = System.Windows.Forms.View.Details;
             // 
             // searchPatientButton
             // 
@@ -260,6 +272,22 @@ namespace Clinic.View
             this.searchPatientButton.Text = "Search for Patient";
             this.searchPatientButton.UseVisualStyleBackColor = true;
             this.searchPatientButton.Click += new System.EventHandler(this.searchPatientButton_Click);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Last Name";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "First Name";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "D.O.B";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "ID";
             // 
             // MakeAppointmentForm
             // 
@@ -297,5 +325,9 @@ namespace Clinic.View
         private System.Windows.Forms.ListView appointmentTimeListView;
         private System.Windows.Forms.ListView patientSearchResultListView;
         private System.Windows.Forms.TextBox searchPatientFirstNameTextBox;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

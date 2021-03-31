@@ -111,6 +111,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\MakeAppointmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MakeAppointmentForm.Designer.cs">
+      <DependentUpon>MakeAppointmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NurseAdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MakeAppointmentForm.resx">
+      <DependentUpon>MakeAppointmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NurseAdminForm.resx">
       <DependentUpon>NurseAdminForm.cs</DependentUpon>

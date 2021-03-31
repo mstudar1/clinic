@@ -13,6 +13,9 @@ namespace Clinic.View
             this.thePatientUserControl = theInputPatientUserControl;
         }
 
- 
+        private void RegisterButton_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

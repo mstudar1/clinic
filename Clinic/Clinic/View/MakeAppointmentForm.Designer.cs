@@ -40,14 +40,16 @@ namespace Clinic.View
             this.searchAppointmentsButton = new System.Windows.Forms.Button();
             this.reserveAppointmentButton = new System.Windows.Forms.Button();
             this.errorNoticeLabel = new System.Windows.Forms.Label();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.searchPatientButton, 2, 0);
@@ -59,6 +61,7 @@ namespace Clinic.View
             this.tableLayoutPanel1.Controls.Add(this.searchAppointmentsButton, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.reserveAppointmentButton, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.errorNoticeLabel, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.cancelButton, 2, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 43);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
@@ -82,7 +85,7 @@ namespace Clinic.View
             // 
             // searchPatientButton
             // 
-            this.searchPatientButton.Location = new System.Drawing.Point(623, 3);
+            this.searchPatientButton.Location = new System.Drawing.Point(390, 3);
             this.searchPatientButton.Name = "searchPatientButton";
             this.searchPatientButton.Size = new System.Drawing.Size(138, 19);
             this.searchPatientButton.TabIndex = 1;
@@ -93,7 +96,7 @@ namespace Clinic.View
             // 
             this.SearchPatientNameTextBox.Location = new System.Drawing.Point(158, 3);
             this.SearchPatientNameTextBox.Name = "SearchPatientNameTextBox";
-            this.SearchPatientNameTextBox.Size = new System.Drawing.Size(459, 20);
+            this.SearchPatientNameTextBox.Size = new System.Drawing.Size(226, 20);
             this.SearchPatientNameTextBox.TabIndex = 2;
             // 
             // label2
@@ -128,12 +131,12 @@ namespace Clinic.View
             this.doctorComboBox.FormattingEnabled = true;
             this.doctorComboBox.Location = new System.Drawing.Point(158, 103);
             this.doctorComboBox.Name = "doctorComboBox";
-            this.doctorComboBox.Size = new System.Drawing.Size(346, 21);
+            this.doctorComboBox.Size = new System.Drawing.Size(226, 21);
             this.doctorComboBox.TabIndex = 6;
             // 
             // searchAppointmentsButton
             // 
-            this.searchAppointmentsButton.Location = new System.Drawing.Point(623, 103);
+            this.searchAppointmentsButton.Location = new System.Drawing.Point(390, 103);
             this.searchAppointmentsButton.Name = "searchAppointmentsButton";
             this.searchAppointmentsButton.Size = new System.Drawing.Size(138, 40);
             this.searchAppointmentsButton.TabIndex = 7;
@@ -144,7 +147,7 @@ namespace Clinic.View
             // 
             this.reserveAppointmentButton.Location = new System.Drawing.Point(158, 353);
             this.reserveAppointmentButton.Name = "reserveAppointmentButton";
-            this.reserveAppointmentButton.Size = new System.Drawing.Size(459, 19);
+            this.reserveAppointmentButton.Size = new System.Drawing.Size(226, 19);
             this.reserveAppointmentButton.TabIndex = 8;
             this.reserveAppointmentButton.Text = "Reserve Appointment";
             this.reserveAppointmentButton.UseVisualStyleBackColor = true;
@@ -157,6 +160,16 @@ namespace Clinic.View
             this.errorNoticeLabel.Name = "errorNoticeLabel";
             this.errorNoticeLabel.Size = new System.Drawing.Size(0, 13);
             this.errorNoticeLabel.TabIndex = 9;
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(390, 353);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(226, 19);
+            this.cancelButton.TabIndex = 10;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // MakeAppointmentForm
             // 
@@ -185,5 +198,6 @@ namespace Clinic.View
         private System.Windows.Forms.Button searchAppointmentsButton;
         private System.Windows.Forms.Button reserveAppointmentButton;
         private System.Windows.Forms.Label errorNoticeLabel;
+        private System.Windows.Forms.Button cancelButton;
     }
 }

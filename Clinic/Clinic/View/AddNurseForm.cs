@@ -34,10 +34,13 @@ namespace Clinic.View
         {
             string firstName = this.firstNameTextBox.Text;
             string lastName = this.lastNameTextBox.Text;
+            /*
             int year = int.Parse(this.yearTextBox.Text);
             int month = int.Parse(this.monthComboBox.Text);
             int day = int.Parse(this.dayComboBox.Text);
-            DateTime dob = new DateTime(year, month, day);
+            DateTime dob2 = new DateTime(year, month, day);
+            */
+            DateTime dob = this.dateOfBirthDateTimePicker.Value;
             string ssn = this.ssnTextBox.Text;
             string gender = this.genderComboBox.Text;
             string phone = this.phoneNumberTextBox.Text;

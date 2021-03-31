@@ -32,14 +32,14 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void AddNurseButton_Click(object sender, System.EventArgs e)
         {
+            if (DateTime.Compare(this.dateOfBirthDateTimePicker.Value, DateTime.Now) > 0)
+            {
+                MessageBox.Show("The date of birth cannot be in the future.  Please revise the date and resubmit.", "Invalid Date of Birth");
+                return;
+            }
+
             string firstName = this.firstNameTextBox.Text;
             string lastName = this.lastNameTextBox.Text;
-            /*
-            int year = int.Parse(this.yearTextBox.Text);
-            int month = int.Parse(this.monthComboBox.Text);
-            int day = int.Parse(this.dayComboBox.Text);
-            DateTime dob2 = new DateTime(year, month, day);
-            */
             DateTime dob = this.dateOfBirthDateTimePicker.Value;
             string ssn = this.ssnTextBox.Text;
             string gender = this.genderComboBox.Text;

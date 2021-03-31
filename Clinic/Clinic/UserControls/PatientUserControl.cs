@@ -36,5 +36,15 @@ namespace Clinic.UserControls
             this.theRegisterPatientForm = new RegisterPatientForm(this);
             theRegisterPatientForm.Show();
         }
+
+        private void SearchButton_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void ResetButton_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

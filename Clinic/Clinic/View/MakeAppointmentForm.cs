@@ -1,4 +1,5 @@
 ﻿using Clinic.Controller;
+using Clinic.Model;
 using Clinic.UserControls;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ namespace Clinic.View
     {
         private readonly AppointmentUserControl appointmentUserControl;
         private readonly AppointmentController appointmentController;
+        private readonly PatientController patientController;
+        private List<Patient> patientList;
 
         /// <summary>
         /// Constructor for the make appointment form
@@ -29,11 +32,29 @@ namespace Clinic.View
             InitializeComponent();
             this.appointmentUserControl = appointmentUserControl;
             this.appointmentController = new AppointmentController();
+            this.patientController = new PatientController();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void searchPatientButton_Click(object sender, EventArgs e)
+        {
+            this.patientList = this.patientController.FindPatients(this.searchPatientLastNameTextBox.Text, this.searchPatientFirstNameTextBox.Text);
+            this.patientSearchResultListView.Items.Clear();
+
+            foreach (Patient current in this.patientList)
+            {
+                ListViewItem item = new ListViewItem(current.FirstName);
+                item.SubItems.Add(current.LastName);
+                item.SubItems.Add(current.DateOfBirth.ToString());
+                item.SubItems.Add(current.PersonId.ToString());
+
+                this.patientSearchResultListView.Items.Add(item);
+            }
+
         }
     }
 }

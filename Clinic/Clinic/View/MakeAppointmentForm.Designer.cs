@@ -30,24 +30,25 @@ namespace Clinic.View
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.searchPatientFirstNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.searchPatientButton = new System.Windows.Forms.Button();
-            this.SearchPatientNameTextBox = new System.Windows.Forms.TextBox();
+            this.searchPatientLastNameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.doctorComboBox = new System.Windows.Forms.ComboBox();
             this.selectDoctorButton = new System.Windows.Forms.Button();
-            this.reserveAppointmentButton = new System.Windows.Forms.Button();
             this.errorNoticeLabel = new System.Windows.Forms.Label();
+            this.reserveAppointmentButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.searchTimesButton = new System.Windows.Forms.Button();
             this.appointmentTimeListView = new System.Windows.Forms.ListView();
             this.patientSearchResultListView = new System.Windows.Forms.ListView();
+            this.searchPatientButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,9 +59,9 @@ namespace Clinic.View
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.searchPatientFirstNameTextBox, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.searchPatientButton, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.SearchPatientNameTextBox, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.searchPatientLastNameTextBox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.doctorComboBox, 1, 2);
@@ -76,6 +77,7 @@ namespace Clinic.View
             this.tableLayoutPanel1.Controls.Add(this.searchTimesButton, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.appointmentTimeListView, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.patientSearchResultListView, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.searchPatientButton, 3, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 43);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
@@ -90,6 +92,14 @@ namespace Clinic.View
             this.tableLayoutPanel1.Size = new System.Drawing.Size(776, 405);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // searchPatientFirstNameTextBox
+            // 
+            this.searchPatientFirstNameTextBox.Location = new System.Drawing.Point(390, 3);
+            this.searchPatientFirstNameTextBox.Name = "searchPatientFirstNameTextBox";
+            this.searchPatientFirstNameTextBox.Size = new System.Drawing.Size(226, 20);
+            this.searchPatientFirstNameTextBox.TabIndex = 2;
+            this.searchPatientFirstNameTextBox.Text = "FirstName";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -99,21 +109,13 @@ namespace Clinic.View
             this.label1.TabIndex = 0;
             this.label1.Text = "Search for patient by name:";
             // 
-            // searchPatientButton
+            // searchPatientLastNameTextBox
             // 
-            this.searchPatientButton.Location = new System.Drawing.Point(390, 3);
-            this.searchPatientButton.Name = "searchPatientButton";
-            this.searchPatientButton.Size = new System.Drawing.Size(166, 19);
-            this.searchPatientButton.TabIndex = 1;
-            this.searchPatientButton.Text = "Search for Patient";
-            this.searchPatientButton.UseVisualStyleBackColor = true;
-            // 
-            // SearchPatientNameTextBox
-            // 
-            this.SearchPatientNameTextBox.Location = new System.Drawing.Point(158, 3);
-            this.SearchPatientNameTextBox.Name = "SearchPatientNameTextBox";
-            this.SearchPatientNameTextBox.Size = new System.Drawing.Size(226, 20);
-            this.SearchPatientNameTextBox.TabIndex = 2;
+            this.searchPatientLastNameTextBox.Location = new System.Drawing.Point(158, 3);
+            this.searchPatientLastNameTextBox.Name = "searchPatientLastNameTextBox";
+            this.searchPatientLastNameTextBox.Size = new System.Drawing.Size(226, 20);
+            this.searchPatientLastNameTextBox.TabIndex = 1;
+            this.searchPatientLastNameTextBox.Text = "LastName";
             // 
             // label2
             // 
@@ -133,15 +135,6 @@ namespace Clinic.View
             this.label3.TabIndex = 4;
             this.label3.Text = "Choose doctor:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 150);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(148, 26);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Choose appointment from the list of available time slots:";
-            // 
             // doctorComboBox
             // 
             this.doctorComboBox.FormattingEnabled = true;
@@ -159,15 +152,6 @@ namespace Clinic.View
             this.selectDoctorButton.Text = "Select Doctor";
             this.selectDoctorButton.UseVisualStyleBackColor = true;
             // 
-            // reserveAppointmentButton
-            // 
-            this.reserveAppointmentButton.Location = new System.Drawing.Point(158, 353);
-            this.reserveAppointmentButton.Name = "reserveAppointmentButton";
-            this.reserveAppointmentButton.Size = new System.Drawing.Size(226, 19);
-            this.reserveAppointmentButton.TabIndex = 8;
-            this.reserveAppointmentButton.Text = "Reserve Appointment";
-            this.reserveAppointmentButton.UseVisualStyleBackColor = true;
-            // 
             // errorNoticeLabel
             // 
             this.errorNoticeLabel.AutoSize = true;
@@ -176,6 +160,15 @@ namespace Clinic.View
             this.errorNoticeLabel.Name = "errorNoticeLabel";
             this.errorNoticeLabel.Size = new System.Drawing.Size(0, 13);
             this.errorNoticeLabel.TabIndex = 9;
+            // 
+            // reserveAppointmentButton
+            // 
+            this.reserveAppointmentButton.Location = new System.Drawing.Point(158, 353);
+            this.reserveAppointmentButton.Name = "reserveAppointmentButton";
+            this.reserveAppointmentButton.Size = new System.Drawing.Size(226, 19);
+            this.reserveAppointmentButton.TabIndex = 8;
+            this.reserveAppointmentButton.Text = "Reserve Appointment";
+            this.reserveAppointmentButton.UseVisualStyleBackColor = true;
             // 
             // cancelButton
             // 
@@ -187,6 +180,14 @@ namespace Clinic.View
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // textBox1
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.textBox1, 3);
+            this.textBox1.Location = new System.Drawing.Point(158, 328);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(458, 20);
+            this.textBox1.TabIndex = 12;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -196,13 +197,14 @@ namespace Clinic.View
             this.label5.TabIndex = 11;
             this.label5.Text = "Reason for visit:";
             // 
-            // textBox1
+            // label4
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.textBox1, 3);
-            this.textBox1.Location = new System.Drawing.Point(158, 328);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(458, 20);
-            this.textBox1.TabIndex = 12;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 150);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(148, 26);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Choose appointment from the list of available time slots:";
             // 
             // label6
             // 
@@ -246,8 +248,18 @@ namespace Clinic.View
             this.patientSearchResultListView.Location = new System.Drawing.Point(158, 28);
             this.patientSearchResultListView.Name = "patientSearchResultListView";
             this.patientSearchResultListView.Size = new System.Drawing.Size(458, 57);
-            this.patientSearchResultListView.TabIndex = 17;
+            this.patientSearchResultListView.TabIndex = 4;
             this.patientSearchResultListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // searchPatientButton
+            // 
+            this.searchPatientButton.Location = new System.Drawing.Point(622, 3);
+            this.searchPatientButton.Name = "searchPatientButton";
+            this.searchPatientButton.Size = new System.Drawing.Size(151, 19);
+            this.searchPatientButton.TabIndex = 3;
+            this.searchPatientButton.Text = "Search for Patient";
+            this.searchPatientButton.UseVisualStyleBackColor = true;
+            this.searchPatientButton.Click += new System.EventHandler(this.searchPatientButton_Click);
             // 
             // MakeAppointmentForm
             // 
@@ -268,7 +280,7 @@ namespace Clinic.View
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button searchPatientButton;
-        private System.Windows.Forms.TextBox SearchPatientNameTextBox;
+        private System.Windows.Forms.TextBox searchPatientLastNameTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -284,5 +296,6 @@ namespace Clinic.View
         private System.Windows.Forms.Button searchTimesButton;
         private System.Windows.Forms.ListView appointmentTimeListView;
         private System.Windows.Forms.ListView patientSearchResultListView;
+        private System.Windows.Forms.TextBox searchPatientFirstNameTextBox;
     }
 }

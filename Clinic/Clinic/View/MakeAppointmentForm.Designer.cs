@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace Clinic.View
 {
     partial class MakeAppointmentForm
@@ -132,7 +134,7 @@ namespace Clinic.View
             this.label2.Location = new System.Drawing.Point(3, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(149, 26);
-            this.label2.TabIndex = 3;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Choose the correct patient by name and D.O.B.:";
             // 
             // label3
@@ -141,7 +143,7 @@ namespace Clinic.View
             this.label3.Location = new System.Drawing.Point(3, 100);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 13);
-            this.label3.TabIndex = 4;
+            this.label3.TabIndex = 0;
             this.label3.Text = "Choose doctor:";
             // 
             // doctorComboBox
@@ -153,7 +155,7 @@ namespace Clinic.View
             this.doctorComboBox.Location = new System.Drawing.Point(158, 103);
             this.doctorComboBox.Name = "doctorComboBox";
             this.doctorComboBox.Size = new System.Drawing.Size(226, 21);
-            this.doctorComboBox.TabIndex = 6;
+            this.doctorComboBox.TabIndex = 5;
             this.doctorComboBox.ValueMember = "DoctorId";
             this.doctorComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.doctorComboBox_Format);
             // 
@@ -166,7 +168,7 @@ namespace Clinic.View
             this.selectDoctorButton.Location = new System.Drawing.Point(390, 103);
             this.selectDoctorButton.Name = "selectDoctorButton";
             this.selectDoctorButton.Size = new System.Drawing.Size(166, 19);
-            this.selectDoctorButton.TabIndex = 7;
+            this.selectDoctorButton.TabIndex = 6;
             this.selectDoctorButton.Text = "Select Doctor";
             this.selectDoctorButton.UseVisualStyleBackColor = true;
             // 
@@ -184,7 +186,7 @@ namespace Clinic.View
             this.reserveAppointmentButton.Location = new System.Drawing.Point(158, 353);
             this.reserveAppointmentButton.Name = "reserveAppointmentButton";
             this.reserveAppointmentButton.Size = new System.Drawing.Size(226, 19);
-            this.reserveAppointmentButton.TabIndex = 8;
+            this.reserveAppointmentButton.TabIndex = 11;
             this.reserveAppointmentButton.Text = "Reserve Appointment";
             this.reserveAppointmentButton.UseVisualStyleBackColor = true;
             // 
@@ -193,7 +195,7 @@ namespace Clinic.View
             this.cancelButton.Location = new System.Drawing.Point(390, 353);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(226, 19);
-            this.cancelButton.TabIndex = 10;
+            this.cancelButton.TabIndex = 12;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
@@ -204,7 +206,7 @@ namespace Clinic.View
             this.textBox1.Location = new System.Drawing.Point(158, 328);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(458, 20);
-            this.textBox1.TabIndex = 12;
+            this.textBox1.TabIndex = 10;
             // 
             // label5
             // 
@@ -212,7 +214,7 @@ namespace Clinic.View
             this.label5.Location = new System.Drawing.Point(3, 325);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 13);
-            this.label5.TabIndex = 11;
+            this.label5.TabIndex = 0;
             this.label5.Text = "Reason for visit:";
             // 
             // label4
@@ -221,7 +223,7 @@ namespace Clinic.View
             this.label4.Location = new System.Drawing.Point(3, 150);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(148, 26);
-            this.label4.TabIndex = 5;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Choose appointment from the list of available time slots:";
             // 
             // label6
@@ -230,22 +232,24 @@ namespace Clinic.View
             this.label6.Location = new System.Drawing.Point(3, 125);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(131, 13);
-            this.label6.TabIndex = 13;
+            this.label6.TabIndex = 0;
             this.label6.Text = "Choose appointment date:";
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(158, 128);
+            this.dateTimePicker1.MinDate = new System.DateTime(2021, 3, 31, 23, 19, 45, 68);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 14;
+            this.dateTimePicker1.TabIndex = 7;
+            this.dateTimePicker1.Value = new System.DateTime(2021, 3, 31, 23, 19, 45, 68);
             // 
             // searchTimesButton
             // 
             this.searchTimesButton.Location = new System.Drawing.Point(390, 128);
             this.searchTimesButton.Name = "searchTimesButton";
             this.searchTimesButton.Size = new System.Drawing.Size(166, 19);
-            this.searchTimesButton.TabIndex = 15;
+            this.searchTimesButton.TabIndex = 8;
             this.searchTimesButton.Text = "Search for Available Times";
             this.searchTimesButton.UseVisualStyleBackColor = true;
             // 
@@ -256,7 +260,7 @@ namespace Clinic.View
             this.appointmentTimeListView.Location = new System.Drawing.Point(158, 153);
             this.appointmentTimeListView.Name = "appointmentTimeListView";
             this.appointmentTimeListView.Size = new System.Drawing.Size(458, 158);
-            this.appointmentTimeListView.TabIndex = 16;
+            this.appointmentTimeListView.TabIndex = 9;
             this.appointmentTimeListView.UseCompatibleStateImageBehavior = false;
             // 
             // patientSearchResultListView

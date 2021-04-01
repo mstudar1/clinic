@@ -143,9 +143,11 @@ namespace Clinic.View
 
         private void GetUserButton_Click(object sender, EventArgs e)
         {
-            Person result = this.theCredentialController.GetUser(this.getUserUsernameTextBox.Text);
-            MessageBox.Show("Person ID: " + result.PersonId + "\n" + 
-                "Name: " + result.FirstName + " " + result.LastName);
+            Person user = this.theCredentialController.GetUser(this.getUserUsernameTextBox.Text);
+            MessageBox.Show("Person ID: " + user.PersonId + "\n" + 
+                "Name: " + user.FirstName + " " + user.LastName + "\n" +
+                "Is a nurse: " + (user is Nurse) + "\n" +
+                "Is an administrator: " + (user is Administrator));
         }
 
         private void FindPatientsButton_Click(object sender, EventArgs e)

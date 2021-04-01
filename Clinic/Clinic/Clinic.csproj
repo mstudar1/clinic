@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AppointmentController.cs" />
+    <Compile Include="Controller\DoctorController.cs" />
     <Compile Include="Controller\CredentialController.cs" />
     <Compile Include="Controller\NurseController.cs" />
     <Compile Include="Controller\PatientController.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="DAL\AppointmentDAL.cs" />
     <Compile Include="DAL\ClinicDBConnection.cs" />
     <Compile Include="DAL\CredentialDAL.cs" />
+    <Compile Include="DAL\DoctorDAL.cs" />
     <Compile Include="DAL\NurseDAL.cs" />
     <Compile Include="DAL\PatientDAL.cs" />
     <Compile Include="DAL\PersonDAL.cs" />
@@ -168,6 +170,8 @@
     <EmbeddedResource Include="View\RegisterPatientForm.resx">
       <DependentUpon>RegisterPatientForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Clinic.Controller.DoctorController.datasource" />
+    <None Include="Properties\DataSources\Clinic.Model.Doctor.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

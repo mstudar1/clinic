@@ -29,6 +29,7 @@ namespace Clinic.View
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.searchPatientFirstNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,6 +37,7 @@ namespace Clinic.View
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.doctorComboBox = new System.Windows.Forms.ComboBox();
+            this.doctorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.selectDoctorButton = new System.Windows.Forms.Button();
             this.errorNoticeLabel = new System.Windows.Forms.Label();
             this.reserveAppointmentButton = new System.Windows.Forms.Button();
@@ -48,12 +50,15 @@ namespace Clinic.View
             this.searchTimesButton = new System.Windows.Forms.Button();
             this.appointmentTimeListView = new System.Windows.Forms.ListView();
             this.patientSearchResultListView = new System.Windows.Forms.ListView();
-            this.searchPatientButton = new System.Windows.Forms.Button();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.searchPatientButton = new System.Windows.Forms.Button();
+            this.doctorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -141,11 +146,20 @@ namespace Clinic.View
             // 
             // doctorComboBox
             // 
+            this.doctorComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.doctorBindingSource, "DoctorId", true));
+            this.doctorComboBox.DataSource = this.doctorBindingSource;
+            this.doctorComboBox.DisplayMember = "LastName, FirstName";
             this.doctorComboBox.FormattingEnabled = true;
             this.doctorComboBox.Location = new System.Drawing.Point(158, 103);
             this.doctorComboBox.Name = "doctorComboBox";
             this.doctorComboBox.Size = new System.Drawing.Size(226, 21);
             this.doctorComboBox.TabIndex = 6;
+            this.doctorComboBox.ValueMember = "DoctorId";
+            this.doctorComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.doctorComboBox_Format);
+            // 
+            // doctorBindingSource
+            // 
+            this.doctorBindingSource.DataSource = typeof(Clinic.Model.Doctor);
             // 
             // selectDoctorButton
             // 
@@ -263,16 +277,6 @@ namespace Clinic.View
             this.patientSearchResultListView.UseCompatibleStateImageBehavior = false;
             this.patientSearchResultListView.View = System.Windows.Forms.View.Details;
             // 
-            // searchPatientButton
-            // 
-            this.searchPatientButton.Location = new System.Drawing.Point(622, 3);
-            this.searchPatientButton.Name = "searchPatientButton";
-            this.searchPatientButton.Size = new System.Drawing.Size(151, 19);
-            this.searchPatientButton.TabIndex = 3;
-            this.searchPatientButton.Text = "Search for Patient";
-            this.searchPatientButton.UseVisualStyleBackColor = true;
-            this.searchPatientButton.Click += new System.EventHandler(this.searchPatientButton_Click);
-            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Last Name";
@@ -289,6 +293,20 @@ namespace Clinic.View
             // 
             this.columnHeader4.Text = "ID";
             // 
+            // searchPatientButton
+            // 
+            this.searchPatientButton.Location = new System.Drawing.Point(622, 3);
+            this.searchPatientButton.Name = "searchPatientButton";
+            this.searchPatientButton.Size = new System.Drawing.Size(151, 19);
+            this.searchPatientButton.TabIndex = 3;
+            this.searchPatientButton.Text = "Search for Patient";
+            this.searchPatientButton.UseVisualStyleBackColor = true;
+            this.searchPatientButton.Click += new System.EventHandler(this.SearchPatientButton_Click);
+            // 
+            // doctorBindingSource1
+            // 
+            this.doctorBindingSource1.DataSource = typeof(Clinic.Model.Doctor);
+            // 
             // MakeAppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,8 +315,11 @@ namespace Clinic.View
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MakeAppointmentForm";
             this.Text = "Make Appointment";
+            this.Load += new System.EventHandler(this.MakeAppointmentForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -329,5 +350,7 @@ namespace Clinic.View
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.BindingSource doctorBindingSource;
+        private System.Windows.Forms.BindingSource doctorBindingSource1;
     }
 }

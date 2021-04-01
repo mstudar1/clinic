@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AppointmentController.cs" />
+    <Compile Include="Controller\DoctorController.cs" />
     <Compile Include="Controller\CredentialController.cs" />
     <Compile Include="Controller\NurseController.cs" />
     <Compile Include="Controller\PatientController.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="DAL\AppointmentDAL.cs" />
     <Compile Include="DAL\ClinicDBConnection.cs" />
     <Compile Include="DAL\CredentialDAL.cs" />
+    <Compile Include="DAL\DoctorDAL.cs" />
     <Compile Include="DAL\NurseDAL.cs" />
     <Compile Include="DAL\PatientDAL.cs" />
     <Compile Include="DAL\PersonDAL.cs" />
@@ -111,6 +113,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\MakeAppointmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MakeAppointmentForm.Designer.cs">
+      <DependentUpon>MakeAppointmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NurseAdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,12 +161,17 @@
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\MakeAppointmentForm.resx">
+      <DependentUpon>MakeAppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\NurseAdminForm.resx">
       <DependentUpon>NurseAdminForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RegisterPatientForm.resx">
       <DependentUpon>RegisterPatientForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Clinic.Controller.DoctorController.datasource" />
+    <None Include="Properties\DataSources\Clinic.Model.Doctor.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

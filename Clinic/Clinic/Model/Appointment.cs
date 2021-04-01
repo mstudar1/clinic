@@ -9,7 +9,9 @@ namespace Clinic.Model
     {
         public int PatientId { get; set; }
 
-        public DateTime DateAndTime { get; set; }
+        public DateTime StartDateTime { get; set; }
+
+        public DateTime EndDateTime { get; set; }
 
         public int DoctorId { get; set; }
 

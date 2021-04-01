@@ -38,21 +38,25 @@ namespace Clinic.Controller
         /// Method that returns true if the specified doctor is unavailable at the specified time.
         /// </summary>
         /// <param name="doctorId">The ID of the doctor in question.</param>
-        /// <param name="appointmentDateAndTime">The date and time of the appointment in question.</param>
+        /// <param name="startDateTime">The start date and time of the appointment in question.</param>
+        /// <param name="endDateTime">The end date and time of the appointment in question.</param>
         /// <returns>True if the specified doctor is booked at the specified time, false otherwise.</returns>
-        public bool DoctorIsBooked(int doctorId, DateTime appointmentDateAndTime)
+        public bool DoctorIsBooked(int doctorId, DateTime startDateTime, DateTime endDateTime)
         {
             if (doctorId < 0)
             {
                 throw new ArgumentException("The doctor's ID cannot be negative.", "doctorId");
             }
-
-            if (appointmentDateAndTime == null)
+            if (startDateTime == null)
             {
-                throw new ArgumentNullException("appointmentDateAndTime", "The date and time of the appointment cannot be null.");
+                throw new ArgumentNullException("startDateTime", "The start date and time of the appointment cannot be null.");
+            }
+            if (startDateTime == null)
+            {
+                throw new ArgumentNullException("endDateTime", "The end date and time of the appointment cannot be null.");
             }
 
-            return this.appointmentSource.DoctorIsBooked(doctorId, appointmentDateAndTime);
+            return this.appointmentSource.DoctorIsBooked(doctorId, startDateTime, endDateTime);
         }
 
         /// <summary>

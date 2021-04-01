@@ -1,4 +1,5 @@
-﻿using Clinic.View;
+﻿using Clinic.Controller;
+using Clinic.View;
 using System;
 using System.Windows.Forms;
 
@@ -12,6 +13,7 @@ namespace Clinic.UserControls
     public partial class PatientUserControl : UserControl
     {
 
+        private PatientController thePatientController;
         private RegisterPatientForm theRegisterPatientForm;
 
         /// <summary>
@@ -20,7 +22,9 @@ namespace Clinic.UserControls
         public PatientUserControl()
         {
             InitializeComponent();
+            this.thePatientController = new PatientController();
             this.theRegisterPatientForm = null;
+            //this.RefreshData();
         }
 
         /// <summary>
@@ -51,5 +55,7 @@ namespace Clinic.UserControls
         {
 
         }
+
+        
     }
 }

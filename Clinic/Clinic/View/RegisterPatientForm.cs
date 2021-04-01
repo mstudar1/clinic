@@ -4,10 +4,19 @@ using System.Windows.Forms;
 
 namespace Clinic.View
 {
+
+    /// <summary>
+    /// This is the popup form for registering patients to the system
+    /// </summary>
     public partial class RegisterPatientForm : Form
     {
 
         private PatientUserControl thePatientUserControl;
+
+        /// <summary>
+        /// Constructor used to initialize the thePatientUserControl and 
+        /// </summary>
+        /// <param name="theInputPatientUserControl"></param>
         public RegisterPatientForm(PatientUserControl theInputPatientUserControl)
         {
             InitializeComponent();

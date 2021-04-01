@@ -18,6 +18,7 @@ namespace Clinic.View
         private readonly DoctorController doctorController;
         private List<Patient> patientList;
         private List<Doctor> doctorList;
+        private List<Appointment> appointmentList;
 
         /// <summary>
         /// Constructor for the make appointment form
@@ -46,10 +47,8 @@ namespace Clinic.View
                 item.SubItems.Add(current.LastName);
                 item.SubItems.Add(current.DateOfBirth.ToString());
                 item.SubItems.Add(current.PersonId.ToString());
-
                 this.patientSearchResultListView.Items.Add(item);
             }
-
         }
 
         private void MakeAppointmentForm_Load(object sender, EventArgs e)
@@ -58,12 +57,23 @@ namespace Clinic.View
             doctorComboBox.DataSource = this.doctorList;
         }
 
-        private void doctorComboBox_Format(object sender, ListControlConvertEventArgs e)
+        private void DoctorComboBox_Format(object sender, ListControlConvertEventArgs e)
         {
-            // Assuming your class called Employee , and Firstname & Lastname are the fields
             string lastname = ((Doctor)e.ListItem).FirstName;
             string firstname = ((Doctor)e.ListItem).LastName;
             e.Value = lastname + " " + firstname;
+        }
+
+        private void SearchTimesButton_Click(object sender, EventArgs e)
+        {
+            DateTime chosenDate = this.datePicker.Value;
+            this.appointmentList = this.appointmentController.getAppointmentsOnDate(chosenDate);
+            foreach (Appointment current in this.appointmentList)
+            {
+                ListViewItem item = new ListViewItem(current.StartDateTime.ToString());
+                item.SubItems.Add(current.EndDateTime.ToString());
+                this.appointmentTimeListView.Items.Add(item);
+            }
         }
     }
 }

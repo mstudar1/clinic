@@ -50,6 +50,9 @@ namespace Clinic.View
             this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.searchTimesButton = new System.Windows.Forms.Button();
             this.appointmentTimeListView = new System.Windows.Forms.ListView();
+            this.startTimeColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.endTimeColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.doctorColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.patientSearchResultListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -66,13 +69,11 @@ namespace Clinic.View
             this.label11 = new System.Windows.Forms.Label();
             this.startHourcomboBox = new System.Windows.Forms.ComboBox();
             this.startMinuteComboBox = new System.Windows.Forms.ComboBox();
-            this.doctorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -125,7 +126,7 @@ namespace Clinic.View
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.99319F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.0068F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148F));
             this.tableLayoutPanel3.Controls.Add(this.label12, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.endHourComboBox, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.endMinuteComboBox, 2, 0);
@@ -142,7 +143,7 @@ namespace Clinic.View
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(71, 4);
+            this.label12.Location = new System.Drawing.Point(67, 4);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(7, 15);
             this.label12.TabIndex = 0;
@@ -176,7 +177,7 @@ namespace Clinic.View
             "21",
             "22",
             "23"});
-            this.endHourComboBox.Location = new System.Drawing.Point(23, 3);
+            this.endHourComboBox.Location = new System.Drawing.Point(19, 3);
             this.endHourComboBox.Name = "endHourComboBox";
             this.endHourComboBox.Size = new System.Drawing.Size(42, 21);
             this.endHourComboBox.TabIndex = 1;
@@ -198,7 +199,7 @@ namespace Clinic.View
             "45",
             "50",
             "55"});
-            this.endMinuteComboBox.Location = new System.Drawing.Point(84, 3);
+            this.endMinuteComboBox.Location = new System.Drawing.Point(80, 3);
             this.endMinuteComboBox.Name = "endMinuteComboBox";
             this.endMinuteComboBox.Size = new System.Drawing.Size(39, 21);
             this.endMinuteComboBox.TabIndex = 2;
@@ -257,7 +258,7 @@ namespace Clinic.View
             this.doctorComboBox.Size = new System.Drawing.Size(226, 21);
             this.doctorComboBox.TabIndex = 5;
             this.doctorComboBox.ValueMember = "DoctorId";
-            this.doctorComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.doctorComboBox_Format);
+            this.doctorComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.DoctorComboBox_Format);
             // 
             // doctorBindingSource
             // 
@@ -304,20 +305,42 @@ namespace Clinic.View
             // 
             this.searchTimesButton.Location = new System.Drawing.Point(390, 128);
             this.searchTimesButton.Name = "searchTimesButton";
-            this.searchTimesButton.Size = new System.Drawing.Size(166, 19);
+            this.searchTimesButton.Size = new System.Drawing.Size(226, 19);
             this.searchTimesButton.TabIndex = 8;
-            this.searchTimesButton.Text = "Search for Available Times";
+            this.searchTimesButton.Text = "Show Unavailable Appointment Times";
             this.searchTimesButton.UseVisualStyleBackColor = true;
+            this.searchTimesButton.Click += new System.EventHandler(this.SearchTimesButton_Click);
             // 
             // appointmentTimeListView
             // 
+            this.appointmentTimeListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.startTimeColumnHeader,
+            this.endTimeColumnHeader,
+            this.doctorColumnHeader});
             this.tableLayoutPanel1.SetColumnSpan(this.appointmentTimeListView, 2);
+            this.appointmentTimeListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.appointmentTimeListView.HideSelection = false;
             this.appointmentTimeListView.Location = new System.Drawing.Point(158, 153);
             this.appointmentTimeListView.Name = "appointmentTimeListView";
-            this.appointmentTimeListView.Size = new System.Drawing.Size(458, 158);
+            this.appointmentTimeListView.Size = new System.Drawing.Size(458, 169);
             this.appointmentTimeListView.TabIndex = 9;
             this.appointmentTimeListView.UseCompatibleStateImageBehavior = false;
+            this.appointmentTimeListView.View = System.Windows.Forms.View.Details;
+            // 
+            // startTimeColumnHeader
+            // 
+            this.startTimeColumnHeader.Text = "Start Time";
+            this.startTimeColumnHeader.Width = 100;
+            // 
+            // endTimeColumnHeader
+            // 
+            this.endTimeColumnHeader.Text = "End Time";
+            this.endTimeColumnHeader.Width = 100;
+            // 
+            // doctorColumnHeader
+            // 
+            this.doctorColumnHeader.Text = "Doctor";
+            this.doctorColumnHeader.Width = 100;
             // 
             // patientSearchResultListView
             // 
@@ -340,14 +363,17 @@ namespace Clinic.View
             // columnHeader1
             // 
             this.columnHeader1.Text = "Last Name";
+            this.columnHeader1.Width = 150;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "First Name";
+            this.columnHeader2.Width = 150;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "D.O.B";
+            this.columnHeader3.Width = 100;
             // 
             // columnHeader4
             // 
@@ -422,7 +448,7 @@ namespace Clinic.View
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.99319F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.0068F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
             this.tableLayoutPanel2.Controls.Add(this.label11, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.startHourcomboBox, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.startMinuteComboBox, 2, 0);
@@ -439,7 +465,7 @@ namespace Clinic.View
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(70, 4);
+            this.label11.Location = new System.Drawing.Point(66, 4);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(7, 15);
             this.label11.TabIndex = 0;
@@ -473,7 +499,7 @@ namespace Clinic.View
             "21",
             "22",
             "23"});
-            this.startHourcomboBox.Location = new System.Drawing.Point(22, 3);
+            this.startHourcomboBox.Location = new System.Drawing.Point(18, 3);
             this.startHourcomboBox.Name = "startHourcomboBox";
             this.startHourcomboBox.Size = new System.Drawing.Size(42, 21);
             this.startHourcomboBox.TabIndex = 1;
@@ -495,14 +521,10 @@ namespace Clinic.View
             "45",
             "50",
             "55"});
-            this.startMinuteComboBox.Location = new System.Drawing.Point(83, 3);
+            this.startMinuteComboBox.Location = new System.Drawing.Point(79, 3);
             this.startMinuteComboBox.Name = "startMinuteComboBox";
             this.startMinuteComboBox.Size = new System.Drawing.Size(39, 21);
             this.startMinuteComboBox.TabIndex = 2;
-            // 
-            // doctorBindingSource1
-            // 
-            this.doctorBindingSource1.DataSource = typeof(Clinic.Model.Doctor);
             // 
             // label10
             // 
@@ -531,7 +553,6 @@ namespace Clinic.View
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -563,7 +584,6 @@ namespace Clinic.View
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.BindingSource doctorBindingSource;
-        private System.Windows.Forms.BindingSource doctorBindingSource1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
@@ -575,5 +595,8 @@ namespace Clinic.View
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox endHourComboBox;
         private System.Windows.Forms.ComboBox endMinuteComboBox;
+        private System.Windows.Forms.ColumnHeader startTimeColumnHeader;
+        private System.Windows.Forms.ColumnHeader endTimeColumnHeader;
+        private System.Windows.Forms.ColumnHeader doctorColumnHeader;
     }
 }

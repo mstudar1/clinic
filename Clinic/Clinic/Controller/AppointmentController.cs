@@ -95,5 +95,19 @@ namespace Clinic.Controller
 
             return this.appointmentSource.FindAppointments(patientId);
         }
+
+        /// <summary>
+        /// Gets a list of appointments that have been made for the specified date
+        /// </summary>
+        /// <param name="date">the date for the appointments</param>
+        /// <returns>List of Appointment objects</returns>
+        public List<Appointment> getAppointmentsOnDate(DateTime date)
+        {
+            if (date == null)
+            {
+                throw new ArgumentNullException("date", "The date cannot be null.");
+            }
+            return this.appointmentSource.getAppointmentsOnDate(date);
+        }
     }
 }

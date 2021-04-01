@@ -99,7 +99,8 @@ namespace Clinic.View
             Appointment newAppointment = new Appointment
             {
                 PatientId = 5,
-                DateAndTime = new DateTime(2021, 4, 15, 8, 0, 0),
+                StartDateTime = new DateTime(2021, 4, 15, 8, 0, 0),
+                EndDateTime = new DateTime(2021, 4, 15, 8, 30, 0),
                 DoctorId = 1,
                 ReasonForVisit = "Routine checkup"
             };
@@ -110,32 +111,34 @@ namespace Clinic.View
         private void DoctorIsBookedButton_Click(object sender, EventArgs e)
         {
             int doctorId = int.Parse(this.doctorIdTextBox.Text);
-            DateTime dateAndTime = DateTime.Parse(this.dateAndTimeTextBox.Text);
-            bool result = this.theAppointmentController.DoctorIsBooked(doctorId, dateAndTime);
+            DateTime startDateAndTime = DateTime.Parse(this.dateAndTimeTextBox.Text);
+            TimeSpan duration = new TimeSpan(0, 0, 30, 0);
+            DateTime endDateAndTime = startDateAndTime.Add(duration);
+            bool result = this.theAppointmentController.DoctorIsBooked(doctorId, startDateAndTime, endDateAndTime);
             MessageBox.Show(result.ToString());
         }
 
         private void EditAppointmentButton_Click(object sender, EventArgs e)
         {
-            Appointment originalAppointment = new Appointment
-            {
-                PatientId = 5,
-                DateAndTime = new DateTime(2021, 4, 15, 8, 0, 0),
-                DoctorId = 1,
-                ReasonForVisit = "Routine checkup"
-            };
+        //    Appointment originalAppointment = new Appointment
+        //    {
+        //        PatientId = 5,
+        //        DateAndTime = new DateTime(2021, 4, 15, 8, 0, 0),
+        //        DoctorId = 1,
+        //        ReasonForVisit = "Routine checkup"
+        //    };
 
-            Appointment revisedAppointment = new Appointment
-            {
-                PatientId = 5,
-                DateAndTime = new DateTime(2021, 4, 10, 9, 0, 0),
-                DoctorId = 1,
-                ReasonForVisit = "Routine checkup"
-            };
+        //    Appointment revisedAppointment = new Appointment
+        //    {
+        //        PatientId = 5,
+        //        DateAndTime = new DateTime(2021, 4, 10, 9, 0, 0),
+        //        DoctorId = 1,
+        //        ReasonForVisit = "Routine checkup"
+        //    };
 
-            bool result = this.theAppointmentController.EditAppointment(originalAppointment, revisedAppointment);
+        //    bool result = this.theAppointmentController.EditAppointment(originalAppointment, revisedAppointment);
 
-            MessageBox.Show(result.ToString());
+        //    MessageBox.Show(result.ToString());
         }
 
         private void GetUserButton_Click(object sender, EventArgs e)

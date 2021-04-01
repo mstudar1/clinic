@@ -196,8 +196,7 @@ namespace Clinic.DAL
                         int reasonForVisitOrdinal = reader.GetOrdinal("reasonForVisit");
                         while (reader.Read())
                         {
-                            Appointment theAppointment = new Appointment();
-                            theAppointment.PatientId = patientId;
+                            Appointment theAppointment = new Appointment { PatientId = patientId };
                             if (!reader.IsDBNull(startDateTimeOrdinal)) { theAppointment.StartDateTime = reader.GetDateTime(startDateTimeOrdinal); }
                             if (!reader.IsDBNull(endDateTimeOrdinal)) { theAppointment.EndDateTime = reader.GetDateTime(endDateTimeOrdinal); }
                             if (!reader.IsDBNull(doctorIdOrdinal)) { theAppointment.DoctorId = reader.GetInt32(doctorIdOrdinal); }
@@ -215,7 +214,7 @@ namespace Clinic.DAL
         /// </summary>
         /// <param name="date">the date for the appointments</param>
         /// <returns>List of Appointment objects</returns>
-        public List<Appointment> getAppointmentsOnDate(DateTime date)
+        public List<Appointment> GetAppointmentsOnDate(DateTime date)
         {
             if (date == null)
             {

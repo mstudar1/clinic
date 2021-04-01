@@ -101,13 +101,13 @@ namespace Clinic.Controller
         /// </summary>
         /// <param name="date">the date for the appointments</param>
         /// <returns>List of Appointment objects</returns>
-        public List<Appointment> getAppointmentsOnDate(DateTime date)
+        public List<Appointment> GetAppointmentsOnDate(DateTime date)
         {
             if (date == null)
             {
                 throw new ArgumentNullException("date", "The date cannot be null.");
             }
-            return this.appointmentSource.getAppointmentsOnDate(date);
+            return this.appointmentSource.GetAppointmentsOnDate(date);
         }
     }
 }

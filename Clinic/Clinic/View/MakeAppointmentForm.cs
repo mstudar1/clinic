@@ -94,34 +94,34 @@ namespace Clinic.View
             {
                 alertText += "Patient Name Not Selected:  A name from the patient list must be selected.\n";
             }           
-            if (this.startHourComboBox.SelectedText == "" ||
-                this.startMinuteComboBox.SelectedText == "" ||
-                this.endHourComboBox.SelectedText == "" ||
-                this.endMinuteComboBox.SelectedText == "")
+            if (this.startHourComboBox.SelectedIndex == -1 ||
+                this.startMinuteComboBox.SelectedIndex == -1 ||
+                this.endHourComboBox.SelectedIndex == -1 ||
+                this.endMinuteComboBox.SelectedIndex == -1)
             {
                 alertText += "Appointment Time Not Set:  Hours and minutes must be chosen for start and end times.\n";
             } 
             else
             {
                 DateTime date = this.datePicker.Value;
-                int startHour = int.Parse(this.startHourComboBox.SelectedText);
-                int startMinute = int.Parse(this.startMinuteComboBox.SelectedText);
-                int endHour = int.Parse(this.endHourComboBox.SelectedText);
-                int endMinute = int.Parse(this.endMinuteComboBox.SelectedText);
-                DateTime startTime = new DateTime(date.Year, date.Month, date.Day, startHour, startMinute, 0);
-                DateTime endTime = new DateTime(date.Year, date.Month, date.Day, endHour, endMinute, 0);
-                if (startTime >= endTime)
-                {
-                    alertText += "Invalid Appointment Time:  The end time for the appointment cannot be before the start time.\n";
-                }
+                alertText += "TEST--" ;
+                //int startHour = int.Parse(this.startHourComboBox.SelectedText);
+                //int startMinute = int.Parse(this.startMinuteComboBox.SelectedText);
+                //int endHour = int.Parse(this.endHourComboBox.SelectedText);
+                //int endMinute = int.Parse(this.endMinuteComboBox.SelectedText);
+                //DateTime startTime = new DateTime(date.Year, date.Month, date.Day, startHour, startMinute, 0);
+                //DateTime endTime = new DateTime(date.Year, date.Month, date.Day, endHour, endMinute, 0);
+                //if (startTime >= endTime)
+                //{
+                //    alertText += "Invalid Appointment Time:  The end time for the appointment cannot be before the start time.\n";
+                //}
+                //alertText += "START=" + startHour + ":" + startMinute + "\n";
+                //alertText += "END=" + endHour + ":" + endMinute + "\n";
             }
             if (this.reasonTextBox.Text == "")
             {
                 alertText += "No Reason Provided:  Reason for appointment cannot be blank.\n";
             }
-            
-
-
 
 
             this.alertNoticeLabel.Text = alertText;

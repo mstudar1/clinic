@@ -29,7 +29,7 @@ namespace Clinic.Controller
         /// <returns>List of Doctor objects</returns>
         public List<Doctor> GetAllDoctors()
         {
-            return this.doctorSource.getAllDoctors();
+            return this.doctorSource.GetAllDoctors();
         }
     }
 }

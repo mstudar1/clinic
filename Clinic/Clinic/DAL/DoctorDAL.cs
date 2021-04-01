@@ -19,24 +19,24 @@ namespace Clinic.DAL
             this.thePersonDAL = new PersonDAL();
         }
 
-        public List<Doctor> getAllDoctors()
+        public List<Doctor> GetAllDoctors()
         {
             List<Doctor> doctorList = new List<Doctor>();
 
             string selectStatement =
-                "SELECT Doctor.patientId, " +
+                "SELECT Doctor.doctorId, " +
                     "Doctor.personId, " +
-                    "Doctor.lastName, " +
-                    "Doctor.firstName, " +
-                    "Doctor.dateOfBirth, " +
-                    "Doctor.ssn, " +
-                    "Doctor.gender, " +
-                    "Doctor.phoneNumber, " +
-                    "Doctor.addressLine1, " +
-                    "Doctor.addressLine2, " +
-                    "Doctor.city, " +
-                    "Doctor.state, " +
-                    "Doctor.zipCode " +
+                    "Person.lastName, " +
+                    "Person.firstName, " +
+                    "Person.dateOfBirth, " +
+                    "Person.ssn, " +
+                    "Person.gender, " +
+                    "Person.phoneNumber, " +
+                    "Person.addressLine1, " +
+                    "Person.addressLine2, " +
+                    "Person.city, " +
+                    "Person.state, " +
+                    "Person.zipCode " +
                 "FROM Doctor " +
                     "LEFT JOIN Person ON Doctor.personId = Person.personId ";
 

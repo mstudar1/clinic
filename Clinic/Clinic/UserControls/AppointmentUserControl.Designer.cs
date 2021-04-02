@@ -105,7 +105,7 @@ namespace Clinic.UserControls
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.58187F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.41813F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel3.Controls.Add(this.resetButton, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.appointmentsLabel, 0, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 79);
@@ -121,7 +121,7 @@ namespace Clinic.UserControls
             this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.resetButton.AutoSize = true;
             this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetButton.Location = new System.Drawing.Point(554, 2);
+            this.resetButton.Location = new System.Drawing.Point(553, 2);
             this.resetButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(96, 28);
@@ -146,7 +146,7 @@ namespace Clinic.UserControls
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.35203F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.64797F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 161F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel4.Controls.Add(this.searchButton, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.appDateTextBox, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.nameTextBox, 1, 0);
@@ -163,7 +163,7 @@ namespace Clinic.UserControls
             this.searchButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.searchButton.AutoSize = true;
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(616, 2);
+            this.searchButton.Location = new System.Drawing.Point(615, 2);
             this.searchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(93, 32);
@@ -175,7 +175,7 @@ namespace Clinic.UserControls
             // 
             this.appDateTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.appDateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appDateTextBox.Location = new System.Drawing.Point(455, 3);
+            this.appDateTextBox.Location = new System.Drawing.Point(454, 3);
             this.appDateTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.appDateTextBox.Name = "appDateTextBox";
             this.appDateTextBox.Size = new System.Drawing.Size(155, 30);
@@ -186,7 +186,7 @@ namespace Clinic.UserControls
             // 
             this.nameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameTextBox.Location = new System.Drawing.Point(249, 3);
+            this.nameTextBox.Location = new System.Drawing.Point(248, 3);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(200, 30);
@@ -211,6 +211,7 @@ namespace Clinic.UserControls
             this.NursListView.Name = "NursListView";
             this.NursListView.Size = new System.Drawing.Size(693, 244);
             this.NursListView.TabIndex = 40;
+            this.NursListView.TabStop = false;
             this.NursListView.UseCompatibleStateImageBehavior = false;
             this.NursListView.View = System.Windows.Forms.View.Details;
             // 

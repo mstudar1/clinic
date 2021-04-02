@@ -198,6 +198,7 @@ namespace Clinic.UserControls
             this.NursListView.Name = "NursListView";
             this.NursListView.Size = new System.Drawing.Size(693, 243);
             this.NursListView.TabIndex = 40;
+            this.NursListView.TabStop = false;
             this.NursListView.UseCompatibleStateImageBehavior = false;
             this.NursListView.View = System.Windows.Forms.View.Details;
             // 

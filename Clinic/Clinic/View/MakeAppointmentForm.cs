@@ -40,15 +40,23 @@ namespace Clinic.View
 
         private void SearchPatientButton_Click(object sender, EventArgs e)
         {
-            this.patientList = this.patientController.FindPatients(this.searchPatientLastNameTextBox.Text, this.searchPatientFirstNameTextBox.Text);
-            foreach (Patient current in this.patientList)
+            try
             {
-                ListViewItem item = new ListViewItem(current.FirstName);
-                item.SubItems.Add(current.LastName);
-                item.SubItems.Add(current.DateOfBirth.ToString());
-                item.SubItems.Add(current.PersonId.ToString());
-                this.patientSearchResultListView.Items.Add(item);
+                this.patientList = this.patientController.FindPatients(this.searchPatientLastNameTextBox.Text, this.searchPatientFirstNameTextBox.Text);
+                foreach (Patient current in this.patientList)
+                {
+                    ListViewItem item = new ListViewItem(current.FirstName);
+                    item.SubItems.Add(current.LastName);
+                    item.SubItems.Add(current.DateOfBirth.ToString());
+                    item.SubItems.Add(current.PersonId.ToString());
+                    this.patientSearchResultListView.Items.Add(item);
+                }
             }
+            catch (Exception)
+            {
+                this.alertNoticeLabel.Text = "Invalid names. Please try again.";
+            }
+            
         }
 
         private void MakeAppointmentForm_Load(object sender, EventArgs e)
@@ -104,19 +112,16 @@ namespace Clinic.View
             else
             {
                 DateTime date = this.datePicker.Value;
-                alertText += "TEST--" + this.startHourComboBox.SelectedText + "\n";
-                //int startHour = int.Parse(this.startHourComboBox.SelectedText);
-                //int startMinute = int.Parse(this.startMinuteComboBox.SelectedText);
-                //int endHour = int.Parse(this.endHourComboBox.SelectedText);
-                //int endMinute = int.Parse(this.endMinuteComboBox.SelectedText);
-                //DateTime startTime = new DateTime(date.Year, date.Month, date.Day, startHour, startMinute, 0);
-                //DateTime endTime = new DateTime(date.Year, date.Month, date.Day, endHour, endMinute, 0);
-                //if (startTime >= endTime)
-                //{
-                //    alertText += "Invalid Appointment Time:  The end time for the appointment cannot be before the start time.\n";
-                //}
-                //alertText += "START=" + startHour + ":" + startMinute + "\n";
-                //alertText += "END=" + endHour + ":" + endMinute + "\n";
+                int startHour = int.Parse(this.startHourComboBox.SelectedItem.ToString());
+                int startMinute = int.Parse(this.startMinuteComboBox.SelectedItem.ToString());
+                int endHour = int.Parse(this.endHourComboBox.SelectedItem.ToString());
+                int endMinute = int.Parse(this.endMinuteComboBox.SelectedItem.ToString());
+                DateTime startTime = new DateTime(date.Year, date.Month, date.Day, startHour, startMinute, 0);
+                DateTime endTime = new DateTime(date.Year, date.Month, date.Day, endHour, endMinute, 0);
+                if (startTime >= endTime)
+                {
+                    alertText += "Invalid Appointment Time:  The end time for the appointment cannot be before the start time.\n";
+                }
             }
             if (this.reasonTextBox.Text == "")
             {

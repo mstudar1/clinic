@@ -1,4 +1,6 @@
-﻿using Clinic.UserControls;
+﻿using Clinic.Controller;
+using Clinic.Model;
+using Clinic.UserControls;
 using System;
 using System.Windows.Forms;
 
@@ -12,6 +14,8 @@ namespace Clinic.View
     {
 
         private PatientUserControl thePatientUserControl;
+        private PatientController thePatientController;
+
 
         /// <summary>
         /// Constructor used to initialize the thePatientUserControl and 
@@ -30,6 +34,8 @@ namespace Clinic.View
                 MessageBox.Show("The date of birth cannot be in the future.  Please revise the date and resubmit.", "Invalid Date of Birth");
                 return;
             }
+            //Patient thePatient = new Patient();
+            //this.thePatientController.AddPatient();
         }
     }
 }

@@ -40,29 +40,35 @@ namespace Clinic
         {
             string username = this.usernameTextBox.Text;
             string password = this.passwordTextBox.Text;
-            bool result = this.theCredentialController.CredentialsAreValid(username, password);
-            if (result)
+            try
             {
-                if (this.theNurseAdminForm == null)
+                if (this.theCredentialController.CredentialsAreValid(username, password))
                 {
-                    this.theNurseAdminForm = new NurseAdminForm(this);
+                    if (this.theNurseAdminForm == null)
+                    {
+                        this.theNurseAdminForm = new NurseAdminForm(this);
+                    }
+                    else
+                    {
+                        this.theNurseAdminForm.SetTheLoginForm(this);
+                    }
+                    this.theNurseAdminForm.SetActiveUsername(username);
+                    this.theNurseAdminForm.ShowNurseTabOnlyForAdmin();
+                    this.theNurseAdminForm.Show();
+                    this.theNurseAdminForm.SetActiveUsername(usernameTextBox.Text);
+                    this.Hide();
                 }
                 else
                 {
-                    this.theNurseAdminForm.SetTheLoginForm(this);
+                    this.errorMessageLabel.Text = "Invalid username/password";
                 }
-                this.theNurseAdminForm.SetActiveUsername(username);
-                this.theNurseAdminForm.ShowNurseTabOnlyForAdmin();
-
-                theNurseAdminForm.Show();
-                theNurseAdminForm.SetActiveUsername(usernameTextBox.Text);
-
-                this.Hide();
-            }
-            else
+            } catch (ArgumentNullException ex)
             {
-                this.errorMessageLabel.Text = "Invalid username/password";
-            }
+                if (ex.ParamName == "username")
+                    this.errorMessageLabel.Text = "Please enter a username";
+                else if (ex.ParamName == "password")
+                    this.errorMessageLabel.Text = "Please enter a password";
+            } 
         }
 
         private void EntryInTextbox(object sender, EventArgs e)

@@ -51,12 +51,10 @@ namespace Clinic.View
             this.appointmentTimeListView = new System.Windows.Forms.ListView();
             this.startTimeColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.endTimeColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.doctorColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.patientSearchResultListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.searchPatientButton = new System.Windows.Forms.Button();
             this.reserveAppointmentButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -126,7 +124,7 @@ namespace Clinic.View
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.99319F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.0068F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
             this.tableLayoutPanel3.Controls.Add(this.label12, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.endHourComboBox, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.endMinuteComboBox, 2, 0);
@@ -143,7 +141,7 @@ namespace Clinic.View
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(81, 4);
+            this.label12.Location = new System.Drawing.Point(78, 4);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(9, 15);
             this.label12.TabIndex = 0;
@@ -178,7 +176,7 @@ namespace Clinic.View
             "21",
             "22",
             "23"});
-            this.endHourComboBox.Location = new System.Drawing.Point(33, 3);
+            this.endHourComboBox.Location = new System.Drawing.Point(30, 3);
             this.endHourComboBox.Name = "endHourComboBox";
             this.endHourComboBox.Size = new System.Drawing.Size(42, 21);
             this.endHourComboBox.TabIndex = 1;
@@ -200,7 +198,7 @@ namespace Clinic.View
             "45",
             "50",
             "55"});
-            this.endMinuteComboBox.Location = new System.Drawing.Point(96, 3);
+            this.endMinuteComboBox.Location = new System.Drawing.Point(93, 3);
             this.endMinuteComboBox.Name = "endMinuteComboBox";
             this.endMinuteComboBox.Size = new System.Drawing.Size(39, 21);
             this.endMinuteComboBox.TabIndex = 2;
@@ -211,7 +209,7 @@ namespace Clinic.View
             this.searchPatientFirstNameTextBox.Name = "searchPatientFirstNameTextBox";
             this.searchPatientFirstNameTextBox.Size = new System.Drawing.Size(226, 20);
             this.searchPatientFirstNameTextBox.TabIndex = 2;
-            this.searchPatientFirstNameTextBox.Text = "FirstName";
+            this.searchPatientFirstNameTextBox.Text = "John";
             // 
             // label1
             // 
@@ -228,7 +226,7 @@ namespace Clinic.View
             this.searchPatientLastNameTextBox.Name = "searchPatientLastNameTextBox";
             this.searchPatientLastNameTextBox.Size = new System.Drawing.Size(226, 20);
             this.searchPatientLastNameTextBox.TabIndex = 1;
-            this.searchPatientLastNameTextBox.Text = "LastName";
+            this.searchPatientLastNameTextBox.Text = "Smith";
             // 
             // label2
             // 
@@ -308,8 +306,7 @@ namespace Clinic.View
             this.appointmentTimeListView.BackColor = System.Drawing.SystemColors.ControlLight;
             this.appointmentTimeListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.startTimeColumnHeader,
-            this.endTimeColumnHeader,
-            this.doctorColumnHeader});
+            this.endTimeColumnHeader});
             this.tableLayoutPanel1.SetColumnSpan(this.appointmentTimeListView, 2);
             this.appointmentTimeListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.appointmentTimeListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
@@ -331,18 +328,12 @@ namespace Clinic.View
             this.endTimeColumnHeader.Text = "End Time";
             this.endTimeColumnHeader.Width = 100;
             // 
-            // doctorColumnHeader
-            // 
-            this.doctorColumnHeader.Text = "Doctor";
-            this.doctorColumnHeader.Width = 100;
-            // 
             // patientSearchResultListView
             // 
             this.patientSearchResultListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader3});
             this.tableLayoutPanel1.SetColumnSpan(this.patientSearchResultListView, 2);
             this.patientSearchResultListView.FullRowSelect = true;
             this.patientSearchResultListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
@@ -358,21 +349,17 @@ namespace Clinic.View
             // columnHeader1
             // 
             this.columnHeader1.Text = "Last Name";
-            this.columnHeader1.Width = 150;
+            this.columnHeader1.Width = 170;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "First Name";
-            this.columnHeader2.Width = 150;
+            this.columnHeader2.Width = 170;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "D.O.B";
-            this.columnHeader3.Width = 100;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "ID";
+            this.columnHeader3.Width = 110;
             // 
             // searchPatientButton
             // 
@@ -444,7 +431,7 @@ namespace Clinic.View
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.99319F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.0068F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
             this.tableLayoutPanel2.Controls.Add(this.label11, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.startHourComboBox, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.startMinuteComboBox, 2, 0);
@@ -461,7 +448,7 @@ namespace Clinic.View
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(81, 4);
+            this.label11.Location = new System.Drawing.Point(78, 4);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(9, 15);
             this.label11.TabIndex = 0;
@@ -496,7 +483,7 @@ namespace Clinic.View
             "21",
             "22",
             "23"});
-            this.startHourComboBox.Location = new System.Drawing.Point(33, 3);
+            this.startHourComboBox.Location = new System.Drawing.Point(30, 3);
             this.startHourComboBox.Name = "startHourComboBox";
             this.startHourComboBox.Size = new System.Drawing.Size(42, 21);
             this.startHourComboBox.TabIndex = 1;
@@ -518,7 +505,7 @@ namespace Clinic.View
             "45",
             "50",
             "55"});
-            this.startMinuteComboBox.Location = new System.Drawing.Point(96, 3);
+            this.startMinuteComboBox.Location = new System.Drawing.Point(93, 3);
             this.startMinuteComboBox.Name = "startMinuteComboBox";
             this.startMinuteComboBox.Size = new System.Drawing.Size(39, 21);
             this.startMinuteComboBox.TabIndex = 2;
@@ -593,7 +580,6 @@ namespace Clinic.View
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.BindingSource doctorBindingSource;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
@@ -608,6 +594,5 @@ namespace Clinic.View
         private System.Windows.Forms.ComboBox endMinuteComboBox;
         private System.Windows.Forms.ColumnHeader startTimeColumnHeader;
         private System.Windows.Forms.ColumnHeader endTimeColumnHeader;
-        private System.Windows.Forms.ColumnHeader doctorColumnHeader;
     }
 }

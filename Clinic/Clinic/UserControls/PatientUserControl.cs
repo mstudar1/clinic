@@ -1,6 +1,8 @@
 ﻿using Clinic.Controller;
+using Clinic.Model;
 using Clinic.View;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Clinic.UserControls
@@ -24,7 +26,7 @@ namespace Clinic.UserControls
             InitializeComponent();
             this.thePatientController = new PatientController();
             this.theRegisterPatientForm = null;
-            //this.RefreshData();
+            this.RefreshPatientsListData();
         }
 
         /// <summary>
@@ -44,18 +46,21 @@ namespace Clinic.UserControls
 
         private void SearchButton_Click(object sender, System.EventArgs e)
         {
-            if (DateTime.Compare(this.dateOfBirthDateTimePicker.Value, DateTime.Now) > 0)
-            {
-                MessageBox.Show("The date of birth cannot be in the future.  Please revise the date and resubmit.", "Invalid Date of Birth");
-                return;
-            }
+            
+            
         }
 
         private void ResetButton_Click(object sender, System.EventArgs e)
         {
-
+            this.RefreshPatientsListData();
         }
 
-        
+        /// <summary>
+        /// Method every time clears the patients list from the ViewList and then goes through the data 
+        /// and adds patients to the list
+        /// </summary>
+        public void RefreshPatientsListData()
+        { }
+   
     }
 }

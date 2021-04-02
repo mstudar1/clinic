@@ -125,7 +125,7 @@ namespace Clinic.View
             this.nurseTabPage.Name = "nurseTabPage";
             this.nurseTabPage.Size = new System.Drawing.Size(1470, 828);
             this.nurseTabPage.TabIndex = 0;
-            this.nurseTabPage.Text = "Nurse";
+            this.nurseTabPage.Text = "Nurses";
             this.nurseTabPage.UseVisualStyleBackColor = true;
             // 
             // nurse1

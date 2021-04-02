@@ -64,7 +64,7 @@ namespace Clinic
             this.LoginTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.LoginTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.LoginTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.LoginTableLayoutPanel.Size = new System.Drawing.Size(502, 338);
+            this.LoginTableLayoutPanel.Size = new System.Drawing.Size(502, 304);
             this.LoginTableLayoutPanel.TabIndex = 0;
             // 
             // usernameTextBox
@@ -146,13 +146,14 @@ namespace Clinic
             // 
             // errorMessageLabel
             // 
+            this.errorMessageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.errorMessageLabel.AutoSize = true;
             this.LoginTableLayoutPanel.SetColumnSpan(this.errorMessageLabel, 2);
             this.errorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorMessageLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorMessageLabel.Location = new System.Drawing.Point(83, 250);
+            this.errorMessageLabel.Location = new System.Drawing.Point(83, 268);
             this.errorMessageLabel.Name = "errorMessageLabel";
-            this.errorMessageLabel.Size = new System.Drawing.Size(0, 17);
+            this.errorMessageLabel.Size = new System.Drawing.Size(339, 17);
             this.errorMessageLabel.TabIndex = 5;
             this.errorMessageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -160,7 +161,7 @@ namespace Clinic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(519, 353);
+            this.ClientSize = new System.Drawing.Size(519, 319);
             this.Controls.Add(this.LoginTableLayoutPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;

@@ -254,5 +254,54 @@ namespace Clinic.DAL
             }
             return appointmentList;
         }
+
+        /// <summary>
+        /// Gets a list of appointments that have been made for the specified date for a specified doctor
+        /// </summary>
+        /// <param name="date">the date for the appointments</param>
+        /// <param name="doctorId">the doctorId for the appointments</param>
+        /// <returns>List of Appointment objects</returns>
+        public List<Appointment> GetAppointmentsForDoctorOnDate(int doctorId, DateTime date)
+        {
+            if (date == null)
+            {
+                throw new ArgumentNullException("date", "The date cannot be null.");
+            }
+            List<Appointment> appointmentList = new List<Appointment>();
+
+            string selectStatement =
+                "SELECT startDateTime, endDateTime, doctorId, reasonForVisit " +
+                "FROM Appointment " +
+                "WHERE datediff(day, startDateTime, @searchDate) = 0  " +
+                "AND doctorId = @doctorId " +
+                "ORDER BY startDateTime ASC";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@searchDate", date);
+                    selectCommand.Parameters.AddWithValue("@doctorId", doctorId);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        int startDateTimeOrdinal = reader.GetOrdinal("startDateTime");
+                        int endDateTimeOrdinal = reader.GetOrdinal("endDateTime");
+                        int doctorIdOrdinal = reader.GetOrdinal("doctorId");
+                        int reasonForVisitOrdinal = reader.GetOrdinal("reasonForVisit");
+                        while (reader.Read())
+                        {
+                            Appointment theAppointment = new Appointment();
+                            if (!reader.IsDBNull(startDateTimeOrdinal)) { theAppointment.StartDateTime = reader.GetDateTime(startDateTimeOrdinal); }
+                            if (!reader.IsDBNull(endDateTimeOrdinal)) { theAppointment.EndDateTime = reader.GetDateTime(endDateTimeOrdinal); }
+                            if (!reader.IsDBNull(doctorIdOrdinal)) { theAppointment.DoctorId = reader.GetInt32(doctorIdOrdinal); }
+                            if (!reader.IsDBNull(reasonForVisitOrdinal)) { theAppointment.ReasonForVisit = reader.GetString(reasonForVisitOrdinal); }
+                            appointmentList.Add(theAppointment);
+                        }
+                    }
+                }
+            }
+            return appointmentList;
+        }
     }
 }

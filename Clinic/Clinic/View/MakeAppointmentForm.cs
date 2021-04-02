@@ -104,7 +104,7 @@ namespace Clinic.View
             else
             {
                 DateTime date = this.datePicker.Value;
-                alertText += "TEST--" ;
+                alertText += "TEST--" + this.startHourComboBox.SelectedText + "\n";
                 //int startHour = int.Parse(this.startHourComboBox.SelectedText);
                 //int startMinute = int.Parse(this.startMinuteComboBox.SelectedText);
                 //int endHour = int.Parse(this.endHourComboBox.SelectedText);

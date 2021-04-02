@@ -51,6 +51,7 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void SearchPatientButton_Click(object sender, EventArgs e)
         {
+            this.patientSearchResultListView.Items.Clear();
             try
             {
                 this.patientList = this.patientController.FindPatients(this.searchPatientLastNameTextBox.Text, this.searchPatientFirstNameTextBox.Text);
@@ -66,8 +67,7 @@ namespace Clinic.View
             catch (Exception)
             {
                 this.alertNoticeLabel.Text = "Invalid names. Please try again.";
-            }
-            
+            }         
         }
 
         /// <summary>
@@ -101,6 +101,7 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void SearchTimesButton_Click(object sender, EventArgs e)
         {
+            this.appointmentTimeListView.Items.Clear();
             DateTime chosenDate = this.datePicker.Value;
             int chosenDoctorId = int.Parse(this.doctorComboBox.SelectedValue.ToString());
             this.appointmentList = this.appointmentController.GetAppointmentsForDoctorOnDate(chosenDoctorId, chosenDate);
@@ -174,8 +175,47 @@ namespace Clinic.View
 
             this.alertNoticeLabel.Text = alertText;
         }
+
+        /// <summary>
+        /// Clear patient ListView if text changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void searchPatientLastNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.patientSearchResultListView.Items.Clear();
+        }
+
+        /// <summary>
+        /// Clear patient ListView if text changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void searchPatientFirstNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.patientSearchResultListView.Items.Clear();
+        }
+
+        /// <summary>
+        /// When date changed clear the ListView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void datePicker_ValueChanged(object sender, EventArgs e)
+        {
+            this.appointmentTimeListView.Items.Clear();
+        }
+
+        /// <summary>
+        /// When docotr selected changes, clear the ListView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void doctorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.appointmentTimeListView.Items.Clear();
+        }
         //TODO: Make succes be a popup OK dialog which then closes form
-        //TODO: Make unavailable appointment list be specific to doctor
         //TODO: Set up event handling to clear lists when appropriate
         //TODO: Try to see if some buttons can be done away with
         //TODO: Disable tabpage while this form is active
@@ -183,6 +223,7 @@ namespace Clinic.View
         //TODO: Revert the name fields to labels (not "John Smith")
         //TODO: Refactor final submit handler into smaller chunks
         //TODO: Should the AddAppointment() be in a try-catch block?
+        //TODO: Make appointment times in ListView not include seconds
 
     }
 }

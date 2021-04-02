@@ -35,7 +35,11 @@ namespace Clinic
             this.theNurseAdminForm = theInputNurseAdminForm;
         }
 
-
+        /// <summary>
+        /// Executes the actions to check credentials and attempt to log in to the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CheckCredentials(object sender, EventArgs e)
         {
             string username = this.usernameTextBox.Text;
@@ -56,6 +60,7 @@ namespace Clinic
                     this.theNurseAdminForm.ShowNurseTabOnlyForAdmin();
                     this.theNurseAdminForm.Show();
                     this.theNurseAdminForm.SetActiveUsername(usernameTextBox.Text);
+                    this.passwordTextBox.Text = "";
                     this.Hide();
                 }
                 else
@@ -71,9 +76,15 @@ namespace Clinic
             } 
         }
 
+        /// <summary>
+        /// Clear error messages when new text entered in textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EntryInTextbox(object sender, EventArgs e)
         {
             this.errorMessageLabel.Text = "";
         }
+
     }
 }

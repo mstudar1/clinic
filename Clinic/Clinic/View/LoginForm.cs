@@ -61,14 +61,13 @@ namespace Clinic
             }
             else
             {
-                errorMessageLabel.ForeColor = Color.Red;
-                errorMessageLabel.Text = "Invalid username/password";
+                this.errorMessageLabel.Text = "Invalid username/password";
             }
         }
 
         private void EntryInTextbox(object sender, EventArgs e)
         {
-            errorMessageLabel.Text = "";
+            this.errorMessageLabel.Text = "";
         }
     }
 }

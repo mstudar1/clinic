@@ -31,16 +31,18 @@ namespace Clinic.View
             this.appointmentController = new AppointmentController();
             this.patientController = new PatientController();
             this.doctorController = new DoctorController();
-    }
+        }
 
         /// <summary>
-        /// Cancel button click actions
+        /// Actions to happen when form loads.  Populate doctor combobox.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CancelButton_Click(object sender, EventArgs e)
+        private void MakeAppointmentForm_Load(object sender, EventArgs e)
         {
-            this.Close();
+            this.appointmentUserControl.Enabled = false;
+            this.doctorList = this.doctorController.GetAllDoctors();
+            doctorComboBox.DataSource = this.doctorList;
         }
 
         /// <summary>
@@ -68,18 +70,6 @@ namespace Clinic.View
             {
                 this.alertNoticeLabel.Text = "Invalid names. Please try again.";
             }         
-        }
-
-        /// <summary>
-        /// Actions to happen when form loads.  Populate doctor combobox.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MakeAppointmentForm_Load(object sender, EventArgs e)
-        {
-            this.appointmentUserControl.Enabled = false;
-            this.doctorList = this.doctorController.GetAllDoctors();
-            doctorComboBox.DataSource = this.doctorList;
         }
 
         /// <summary>
@@ -130,22 +120,15 @@ namespace Clinic.View
             {
                 alertText += "Patient Name Not Selected:  A name from the patient list must be selected.\n";
             }
-            if (this.startHourComboBox.SelectedIndex == -1 ||
-                this.startMinuteComboBox.SelectedIndex == -1 ||
-                this.endHourComboBox.SelectedIndex == -1 ||
-                this.endMinuteComboBox.SelectedIndex == -1)
+
+            if (this.TimeFieldsNotSelected())
             {
                 alertText += "Appointment Time Not Set:  Hours and minutes must be chosen for start and end times.\n";
             }
             else
             {
-                DateTime date = this.datePicker.Value;
-                int startHour = int.Parse(this.startHourComboBox.SelectedItem.ToString());
-                int startMinute = int.Parse(this.startMinuteComboBox.SelectedItem.ToString());
-                int endHour = int.Parse(this.endHourComboBox.SelectedItem.ToString());
-                int endMinute = int.Parse(this.endMinuteComboBox.SelectedItem.ToString());
-                startDateTime = new DateTime(date.Year, date.Month, date.Day, startHour, startMinute, 0);
-                endDateTime = new DateTime(date.Year, date.Month, date.Day, endHour, endMinute, 0);
+                startDateTime = this.GetFormStartDateTime();
+                endDateTime = this.GetFormEndDateTime();
                 if (startDateTime >= endDateTime)
                 {
                     alertText += "Invalid Appointment Time:  The end time for the appointment cannot be before the start time.\n";
@@ -155,6 +138,7 @@ namespace Clinic.View
                     alertText += "Appointment Conflict:  Appointment overlaps existing appointment.\n";
                 }
             }
+
             if (this.reasonTextBox.Text == "")
             {
                 alertText += "No Reason Provided:  Reason for appointment cannot be blank.\n";
@@ -171,10 +155,52 @@ namespace Clinic.View
                     ReasonForVisit = this.reasonTextBox.Text
                 };
                 this.appointmentController.AddAppointment(theAppointment);
-                alertText += "SUCCESS!!!";
+                String successText = "Appointment successfully registered for : \n" +
+                    startDateTime.ToString("f") + " - " +
+                    endDateTime.ToString("t");
+                var dialogeResult = MessageBox.Show(successText, "Appointment Registration Success");
+                if (dialogeResult == DialogResult.OK)
+                {
+                    this.Close();
+                }
             }
-
             this.alertNoticeLabel.Text = alertText;
+        }
+
+        /// <summary>
+        /// Gets start time and minute from form and returns DateTime object
+        /// </summary>
+        /// <returns>Start DateTime object</returns>
+        private DateTime GetFormStartDateTime()
+        {
+            DateTime date = this.datePicker.Value;
+            int startHour = int.Parse(this.startHourComboBox.SelectedItem.ToString());
+            int startMinute = int.Parse(this.startMinuteComboBox.SelectedItem.ToString());
+            return new DateTime(date.Year, date.Month, date.Day, startHour, startMinute, 0);
+        }
+
+        /// <summary>
+        /// Gets end time and minute from form and returns DateTime object
+        /// </summary>
+        /// <returns></returns>
+        private DateTime GetFormEndDateTime()
+        {
+            DateTime date = this.datePicker.Value;
+            int endHour = int.Parse(this.endHourComboBox.SelectedItem.ToString());
+            int endMinute = int.Parse(this.endMinuteComboBox.SelectedItem.ToString());
+            return new DateTime(date.Year, date.Month, date.Day, endHour, endMinute, 0);
+        }
+
+        /// <summary>
+        /// Checks to see if any time comboBox is not selected
+        /// </summary>
+        /// <returns>true if any box is NOT selected</returns>
+        private bool TimeFieldsNotSelected()
+        {
+            return (this.startHourComboBox.SelectedIndex == -1 ||
+                this.startMinuteComboBox.SelectedIndex == -1 ||
+                this.endHourComboBox.SelectedIndex == -1 ||
+                this.endMinuteComboBox.SelectedIndex == -1);
         }
 
         /// <summary>
@@ -182,7 +208,7 @@ namespace Clinic.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void searchPatientLastNameTextBox_TextChanged(object sender, EventArgs e)
+        private void SearchPatientLastNameTextBox_TextChanged(object sender, EventArgs e)
         {
             this.patientSearchResultListView.Items.Clear();
         }
@@ -192,7 +218,7 @@ namespace Clinic.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void searchPatientFirstNameTextBox_TextChanged(object sender, EventArgs e)
+        private void SearchPatientFirstNameTextBox_TextChanged(object sender, EventArgs e)
         {
             this.patientSearchResultListView.Items.Clear();
         }
@@ -202,7 +228,7 @@ namespace Clinic.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void datePicker_ValueChanged(object sender, EventArgs e)
+        private void DatePicker_ValueChanged(object sender, EventArgs e)
         {
             this.appointmentTimeListView.Items.Clear();
         }
@@ -212,21 +238,36 @@ namespace Clinic.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void doctorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void DoctorComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.appointmentTimeListView.Items.Clear();
         }
 
+        /// <summary>
+        /// Upon closing form re-enable the Appointment UserControl in the main tabcontrol
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MakeAppointmentForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.appointmentUserControl.Enabled = true;
         }
 
+        /// <summary>
+        /// Cancel button click actions
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
 
         //TODO: Make succes be a popup OK dialog which then closes form
         //TODO: Try to see if some buttons can be done away with
-        //TODO: Revert the name fields to labels (not "John Smith")
         //TODO: Refactor final submit handler into smaller chunks
         //TODO: Should the AddAppointment() be in a try-catch block?
+        //TODO: Revert the name fields to labels (not "John Smith")
     }
 }

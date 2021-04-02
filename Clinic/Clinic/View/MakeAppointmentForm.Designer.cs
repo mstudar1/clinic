@@ -250,7 +250,7 @@ namespace Clinic.View
             this.doctorComboBox.Size = new System.Drawing.Size(226, 21);
             this.doctorComboBox.TabIndex = 5;
             this.doctorComboBox.ValueMember = "DoctorId";
-            this.doctorComboBox.SelectedIndexChanged += new System.EventHandler(this.doctorComboBox_SelectedIndexChanged);
+            this.doctorComboBox.SelectedIndexChanged += new System.EventHandler(this.DoctorComboBox_SelectedIndexChanged);
             this.doctorComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.DoctorComboBox_Format);
             // 
             // doctorBindingSource
@@ -285,7 +285,7 @@ namespace Clinic.View
             this.datePicker.Size = new System.Drawing.Size(303, 20);
             this.datePicker.TabIndex = 7;
             this.datePicker.Value = new System.DateTime(2021, 3, 31, 23, 19, 45, 68);
-            this.datePicker.ValueChanged += new System.EventHandler(this.datePicker_ValueChanged);
+            this.datePicker.ValueChanged += new System.EventHandler(this.DatePicker_ValueChanged);
             // 
             // appointmentTimeListView
             // 
@@ -498,7 +498,7 @@ namespace Clinic.View
             this.searchPatientFirstNameTextBox.Size = new System.Drawing.Size(226, 20);
             this.searchPatientFirstNameTextBox.TabIndex = 2;
             this.searchPatientFirstNameTextBox.Text = "John";
-            this.searchPatientFirstNameTextBox.TextChanged += new System.EventHandler(this.searchPatientFirstNameTextBox_TextChanged);
+            this.searchPatientFirstNameTextBox.TextChanged += new System.EventHandler(this.SearchPatientFirstNameTextBox_TextChanged);
             // 
             // searchPatientLastNameTextBox
             // 
@@ -507,7 +507,7 @@ namespace Clinic.View
             this.searchPatientLastNameTextBox.Size = new System.Drawing.Size(226, 20);
             this.searchPatientLastNameTextBox.TabIndex = 1;
             this.searchPatientLastNameTextBox.Text = "Smith";
-            this.searchPatientLastNameTextBox.TextChanged += new System.EventHandler(this.searchPatientLastNameTextBox_TextChanged);
+            this.searchPatientLastNameTextBox.TextChanged += new System.EventHandler(this.SearchPatientLastNameTextBox_TextChanged);
             // 
             // searchPatientButton
             // 

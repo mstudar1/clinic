@@ -154,14 +154,21 @@ namespace Clinic.View
                     DoctorId = int.Parse(this.doctorComboBox.SelectedValue.ToString()),
                     ReasonForVisit = this.reasonTextBox.Text
                 };
-                this.appointmentController.AddAppointment(theAppointment);
-                String successText = "Appointment successfully registered for : \n" +
+                try
+                {
+                    this.appointmentController.AddAppointment(theAppointment);
+                    String successText = "Appointment successfully registered for : \n" +
                     startDateTime.ToString("f") + " - " +
                     endDateTime.ToString("t");
-                var dialogeResult = MessageBox.Show(successText, "Appointment Registration Success");
-                if (dialogeResult == DialogResult.OK)
+                    var dialogeResult = MessageBox.Show(successText, "Appointment Registration Success");
+                    if (dialogeResult == DialogResult.OK)
+                    {
+                        this.Close();
+                    }
+                } catch (Exception ex)
                 {
-                    this.Close();
+                    alertText += "Error in updating appointment database:\n" + 
+                        ex.Message + "\n";
                 }
             }
             this.alertNoticeLabel.Text = alertText;
@@ -262,12 +269,5 @@ namespace Clinic.View
         {
             this.Close();
         }
-
-
-        //TODO: Make succes be a popup OK dialog which then closes form
-        //TODO: Try to see if some buttons can be done away with
-        //TODO: Refactor final submit handler into smaller chunks
-        //TODO: Should the AddAppointment() be in a try-catch block?
-        //TODO: Revert the name fields to labels (not "John Smith")
     }
 }

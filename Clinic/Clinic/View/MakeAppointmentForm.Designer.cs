@@ -584,6 +584,7 @@ namespace Clinic.View
             this.Name = "MakeAppointmentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Make Appointment";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MakeAppointmentForm_FormClosed);
             this.Load += new System.EventHandler(this.MakeAppointmentForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

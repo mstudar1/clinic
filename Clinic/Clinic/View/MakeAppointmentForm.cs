@@ -77,6 +77,7 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void MakeAppointmentForm_Load(object sender, EventArgs e)
         {
+            this.appointmentUserControl.Enabled = false;
             this.doctorList = this.doctorController.GetAllDoctors();
             doctorComboBox.DataSource = this.doctorList;
         }
@@ -215,14 +216,17 @@ namespace Clinic.View
         {
             this.appointmentTimeListView.Items.Clear();
         }
+
+        private void MakeAppointmentForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.appointmentUserControl.Enabled = true;
+        }
+
+
         //TODO: Make succes be a popup OK dialog which then closes form
         //TODO: Try to see if some buttons can be done away with
-        //TODO: Disable tabpage while this form is active
-        //TODO: Make appointment listview readonly
         //TODO: Revert the name fields to labels (not "John Smith")
         //TODO: Refactor final submit handler into smaller chunks
         //TODO: Should the AddAppointment() be in a try-catch block?
-        //TODO: Make appointment times in ListView not include seconds
-
     }
 }

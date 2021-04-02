@@ -59,7 +59,7 @@ namespace Clinic.View
                 {
                     ListViewItem item = new ListViewItem(current.FirstName);
                     item.SubItems.Add(current.LastName);
-                    item.SubItems.Add(current.DateOfBirth.ToString());
+                    item.SubItems.Add(current.DateOfBirth.ToString("d"));
                     item.SubItems.Add(current.PersonId.ToString());
                     this.patientSearchResultListView.Items.Add(item);
                 }
@@ -107,8 +107,8 @@ namespace Clinic.View
             this.appointmentList = this.appointmentController.GetAppointmentsForDoctorOnDate(chosenDoctorId, chosenDate);
             foreach (Appointment current in this.appointmentList)
             {
-                ListViewItem item = new ListViewItem(current.StartDateTime.ToString());
-                item.SubItems.Add(current.EndDateTime.ToString());
+                ListViewItem item = new ListViewItem(current.StartDateTime.ToString("t"));
+                item.SubItems.Add(current.EndDateTime.ToString("t"));
                 this.appointmentTimeListView.Items.Add(item);
             }
         }
@@ -216,7 +216,6 @@ namespace Clinic.View
             this.appointmentTimeListView.Items.Clear();
         }
         //TODO: Make succes be a popup OK dialog which then closes form
-        //TODO: Set up event handling to clear lists when appropriate
         //TODO: Try to see if some buttons can be done away with
         //TODO: Disable tabpage while this form is active
         //TODO: Make appointment listview readonly

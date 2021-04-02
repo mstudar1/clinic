@@ -97,7 +97,10 @@ namespace Clinic.View
         {
             bool allInputsValid = true;
             String alertText = "";
-            
+            DateTime startTime = new DateTime();
+            DateTime endTime = new DateTime();
+
+
             if (this.patientSearchResultListView.SelectedItems.Count == 0)
             {
                 alertText += "Patient Name Not Selected:  A name from the patient list must be selected.\n";
@@ -116,8 +119,8 @@ namespace Clinic.View
                 int startMinute = int.Parse(this.startMinuteComboBox.SelectedItem.ToString());
                 int endHour = int.Parse(this.endHourComboBox.SelectedItem.ToString());
                 int endMinute = int.Parse(this.endMinuteComboBox.SelectedItem.ToString());
-                DateTime startTime = new DateTime(date.Year, date.Month, date.Day, startHour, startMinute, 0);
-                DateTime endTime = new DateTime(date.Year, date.Month, date.Day, endHour, endMinute, 0);
+                startTime = new DateTime(date.Year, date.Month, date.Day, startHour, startMinute, 0);
+                endTime = new DateTime(date.Year, date.Month, date.Day, endHour, endMinute, 0);
                 if (startTime >= endTime)
                 {
                     alertText += "Invalid Appointment Time:  The end time for the appointment cannot be before the start time.\n";
@@ -127,7 +130,19 @@ namespace Clinic.View
             {
                 alertText += "No Reason Provided:  Reason for appointment cannot be blank.\n";
             }
-
+            if (alertText == "")
+            {
+                Appointment theAppointment = new Appointment
+                {
+                    PatientId = int.Parse(this.patientSearchResultListView.SelectedItems[0].SubItems[3].Text),
+                    StartDateTime = startTime,
+                    EndDateTime = endTime,
+                    DoctorId = int.Parse(this.doctorComboBox.SelectedValue.ToString()), //PROBLEM HERE
+                    ReasonForVisit = this.reasonTextBox.Text
+                };
+                this.appointmentController.AddAppointment(theAppointment);
+                alertText += "SUCCESS!!!";
+            }
 
             this.alertNoticeLabel.Text = alertText;
             return allInputsValid;

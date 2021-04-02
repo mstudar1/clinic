@@ -68,7 +68,7 @@ namespace Clinic.View
             }
             catch (Exception)
             {
-                this.alertNoticeLabel.Text = "Invalid names. Please try again.";
+                this.alertNoticeLabel.Text = "Please enter both first and last name for search.";
             }         
         }
 

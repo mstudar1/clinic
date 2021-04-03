@@ -84,35 +84,6 @@ namespace Clinic.DAL
             }
 
             return this.thePersonDAL.EditPerson(originalPatient, revisedPatient);
-
-            /*
-            string updateStatement =
-                "UPDATE Patient SET " +
-                    "patientId = @RevisedPatientId " +
-                "WHERE personId = @PersonId " +
-                    "AND patientId = @OriginalPatientId";
-
-            using (SqlConnection connection = ClinicDBConnection.GetConnection())
-            {
-                connection.Open();
-                using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
-                {
-                    updateCommand.Parameters.AddWithValue("@PersonId", originalPatient.PersonId);
-                    updateCommand.Parameters.AddWithValue("@OriginalPatientId", originalPatient.PatientId);
-                    updateCommand.Parameters.AddWithValue("@RevisedPatientId", revisedPatient.PatientId);
-
-                    int count = updateCommand.ExecuteNonQuery();
-                    if (count > 0)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-            */
         }
 
         /// <summary>

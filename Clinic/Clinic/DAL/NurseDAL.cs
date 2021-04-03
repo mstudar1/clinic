@@ -150,7 +150,8 @@ namespace Clinic.DAL
                     "Person.state, " +
                     "Person.zipCode " +
                 "FROM Nurse " +
-                    "LEFT JOIN Person ON Nurse.personId = Person.personId";
+                    "LEFT JOIN Person ON Nurse.personId = Person.personId " +
+                "ORDER BY Person.firstName, Person.lastName";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {

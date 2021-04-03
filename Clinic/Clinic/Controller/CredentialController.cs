@@ -63,8 +63,8 @@ namespace Clinic.Controller
         /// Method that returns the type of the user for the given username.
         /// It can be either nurse or admin
         /// </summary>
-        /// <param name="username"> The username of the user</param>
-        /// <returns></returns>
+        /// <param name="username">The username of the user</param>
+        /// <returns>Either 'nurse' or 'admin' as a string.</returns>
         public string GetUserRole(string username)
         {
             if (string.IsNullOrEmpty(username))

@@ -99,6 +99,12 @@
     <Compile Include="View\AddNurseForm.Designer.cs">
       <DependentUpon>AddNurseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\AddVisitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AddVisitForm.Designer.cs">
+      <DependentUpon>AddVisitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\DataAccessTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     <EmbeddedResource Include="View\AddNurseForm.resx">
       <DependentUpon>AddNurseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\AddVisitForm.resx">
+      <DependentUpon>AddVisitForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\DataAccessTestForm.resx">
       <DependentUpon>DataAccessTestForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +181,7 @@
     </EmbeddedResource>
     <None Include="Properties\DataSources\Clinic.Controller.DoctorController.datasource" />
     <None Include="Properties\DataSources\Clinic.Model.Doctor.datasource" />
+    <None Include="Properties\DataSources\Clinic.Model.Nurse.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

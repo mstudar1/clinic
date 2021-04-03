@@ -36,8 +36,7 @@ namespace Clinic.UserControls
             this.visitsLabel = new System.Windows.Forms.Label();
             this.searchTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.searchButton = new System.Windows.Forms.Button();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.visitDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.patientIdTextBox = new System.Windows.Forms.TextBox();
             this.visitListView = new System.Windows.Forms.ListView();
             this.nameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dobColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -89,7 +88,7 @@ namespace Clinic.UserControls
             this.titleAndResetTableLayoutPanel.ColumnCount = 3;
             this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.45783F));
             this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.54217F));
-            this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
             this.titleAndResetTableLayoutPanel.Controls.Add(this.resetButton, 1, 0);
             this.titleAndResetTableLayoutPanel.Controls.Add(this.visitsLabel, 0, 0);
             this.titleAndResetTableLayoutPanel.Location = new System.Drawing.Point(3, 80);
@@ -105,7 +104,7 @@ namespace Clinic.UserControls
             this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.resetButton.AutoSize = true;
             this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetButton.Location = new System.Drawing.Point(557, 2);
+            this.resetButton.Location = new System.Drawing.Point(555, 2);
             this.resetButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(96, 28);
@@ -130,11 +129,10 @@ namespace Clinic.UserControls
             this.searchTableLayoutPanel.ColumnCount = 4;
             this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.35203F));
             this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.64797F));
-            this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 161F));
-            this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
+            this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
             this.searchTableLayoutPanel.Controls.Add(this.searchButton, 3, 0);
-            this.searchTableLayoutPanel.Controls.Add(this.nameTextBox, 1, 0);
-            this.searchTableLayoutPanel.Controls.Add(this.visitDateTimePicker, 2, 0);
+            this.searchTableLayoutPanel.Controls.Add(this.patientIdTextBox, 2, 0);
             this.searchTableLayoutPanel.Location = new System.Drawing.Point(3, 2);
             this.searchTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchTableLayoutPanel.Name = "searchTableLayoutPanel";
@@ -148,7 +146,7 @@ namespace Clinic.UserControls
             this.searchButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.searchButton.AutoSize = true;
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(613, 2);
+            this.searchButton.Location = new System.Drawing.Point(611, 2);
             this.searchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(93, 34);
@@ -157,28 +155,15 @@ namespace Clinic.UserControls
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
-            // nameTextBox
+            // patientIdTextBox
             // 
-            this.nameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameTextBox.Location = new System.Drawing.Point(247, 4);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(199, 30);
-            this.nameTextBox.TabIndex = 10;
-            this.nameTextBox.Tag = "";
-            // 
-            // visitDateTimePicker
-            // 
-            this.visitDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.visitDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.visitDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.visitDateTimePicker.Location = new System.Drawing.Point(453, 4);
-            this.visitDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
-            this.visitDateTimePicker.Name = "visitDateTimePicker";
-            this.visitDateTimePicker.Size = new System.Drawing.Size(152, 30);
-            this.visitDateTimePicker.TabIndex = 20;
-            this.visitDateTimePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VisitDateTimePicker_KeyDown);
+            this.patientIdTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.patientIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientIdTextBox.Location = new System.Drawing.Point(635, 5);
+            this.patientIdTextBox.Name = "patientIdTextBox";
+            this.patientIdTextBox.Size = new System.Drawing.Size(93, 30);
+            this.patientIdTextBox.TabIndex = 31;
+            this.patientIdTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PatientIdTextBox_KeyDown);
             // 
             // visitListView
             // 
@@ -258,7 +243,7 @@ namespace Clinic.UserControls
             this.Controls.Add(this.visitTableLayoutPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "VisitUserControl";
-            this.Size = new System.Drawing.Size(732, 378);
+            this.Size = new System.Drawing.Size(729, 375);
             this.visitTableLayoutPanel.ResumeLayout(false);
             this.titleAndResetTableLayoutPanel.ResumeLayout(false);
             this.titleAndResetTableLayoutPanel.PerformLayout();
@@ -277,7 +262,6 @@ namespace Clinic.UserControls
         private System.Windows.Forms.Label visitsLabel;
         private System.Windows.Forms.TableLayoutPanel searchTableLayoutPanel;
         private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.ListView visitListView;
         private System.Windows.Forms.ColumnHeader nameColumnHeader;
         private System.Windows.Forms.ColumnHeader dobColumnHeader;
@@ -287,6 +271,6 @@ namespace Clinic.UserControls
         private System.Windows.Forms.ColumnHeader viewColumnHeader;
         private System.Windows.Forms.ColumnHeader editColumnHeader;
         private System.Windows.Forms.ColumnHeader deleteColumnHeader;
-        private System.Windows.Forms.DateTimePicker visitDateTimePicker;
+        private System.Windows.Forms.TextBox patientIdTextBox;
     }
 }

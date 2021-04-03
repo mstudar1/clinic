@@ -32,7 +32,7 @@ namespace Clinic.UserControls
             this.Search();
         }
 
-        private void VisitDateTimePicker_KeyDown(object sender, KeyEventArgs e)
+        private void PatientIdTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {

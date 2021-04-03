@@ -62,7 +62,7 @@ namespace Clinic.DAL
                 "FROM Visit v " +
                 "JOIN Appointment a ON v.appointmentId = a.appointmentId " +
                 "WHERE a.patientId = @PatientId " +
-                "ORDER BY a.dateAndTime ASC";
+                "ORDER BY a.startDateAndTime ASC";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {

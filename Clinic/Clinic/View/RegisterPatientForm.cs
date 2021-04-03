@@ -4,10 +4,17 @@ using System.Windows.Forms;
 
 namespace Clinic.View
 {
+    /// <summary>
+    /// Class defining a form that can be used to register patients.
+    /// </summary>
     public partial class RegisterPatientForm : Form
     {
         private readonly PatientUserControl thePatientUserControl;
 
+        /// <summary>
+        /// Constructor for the RegisterPatientForm class.
+        /// </summary>
+        /// <param name="theInputPatientUserControl"></param>
         public RegisterPatientForm(PatientUserControl theInputPatientUserControl)
         {
             InitializeComponent();

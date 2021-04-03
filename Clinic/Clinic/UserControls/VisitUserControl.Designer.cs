@@ -29,83 +29,83 @@ namespace Clinic.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.visitTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.spacerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.titleAndResetTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.resetButton = new System.Windows.Forms.Button();
             this.visitsLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.searchTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.searchButton = new System.Windows.Forms.Button();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.visitDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.NursListView = new System.Windows.Forms.ListView();
-            this.nameClumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.NurseListView = new System.Windows.Forms.ListView();
+            this.nameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dobColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.doctorClumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.doctorColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nurseColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.viewColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.editColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.deleteColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
+            this.visitTableLayoutPanel.SuspendLayout();
+            this.titleAndResetTableLayoutPanel.SuspendLayout();
+            this.searchTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // visitTableLayoutPanel
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.NursListView, 0, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 2);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.94505F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.05495F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 246F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(719, 362);
-            this.tableLayoutPanel1.TabIndex = 2;
+            this.visitTableLayoutPanel.ColumnCount = 1;
+            this.visitTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.visitTableLayoutPanel.Controls.Add(this.spacerTableLayoutPanel, 0, 1);
+            this.visitTableLayoutPanel.Controls.Add(this.titleAndResetTableLayoutPanel, 0, 2);
+            this.visitTableLayoutPanel.Controls.Add(this.searchTableLayoutPanel, 0, 0);
+            this.visitTableLayoutPanel.Controls.Add(this.NurseListView, 0, 3);
+            this.visitTableLayoutPanel.Location = new System.Drawing.Point(3, 2);
+            this.visitTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.visitTableLayoutPanel.Name = "visitTableLayoutPanel";
+            this.visitTableLayoutPanel.RowCount = 4;
+            this.visitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.94505F));
+            this.visitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.05495F));
+            this.visitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.visitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 246F));
+            this.visitTableLayoutPanel.Size = new System.Drawing.Size(719, 362);
+            this.visitTableLayoutPanel.TabIndex = 2;
             // 
-            // tableLayoutPanel2
+            // spacerTableLayoutPanel
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.847736F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.15226F));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 45);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(713, 30);
-            this.tableLayoutPanel2.TabIndex = 20;
+            this.spacerTableLayoutPanel.ColumnCount = 2;
+            this.spacerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.847736F));
+            this.spacerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.15226F));
+            this.spacerTableLayoutPanel.Location = new System.Drawing.Point(3, 45);
+            this.spacerTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.spacerTableLayoutPanel.Name = "spacerTableLayoutPanel";
+            this.spacerTableLayoutPanel.RowCount = 1;
+            this.spacerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.spacerTableLayoutPanel.Size = new System.Drawing.Size(713, 30);
+            this.spacerTableLayoutPanel.TabIndex = 20;
             // 
-            // tableLayoutPanel3
+            // titleAndResetTableLayoutPanel
             // 
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.45783F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.54217F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tableLayoutPanel3.Controls.Add(this.resetButton, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.visitsLabel, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 80);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(713, 32);
-            this.tableLayoutPanel3.TabIndex = 30;
+            this.titleAndResetTableLayoutPanel.ColumnCount = 3;
+            this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.45783F));
+            this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.54217F));
+            this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.titleAndResetTableLayoutPanel.Controls.Add(this.resetButton, 1, 0);
+            this.titleAndResetTableLayoutPanel.Controls.Add(this.visitsLabel, 0, 0);
+            this.titleAndResetTableLayoutPanel.Location = new System.Drawing.Point(3, 80);
+            this.titleAndResetTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.titleAndResetTableLayoutPanel.Name = "titleAndResetTableLayoutPanel";
+            this.titleAndResetTableLayoutPanel.RowCount = 1;
+            this.titleAndResetTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.titleAndResetTableLayoutPanel.Size = new System.Drawing.Size(713, 32);
+            this.titleAndResetTableLayoutPanel.TabIndex = 30;
             // 
             // resetButton
             // 
             this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.resetButton.AutoSize = true;
             this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetButton.Location = new System.Drawing.Point(559, 2);
+            this.resetButton.Location = new System.Drawing.Point(558, 2);
             this.resetButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(96, 28);
@@ -125,30 +125,30 @@ namespace Clinic.UserControls
             this.visitsLabel.TabIndex = 99;
             this.visitsLabel.Text = "Visits";
             // 
-            // tableLayoutPanel4
+            // searchTableLayoutPanel
             // 
-            this.tableLayoutPanel4.ColumnCount = 4;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.35203F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.64797F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 161F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.searchButton, 3, 0);
-            this.tableLayoutPanel4.Controls.Add(this.nameTextBox, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.visitDateTimePicker, 2, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 2);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(713, 38);
-            this.tableLayoutPanel4.TabIndex = 10;
+            this.searchTableLayoutPanel.ColumnCount = 4;
+            this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.35203F));
+            this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.64797F));
+            this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 161F));
+            this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.searchTableLayoutPanel.Controls.Add(this.searchButton, 3, 0);
+            this.searchTableLayoutPanel.Controls.Add(this.nameTextBox, 1, 0);
+            this.searchTableLayoutPanel.Controls.Add(this.visitDateTimePicker, 2, 0);
+            this.searchTableLayoutPanel.Location = new System.Drawing.Point(3, 2);
+            this.searchTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.searchTableLayoutPanel.Name = "searchTableLayoutPanel";
+            this.searchTableLayoutPanel.RowCount = 1;
+            this.searchTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.searchTableLayoutPanel.Size = new System.Drawing.Size(713, 38);
+            this.searchTableLayoutPanel.TabIndex = 10;
             // 
             // searchButton
             // 
             this.searchButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.searchButton.AutoSize = true;
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(615, 2);
+            this.searchButton.Location = new System.Drawing.Point(614, 2);
             this.searchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(93, 34);
@@ -164,7 +164,7 @@ namespace Clinic.UserControls
             this.nameTextBox.Location = new System.Drawing.Point(248, 4);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(200, 30);
+            this.nameTextBox.Size = new System.Drawing.Size(199, 30);
             this.nameTextBox.TabIndex = 10;
             this.nameTextBox.Tag = "";
             // 
@@ -173,41 +173,41 @@ namespace Clinic.UserControls
             this.visitDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.visitDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.visitDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.visitDateTimePicker.Location = new System.Drawing.Point(455, 4);
+            this.visitDateTimePicker.Location = new System.Drawing.Point(454, 4);
             this.visitDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.visitDateTimePicker.Name = "visitDateTimePicker";
             this.visitDateTimePicker.Size = new System.Drawing.Size(152, 30);
             this.visitDateTimePicker.TabIndex = 20;
             this.visitDateTimePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VisitDateTimePicker_KeyDown);
             // 
-            // NursListView
+            // NurseListView
             // 
-            this.NursListView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.NursListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.nameClumnHeader,
+            this.NurseListView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.NurseListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.nameColumnHeader,
             this.dobColumnHeader,
-            this.doctorClumnHeader,
+            this.doctorColumnHeader,
             this.nurseColumnHeader,
             this.dateColumnHeader,
             this.viewColumnHeader,
             this.editColumnHeader,
             this.deleteColumnHeader});
-            this.NursListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NursListView.HideSelection = false;
-            this.NursListView.Location = new System.Drawing.Point(13, 117);
-            this.NursListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.NursListView.Name = "NursListView";
-            this.NursListView.Size = new System.Drawing.Size(693, 243);
-            this.NursListView.TabIndex = 40;
-            this.NursListView.TabStop = false;
-            this.NursListView.UseCompatibleStateImageBehavior = false;
-            this.NursListView.View = System.Windows.Forms.View.Details;
+            this.NurseListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NurseListView.HideSelection = false;
+            this.NurseListView.Location = new System.Drawing.Point(13, 117);
+            this.NurseListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NurseListView.Name = "NurseListView";
+            this.NurseListView.Size = new System.Drawing.Size(693, 243);
+            this.NurseListView.TabIndex = 40;
+            this.NurseListView.TabStop = false;
+            this.NurseListView.UseCompatibleStateImageBehavior = false;
+            this.NurseListView.View = System.Windows.Forms.View.Details;
             // 
-            // nameClumnHeader
+            // nameColumnHeader
             // 
-            this.nameClumnHeader.Text = "Name";
-            this.nameClumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nameClumnHeader.Width = 150;
+            this.nameColumnHeader.Text = "Name";
+            this.nameColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nameColumnHeader.Width = 150;
             // 
             // dobColumnHeader
             // 
@@ -215,11 +215,11 @@ namespace Clinic.UserControls
             this.dobColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dobColumnHeader.Width = 80;
             // 
-            // doctorClumnHeader
+            // doctorColumnHeader
             // 
-            this.doctorClumnHeader.Text = "Doctor";
-            this.doctorClumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.doctorClumnHeader.Width = 150;
+            this.doctorColumnHeader.Text = "Doctor";
+            this.doctorColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.doctorColumnHeader.Width = 150;
             // 
             // nurseColumnHeader
             // 
@@ -255,33 +255,33 @@ namespace Clinic.UserControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.visitTableLayoutPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "VisitUserControl";
             this.Size = new System.Drawing.Size(732, 378);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
+            this.visitTableLayoutPanel.ResumeLayout(false);
+            this.titleAndResetTableLayoutPanel.ResumeLayout(false);
+            this.titleAndResetTableLayoutPanel.PerformLayout();
+            this.searchTableLayoutPanel.ResumeLayout(false);
+            this.searchTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel visitTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel spacerTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel titleAndResetTableLayoutPanel;
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.Label visitsLabel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TableLayoutPanel searchTableLayoutPanel;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox nameTextBox;
-        private System.Windows.Forms.ListView NursListView;
-        private System.Windows.Forms.ColumnHeader nameClumnHeader;
+        private System.Windows.Forms.ListView NurseListView;
+        private System.Windows.Forms.ColumnHeader nameColumnHeader;
         private System.Windows.Forms.ColumnHeader dobColumnHeader;
-        private System.Windows.Forms.ColumnHeader doctorClumnHeader;
+        private System.Windows.Forms.ColumnHeader doctorColumnHeader;
         private System.Windows.Forms.ColumnHeader nurseColumnHeader;
         private System.Windows.Forms.ColumnHeader dateColumnHeader;
         private System.Windows.Forms.ColumnHeader viewColumnHeader;

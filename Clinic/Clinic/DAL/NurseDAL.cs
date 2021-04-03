@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace Clinic.DAL
 {
-    class NurseDAL
+    public class NurseDAL
     {
         private readonly PersonDAL thePersonDAL;
 

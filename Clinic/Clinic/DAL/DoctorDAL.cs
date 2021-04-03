@@ -7,7 +7,7 @@ namespace Clinic.DAL
     /// <summary>
     /// This class will provide methods for data access for the Doctor table
     /// </summary>
-    class DoctorDAL
+    public class DoctorDAL
     {
         private readonly PersonDAL thePersonDAL;
 

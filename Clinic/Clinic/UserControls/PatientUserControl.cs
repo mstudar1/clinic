@@ -1,4 +1,5 @@
 ﻿using Clinic.View;
+using System;
 using System.Windows.Forms;
 
 namespace Clinic.UserControls
@@ -35,6 +36,20 @@ namespace Clinic.UserControls
         {
             this.theRegisterPatientForm = new RegisterPatientForm(this);
             theRegisterPatientForm.Show();
+        }
+
+        private void SearchButton_Click(object sender, System.EventArgs e)
+        {
+            if (DateTime.Compare(this.dateOfBirthDateTimePicker.Value, DateTime.Now) > 0)
+            {
+                MessageBox.Show("The date of birth cannot be in the future.  Please revise the date and resubmit.", "Invalid Date of Birth");
+                return;
+            }
+        }
+
+        private void ResetButton_Click(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

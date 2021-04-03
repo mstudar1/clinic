@@ -1,6 +1,7 @@
 ﻿using Clinic.DAL;
 using Clinic.Model;
 using System;
+using System.Collections.Generic;
 
 namespace Clinic.Controller
 {
@@ -28,6 +29,21 @@ namespace Clinic.Controller
             }
 
             this.nurseSource.AddNurse(theNurse);
+        }
+
+        /// <summary>
+        /// Method that finds all nurses in the database with the specified last name.
+        /// </summary>
+        /// <param name="lastName">The last name of the nurse(s).</param>
+        /// <returns>A list of nurses with the specified last name.</returns>
+        public List<Nurse> FindNurses(string lastName)
+        {
+            if (string.IsNullOrEmpty(lastName))
+            {
+                throw new ArgumentNullException("lastName", "The last name cannot be null or empty.");
+            }
+
+            return this.nurseSource.FindNurses(lastName);
         }
     }
 }

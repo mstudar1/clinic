@@ -35,40 +35,56 @@ namespace Clinic
             this.theNurseAdminForm = theInputNurseAdminForm;
         }
 
-
+        /// <summary>
+        /// Executes the actions to check credentials and attempt to log in to the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CheckCredentials(object sender, EventArgs e)
         {
             string username = this.usernameTextBox.Text;
             string password = this.passwordTextBox.Text;
-            bool result = this.theCredentialController.CredentialsAreValid(username, password);
-            if (result)
+            try
             {
-                if (this.theNurseAdminForm == null)
+                if (this.theCredentialController.CredentialsAreValid(username, password))
                 {
-                    this.theNurseAdminForm = new NurseAdminForm(this);
+                    if (this.theNurseAdminForm == null)
+                    {
+                        this.theNurseAdminForm = new NurseAdminForm(this);
+                    }
+                    else
+                    {
+                        this.theNurseAdminForm.SetTheLoginForm(this);
+                    }
+                    this.theNurseAdminForm.SetActiveUsername(username);
+                    this.theNurseAdminForm.ShowNurseTabOnlyForAdmin();
+                    this.theNurseAdminForm.Show();
+                    this.theNurseAdminForm.SetActiveUsername(usernameTextBox.Text);
+                    this.passwordTextBox.Text = "";
+                    this.Hide();
                 }
                 else
                 {
-                    this.theNurseAdminForm.SetTheLoginForm(this);
+                    this.errorMessageLabel.Text = "Invalid username/password";
                 }
-                this.theNurseAdminForm.SetActiveUsername(username);
-                this.theNurseAdminForm.ShowNurseTabOnlyForAdmin();
-
-                theNurseAdminForm.Show();
-                theNurseAdminForm.SetActiveUsername(usernameTextBox.Text);
-
-                this.Hide();
-            }
-            else
+            } catch (ArgumentNullException ex)
             {
-                errorMessageLabel.ForeColor = Color.Red;
-                errorMessageLabel.Text = "Invalid username/password";
-            }
+                if (ex.ParamName == "username")
+                    this.errorMessageLabel.Text = "Please enter a username";
+                else if (ex.ParamName == "password")
+                    this.errorMessageLabel.Text = "Please enter a password";
+            } 
         }
 
+        /// <summary>
+        /// Clear error messages when new text entered in textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EntryInTextbox(object sender, EventArgs e)
         {
-            errorMessageLabel.Text = "";
+            this.errorMessageLabel.Text = "";
         }
+
     }
 }

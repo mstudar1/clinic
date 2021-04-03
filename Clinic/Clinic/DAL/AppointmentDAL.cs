@@ -23,8 +23,8 @@ namespace Clinic.DAL
             }
 
             string insertStatement =
-                "INSERT Appointment (patientId, dateAndTime, doctorId, reasonForVisit) " +
-                "VALUES (@PatientId, @DateAndTime, @DoctorId, @ReasonForVisit)";
+                "INSERT Appointment (patientId, startDateTime, endDateTime, doctorId, reasonForVisit) " +
+                "VALUES (@PatientId, @StartDateTime, @EndDateTime, @DoctorId, @ReasonForVisit)";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -32,7 +32,8 @@ namespace Clinic.DAL
                 using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
                 {
                     insertCommand.Parameters.AddWithValue("@PatientId", theAppointment.PatientId);
-                    insertCommand.Parameters.AddWithValue("@DateAndTime", theAppointment.DateAndTime);
+                    insertCommand.Parameters.AddWithValue("@StartDateTime", theAppointment.StartDateTime);
+                    insertCommand.Parameters.AddWithValue("@EndDateTime", theAppointment.EndDateTime);
                     insertCommand.Parameters.AddWithValue("@DoctorId", theAppointment.DoctorId);
                     insertCommand.Parameters.AddWithValue("@ReasonForVisit", theAppointment.ReasonForVisit);
                     insertCommand.ExecuteNonQuery();
@@ -46,23 +47,33 @@ namespace Clinic.DAL
         /// <param name="doctorId">The ID of the doctor in question.</param>
         /// <param name="appointmentDateAndTime">The date and time of the appointment in question.</param>
         /// <returns>True if the specified doctor is booked at the specified time, false otherwise.</returns>
-        public bool DoctorIsBooked(int doctorId, DateTime appointmentDateAndTime)
+        public bool DoctorIsBooked(int doctorId, DateTime startDateTime, DateTime endDateTime)
         {
             if (doctorId < 0)
             {
                 throw new ArgumentException("The doctor's ID cannot be negative.", "doctorId");
             }
-
-            if (appointmentDateAndTime == null)
+            if (startDateTime == null)
             {
-                throw new ArgumentNullException("appointmentDateAndTime", "The date and time of the appointment cannot be null.");
+                throw new ArgumentNullException("startDateTime", "The start date and time of the appointment cannot be null.");
+            }
+            if (endDateTime == null)
+            {
+                throw new ArgumentNullException("endDateTime", "The end date and time of the appointment cannot be null.");
+            }
+            if (DateTime.Compare(startDateTime, endDateTime) >= 0)
+            {
+                throw new ArgumentException("endDateTime", "The end date and time of appointment must be after the start date and time");
             }
 
             string selectStatement =
                 "SELECT @NumberOfAppointments = COUNT(appointmentId) " +
                 "FROM Appointment " +
                 "WHERE doctorId = @DoctorId " +
-                "AND dateAndTime = @AppointmentDateAndTime";
+                "AND " +
+                "((startDateTime <= @StartDateTime AND endDateTime > @StartDateTime) " +
+                "OR " +
+                "(startDateTime < @EndDateTime AND endDateTime >= @EndDateTime))";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -75,7 +86,8 @@ namespace Clinic.DAL
                     };
                     selectCommand.Parameters.Add(countParameter);
                     selectCommand.Parameters.AddWithValue("@DoctorId", doctorId);
-                    selectCommand.Parameters.AddWithValue("@AppointmentDateAndTime", appointmentDateAndTime);
+                    selectCommand.Parameters.AddWithValue("@StartDateTime", startDateTime);
+                    selectCommand.Parameters.AddWithValue("@EndDateTime", endDateTime);
                     selectCommand.ExecuteNonQuery();
                     if (Convert.ToInt32(countParameter.Value) == 0)
                     {
@@ -111,11 +123,13 @@ namespace Clinic.DAL
             string updateStatement =
                 "UPDATE Appointment SET " +
                     "patientId = @RevisedPatientId, " +
-                    "dateAndTime = @RevisedDateAndTime, " +
+                    "startDateTime = @RevisedStartDateTime, " +
+                    "endDateTime = @RevisedEndDateTime, " +
                     "doctorId = @RevisedDoctorId, " +
                     "reasonForVisit = @RevisedReasonForVisit " +
                 "WHERE patientId = @OriginalPatientId " +
-                    "AND dateAndTime = @OriginalDateAndTime " +
+                    "AND startDateTime = @OriginalStartDatetime " +
+                    "AND endDateTime = @OriginalEndDateTime " +
                     "AND doctorId = @OriginalDoctorId " +
                     "AND reasonForVisit = @OriginalReasonForVisit";
 
@@ -125,11 +139,13 @@ namespace Clinic.DAL
                 using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
                 {
                     updateCommand.Parameters.AddWithValue("@OriginalPatientId", originalAppointment.PatientId);
-                    updateCommand.Parameters.AddWithValue("@OriginalDateAndTime", originalAppointment.DateAndTime);
+                    updateCommand.Parameters.AddWithValue("@OriginalStartDateTime", originalAppointment.StartDateTime);
+                    updateCommand.Parameters.AddWithValue("@OriginalEndDateTime", originalAppointment.EndDateTime);
                     updateCommand.Parameters.AddWithValue("@OriginalDoctorId", originalAppointment.DoctorId);
                     updateCommand.Parameters.AddWithValue("@OriginalReasonForVisit", originalAppointment.ReasonForVisit);
                     updateCommand.Parameters.AddWithValue("@RevisedPatientId", revisedAppointment.PatientId);
-                    updateCommand.Parameters.AddWithValue("@RevisedDateAndTime", revisedAppointment.DateAndTime);
+                    updateCommand.Parameters.AddWithValue("@RevisedStartDatetime", revisedAppointment.StartDateTime);
+                    updateCommand.Parameters.AddWithValue("@RevisedEndDateTime", revisedAppointment.EndDateTime);
                     updateCommand.Parameters.AddWithValue("@RevisedDoctorId", revisedAppointment.DoctorId);
                     updateCommand.Parameters.AddWithValue("@RevisedReasonForVisit", revisedAppointment.ReasonForVisit);
 
@@ -161,7 +177,7 @@ namespace Clinic.DAL
             List<Appointment> appointmentList = new List<Appointment>();
 
             string selectStatement =
-                "SELECT dateAndTime, doctorId, reasonForVisit " +
+                "SELECT startDateTime, endDateTime, doctorId, reasonForVisit " +
                 "FROM Appointment " +
                 "WHERE patientId = @PatientId " +
                 "ORDER BY dateAndTime ASC";
@@ -174,14 +190,110 @@ namespace Clinic.DAL
                     selectCommand.Parameters.AddWithValue("@PatientId", patientId);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-                        int dateAndTimeOrdinal = reader.GetOrdinal("dateAndTime");
+                        int startDateTimeOrdinal = reader.GetOrdinal("startDateTime");
+                        int endDateTimeOrdinal = reader.GetOrdinal("endDateTime");
+                        int doctorIdOrdinal = reader.GetOrdinal("doctorId");
+                        int reasonForVisitOrdinal = reader.GetOrdinal("reasonForVisit");
+                        while (reader.Read())
+                        {
+                            Appointment theAppointment = new Appointment { PatientId = patientId };
+                            if (!reader.IsDBNull(startDateTimeOrdinal)) { theAppointment.StartDateTime = reader.GetDateTime(startDateTimeOrdinal); }
+                            if (!reader.IsDBNull(endDateTimeOrdinal)) { theAppointment.EndDateTime = reader.GetDateTime(endDateTimeOrdinal); }
+                            if (!reader.IsDBNull(doctorIdOrdinal)) { theAppointment.DoctorId = reader.GetInt32(doctorIdOrdinal); }
+                            if (!reader.IsDBNull(reasonForVisitOrdinal)) { theAppointment.ReasonForVisit = reader.GetString(reasonForVisitOrdinal); }
+                            appointmentList.Add(theAppointment);
+                        }
+                    }
+                }
+            }
+            return appointmentList;
+        }
+
+        /// <summary>
+        /// Gets a list of appointments that have been made for the specified date
+        /// </summary>
+        /// <param name="date">the date for the appointments</param>
+        /// <returns>List of Appointment objects</returns>
+        public List<Appointment> GetAppointmentsOnDate(DateTime date)
+        {
+            if (date == null)
+            {
+                throw new ArgumentNullException("date", "The date cannot be null.");
+            }
+            List<Appointment> appointmentList = new List<Appointment>();
+
+            string selectStatement =
+                "SELECT startDateTime, endDateTime, doctorId, reasonForVisit " +
+                "FROM Appointment " +
+                "WHERE datediff(day, startDateTime, @searchDate) = 0  " +
+                "ORDER BY startDateTime ASC";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@searchDate", date);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        int startDateTimeOrdinal = reader.GetOrdinal("startDateTime");
+                        int endDateTimeOrdinal = reader.GetOrdinal("endDateTime");
                         int doctorIdOrdinal = reader.GetOrdinal("doctorId");
                         int reasonForVisitOrdinal = reader.GetOrdinal("reasonForVisit");
                         while (reader.Read())
                         {
                             Appointment theAppointment = new Appointment();
-                            theAppointment.PatientId = patientId;
-                            if (!reader.IsDBNull(dateAndTimeOrdinal)) { theAppointment.DateAndTime = reader.GetDateTime(dateAndTimeOrdinal); }
+                            if (!reader.IsDBNull(startDateTimeOrdinal)) { theAppointment.StartDateTime = reader.GetDateTime(startDateTimeOrdinal); }
+                            if (!reader.IsDBNull(endDateTimeOrdinal)) { theAppointment.EndDateTime = reader.GetDateTime(endDateTimeOrdinal); }
+                            if (!reader.IsDBNull(doctorIdOrdinal)) { theAppointment.DoctorId = reader.GetInt32(doctorIdOrdinal); }
+                            if (!reader.IsDBNull(reasonForVisitOrdinal)) { theAppointment.ReasonForVisit = reader.GetString(reasonForVisitOrdinal); }
+                            appointmentList.Add(theAppointment);
+                        }
+                    }
+                }
+            }
+            return appointmentList;
+        }
+
+        /// <summary>
+        /// Gets a list of appointments that have been made for the specified date for a specified doctor
+        /// </summary>
+        /// <param name="date">the date for the appointments</param>
+        /// <param name="doctorId">the doctorId for the appointments</param>
+        /// <returns>List of Appointment objects</returns>
+        public List<Appointment> GetAppointmentsForDoctorOnDate(int doctorId, DateTime date)
+        {
+            if (date == null)
+            {
+                throw new ArgumentNullException("date", "The date cannot be null.");
+            }
+            List<Appointment> appointmentList = new List<Appointment>();
+
+            string selectStatement =
+                "SELECT startDateTime, endDateTime, doctorId, reasonForVisit " +
+                "FROM Appointment " +
+                "WHERE datediff(day, startDateTime, @searchDate) = 0  " +
+                "AND doctorId = @doctorId " +
+                "ORDER BY startDateTime ASC";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@searchDate", date);
+                    selectCommand.Parameters.AddWithValue("@doctorId", doctorId);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        int startDateTimeOrdinal = reader.GetOrdinal("startDateTime");
+                        int endDateTimeOrdinal = reader.GetOrdinal("endDateTime");
+                        int doctorIdOrdinal = reader.GetOrdinal("doctorId");
+                        int reasonForVisitOrdinal = reader.GetOrdinal("reasonForVisit");
+                        while (reader.Read())
+                        {
+                            Appointment theAppointment = new Appointment();
+                            if (!reader.IsDBNull(startDateTimeOrdinal)) { theAppointment.StartDateTime = reader.GetDateTime(startDateTimeOrdinal); }
+                            if (!reader.IsDBNull(endDateTimeOrdinal)) { theAppointment.EndDateTime = reader.GetDateTime(endDateTimeOrdinal); }
                             if (!reader.IsDBNull(doctorIdOrdinal)) { theAppointment.DoctorId = reader.GetInt32(doctorIdOrdinal); }
                             if (!reader.IsDBNull(reasonForVisitOrdinal)) { theAppointment.ReasonForVisit = reader.GetString(reasonForVisitOrdinal); }
                             appointmentList.Add(theAppointment);

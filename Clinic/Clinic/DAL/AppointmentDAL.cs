@@ -223,12 +223,21 @@ namespace Clinic.DAL
             List<Appointment> appointmentList = new List<Appointment>();
 
             string selectStatement =
-                "SELECT startDateTime, endDateTime, a.doctorId, reasonForVisit, a.patientId, per.firstName, per.lastName " +
+                "SELECT " +
+                    "startDateTime, " +
+                    "endDateTime, " +
+                    "a.doctorId AS doctorId, " +
+                    "reasonForVisit, " +
+                    "a.patientId AS patientId, " +
+                    "docInfo.firstName AS doctorFirstName, " +
+                    "docInfo.lastName AS doctorLastName, " +
+                    "patInfo.firstName AS patientFirstName, " +
+                    "patInfo.lastName AS patientLastName " +
                 "FROM Appointment a " +
-                "LEFT JOIN Doctor d ON a.doctorId = d.doctorId " +
+                "LEFT JOIN Doctor doc ON a.doctorId = doc.doctorId " +
                 "LEFT JOIN Patient pat ON a.patientId = pat.patientId " +
-                "LEFT JOIN Person per ON d.personId = per.personId " +
-                "LEFT JOIN Person ON pat.personId = per.personId " +
+                "LEFT JOIN Person docInfo ON doc.personId = docInfo.personId " +
+                "LEFT JOIN Person patInfo ON pat.personId = patInfo.personId " +
                 "WHERE datediff(day, startDateTime, @searchDate) = 0  " +
                 "ORDER BY startDateTime ASC";
 
@@ -243,12 +252,12 @@ namespace Clinic.DAL
                         int startDateTimeOrdinal = reader.GetOrdinal("startDateTime");
                         int endDateTimeOrdinal = reader.GetOrdinal("endDateTime");
                         int doctorIdOrdinal = reader.GetOrdinal("doctorId");
-                        int doctorfirstNameOrdinal = reader.GetOrdinal("firstName");
-                        int doctorlastNameOrdinal = reader.GetOrdinal("lastName");
+                        int doctorfirstNameOrdinal = reader.GetOrdinal("doctorFirstName");
+                        int doctorlastNameOrdinal = reader.GetOrdinal("doctorLastName");
                         int reasonForVisitOrdinal = reader.GetOrdinal("reasonForVisit");
                         int patientIdOrdinal = reader.GetOrdinal("patientId");
-                        //int patientfirstNameOrdinal = reader.GetOrdinal("firstName");
-                        //int patientlastNameOrdinal = reader.GetOrdinal("lastName");
+                        int patientfirstNameOrdinal = reader.GetOrdinal("patientFirstName");
+                        int patientlastNameOrdinal = reader.GetOrdinal("patientLastName");
                         while (reader.Read())
                         {
                             Appointment theAppointment = new Appointment();
@@ -259,8 +268,8 @@ namespace Clinic.DAL
                             if (!reader.IsDBNull(doctorlastNameOrdinal)) { theAppointment.DoctorLastName = reader.GetString(doctorlastNameOrdinal); }
                             if (!reader.IsDBNull(reasonForVisitOrdinal)) { theAppointment.ReasonForVisit = reader.GetString(reasonForVisitOrdinal); }
                             if (!reader.IsDBNull(patientIdOrdinal)) { theAppointment.PatientId = reader.GetInt32(patientIdOrdinal); }
-                            //if (!reader.IsDBNull(patientfirstNameOrdinal)) { theAppointment.PatientFirstName = reader.GetString(patientfirstNameOrdinal); }
-                            //if (!reader.IsDBNull(patientlastNameOrdinal)) { theAppointment.PatientLastName = reader.GetString(patientlastNameOrdinal); }
+                            if (!reader.IsDBNull(patientfirstNameOrdinal)) { theAppointment.PatientFirstName = reader.GetString(patientfirstNameOrdinal); }
+                            if (!reader.IsDBNull(patientlastNameOrdinal)) { theAppointment.PatientLastName = reader.GetString(patientlastNameOrdinal); }
                             appointmentList.Add(theAppointment);
                         }
                     }

@@ -34,8 +34,8 @@ namespace Clinic.UserControls
                 this.appointmentList = this.appointmentController.GetAppointmentsOnDate(searchDateTime);
                 foreach (Appointment current in this.appointmentList)
                 {
-                    ListViewItem item = new ListViewItem(current.PatientId.ToString());
-                    item.SubItems.Add(current.PatientId.ToString());
+                    ListViewItem item = new ListViewItem(current.PatientLastName.ToString());
+                    item.SubItems.Add(current.PatientFirstName.ToString());
                     item.SubItems.Add(current.StartDateTime.ToString("dddd, dd MMMM yyyy"));
                     item.SubItems.Add(current.StartDateTime.ToString("hh:mm tt"));
                     item.SubItems.Add(current.EndDateTime.ToString("hh:mm tt"));

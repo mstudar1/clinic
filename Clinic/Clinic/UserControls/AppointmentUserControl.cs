@@ -7,12 +7,18 @@ using System.Windows.Forms;
 
 namespace Clinic.UserControls
 {
+    /// <summary>
+    /// Class that defines a user control for appointments.
+    /// </summary>
     public partial class AppointmentUserControl : UserControl
     {
         private MakeAppointmentForm makeAppointmentForm;
         private List<Appointment> appointmentList;
         private readonly AppointmentController appointmentController;
 
+        /// <summary>
+        /// Constructor for the AppointmentUserControl class.
+        /// </summary>
         public AppointmentUserControl()
         {
             InitializeComponent();

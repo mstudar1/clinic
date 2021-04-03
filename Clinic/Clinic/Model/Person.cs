@@ -31,6 +31,12 @@ namespace Clinic.Model
 
         public string ZipCode { get; set; }
 
-        
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
     }
 }

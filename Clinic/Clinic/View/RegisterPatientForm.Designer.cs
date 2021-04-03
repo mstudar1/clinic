@@ -30,40 +30,40 @@ namespace Clinic.View
         private void InitializeComponent()
         {
             this.registerPatientTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.cancelButton = new System.Windows.Forms.Button();
             this.registerButton = new System.Windows.Forms.Button();
             this.addressLabel = new System.Windows.Forms.Label();
             this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.address1TextBox = new System.Windows.Forms.TextBox();
             this.address2Label = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.address2AndStateTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.stateTextBox = new System.Windows.Forms.TextBox();
             this.stateLabel = new System.Windows.Forms.Label();
             this.address2TextBox = new System.Windows.Forms.TextBox();
-            this.phoneNumberLlabel = new System.Windows.Forms.Label();
-            this.S = new System.Windows.Forms.Label();
+            this.phoneNumberLabel = new System.Windows.Forms.Label();
+            this.socialSecurityNumberLabel = new System.Windows.Forms.Label();
             this.dobLabel = new System.Windows.Forms.Label();
             this.lastNameLabel = new System.Windows.Forms.Label();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.registerPatientLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.ssnAndGenderTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.genderLabel = new System.Windows.Forms.Label();
             this.ssnTextBox = new System.Windows.Forms.TextBox();
             this.cityLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.cityAndZipTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.zipTextBox = new System.Windows.Forms.TextBox();
             this.zipLlabel = new System.Windows.Forms.Label();
             this.cityTextBox = new System.Windows.Forms.TextBox();
             this.dateOfBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.registerPatientTableLayoutPanel.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
+            this.buttonTableLayoutPanel.SuspendLayout();
+            this.address2AndStateTableLayoutPanel.SuspendLayout();
+            this.ssnAndGenderTableLayoutPanel.SuspendLayout();
+            this.cityAndZipTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // registerPatientTableLayoutPanel
@@ -71,23 +71,23 @@ namespace Clinic.View
             this.registerPatientTableLayoutPanel.ColumnCount = 2;
             this.registerPatientTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.56233F));
             this.registerPatientTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.43768F));
-            this.registerPatientTableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 1, 9);
+            this.registerPatientTableLayoutPanel.Controls.Add(this.buttonTableLayoutPanel, 1, 9);
             this.registerPatientTableLayoutPanel.Controls.Add(this.addressLabel, 0, 6);
             this.registerPatientTableLayoutPanel.Controls.Add(this.phoneNumberTextBox, 1, 5);
             this.registerPatientTableLayoutPanel.Controls.Add(this.address1TextBox, 1, 6);
             this.registerPatientTableLayoutPanel.Controls.Add(this.address2Label, 0, 7);
-            this.registerPatientTableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 1, 7);
-            this.registerPatientTableLayoutPanel.Controls.Add(this.phoneNumberLlabel, 0, 5);
-            this.registerPatientTableLayoutPanel.Controls.Add(this.S, 0, 4);
+            this.registerPatientTableLayoutPanel.Controls.Add(this.address2AndStateTableLayoutPanel, 1, 7);
+            this.registerPatientTableLayoutPanel.Controls.Add(this.phoneNumberLabel, 0, 5);
+            this.registerPatientTableLayoutPanel.Controls.Add(this.socialSecurityNumberLabel, 0, 4);
             this.registerPatientTableLayoutPanel.Controls.Add(this.dobLabel, 0, 3);
             this.registerPatientTableLayoutPanel.Controls.Add(this.lastNameLabel, 0, 2);
             this.registerPatientTableLayoutPanel.Controls.Add(this.lastNameTextBox, 1, 2);
             this.registerPatientTableLayoutPanel.Controls.Add(this.firstNameLabel, 0, 1);
             this.registerPatientTableLayoutPanel.Controls.Add(this.firstNameTextBox, 1, 1);
             this.registerPatientTableLayoutPanel.Controls.Add(this.registerPatientLabel, 1, 0);
-            this.registerPatientTableLayoutPanel.Controls.Add(this.tableLayoutPanel3, 1, 4);
+            this.registerPatientTableLayoutPanel.Controls.Add(this.ssnAndGenderTableLayoutPanel, 1, 4);
             this.registerPatientTableLayoutPanel.Controls.Add(this.cityLabel, 0, 8);
-            this.registerPatientTableLayoutPanel.Controls.Add(this.tableLayoutPanel4, 1, 8);
+            this.registerPatientTableLayoutPanel.Controls.Add(this.cityAndZipTableLayoutPanel, 1, 8);
             this.registerPatientTableLayoutPanel.Controls.Add(this.dateOfBirthDateTimePicker, 1, 3);
             this.registerPatientTableLayoutPanel.Location = new System.Drawing.Point(1, 2);
             this.registerPatientTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -106,21 +106,21 @@ namespace Clinic.View
             this.registerPatientTableLayoutPanel.Size = new System.Drawing.Size(641, 692);
             this.registerPatientTableLayoutPanel.TabIndex = 0;
             // 
-            // tableLayoutPanel1
+            // buttonTableLayoutPanel
             // 
-            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.90164F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.09836F));
-            this.tableLayoutPanel1.Controls.Add(this.cancelButton, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.registerButton, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(218, 578);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(380, 54);
-            this.tableLayoutPanel1.TabIndex = 90;
+            this.buttonTableLayoutPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonTableLayoutPanel.ColumnCount = 2;
+            this.buttonTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.90164F));
+            this.buttonTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.09836F));
+            this.buttonTableLayoutPanel.Controls.Add(this.cancelButton, 1, 0);
+            this.buttonTableLayoutPanel.Controls.Add(this.registerButton, 0, 0);
+            this.buttonTableLayoutPanel.Location = new System.Drawing.Point(218, 578);
+            this.buttonTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonTableLayoutPanel.Name = "buttonTableLayoutPanel";
+            this.buttonTableLayoutPanel.RowCount = 1;
+            this.buttonTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.buttonTableLayoutPanel.Size = new System.Drawing.Size(380, 54);
+            this.buttonTableLayoutPanel.TabIndex = 90;
             // 
             // cancelButton
             // 
@@ -191,23 +191,23 @@ namespace Clinic.View
             this.address2Label.Tag = "";
             this.address2Label.Text = "Address2:";
             // 
-            // tableLayoutPanel2
+            // address2AndStateTableLayoutPanel
             // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.62327F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.37673F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
-            this.tableLayoutPanel2.Controls.Add(this.stateTextBox, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.stateLabel, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.address2TextBox, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(179, 426);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(459, 38);
-            this.tableLayoutPanel2.TabIndex = 70;
+            this.address2AndStateTableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.address2AndStateTableLayoutPanel.ColumnCount = 3;
+            this.address2AndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.62327F));
+            this.address2AndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.37673F));
+            this.address2AndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142F));
+            this.address2AndStateTableLayoutPanel.Controls.Add(this.stateTextBox, 0, 0);
+            this.address2AndStateTableLayoutPanel.Controls.Add(this.stateLabel, 0, 0);
+            this.address2AndStateTableLayoutPanel.Controls.Add(this.address2TextBox, 0, 0);
+            this.address2AndStateTableLayoutPanel.Location = new System.Drawing.Point(179, 426);
+            this.address2AndStateTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.address2AndStateTableLayoutPanel.Name = "address2AndStateTableLayoutPanel";
+            this.address2AndStateTableLayoutPanel.RowCount = 1;
+            this.address2AndStateTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.address2AndStateTableLayoutPanel.Size = new System.Drawing.Size(459, 38);
+            this.address2AndStateTableLayoutPanel.TabIndex = 70;
             // 
             // stateTextBox
             // 
@@ -224,7 +224,7 @@ namespace Clinic.View
             this.stateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.stateLabel.AutoSize = true;
             this.stateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stateLabel.Location = new System.Drawing.Point(250, 13);
+            this.stateLabel.Location = new System.Drawing.Point(249, 13);
             this.stateLabel.Name = "stateLabel";
             this.stateLabel.Size = new System.Drawing.Size(64, 25);
             this.stateLabel.TabIndex = 11;
@@ -235,35 +235,35 @@ namespace Clinic.View
             // 
             this.address2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.address2TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address2TextBox.Location = new System.Drawing.Point(29, 6);
+            this.address2TextBox.Location = new System.Drawing.Point(28, 6);
             this.address2TextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.address2TextBox.Name = "address2TextBox";
             this.address2TextBox.Size = new System.Drawing.Size(208, 30);
             this.address2TextBox.TabIndex = 10;
             // 
-            // phoneNumberLlabel
+            // phoneNumberLabel
             // 
-            this.phoneNumberLlabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.phoneNumberLlabel.AutoSize = true;
-            this.phoneNumberLlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneNumberLlabel.Location = new System.Drawing.Point(24, 339);
-            this.phoneNumberLlabel.Name = "phoneNumberLlabel";
-            this.phoneNumberLlabel.Size = new System.Drawing.Size(149, 25);
-            this.phoneNumberLlabel.TabIndex = 12;
-            this.phoneNumberLlabel.Tag = "";
-            this.phoneNumberLlabel.Text = "Phone Number:";
+            this.phoneNumberLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.phoneNumberLabel.AutoSize = true;
+            this.phoneNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phoneNumberLabel.Location = new System.Drawing.Point(24, 339);
+            this.phoneNumberLabel.Name = "phoneNumberLabel";
+            this.phoneNumberLabel.Size = new System.Drawing.Size(149, 25);
+            this.phoneNumberLabel.TabIndex = 12;
+            this.phoneNumberLabel.Tag = "";
+            this.phoneNumberLabel.Text = "Phone Number:";
             // 
-            // S
+            // socialSecurityNumberLabel
             // 
-            this.S.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.S.AutoSize = true;
-            this.S.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S.Location = new System.Drawing.Point(113, 290);
-            this.S.Name = "S";
-            this.S.Size = new System.Drawing.Size(60, 25);
-            this.S.TabIndex = 14;
-            this.S.Tag = "";
-            this.S.Text = "SSN:";
+            this.socialSecurityNumberLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.socialSecurityNumberLabel.AutoSize = true;
+            this.socialSecurityNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.socialSecurityNumberLabel.Location = new System.Drawing.Point(113, 290);
+            this.socialSecurityNumberLabel.Name = "socialSecurityNumberLabel";
+            this.socialSecurityNumberLabel.Size = new System.Drawing.Size(60, 25);
+            this.socialSecurityNumberLabel.TabIndex = 14;
+            this.socialSecurityNumberLabel.Tag = "";
+            this.socialSecurityNumberLabel.Text = "SSN:";
             // 
             // dobLabel
             // 
@@ -333,22 +333,22 @@ namespace Clinic.View
             this.registerPatientLabel.TabIndex = 16;
             this.registerPatientLabel.Text = "Register New Patient";
             // 
-            // tableLayoutPanel3
+            // ssnAndGenderTableLayoutPanel
             // 
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.80103F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.19897F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
-            this.tableLayoutPanel3.Controls.Add(this.genderComboBox, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.genderLabel, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.ssnTextBox, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(179, 265);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(459, 47);
-            this.tableLayoutPanel3.TabIndex = 40;
+            this.ssnAndGenderTableLayoutPanel.ColumnCount = 3;
+            this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.80103F));
+            this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.19897F));
+            this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
+            this.ssnAndGenderTableLayoutPanel.Controls.Add(this.genderComboBox, 2, 0);
+            this.ssnAndGenderTableLayoutPanel.Controls.Add(this.genderLabel, 1, 0);
+            this.ssnAndGenderTableLayoutPanel.Controls.Add(this.ssnTextBox, 0, 0);
+            this.ssnAndGenderTableLayoutPanel.Location = new System.Drawing.Point(179, 265);
+            this.ssnAndGenderTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ssnAndGenderTableLayoutPanel.Name = "ssnAndGenderTableLayoutPanel";
+            this.ssnAndGenderTableLayoutPanel.RowCount = 1;
+            this.ssnAndGenderTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.ssnAndGenderTableLayoutPanel.Size = new System.Drawing.Size(459, 47);
+            this.ssnAndGenderTableLayoutPanel.TabIndex = 40;
             // 
             // genderComboBox
             // 
@@ -368,7 +368,7 @@ namespace Clinic.View
             this.genderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.genderLabel.AutoSize = true;
             this.genderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genderLabel.Location = new System.Drawing.Point(255, 22);
+            this.genderLabel.Location = new System.Drawing.Point(254, 22);
             this.genderLabel.Name = "genderLabel";
             this.genderLabel.Size = new System.Drawing.Size(83, 25);
             this.genderLabel.TabIndex = 13;
@@ -379,7 +379,7 @@ namespace Clinic.View
             // 
             this.ssnTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ssnTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ssnTextBox.Location = new System.Drawing.Point(30, 15);
+            this.ssnTextBox.Location = new System.Drawing.Point(29, 15);
             this.ssnTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ssnTextBox.Name = "ssnTextBox";
             this.ssnTextBox.Size = new System.Drawing.Size(209, 30);
@@ -397,23 +397,23 @@ namespace Clinic.View
             this.cityLabel.Tag = "";
             this.cityLabel.Text = "City:";
             // 
-            // tableLayoutPanel4
+            // cityAndZipTableLayoutPanel
             // 
-            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.17728F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.82271F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
-            this.tableLayoutPanel4.Controls.Add(this.zipTextBox, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.zipLlabel, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.cityTextBox, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(179, 469);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(459, 48);
-            this.tableLayoutPanel4.TabIndex = 80;
+            this.cityAndZipTableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cityAndZipTableLayoutPanel.ColumnCount = 3;
+            this.cityAndZipTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.17728F));
+            this.cityAndZipTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.82271F));
+            this.cityAndZipTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142F));
+            this.cityAndZipTableLayoutPanel.Controls.Add(this.zipTextBox, 0, 0);
+            this.cityAndZipTableLayoutPanel.Controls.Add(this.zipLlabel, 0, 0);
+            this.cityAndZipTableLayoutPanel.Controls.Add(this.cityTextBox, 0, 0);
+            this.cityAndZipTableLayoutPanel.Location = new System.Drawing.Point(179, 469);
+            this.cityAndZipTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cityAndZipTableLayoutPanel.Name = "cityAndZipTableLayoutPanel";
+            this.cityAndZipTableLayoutPanel.RowCount = 1;
+            this.cityAndZipTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.cityAndZipTableLayoutPanel.Size = new System.Drawing.Size(459, 48);
+            this.cityAndZipTableLayoutPanel.TabIndex = 80;
             // 
             // zipTextBox
             // 
@@ -430,7 +430,7 @@ namespace Clinic.View
             this.zipLlabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.zipLlabel.AutoSize = true;
             this.zipLlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zipLlabel.Location = new System.Drawing.Point(269, 23);
+            this.zipLlabel.Location = new System.Drawing.Point(268, 23);
             this.zipLlabel.Name = "zipLlabel";
             this.zipLlabel.Size = new System.Drawing.Size(45, 25);
             this.zipLlabel.TabIndex = 12;
@@ -441,7 +441,7 @@ namespace Clinic.View
             // 
             this.cityTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityTextBox.Location = new System.Drawing.Point(30, 16);
+            this.cityTextBox.Location = new System.Drawing.Point(29, 16);
             this.cityTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(209, 30);
@@ -453,7 +453,7 @@ namespace Clinic.View
             this.dateOfBirthDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateOfBirthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateOfBirthDateTimePicker.Location = new System.Drawing.Point(209, 229);
-            this.dateOfBirthDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateOfBirthDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
             this.dateOfBirthDateTimePicker.Size = new System.Drawing.Size(428, 30);
             this.dateOfBirthDateTimePicker.TabIndex = 30;
@@ -473,14 +473,14 @@ namespace Clinic.View
             this.Text = "Register Patient Form";
             this.registerPatientTableLayoutPanel.ResumeLayout(false);
             this.registerPatientTableLayoutPanel.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
+            this.buttonTableLayoutPanel.ResumeLayout(false);
+            this.buttonTableLayoutPanel.PerformLayout();
+            this.address2AndStateTableLayoutPanel.ResumeLayout(false);
+            this.address2AndStateTableLayoutPanel.PerformLayout();
+            this.ssnAndGenderTableLayoutPanel.ResumeLayout(false);
+            this.ssnAndGenderTableLayoutPanel.PerformLayout();
+            this.cityAndZipTableLayoutPanel.ResumeLayout(false);
+            this.cityAndZipTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -495,24 +495,24 @@ namespace Clinic.View
         private System.Windows.Forms.Label lastNameLabel;
         private System.Windows.Forms.TextBox address1TextBox;
         private System.Windows.Forms.Label addressLabel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel buttonTableLayoutPanel;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button registerButton;
         private System.Windows.Forms.Label address2Label;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel address2AndStateTableLayoutPanel;
         private System.Windows.Forms.TextBox address2TextBox;
-        private System.Windows.Forms.Label phoneNumberLlabel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label phoneNumberLabel;
+        private System.Windows.Forms.TableLayoutPanel ssnAndGenderTableLayoutPanel;
         private System.Windows.Forms.ComboBox genderComboBox;
         private System.Windows.Forms.Label genderLabel;
         private System.Windows.Forms.TextBox phoneNumberTextBox;
-        private System.Windows.Forms.Label S;
+        private System.Windows.Forms.Label socialSecurityNumberLabel;
         private System.Windows.Forms.TextBox ssnTextBox;
         private System.Windows.Forms.Label registerPatientLabel;
         private System.Windows.Forms.TextBox stateTextBox;
         private System.Windows.Forms.Label stateLabel;
         private System.Windows.Forms.Label cityLabel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TableLayoutPanel cityAndZipTableLayoutPanel;
         private System.Windows.Forms.TextBox zipTextBox;
         private System.Windows.Forms.Label zipLlabel;
         private System.Windows.Forms.TextBox cityTextBox;

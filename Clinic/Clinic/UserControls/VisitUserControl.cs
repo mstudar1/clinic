@@ -3,8 +3,14 @@ using System.Windows.Forms;
 
 namespace Clinic.UserControls
 {
+    /// <summary>
+    /// Class that defines a user control for visits.
+    /// </summary>
     public partial class VisitUserControl : UserControl
     {
+        /// <summary>
+        /// Constructor for the VisitUserControl class.
+        /// </summary>
         public VisitUserControl()
         {
             InitializeComponent();

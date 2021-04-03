@@ -25,24 +25,45 @@ namespace Clinic.UserControls
             this.makeAppointmentForm.Show();
         }
 
-        private void searchDateButton_Click(object sender, System.EventArgs e)
+        private void SearchDateButton_Click(object sender, System.EventArgs e)
         {
-            if (this.nameTextBox.Text == "")
+            this.appointmentsSearchResultsListView.Items.Clear();
+            this.nameTextBox.Text = "";
+            DateTime searchDateTime = this.searchDateTimePicker.Value;
+            this.appointmentList = this.appointmentController.GetAppointmentsOnDate(searchDateTime);
+            foreach (Appointment current in this.appointmentList)
             {
-                this.appointmentsSearchResultsListView.Items.Clear();
-                DateTime searchDateTime = this.searchDateTimePicker.Value;
-                this.appointmentList = this.appointmentController.GetAppointmentsOnDate(searchDateTime);
-                foreach (Appointment current in this.appointmentList)
-                {
-                    ListViewItem item = new ListViewItem(current.PatientLastName.ToString());
-                    item.SubItems.Add(current.PatientFirstName.ToString());
-                    item.SubItems.Add(current.StartDateTime.ToString("dddd, dd MMMM yyyy"));
-                    item.SubItems.Add(current.StartDateTime.ToString("hh:mm tt"));
-                    item.SubItems.Add(current.EndDateTime.ToString("hh:mm tt"));
-                    item.SubItems.Add(current.DoctorLastName.ToString());
-                    this.appointmentsSearchResultsListView.Items.Add(item);
-                }
+                ListViewItem item = new ListViewItem(current.PatientLastName.ToString());
+                item.SubItems.Add(current.PatientFirstName.ToString());
+                item.SubItems.Add(current.StartDateTime.ToString("dddd, dd MMMM yyyy"));
+                item.SubItems.Add(current.StartDateTime.ToString("hh:mm tt"));
+                item.SubItems.Add(current.EndDateTime.ToString("hh:mm tt"));
+                item.SubItems.Add(current.DoctorLastName.ToString());
+                this.appointmentsSearchResultsListView.Items.Add(item);
             }
+        }
+
+        private void SearchNameButton_Click(object sender, EventArgs e)
+        {
+            this.appointmentsSearchResultsListView.Items.Clear();
+            String searchName = this.nameTextBox.Text;
+            this.appointmentList = this.appointmentController.GetAppointmentsForPatientLastName(searchName);
+            foreach (Appointment current in this.appointmentList)
+            {
+                ListViewItem item = new ListViewItem(current.PatientLastName.ToString());
+                item.SubItems.Add(current.PatientFirstName.ToString());
+                item.SubItems.Add(current.StartDateTime.ToString("dddd, dd MMMM yyyy"));
+                item.SubItems.Add(current.StartDateTime.ToString("hh:mm tt"));
+                item.SubItems.Add(current.EndDateTime.ToString("hh:mm tt"));
+                item.SubItems.Add(current.DoctorLastName.ToString());
+                this.appointmentsSearchResultsListView.Items.Add(item);
+            }
+
+        }
+
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            this.appointmentsSearchResultsListView.Items.Clear();
         }
     }
 }

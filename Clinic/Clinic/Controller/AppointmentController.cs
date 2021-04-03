@@ -110,6 +110,12 @@ namespace Clinic.Controller
             return this.appointmentSource.GetAppointmentsOnDate(date);
         }
 
+        /// <summary>
+        /// Get list of Appointment objects for a given doctor on a given date
+        /// </summary>
+        /// <param name="doctorId">the doctorId</param>
+        /// <param name="date">the desired date</param>
+        /// <returns>List of Appointment objects</returns>
         public List<Appointment> GetAppointmentsForDoctorOnDate(int doctorId, DateTime date)
         {
             if (date == null)
@@ -117,6 +123,20 @@ namespace Clinic.Controller
                 throw new ArgumentNullException("date", "The date cannot be null.");
             }
             return this.appointmentSource.GetAppointmentsForDoctorOnDate(doctorId, date);
+        }
+
+        /// <summary>
+        /// Get list of Appointment objects that match the desired last name
+        /// </summary>
+        /// <param name="lastName">the last name to search for</param>
+        /// <returns>List of Appointment objects/returns>
+        public List<Appointment> GetAppointmentsForPatientLastName(String lastName)
+        {
+            if (lastName == null || lastName == "")
+            {
+                throw new ArgumentException("lastName", "Last name for search cannot be empty");
+            }
+            return this.appointmentSource.GetAppointmentsForPatientLastName(lastName);
         }
     }
 }

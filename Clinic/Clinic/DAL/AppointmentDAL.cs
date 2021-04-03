@@ -278,6 +278,71 @@ namespace Clinic.DAL
             return appointmentList;
         }
 
+        public List<Appointment> GetAppointmentsForPatientLastName(String lastName)
+        {
+            if (lastName == null || lastName == "")
+            {
+                throw new ArgumentException("lastName", "Last name for search cannot be empty");
+            }
+            List<Appointment> appointmentList = new List<Appointment>();
+
+            string selectStatement =
+                "SELECT " +
+                    "startDateTime, " +
+                    "endDateTime, " +
+                    "a.doctorId AS doctorId, " +
+                    "reasonForVisit, " +
+                    "a.patientId AS patientId, " +
+                    "docInfo.firstName AS doctorFirstName, " +
+                    "docInfo.lastName AS doctorLastName, " +
+                    "patInfo.firstName AS patientFirstName, " +
+                    "patInfo.lastName AS patientLastName " +
+                "FROM Appointment a " +
+                "LEFT JOIN Doctor doc ON a.doctorId = doc.doctorId " +
+                "LEFT JOIN Patient pat ON a.patientId = pat.patientId " +
+                "LEFT JOIN Person docInfo ON doc.personId = docInfo.personId " +
+                "LEFT JOIN Person patInfo ON pat.personId = patInfo.personId " +
+                "WHERE patInfo.lastName = @searchName  " +
+                "ORDER BY startDateTime ASC";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@searchName", lastName);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        int startDateTimeOrdinal = reader.GetOrdinal("startDateTime");
+                        int endDateTimeOrdinal = reader.GetOrdinal("endDateTime");
+                        int doctorIdOrdinal = reader.GetOrdinal("doctorId");
+                        int doctorfirstNameOrdinal = reader.GetOrdinal("doctorFirstName");
+                        int doctorlastNameOrdinal = reader.GetOrdinal("doctorLastName");
+                        int reasonForVisitOrdinal = reader.GetOrdinal("reasonForVisit");
+                        int patientIdOrdinal = reader.GetOrdinal("patientId");
+                        int patientfirstNameOrdinal = reader.GetOrdinal("patientFirstName");
+                        int patientlastNameOrdinal = reader.GetOrdinal("patientLastName");
+                        while (reader.Read())
+                        {
+                            Appointment theAppointment = new Appointment();
+                            if (!reader.IsDBNull(startDateTimeOrdinal)) { theAppointment.StartDateTime = reader.GetDateTime(startDateTimeOrdinal); }
+                            if (!reader.IsDBNull(endDateTimeOrdinal)) { theAppointment.EndDateTime = reader.GetDateTime(endDateTimeOrdinal); }
+                            if (!reader.IsDBNull(doctorIdOrdinal)) { theAppointment.DoctorId = reader.GetInt32(doctorIdOrdinal); }
+                            if (!reader.IsDBNull(doctorfirstNameOrdinal)) { theAppointment.DoctorFirstName = reader.GetString(doctorfirstNameOrdinal); }
+                            if (!reader.IsDBNull(doctorlastNameOrdinal)) { theAppointment.DoctorLastName = reader.GetString(doctorlastNameOrdinal); }
+                            if (!reader.IsDBNull(reasonForVisitOrdinal)) { theAppointment.ReasonForVisit = reader.GetString(reasonForVisitOrdinal); }
+                            if (!reader.IsDBNull(patientIdOrdinal)) { theAppointment.PatientId = reader.GetInt32(patientIdOrdinal); }
+                            if (!reader.IsDBNull(patientfirstNameOrdinal)) { theAppointment.PatientFirstName = reader.GetString(patientfirstNameOrdinal); }
+                            if (!reader.IsDBNull(patientlastNameOrdinal)) { theAppointment.PatientLastName = reader.GetString(patientlastNameOrdinal); }
+                            appointmentList.Add(theAppointment);
+                        }
+                    }
+                }
+            }
+            return appointmentList;
+        }
+
+
         /// <summary>
         /// Gets a list of appointments that have been made for the specified date for a specified doctor
         /// </summary>

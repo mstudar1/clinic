@@ -97,11 +97,11 @@ namespace Clinic.UserControls
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(4, 51);
+            this.label1.Location = new System.Drawing.Point(18, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 17);
+            this.label1.Size = new System.Drawing.Size(84, 34);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Search Name:";
+            this.label1.Text = "Search Last Name:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // nameTextBox
@@ -137,7 +137,7 @@ namespace Clinic.UserControls
             this.searchDateButton.TabIndex = 30;
             this.searchDateButton.Text = "Search By Date";
             this.searchDateButton.UseVisualStyleBackColor = true;
-            this.searchDateButton.Click += new System.EventHandler(this.searchDateButton_Click);
+            this.searchDateButton.Click += new System.EventHandler(this.SearchDateButton_Click);
             // 
             // searchNameButton
             // 
@@ -147,8 +147,9 @@ namespace Clinic.UserControls
             this.searchNameButton.Name = "searchNameButton";
             this.searchNameButton.Size = new System.Drawing.Size(153, 26);
             this.searchNameButton.TabIndex = 50;
-            this.searchNameButton.Text = "Search By Name";
+            this.searchNameButton.Text = "Search By Last Name";
             this.searchNameButton.UseVisualStyleBackColor = true;
+            this.searchNameButton.Click += new System.EventHandler(this.SearchNameButton_Click);
             // 
             // resetButton
             // 
@@ -162,6 +163,7 @@ namespace Clinic.UserControls
             this.resetButton.TabIndex = 60;
             this.resetButton.Text = "Clear Search Results";
             this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
             // appointmentsLabel
             // 

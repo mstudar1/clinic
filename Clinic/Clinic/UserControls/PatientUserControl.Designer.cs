@@ -37,7 +37,7 @@ namespace Clinic.UserControls
             this.listOfPatientsLabel = new System.Windows.Forms.Label();
             this.searchTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.searchButton = new System.Windows.Forms.Button();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.dateOfBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.patientListView = new System.Windows.Forms.ListView();
             this.firstNameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -149,7 +149,7 @@ namespace Clinic.UserControls
             this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 161F));
             this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
             this.searchTableLayoutPanel.Controls.Add(this.searchButton, 3, 0);
-            this.searchTableLayoutPanel.Controls.Add(this.nameTextBox, 1, 0);
+            this.searchTableLayoutPanel.Controls.Add(this.lastNameTextBox, 1, 0);
             this.searchTableLayoutPanel.Controls.Add(this.dateOfBirthDateTimePicker, 2, 0);
             this.searchTableLayoutPanel.Location = new System.Drawing.Point(3, 2);
             this.searchTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -173,16 +173,16 @@ namespace Clinic.UserControls
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
-            // nameTextBox
+            // lastNameTextBox
             // 
-            this.nameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameTextBox.Location = new System.Drawing.Point(245, 2);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(198, 30);
-            this.nameTextBox.TabIndex = 10;
-            this.nameTextBox.Tag = "";
+            this.lastNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameTextBox.Location = new System.Drawing.Point(245, 2);
+            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(198, 30);
+            this.lastNameTextBox.TabIndex = 10;
+            this.lastNameTextBox.Tag = "";
             // 
             // dateOfBirthDateTimePicker
             // 
@@ -288,7 +288,7 @@ namespace Clinic.UserControls
         private System.Windows.Forms.Label listOfPatientsLabel;
         private System.Windows.Forms.TableLayoutPanel searchTableLayoutPanel;
         private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.ListView patientListView;
         private System.Windows.Forms.ColumnHeader dobColumnHeader;
         private System.Windows.Forms.ColumnHeader firstNameColumnHeader;

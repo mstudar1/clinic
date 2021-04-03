@@ -15,7 +15,7 @@ namespace Clinic.UserControls
     public partial class NurseUserControl : UserControl
     {
         private AddNurseForm theAddNurseForm;
-        private NurseController theNurseController;
+        private readonly NurseController theNurseController;
 
         /// <summary>
         /// Initialize the form

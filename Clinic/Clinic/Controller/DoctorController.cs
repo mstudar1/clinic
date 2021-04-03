@@ -7,7 +7,7 @@ namespace Clinic.Controller
     /// <summary>
     /// Controller class for managing data flow from DAL to view for Doctor data
     /// </summary>
-    class DoctorController       
+    public class DoctorController       
     {
         private readonly DoctorDAL doctorSource;
 

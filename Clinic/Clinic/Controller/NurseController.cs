@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace Clinic.Controller
 {
+    /// <summary>
+    /// Class serving as a controller for nurses.
+    /// </summary>
     public class NurseController
     {
         private readonly NurseDAL nurseSource;

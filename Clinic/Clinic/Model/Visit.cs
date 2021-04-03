@@ -1,4 +1,6 @@
-﻿namespace Clinic.Model
+﻿using System;
+
+namespace Clinic.Model
 {
     /// <summary>
     /// Class representing a visit.
@@ -20,5 +22,45 @@
         public string Symptoms { get; set; }
 
         public int NurseId { get; set; }
+
+        public string PatientFirstName { get; set; }
+
+        public string PatientLastName { get; set; }
+
+        public string DoctorFirstName { get; set; }
+
+        public string DoctorLastName { get; set; }
+
+        public string NurseFirstName { get; set; }
+
+        public string NurseLastName { get; set; }
+
+        public DateTime PatientDateOfBirth { get; set; }
+
+        public DateTime VisitDate { get; set; }
+
+        public string PatientFullName
+        {
+            get
+            {
+                return PatientFirstName + " " + PatientLastName;
+            }
+        }
+
+        public string DoctorFullName
+        {
+            get
+            {
+                return DoctorFirstName + " " + DoctorLastName;
+            }
+        }
+
+        public string NurseFullName
+        {
+            get
+            {
+                return NurseFirstName + " " + NurseLastName;
+            }
+        }
     }
 }

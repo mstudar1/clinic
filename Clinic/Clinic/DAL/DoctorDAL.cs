@@ -19,6 +19,10 @@ namespace Clinic.DAL
             this.thePersonDAL = new PersonDAL();
         }
 
+        /// <summary>
+        /// Method that returns a list of all the doctors.
+        /// </summary>
+        /// <returns>A list of all the doctors.</returns>
         public List<Doctor> GetAllDoctors()
         {
             List<Doctor> doctorList = new List<Doctor>();

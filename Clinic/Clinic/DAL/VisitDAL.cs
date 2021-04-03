@@ -59,6 +59,7 @@ namespace Clinic.DAL
 
             string selectStatement =
                 "SELECT v.appointmentId, v.nurseId, v.weight, v.pulse, v.systolicBloodPressure, v.diastolicBloodPressure, v.bodyTemperature, v.symptoms, " +
+                    "a.startDateTime, " +
                     "patInfo.firstName AS patientFirstName, patInfo.lastName AS patientLastName, patInfo.dateOfBirth AS patientDateOfBirth, " +
                     "docInfo.firstName AS doctorFirstName, docInfo.lastName AS doctorLastName, " +
                     "nurseInfo.firstName AS nurseFirstName, nurseInfo.lastName AS nurseLastName " +
@@ -89,6 +90,7 @@ namespace Clinic.DAL
                         int diastolicBloodPressureOrdinal = reader.GetOrdinal("diastolicBloodPressure");
                         int bodyTemperatureOrdinal = reader.GetOrdinal("bodyTemperature");
                         int symptomsOrdinal = reader.GetOrdinal("symptoms");
+                        int dateOrdinal = reader.GetOrdinal("startDateTime");
                         int patientFirstNameOrdinal = reader.GetOrdinal("patientFirstName");
                         int patientLastNameOrdinal = reader.GetOrdinal("patientLastName");
                         int patientDateOfBirthOrdinal = reader.GetOrdinal("patientDateOfBirth");
@@ -108,6 +110,7 @@ namespace Clinic.DAL
                             if (!reader.IsDBNull(diastolicBloodPressureOrdinal)) { theVisit.DiastolicBloodPressure = reader.GetInt32(diastolicBloodPressureOrdinal); }
                             if (!reader.IsDBNull(bodyTemperatureOrdinal)) { theVisit.BodyTemperature = (double)reader.GetDecimal(bodyTemperatureOrdinal); }
                             if (!reader.IsDBNull(symptomsOrdinal)) { theVisit.Symptoms = reader.GetString(symptomsOrdinal); }
+                            if (!reader.IsDBNull(dateOrdinal)) { theVisit.VisitDate = reader.GetDateTime(dateOrdinal); }
                             if (!reader.IsDBNull(patientFirstNameOrdinal)) { theVisit.PatientFirstName = reader.GetString(patientFirstNameOrdinal); }
                             if (!reader.IsDBNull(patientLastNameOrdinal)) { theVisit.PatientLastName = reader.GetString(patientLastNameOrdinal); }
                             if (!reader.IsDBNull(patientDateOfBirthOrdinal)) { theVisit.PatientDateOfBirth = reader.GetDateTime(patientDateOfBirthOrdinal); }

@@ -58,11 +58,20 @@ namespace Clinic.DAL
             List<Visit> visitList = new List<Visit>();
 
             string selectStatement =
-                "SELECT v.appointmentId, v.nurseId, v.weight, v.pulse, v.systolicBloodPressure, v.diastolicBloodPressure, v.bodyTemperature, v.symptoms " +
+                "SELECT v.appointmentId, v.nurseId, v.weight, v.pulse, v.systolicBloodPressure, v.diastolicBloodPressure, v.bodyTemperature, v.symptoms, " +
+                    "patInfo.firstName AS patientFirstName, patInfo.lastName AS patientLastName, patInfo.dateOfBirth AS patientDateOfBirth, " +
+                    "docInfo.firstName AS doctorFirstName, docInfo.lastName AS doctorLastName, " +
+                    "nurseInfo.firstName AS nurseFirstName, nurseInfo.lastName AS nurseLastName " +
                 "FROM Visit v " +
-                "JOIN Appointment a ON v.appointmentId = a.appointmentId " +
+                    "JOIN Appointment a ON v.appointmentId = a.appointmentId " +
+                    "JOIN Patient pat ON a.patientId = pat.patientId " +
+                    "JOIN Doctor doc ON a.doctorId = doc.doctorId " +
+                    "JOIN Nurse nurse ON v.nurseId = nurse.nurseId " +
+                    "JOIN Person patInfo ON pat.personId = patInfo.personId " +
+                    "JOIN Person docInfo ON doc.personId = docInfo.personId " +
+                    "JOIN Person nurseInfo ON nurse.nurseId = nurseInfo.personId " +
                 "WHERE a.patientId = @PatientId " +
-                "ORDER BY a.startDateAndTime ASC";
+                "ORDER BY a.startDateTime ASC";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -80,6 +89,14 @@ namespace Clinic.DAL
                         int diastolicBloodPressureOrdinal = reader.GetOrdinal("diastolicBloodPressure");
                         int bodyTemperatureOrdinal = reader.GetOrdinal("bodyTemperature");
                         int symptomsOrdinal = reader.GetOrdinal("symptoms");
+                        int patientFirstNameOrdinal = reader.GetOrdinal("patientFirstName");
+                        int patientLastNameOrdinal = reader.GetOrdinal("patientLastName");
+                        int patientDateOfBirthOrdinal = reader.GetOrdinal("patientDateOfBirth");
+                        int doctorFirstNameOrdinal = reader.GetOrdinal("doctorFirstName");
+                        int doctorLastNameOrdinal = reader.GetOrdinal("doctorLastName");
+                        int nurseFirstNameOrdinal = reader.GetOrdinal("nurseFirstName");
+                        int nurseLastNameOrdinal = reader.GetOrdinal("nurseLastName");
+                        
                         while (reader.Read())
                         {
                             Visit theVisit = new Visit();
@@ -91,6 +108,13 @@ namespace Clinic.DAL
                             if (!reader.IsDBNull(diastolicBloodPressureOrdinal)) { theVisit.DiastolicBloodPressure = reader.GetInt32(diastolicBloodPressureOrdinal); }
                             if (!reader.IsDBNull(bodyTemperatureOrdinal)) { theVisit.BodyTemperature = (double)reader.GetDecimal(bodyTemperatureOrdinal); }
                             if (!reader.IsDBNull(symptomsOrdinal)) { theVisit.Symptoms = reader.GetString(symptomsOrdinal); }
+                            if (!reader.IsDBNull(patientFirstNameOrdinal)) { theVisit.PatientFirstName = reader.GetString(patientFirstNameOrdinal); }
+                            if (!reader.IsDBNull(patientLastNameOrdinal)) { theVisit.PatientLastName = reader.GetString(patientLastNameOrdinal); }
+                            if (!reader.IsDBNull(patientDateOfBirthOrdinal)) { theVisit.PatientDateOfBirth = reader.GetDateTime(patientDateOfBirthOrdinal); }
+                            if (!reader.IsDBNull(doctorFirstNameOrdinal)) { theVisit.DoctorFirstName = reader.GetString(doctorFirstNameOrdinal); }
+                            if (!reader.IsDBNull(doctorLastNameOrdinal)) { theVisit.DoctorLastName = reader.GetString(doctorLastNameOrdinal); }
+                            if (!reader.IsDBNull(nurseFirstNameOrdinal)) { theVisit.NurseFirstName = reader.GetString(nurseFirstNameOrdinal); }
+                            if (!reader.IsDBNull(nurseLastNameOrdinal)) { theVisit.NurseLastName = reader.GetString(nurseLastNameOrdinal); }
                             visitList.Add(theVisit);
                         }
                     }

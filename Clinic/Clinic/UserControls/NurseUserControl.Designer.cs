@@ -103,7 +103,7 @@ namespace Clinic.UserControls
             this.titleAndResetTableLayoutPanel.ColumnCount = 3;
             this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.87248F));
             this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.12752F));
-            this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
+            this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
             this.titleAndResetTableLayoutPanel.Controls.Add(this.resetButton, 1, 0);
             this.titleAndResetTableLayoutPanel.Controls.Add(this.listOfNursesLabel, 0, 0);
             this.titleAndResetTableLayoutPanel.Location = new System.Drawing.Point(3, 80);
@@ -119,20 +119,21 @@ namespace Clinic.UserControls
             this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.resetButton.AutoSize = true;
             this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetButton.Location = new System.Drawing.Point(555, 2);
+            this.resetButton.Location = new System.Drawing.Point(554, 2);
             this.resetButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(96, 28);
             this.resetButton.TabIndex = 10;
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
             // listOfNursesLabel
             // 
             this.listOfNursesLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.listOfNursesLabel.AutoSize = true;
             this.listOfNursesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listOfNursesLabel.Location = new System.Drawing.Point(17, 3);
+            this.listOfNursesLabel.Location = new System.Drawing.Point(16, 3);
             this.listOfNursesLabel.Name = "listOfNursesLabel";
             this.listOfNursesLabel.Size = new System.Drawing.Size(168, 29);
             this.listOfNursesLabel.TabIndex = 99;

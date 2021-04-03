@@ -30,5 +30,23 @@ namespace Clinic.UserControls
             this.theAddNurseForm = new AddNurseForm(this);
             theAddNurseForm.Show();
         }
+
+        private void SearchByName()
+        {
+            // add the code to search by name here
+        }
+
+        private void SearchButton_Click(object sender, System.EventArgs e)
+        {
+            this.SearchByName();
+        }
+
+        private void NurseNameTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SearchByName();
+            }
+        }
     }
 }

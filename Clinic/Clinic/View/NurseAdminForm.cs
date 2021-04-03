@@ -16,7 +16,7 @@ namespace Clinic.View
     public partial class NurseAdminForm : Form
     {
         private LoginForm theLoginForm;
-        private CredentialController theCredentialController;
+        private readonly CredentialController theCredentialController;
 
         /// <summary>
         /// The constructor initializes the components

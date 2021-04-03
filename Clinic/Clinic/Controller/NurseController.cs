@@ -4,7 +4,7 @@ using System;
 
 namespace Clinic.Controller
 {
-    class NurseController
+    public class NurseController
     {
         private readonly NurseDAL nurseSource;
 
@@ -31,4 +31,3 @@ namespace Clinic.Controller
         }
     }
 }
-

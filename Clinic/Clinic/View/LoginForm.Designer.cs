@@ -128,7 +128,7 @@ namespace Clinic
             this.loginButton.TabIndex = 3;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
-            this.loginButton.Click += new System.EventHandler(this.CheckCredentials);
+            this.loginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // titleLabel
             // 

@@ -40,7 +40,7 @@ namespace Clinic
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CheckCredentials(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
         {
             string username = this.usernameTextBox.Text;
             string password = this.passwordTextBox.Text;

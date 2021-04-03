@@ -10,8 +10,8 @@ namespace Clinic.UserControls
     public partial class AppointmentUserControl : UserControl
     {
         private MakeAppointmentForm makeAppointmentForm;
-        private AppointmentController appointmentController;
         private List<Appointment> appointmentList;
+        private readonly AppointmentController appointmentController;
 
         public AppointmentUserControl()
         {

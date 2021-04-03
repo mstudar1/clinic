@@ -76,6 +76,7 @@ namespace Clinic
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(215, 30);
             this.usernameTextBox.TabIndex = 1;
+            this.usernameTextBox.Text = "nurse1";
             this.usernameTextBox.TextChanged += new System.EventHandler(this.EntryInTextbox);
             // 
             // passwordTextBox
@@ -88,6 +89,7 @@ namespace Clinic
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(215, 30);
             this.passwordTextBox.TabIndex = 2;
+            this.passwordTextBox.Text = "test1";
             this.passwordTextBox.TextChanged += new System.EventHandler(this.EntryInTextbox);
             // 
             // usenameLabel

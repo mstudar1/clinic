@@ -16,5 +16,13 @@ namespace Clinic.Model
         public int DoctorId { get; set; }
 
         public string ReasonForVisit { get; set; }
+
+        public string PatientLastName { get; set; }
+
+        public string PatientFirstName { get; set; }
+
+        public string DoctorFirstName { get; set; }
+
+        public string DoctorLastName { get; set; }
     }
 }

@@ -29,7 +29,7 @@ namespace Clinic.UserControls
         {
             if (this.nameTextBox.Text == "")
             {
-                //this.appointmentsSearchResultsListView.Clear();
+                this.appointmentsSearchResultsListView.Items.Clear();
                 DateTime searchDateTime = this.searchDateTimePicker.Value;
                 this.appointmentList = this.appointmentController.GetAppointmentsOnDate(searchDateTime);
                 foreach (Appointment current in this.appointmentList)

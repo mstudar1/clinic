@@ -278,6 +278,11 @@ namespace Clinic.DAL
             return appointmentList;
         }
 
+        /// <summary>
+        /// Get a list of Appointment objects with last name matching the seach name
+        /// </summary>
+        /// <param name="lastName">the last name to search for</param>
+        /// <returns>List of Appointment objects</returns>
         public List<Appointment> GetAppointmentsForPatientLastName(String lastName)
         {
             if (lastName == null || lastName == "")

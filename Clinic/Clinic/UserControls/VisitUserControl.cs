@@ -83,7 +83,7 @@ namespace Clinic.UserControls
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-
+            this.ClearList();
         }
     }
 }

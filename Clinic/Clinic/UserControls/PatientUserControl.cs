@@ -38,12 +38,27 @@ namespace Clinic.UserControls
             theRegisterPatientForm.Show();
         }
 
-        private void SearchButton_Click(object sender, System.EventArgs e)
+        private void Search()
         {
             if (DateTime.Compare(this.dateOfBirthDateTimePicker.Value, DateTime.Now) > 0)
             {
                 MessageBox.Show("The date of birth cannot be in the future.  Please revise the date and resubmit.", "Invalid Date of Birth");
                 return;
+            }
+
+            // TODO: add the code to search here
+        }
+
+        private void SearchButton_Click(object sender, System.EventArgs e)
+        {
+            this.Search();
+        }
+
+        private void DateOfBirthDateTimePicker_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.Search();
             }
         }
 

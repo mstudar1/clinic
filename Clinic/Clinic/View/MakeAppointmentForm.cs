@@ -45,13 +45,7 @@ namespace Clinic.View
             doctorComboBox.DataSource = this.doctorList;
         }
 
-        /// <summary>
-        /// Search patient button click actions.  Search for patient by names 
-        /// and display selectable list.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SearchPatientButton_Click(object sender, EventArgs e)
+        private void SearchPatient()
         {
             this.patientSearchResultListView.Items.Clear();
             try
@@ -69,7 +63,26 @@ namespace Clinic.View
             catch (Exception)
             {
                 this.alertNoticeLabel.Text = "Please enter both first and last name for search.";
-            }         
+            }
+        }
+
+        /// <summary>
+        /// Search patient button click actions.  Search for patient by names 
+        /// and display selectable list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SearchPatientButton_Click(object sender, EventArgs e)
+        {
+            this.SearchPatient();
+        }
+
+        private void SearchPatientFirstNameTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SearchPatient();
+            }
         }
 
         /// <summary>

@@ -110,7 +110,7 @@ namespace Clinic.UserControls
 
         private void ResetButton_Click(object sender, System.EventArgs e)
         {
-
+            this.ClearList();
         }
     }
 }

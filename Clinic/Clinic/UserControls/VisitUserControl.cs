@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Clinic.Controller;
+using Clinic.Model;
+using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Clinic.UserControls
@@ -8,23 +11,61 @@ namespace Clinic.UserControls
     /// </summary>
     public partial class VisitUserControl : UserControl
     {
+        private readonly VisitController theVisitController;
+
         /// <summary>
         /// Constructor for the VisitUserControl class.
         /// </summary>
         public VisitUserControl()
         {
             InitializeComponent();
+            this.theVisitController = new VisitController();
         }
 
         private void Search()
         {
-            if (DateTime.Compare(this.visitDateTimePicker.Value, DateTime.Now) > 0)
-            {
-                MessageBox.Show("The visit date cannot be in the future.  Please revise the date and resubmit.", "Invalid Visit Date");
-                return;
-            }
+            this.ClearList();
+            this.PopulateList();
+        }
 
-            // TODO: add code to search here
+        private void ClearList()
+        {
+            foreach (ListViewItem item in this.visitListView.Items)
+            {
+                this.visitListView.Items.Remove(item);
+            }
+        }
+
+        private void PopulateList()
+        {
+            List<Visit> visitList;
+            try
+            {
+                int patientId = int.Parse(this.patientIdTextBox.Text);
+                visitList = this.theVisitController.FindVisits(patientId);
+
+                if (visitList.Count > 0)
+                {
+                    Visit theVisit;
+                    for (int i = 0; i < visitList.Count; i++)
+                    {
+                        theVisit = visitList[i];
+                        this.visitListView.Items.Add(theVisit.PatientFullName);
+                        this.visitListView.Items[i].SubItems.Add(theVisit.PatientDateOfBirth.ToShortDateString());
+                        this.visitListView.Items[i].SubItems.Add(theVisit.DoctorFullName);
+                        this.visitListView.Items[i].SubItems.Add(theVisit.NurseFullName);
+                        this.visitListView.Items[i].SubItems.Add(theVisit.VisitDate.ToShortDateString());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("There are no visits for the specified patient.", "No Matching Visits");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
         }
 
         private void SearchButton_Click(object sender, EventArgs e)

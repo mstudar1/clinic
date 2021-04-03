@@ -1,12 +1,10 @@
 ﻿using Clinic.Controller;
 using Clinic.View;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Clinic
 {
-
     /// <summary>
     /// The LoginForm class let's user to input username and password to Login to form for the nurses and admins (after credentials check)
     /// </summary>
@@ -85,6 +83,5 @@ namespace Clinic
         {
             this.errorMessageLabel.Text = "";
         }
-
     }
 }

@@ -48,5 +48,14 @@ namespace Clinic.Controller
 
             return this.nurseSource.FindNurses(lastName);
         }
+
+        /// <summary>
+        /// Method that gets a list of all nurses.
+        /// </summary>
+        /// <returns>A list of all the nurses.</returns>
+        public List<Nurse> GetAllNurses()
+        {
+            return this.nurseSource.GetAllNurses();
+        }
     }
 }

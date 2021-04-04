@@ -17,8 +17,8 @@ namespace Clinic
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new LoginForm());
-            Application.Run(new AddVisitForm());
+            Application.Run(new LoginForm());
+            //Application.Run(new AddVisitForm());
             //Application.Run(new DataAccessTestForm());
         }
     }

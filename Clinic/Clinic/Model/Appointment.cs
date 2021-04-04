@@ -7,6 +7,8 @@ namespace Clinic.Model
     /// </summary>
     public class Appointment
     {
+        public int AppointmentId { get; set; }
+
         public int PatientId { get; set; }
 
         public DateTime StartDateTime { get; set; }

@@ -10,6 +10,7 @@ namespace Clinic.Model
         private string socialSecurityNumber;
         private string gender;
         private string phoneNumber;
+        private string state;
 
         public int PersonId { get; set; }
 
@@ -63,6 +64,7 @@ namespace Clinic.Model
                 {
                     throw new ArgumentException("The specified phone number is not formatted properly.  A format of (###) ###-#### must be used.");
                 }
+                phoneNumber = value;
             }
         }
 
@@ -72,7 +74,21 @@ namespace Clinic.Model
 
         public string City { get; set; }
 
-        public string State { get; set; }
+        public string State
+        {
+            get
+            {
+                return state;
+            }
+            set
+            {
+                if (!IsValidState(value))
+                {
+                    throw new ArgumentException("The state is not formatted properly.  Only two character postal abbreviations are allowed (all caps).");
+                }
+                state = value;
+            }
+        }
 
         public string ZipCode { get; set; }
 
@@ -97,6 +113,11 @@ namespace Clinic.Model
         private bool IsValidPhoneNumber(string phoneNumber)
         {
             return System.Text.RegularExpressions.Regex.IsMatch(phoneNumber, @"^\(\d{3}\)\s\d{3}-\d{4}$");
+        }
+
+        private bool IsValidState(string state)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(state, @"^[A-Z]{2}$");
         }
     }
 }

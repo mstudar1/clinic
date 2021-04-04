@@ -27,7 +27,7 @@ namespace Clinic.Model
             {
                 if (!IsValidSocialSecurityNumber(value))
                 {
-                    throw new ArgumentException("The specified social security number is not formatted properly.");
+                    throw new ArgumentException("The specified social security number is not formatted properly.  A format of ###-##-#### must be used.");
                 }
                 socialSecurityNumber = value;
             }

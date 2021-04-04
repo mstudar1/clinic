@@ -296,6 +296,7 @@ namespace Clinic.DAL
 
             string selectStatement =
                 "SELECT " +
+                    "appointmentId, " +
                     "startDateTime, " +
                     "endDateTime, " +
                     "a.doctorId AS doctorId, " +
@@ -321,6 +322,7 @@ namespace Clinic.DAL
                     selectCommand.Parameters.AddWithValue("@searchName", lastName);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
+                        int appointmentIdOrdinal = reader.GetOrdinal("appointmentId");
                         int startDateTimeOrdinal = reader.GetOrdinal("startDateTime");
                         int endDateTimeOrdinal = reader.GetOrdinal("endDateTime");
                         int doctorIdOrdinal = reader.GetOrdinal("doctorId");
@@ -333,6 +335,7 @@ namespace Clinic.DAL
                         while (reader.Read())
                         {
                             Appointment theAppointment = new Appointment();
+                            if (!reader.IsDBNull(appointmentIdOrdinal)) { theAppointment.AppointmentId = reader.GetInt32(appointmentIdOrdinal); }
                             if (!reader.IsDBNull(startDateTimeOrdinal)) { theAppointment.StartDateTime = reader.GetDateTime(startDateTimeOrdinal); }
                             if (!reader.IsDBNull(endDateTimeOrdinal)) { theAppointment.EndDateTime = reader.GetDateTime(endDateTimeOrdinal); }
                             if (!reader.IsDBNull(doctorIdOrdinal)) { theAppointment.DoctorId = reader.GetInt32(doctorIdOrdinal); }

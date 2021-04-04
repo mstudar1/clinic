@@ -58,7 +58,7 @@ namespace Clinic.View
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            // TODO: handle click on cancel button
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

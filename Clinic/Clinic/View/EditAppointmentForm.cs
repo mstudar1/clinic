@@ -52,11 +52,38 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void EditAppointmentForm_Load(object sender, EventArgs e)
         {
+            this.PopulateTextFields();
+            this.SetDoctorComboBox();
+            this.SetDateTimeFields();
+        }
+
+        /// <summary>
+        /// Set values for all date and time fields
+        /// </summary>
+        private void SetDateTimeFields()
+        {
+            this.datePicker.Value = this.theAppointment.StartDateTime;
+            this.startHourComboBox.SelectedIndex = this.startHourComboBox.FindStringExact(this.theAppointment.StartDateTime.ToString("HH"));
+            this.startMinuteComboBox.SelectedIndex = this.startMinuteComboBox.FindStringExact(this.theAppointment.StartDateTime.ToString("mm"));
+            this.endHourComboBox.SelectedIndex = this.endHourComboBox.FindStringExact(this.theAppointment.EndDateTime.ToString("HH"));
+            this.endMinuteComboBox.SelectedIndex = this.endMinuteComboBox.FindStringExact(this.theAppointment.EndDateTime.ToString("mm"));
+        }
+
+        /// <summary>
+        /// Set values for text fields based on current appointment
+        /// </summary>
+        private void PopulateTextFields()
+        {
             this.searchPatientFirstNameTextBox.Text = this.theAppointment.PatientFirstName;
             this.searchPatientLastNameTextBox.Text = this.theAppointment.PatientLastName;
-            this.datePicker.Value = this.theAppointment.StartDateTime;
             this.reasonTextBox.Text = this.theAppointment.ReasonForVisit;
+        }
 
+        /// <summary>
+        /// Populate and set doctor combobox
+        /// </summary>
+        private void SetDoctorComboBox()
+        {
             this.appointmentUserControl.Enabled = false;
             this.doctorList = this.doctorController.GetAllDoctors();
             doctorComboBox.DataSource = this.doctorList;
@@ -72,6 +99,26 @@ namespace Clinic.View
             string lastname = ((Doctor)e.ListItem).FirstName;
             string firstname = ((Doctor)e.ListItem).LastName;
             e.Value = lastname + " " + firstname;
+        }
+
+        /// <summary>
+        /// Search for taken appointment times button.  Triggers a search and display 
+        /// of list of appointments on the date set by the date picker.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SearchTimesButton_Click(object sender, EventArgs e)
+        {
+            this.appointmentTimeListView.Items.Clear();
+            DateTime chosenDate = this.datePicker.Value;
+            int chosenDoctorId = int.Parse(this.doctorComboBox.SelectedValue.ToString());
+            this.appointmentList = this.appointmentController.GetAppointmentsForDoctorOnDate(chosenDoctorId, chosenDate);
+            foreach (Appointment current in this.appointmentList)
+            {
+                ListViewItem item = new ListViewItem(current.StartDateTime.ToString("t"));
+                item.SubItems.Add(current.EndDateTime.ToString("t"));
+                this.appointmentTimeListView.Items.Add(item);
+            }
         }
     }
 }

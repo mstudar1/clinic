@@ -8,8 +8,8 @@ namespace Clinic.Model
     public class Person
     {
         private string socialSecurityNumber;
-
         private string gender;
+        private string phoneNumber;
 
         public int PersonId { get; set; }
 
@@ -51,7 +51,20 @@ namespace Clinic.Model
             }
         }
 
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber
+        {
+            get
+            {
+                return phoneNumber;
+            }
+            set
+            {
+                if (!IsValidPhoneNumber(value))
+                {
+                    throw new ArgumentException("The specified phone number is not formatted properly.  A format of (###) ###-#### must be used.");
+                }
+            }
+        }
 
         public string AddressLine1 { get; set; }
 
@@ -79,6 +92,11 @@ namespace Clinic.Model
         private bool IsValidGender(string gender)
         {
             return gender.Equals("M") || gender.Equals("F");
+        }
+
+        private bool IsValidPhoneNumber(string phoneNumber)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(phoneNumber, @"^\(\d{3}\)\s\d{3}-\d{4}$");
         }
     }
 }

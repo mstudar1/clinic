@@ -91,19 +91,15 @@ namespace Clinic.UserControls
         {
             try
             {
-                this.patientListView.Items.Clear();
+                this.patientBindingSource.Clear();
+
 
                 if (patientsList.Count > 0)
                 {
                     Patient thePatient;
                     for (int i = 0; i < patientsList.Count; i++)
                     {
-                        thePatient = patientsList[i];
-                        this.patientListView.Items.Add(thePatient.FirstName);
-                        this.patientListView.Items[i].SubItems.Add(thePatient.LastName);
-                        this.patientListView.Items[i].SubItems.Add(thePatient.DateOfBirth.ToShortDateString());
-                        string address = thePatient.AddressLine1 + " " + thePatient.AddressLine2 + ", " + thePatient.City + " " + thePatient.ZipCode + ", " + thePatient.State;
-                        this.patientListView.Items[i].SubItems.Add(address);
+                        this.patientBindingSource.Add(patientsList[i]);
                     }
                 }
             }
@@ -130,6 +126,18 @@ namespace Clinic.UserControls
             else
             {
                 this.dateOfBirthDateTimePicker.Format = DateTimePickerFormat.Short;
+            }
+        }
+
+        private void PatientDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.patientDataGridView.Columns[e.ColumnIndex].Name == "Edit")
+            {
+                if (MessageBox.Show("Are you sure you want to delete this record?", "Messge", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    Console.WriteLine("BBBBBBBBBBBBBBBBBBBBBBBBBB");
+                    Patient theSelectedPatient = (Patient)this.patientBindingSource.Current;
+                    Console.WriteLine(theSelectedPatient.FirstName);
+
             }
         }
     }

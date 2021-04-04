@@ -105,6 +105,12 @@
     <Compile Include="View\DataAccessTestForm.Designer.cs">
       <DependentUpon>DataAccessTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\EditPatientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EditPatientForm.Designer.cs">
+      <DependentUpon>EditPatientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,12 @@
     </Compile>
     <Compile Include="View\RegisterPatientForm.Designer.cs">
       <DependentUpon>RegisterPatientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewPatientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ViewPatientForm.Designer.cs">
+      <DependentUpon>ViewPatientForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -158,6 +170,9 @@
     <EmbeddedResource Include="View\DataAccessTestForm.resx">
       <DependentUpon>DataAccessTestForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\EditPatientForm.resx">
+      <DependentUpon>EditPatientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +187,8 @@
     </EmbeddedResource>
     <None Include="Properties\DataSources\Clinic.Controller.DoctorController.datasource" />
     <None Include="Properties\DataSources\Clinic.Model.Doctor.datasource" />
+    <None Include="Properties\DataSources\Clinic.Model.Patient.datasource" />
+    <None Include="Properties\DataSources\Clinic.Model.Person.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

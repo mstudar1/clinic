@@ -26,5 +26,21 @@ namespace Clinic.Model
         public string DoctorFirstName { get; set; }
 
         public string DoctorLastName { get; set; }
+
+        public string PatientFullName
+        {
+            get
+            {
+                return PatientFirstName + " " + PatientLastName;
+            }
+        }
+
+        public string DoctorFullName
+        {
+            get
+            {
+                return DoctorFirstName + " " + DoctorLastName;
+            }
+        }
     }
 }

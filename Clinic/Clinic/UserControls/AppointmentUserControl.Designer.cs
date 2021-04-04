@@ -38,7 +38,7 @@ namespace Clinic.UserControls
             this.searchNameButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
             this.appointmentsLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.editAppointmentButton = new System.Windows.Forms.Button();
             this.setAppointmentButton = new System.Windows.Forms.Button();
             this.appointmentsSearchResultsListView = new System.Windows.Forms.ListView();
             this.lastNameCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -64,7 +64,7 @@ namespace Clinic.UserControls
             this.tableLayoutPanel1.Controls.Add(this.searchNameButton, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.resetButton, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.appointmentsLabel, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.editAppointmentButton, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.setAppointmentButton, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.appointmentsSearchResultsListView, 0, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 3);
@@ -178,16 +178,17 @@ namespace Clinic.UserControls
             this.appointmentsLabel.TabIndex = 2;
             this.appointmentsLabel.Text = "Search Results:";
             // 
-            // button1
+            // editAppointmentButton
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.button1, 2);
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(3, 243);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(263, 28);
-            this.button1.TabIndex = 80;
-            this.button1.Text = "Edit Selected Appointment";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.editAppointmentButton, 2);
+            this.editAppointmentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editAppointmentButton.Location = new System.Drawing.Point(3, 243);
+            this.editAppointmentButton.Name = "editAppointmentButton";
+            this.editAppointmentButton.Size = new System.Drawing.Size(263, 28);
+            this.editAppointmentButton.TabIndex = 80;
+            this.editAppointmentButton.Text = "Edit Selected Appointment";
+            this.editAppointmentButton.UseVisualStyleBackColor = true;
+            this.editAppointmentButton.Click += new System.EventHandler(this.EditAppointmentButton_Click);
             // 
             // setAppointmentButton
             // 
@@ -293,6 +294,6 @@ namespace Clinic.UserControls
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker searchDateTimePicker;
         private System.Windows.Forms.Button searchNameButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button editAppointmentButton;
     }
 }

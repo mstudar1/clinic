@@ -65,5 +65,10 @@ namespace Clinic.UserControls
         {
             this.appointmentsSearchResultsListView.Items.Clear();
         }
+
+        private void EditAppointmentButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

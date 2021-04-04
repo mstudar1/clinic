@@ -9,6 +9,8 @@ namespace Clinic.Model
     {
         private string socialSecurityNumber;
 
+        private string gender;
+
         public int PersonId { get; set; }
 
         public string LastName { get; set; }
@@ -33,7 +35,21 @@ namespace Clinic.Model
             }
         }
 
-        public string Gender { get; set; }
+        public string Gender
+        {
+            get
+            {
+                return gender;
+            }
+            set
+            {
+                if (!IsValidGender(value))
+                {
+                    throw new ArgumentException("The specified gender is not formatted properly.  'M' and 'F' are the only two characters that are allowed.");
+                }
+                gender = value;
+            }
+        }
 
         public string PhoneNumber { get; set; }
 
@@ -58,6 +74,11 @@ namespace Clinic.Model
         private bool IsValidSocialSecurityNumber(string socialSecurityNumber)
         {
             return System.Text.RegularExpressions.Regex.IsMatch(socialSecurityNumber, @"^\d{3}-\d{2}-\d{4}$");
+        }
+
+        private bool IsValidGender(string gender)
+        {
+            return gender.Equals("M") || gender.Equals("F");
         }
     }
 }

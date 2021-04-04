@@ -7,6 +7,8 @@ namespace Clinic.Model
     /// </summary>
     public class Person
     {
+        private string socialSecurityNumber;
+
         public int PersonId { get; set; }
 
         public string LastName { get; set; }
@@ -15,7 +17,21 @@ namespace Clinic.Model
 
         public DateTime DateOfBirth { get; set; }
 
-        public string SocialSecurityNumber { get; set; }
+        public string SocialSecurityNumber
+        {
+            get
+            {
+                return socialSecurityNumber;
+            }
+            set
+            {
+                if (!IsValidSocialSecurityNumber(value))
+                {
+                    throw new ArgumentException("The specified social security number is not formatted properly.");
+                }
+                socialSecurityNumber = value;
+            }
+        }
 
         public string Gender { get; set; }
 
@@ -37,6 +53,11 @@ namespace Clinic.Model
             {
                 return FirstName + " " + LastName;
             }
+        }
+
+        private bool IsValidSocialSecurityNumber(string socialSecurityNumber)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(socialSecurityNumber, @"^\d{3}-\d{2}-\d{4}$");
         }
     }
 }

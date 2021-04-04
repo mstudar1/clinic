@@ -180,6 +180,7 @@
       <DependentUpon>RegisterPatientForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\Clinic.Controller.DoctorController.datasource" />
+    <None Include="Properties\DataSources\Clinic.Model.Appointment.datasource" />
     <None Include="Properties\DataSources\Clinic.Model.Doctor.datasource" />
     <None Include="Properties\DataSources\Clinic.Model.Nurse.datasource" />
     <None Include="Properties\Settings.settings">

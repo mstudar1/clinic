@@ -47,6 +47,7 @@ namespace Clinic.UserControls
             this.startTimeCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.endTimeCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.doctorCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.alertTextLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,16 +68,17 @@ namespace Clinic.UserControls
             this.tableLayoutPanel1.Controls.Add(this.editAppointmentButton, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.setAppointmentButton, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.appointmentsSearchResultsListView, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.alertTextLabel, 1, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 3);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(539, 304);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -261,6 +263,16 @@ namespace Clinic.UserControls
             this.doctorCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.doctorCol.Width = 90;
             // 
+            // alertTextLabel
+            // 
+            this.alertTextLabel.AutoSize = true;
+            this.alertTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertTextLabel.ForeColor = System.Drawing.Color.Red;
+            this.alertTextLabel.Location = new System.Drawing.Point(108, 280);
+            this.alertTextLabel.Name = "alertTextLabel";
+            this.alertTextLabel.Size = new System.Drawing.Size(0, 17);
+            this.alertTextLabel.TabIndex = 91;
+            // 
             // AppointmentUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,5 +307,6 @@ namespace Clinic.UserControls
         private System.Windows.Forms.DateTimePicker searchDateTimePicker;
         private System.Windows.Forms.Button searchNameButton;
         private System.Windows.Forms.Button editAppointmentButton;
+        private System.Windows.Forms.Label alertTextLabel;
     }
 }

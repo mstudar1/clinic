@@ -10,7 +10,8 @@ namespace Clinic.UserControls
     public partial class AppointmentUserControl : UserControl
     {
         private MakeAppointmentForm makeAppointmentForm;
-        private AppointmentController appointmentController;
+        private EditAppointmentForm editAppointmentForm;
+        private readonly AppointmentController appointmentController;
         private List<Appointment> appointmentList;
 
         public AppointmentUserControl()
@@ -68,7 +69,17 @@ namespace Clinic.UserControls
 
         private void EditAppointmentButton_Click(object sender, EventArgs e)
         {
-
+            if (this.appointmentsSearchResultsListView.SelectedItems.Count == 0)
+            {
+                this.alertTextLabel.Text = "Please select an appointment to edit.";
+            } else
+            {
+                int selectedIndex = this.appointmentsSearchResultsListView.SelectedIndices[0];
+                Appointment selectedAppointment = this.appointmentList[selectedIndex];
+                this.editAppointmentForm = new EditAppointmentForm(selectedAppointment);
+                this.editAppointmentForm.Show();
+            }
+            
         }
     }
 }

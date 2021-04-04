@@ -93,5 +93,9 @@ namespace Clinic.View
             }
         }
 
+        private void PatientUserControl_Load(object sender, EventArgs e)
+        {
+            this.patientUserControl1.RefreshPatientsListData();
+        }
     }
 }

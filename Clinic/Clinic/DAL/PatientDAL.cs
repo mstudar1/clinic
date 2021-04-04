@@ -37,7 +37,6 @@ namespace Clinic.DAL
             }
 
             int personId = this.thePersonDAL.AddPerson(thePatient);
-
             string insertStatement =
                 "INSERT Patient (personId) " +
                 "VALUES (@PersonId)";

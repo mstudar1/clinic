@@ -1,7 +1,6 @@
 ﻿using Clinic.Controller;
 using Clinic.View;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Clinic

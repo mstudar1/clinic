@@ -42,7 +42,7 @@ namespace Clinic.UserControls
 
         private void RegisterPatientButton_Click(object sender, System.EventArgs e)
         {
-            theRegisterPatientForm = new RegisterPatientForm(this);
+            RegisterPatientForm theRegisterPatientForm = new RegisterPatientForm(this);
             theRegisterPatientForm.Show();
         }
 
@@ -102,7 +102,8 @@ namespace Clinic.UserControls
                         this.patientListView.Items.Add(thePatient.FirstName);
                         this.patientListView.Items[i].SubItems.Add(thePatient.LastName);
                         this.patientListView.Items[i].SubItems.Add(thePatient.DateOfBirth.ToShortDateString());
-                        this.patientListView.Items[i].SubItems.Add(thePatient.AddressLine1);
+                        string address = thePatient.AddressLine1 + " " + thePatient.AddressLine2 + ", " + thePatient.City + " " + thePatient.ZipCode + ", " + thePatient.State;
+                        this.patientListView.Items[i].SubItems.Add(address);
                     }
                 }
             }

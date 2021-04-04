@@ -8,7 +8,7 @@ namespace Clinic.View
 {
     public partial class AddVisitForm : Form
     {
-        private NurseController theNurseController;
+        private readonly NurseController theNurseController;
 
         public AddVisitForm()
         {

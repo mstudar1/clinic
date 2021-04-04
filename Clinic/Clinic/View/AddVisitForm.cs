@@ -8,8 +8,9 @@ namespace Clinic.View
 {
     public partial class AddVisitForm : Form
     {
-        private readonly NurseController theNurseController;
         private readonly Appointment theAppointment;
+        private readonly VisitController theVisitController;
+        private readonly NurseController theNurseController;
 
         public AddVisitForm(Appointment theAppointment)
         {
@@ -20,6 +21,7 @@ namespace Clinic.View
 
             InitializeComponent();
             this.theAppointment = theAppointment;
+            this.theVisitController = new VisitController();
             this.theNurseController = new NurseController();
         }
 
@@ -32,7 +34,25 @@ namespace Clinic.View
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            // TODO: handle click on add button
+            try
+            {
+                Visit theVisit = new Visit
+                {
+                    AppointmentId = this.theAppointment.AppointmentId,
+                    NurseId = int.Parse(this.nurseComboBox.SelectedValue.ToString()),
+                    Weight = double.Parse(this.weightTextBox.Text),
+                    Pulse = int.Parse(this.weightTextBox.Text),
+                    SystolicBloodPressure = int.Parse(this.systolicBloodPressureTextBox.Text),
+                    DiastolicBloodPressure = int.Parse(this.diastolicBloodPressureTextBox.Text),
+                    BodyTemperature = double.Parse(this.bodyTemperatureTextBox.Text),
+                    Symptoms = this.symptomsTextBox.Text
+                };
+                this.theVisitController.AddVisit(theVisit);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was an error.  " + ex.Message, "Error");
+            }
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

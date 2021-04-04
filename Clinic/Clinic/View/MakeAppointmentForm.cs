@@ -163,7 +163,7 @@ namespace Clinic.View
                     var dialogeResult = MessageBox.Show(successText, "Appointment Registration Success");
                     if (dialogeResult == DialogResult.OK)
                     {
-                        this.Close();
+                        this.CloseForm();
                     }
                 } catch (Exception ex)
                 {
@@ -267,6 +267,15 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            this.CloseForm();
+        }
+
+        /// <summary>
+        /// Executes actions to properly close the form and re-enable the Appointment User Control
+        /// </summary>
+        private void CloseForm()
+        {
+            this.appointmentUserControl.Enabled = true;
             this.Close();
         }
     }

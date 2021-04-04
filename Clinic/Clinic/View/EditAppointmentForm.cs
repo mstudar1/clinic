@@ -51,9 +51,29 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void EditAppointmentForm_Load(object sender, EventArgs e)
         {
+            this.VerifyNotIn24HourWindow();
             this.PopulateTextFields();
             this.SetDoctorComboBox();
             this.SetDateTimeFields();
+        }
+
+        /// <summary>
+        /// Checks to see if the appointment is at least 24 hours away.  If not,
+        /// a dialogue box appears and user is then returned to the Appointment
+        /// User Control
+        /// </summary>
+        private void VerifyNotIn24HourWindow()
+        {
+            DateTime now = DateTime.Now;
+            if (now.AddHours(24) > this.theAppointment.StartDateTime)
+            {
+                String messageText = "Appointments cannot be edited within 24 hours of the start of the appointment.";
+                var dialogeResult = MessageBox.Show(messageText, "Alert - Appointment Too Close For Editing", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                if (dialogeResult == DialogResult.OK)
+                {
+                    this.CloseForm();
+                }
+            }
         }
 
         /// <summary>
@@ -168,7 +188,7 @@ namespace Clinic.View
                     var dialogeResult = MessageBox.Show(successText, "Appointment Edit Success");
                     if (dialogeResult == DialogResult.OK)
                     {
-                        this.Close();
+                        this.CloseForm();
                     }
                 }
                 catch (Exception ex)
@@ -258,8 +278,19 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            this.CloseForm();
+        }
+
+        /// <summary>
+        /// Executes actions to properly close the form and re-enable the Appointment User Control
+        /// </summary>
+        private void CloseForm()
+        {
+            this.appointmentUserControl.Enabled = true;
             this.Close();
         }
+
+        // TODO: Fix the DoctorIsBooked self-conflict issue
 
         
     }

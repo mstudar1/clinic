@@ -120,7 +120,65 @@ namespace Clinic.View
             }
         }
 
+        private void ReserveAppointmentButton_Click(object sender, EventArgs e)
+        {
+            String alertText = "";
+            DateTime startDateTime = new DateTime();
+            DateTime endDateTime = new DateTime();
 
+            if (this.TimeFieldsNotSelected())
+            {
+                alertText += "Appointment Time Not Set:  Hours and minutes must be chosen for start and end times.\n";
+            }
+            else
+            {
+                startDateTime = this.GetFormStartDateTime();
+                endDateTime = this.GetFormEndDateTime();
+                if (startDateTime >= endDateTime)
+                {
+                    alertText += "Invalid Appointment Time:  The end time for the appointment cannot be before the start time.\n";
+                }
+                else if (this.appointmentController.DoctorIsBooked(int.Parse(this.doctorComboBox.SelectedValue.ToString()), startDateTime, endDateTime))
+                {
+                    alertText += "Appointment Conflict:  Appointment overlaps existing appointment.\n";
+                }
+            }
+
+            if (this.reasonTextBox.Text == "")
+            {
+                alertText += "No Reason Provided:  Reason for appointment cannot be blank.\n";
+            }
+
+            if (alertText == "")
+            {
+                Appointment revisedAppointment = new Appointment
+                {
+                    PatientId = this.theAppointment.PatientId,
+                    StartDateTime = startDateTime,
+                    EndDateTime = endDateTime,
+                    DoctorId = int.Parse(this.doctorComboBox.SelectedValue.ToString()),
+                    ReasonForVisit = this.reasonTextBox.Text
+                };
+                try
+                {
+                    this.appointmentController.EditAppointment(this.theAppointment, revisedAppointment);
+                    String successText = "Appointment successfully updated for : \n" +
+                    startDateTime.ToString("f") + " - " +
+                    endDateTime.ToString("t");
+                    var dialogeResult = MessageBox.Show(successText, "Appointment Edit Success");
+                    if (dialogeResult == DialogResult.OK)
+                    {
+                        this.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    alertText += "Error in updating appointment database:\n" +
+                        ex.Message + "\n";
+                }
+            }
+            this.alertNoticeLabel.Text = alertText;
+        }
 
 
         /* Helper Methods For Final Form Submit */
@@ -160,6 +218,8 @@ namespace Clinic.View
                 this.endHourComboBox.SelectedIndex == -1 ||
                 this.endMinuteComboBox.SelectedIndex == -1);
         }
+
+        /* Additional Event Handlers */
 
         /// <summary>
         /// When date changed clear the ListView
@@ -201,9 +261,6 @@ namespace Clinic.View
             this.Close();
         }
 
-        private void ReserveAppointmentButton_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

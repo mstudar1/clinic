@@ -10,6 +10,7 @@ namespace Clinic.Model
         private string socialSecurityNumber;
         private string gender;
         private string phoneNumber;
+        private string city;
         private string state;
 
         public int PersonId { get; set; }
@@ -72,7 +73,21 @@ namespace Clinic.Model
 
         public string AddressLine2 { get; set; }
 
-        public string City { get; set; }
+        public string City
+        {
+            get
+            {
+                return city;
+            }
+            set
+            {
+                if (!IsValidCity(value))
+                {
+                    throw new ArgumentException("The specified city is not formatted properly.  The first character must be capitalized.");
+                }
+                city = value;
+            }
+        }
 
         public string State
         {
@@ -118,6 +133,11 @@ namespace Clinic.Model
         private bool IsValidState(string state)
         {
             return System.Text.RegularExpressions.Regex.IsMatch(state, @"^[A-Z]{2}$");
+        }
+
+        private bool IsValidCity(string city)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(city, @"^[A-Z]");
         }
     }
 }

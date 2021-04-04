@@ -23,7 +23,6 @@ namespace Clinic.View
         private readonly AppointmentController appointmentController;
         private readonly PatientController patientController;
         private readonly DoctorController doctorController;
-        private List<Patient> patientList;
         private List<Doctor> doctorList;
         private List<Appointment> appointmentList;
 
@@ -119,6 +118,92 @@ namespace Clinic.View
                 item.SubItems.Add(current.EndDateTime.ToString("t"));
                 this.appointmentTimeListView.Items.Add(item);
             }
+        }
+
+
+
+
+        /* Helper Methods For Final Form Submit */
+
+        /// <summary>
+        /// Gets start time and minute from form and returns DateTime object
+        /// </summary>
+        /// <returns>Start DateTime object</returns>
+        private DateTime GetFormStartDateTime()
+        {
+            DateTime date = this.datePicker.Value;
+            int startHour = int.Parse(this.startHourComboBox.SelectedItem.ToString());
+            int startMinute = int.Parse(this.startMinuteComboBox.SelectedItem.ToString());
+            return new DateTime(date.Year, date.Month, date.Day, startHour, startMinute, 0);
+        }
+
+        /// <summary>
+        /// Gets end time and minute from form and returns DateTime object
+        /// </summary>
+        /// <returns></returns>
+        private DateTime GetFormEndDateTime()
+        {
+            DateTime date = this.datePicker.Value;
+            int endHour = int.Parse(this.endHourComboBox.SelectedItem.ToString());
+            int endMinute = int.Parse(this.endMinuteComboBox.SelectedItem.ToString());
+            return new DateTime(date.Year, date.Month, date.Day, endHour, endMinute, 0);
+        }
+
+        /// <summary>
+        /// Checks to see if any time comboBox is not selected
+        /// </summary>
+        /// <returns>true if any box is NOT selected</returns>
+        private bool TimeFieldsNotSelected()
+        {
+            return (this.startHourComboBox.SelectedIndex == -1 ||
+                this.startMinuteComboBox.SelectedIndex == -1 ||
+                this.endHourComboBox.SelectedIndex == -1 ||
+                this.endMinuteComboBox.SelectedIndex == -1);
+        }
+
+        /// <summary>
+        /// When date changed clear the ListView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            this.appointmentTimeListView.Items.Clear();
+        }
+
+        /// <summary>
+        /// When docotr selected changes, clear the ListView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DoctorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.appointmentTimeListView.Items.Clear();
+        }
+
+        /// <summary>
+        /// Upon closing form re-enable the Appointment UserControl in the main tabcontrol
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditAppointmentForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.appointmentUserControl.Enabled = true;
+        }
+
+        /// <summary>
+        /// Cancel button click actions
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ReserveAppointmentButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

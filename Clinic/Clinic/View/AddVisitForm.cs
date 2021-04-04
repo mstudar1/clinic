@@ -48,6 +48,7 @@ namespace Clinic.View
                     Symptoms = this.symptomsTextBox.Text
                 };
                 this.theVisitController.AddVisit(theVisit);
+                this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {

@@ -7,6 +7,8 @@ namespace Clinic.Model
     /// </summary>
     public class Person
     {
+        private string firstName;
+        private string lastName;
         private string socialSecurityNumber;
         private string gender;
         private string phoneNumber;
@@ -16,9 +18,37 @@ namespace Clinic.Model
 
         public int PersonId { get; set; }
 
-        public string LastName { get; set; }
+        public string LastName
+        {
+            get
+            {
+                return lastName;
+            }
+            set
+            {
+                if (!IsValidName(value))
+                {
+                    throw new ArgumentException("Names must begin with a capital letter.");
+                }
+                lastName = value;
+            }
+        }
 
-        public string FirstName { get; set; }
+        public string FirstName
+        {
+            get
+            {
+                return firstName;
+            }
+            set
+            {
+                if (!IsValidName(value))
+                {
+                    throw new ArgumentException("Names must begin with a capital letter.");
+                }
+                firstName = value;
+            }
+        }
 
         public DateTime DateOfBirth { get; set; }
 
@@ -158,6 +188,11 @@ namespace Clinic.Model
         private bool IsValidZipCode(string zipCode)
         {
             return System.Text.RegularExpressions.Regex.IsMatch(zipCode, @"^\d{5}$");
+        }
+
+        private bool IsValidName(string name)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(name, @"^[A-Z]");
         }
     }
 }

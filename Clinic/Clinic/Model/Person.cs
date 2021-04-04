@@ -12,6 +12,7 @@ namespace Clinic.Model
         private string phoneNumber;
         private string city;
         private string state;
+        private string zipCode;
 
         public int PersonId { get; set; }
 
@@ -105,7 +106,21 @@ namespace Clinic.Model
             }
         }
 
-        public string ZipCode { get; set; }
+        public string ZipCode
+        {
+            get
+            {
+                return zipCode;
+            }
+            set
+            {
+                if (!IsValidZipCode(value))
+                {
+                    throw new ArgumentException("The zip code is not formatted properly.  Five digits are required.");
+                }
+                zipCode = value;
+            }
+        }
 
         public string FullName
         {
@@ -130,14 +145,19 @@ namespace Clinic.Model
             return System.Text.RegularExpressions.Regex.IsMatch(phoneNumber, @"^\(\d{3}\)\s\d{3}-\d{4}$");
         }
 
+        private bool IsValidCity(string city)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(city, @"^[A-Z]");
+        }
+
         private bool IsValidState(string state)
         {
             return System.Text.RegularExpressions.Regex.IsMatch(state, @"^[A-Z]{2}$");
         }
 
-        private bool IsValidCity(string city)
+        private bool IsValidZipCode(string zipCode)
         {
-            return System.Text.RegularExpressions.Regex.IsMatch(city, @"^[A-Z]");
+            return System.Text.RegularExpressions.Regex.IsMatch(zipCode, @"^\d{5}$");
         }
     }
 }

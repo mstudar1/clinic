@@ -9,10 +9,17 @@ namespace Clinic.View
     public partial class AddVisitForm : Form
     {
         private readonly NurseController theNurseController;
+        private readonly Appointment theAppointment;
 
-        public AddVisitForm()
+        public AddVisitForm(Appointment theAppointment)
         {
+            if (theAppointment == null)
+            {
+                throw new ArgumentNullException("theAppointment", "The appointment object cannot be null.");
+            }
+
             InitializeComponent();
+            this.theAppointment = theAppointment;
             this.theNurseController = new NurseController();
         }
 
@@ -20,6 +27,7 @@ namespace Clinic.View
         {
             List<Nurse> nurseList = this.theNurseController.GetAllNurses();
             this.nurseComboBox.DataSource = nurseList;
+            this.appointmentBindingSource.Add(theAppointment);
         }
 
         private void AddButton_Click(object sender, EventArgs e)

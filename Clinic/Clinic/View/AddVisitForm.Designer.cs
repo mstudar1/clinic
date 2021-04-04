@@ -86,7 +86,7 @@ namespace Clinic.View
             patientFullNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             patientFullNameLabel.Location = new System.Drawing.Point(3, 75);
             patientFullNameLabel.Name = "patientFullNameLabel";
-            patientFullNameLabel.Size = new System.Drawing.Size(66, 18);
+            patientFullNameLabel.Size = new System.Drawing.Size(66, 20);
             patientFullNameLabel.TabIndex = 15;
             patientFullNameLabel.Text = "Patient:";
             // 
@@ -94,7 +94,7 @@ namespace Clinic.View
             // 
             startDateTimeLabel.AutoSize = true;
             startDateTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            startDateTimeLabel.Location = new System.Drawing.Point(3, 93);
+            startDateTimeLabel.Location = new System.Drawing.Point(3, 96);
             startDateTimeLabel.Name = "startDateTimeLabel";
             startDateTimeLabel.Size = new System.Drawing.Size(124, 20);
             startDateTimeLabel.TabIndex = 23;
@@ -367,8 +367,8 @@ namespace Clinic.View
             this.headerTableLayoutPanel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.headerTableLayoutPanel.ColumnCount = 2;
             this.addVisitTableLayoutPanel.SetColumnSpan(this.headerTableLayoutPanel, 2);
-            this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.73516F));
-            this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.26484F));
+            this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.28572F));
+            this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.71429F));
             this.headerTableLayoutPanel.Controls.Add(this.startDateTimeOutputLabel, 1, 3);
             this.headerTableLayoutPanel.Controls.Add(this.patientFullNameOutputLabel, 1, 2);
             this.headerTableLayoutPanel.Controls.Add(this.doctorFullNameOutputLabel, 1, 1);
@@ -381,16 +381,16 @@ namespace Clinic.View
             this.headerTableLayoutPanel.RowCount = 4;
             this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-            this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 107F));
-            this.headerTableLayoutPanel.Size = new System.Drawing.Size(438, 123);
+            this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 104F));
+            this.headerTableLayoutPanel.Size = new System.Drawing.Size(630, 123);
             this.headerTableLayoutPanel.TabIndex = 91;
             // 
             // startDateTimeOutputLabel
             // 
             this.startDateTimeOutputLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.appointmentBindingSource, "StartDateTime", true));
             this.startDateTimeOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startDateTimeOutputLabel.Location = new System.Drawing.Point(141, 93);
+            this.startDateTimeOutputLabel.Location = new System.Drawing.Point(156, 96);
             this.startDateTimeOutputLabel.Name = "startDateTimeOutputLabel";
             this.startDateTimeOutputLabel.Size = new System.Drawing.Size(200, 23);
             this.startDateTimeOutputLabel.TabIndex = 24;
@@ -403,7 +403,7 @@ namespace Clinic.View
             // 
             this.patientFullNameOutputLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.appointmentBindingSource, "PatientFullName", true));
             this.patientFullNameOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientFullNameOutputLabel.Location = new System.Drawing.Point(141, 75);
+            this.patientFullNameOutputLabel.Location = new System.Drawing.Point(156, 75);
             this.patientFullNameOutputLabel.Name = "patientFullNameOutputLabel";
             this.patientFullNameOutputLabel.Size = new System.Drawing.Size(250, 18);
             this.patientFullNameOutputLabel.TabIndex = 16;
@@ -412,7 +412,7 @@ namespace Clinic.View
             // 
             this.doctorFullNameOutputLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.appointmentBindingSource, "DoctorFullName", true));
             this.doctorFullNameOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.doctorFullNameOutputLabel.Location = new System.Drawing.Point(141, 50);
+            this.doctorFullNameOutputLabel.Location = new System.Drawing.Point(156, 50);
             this.doctorFullNameOutputLabel.Name = "doctorFullNameOutputLabel";
             this.doctorFullNameOutputLabel.Size = new System.Drawing.Size(200, 23);
             this.doctorFullNameOutputLabel.TabIndex = 6;

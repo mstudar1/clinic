@@ -365,6 +365,7 @@ namespace Clinic.View
             this.Name = "ViewVisitForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View Visit Details";
+            this.Load += new System.EventHandler(this.ViewVisitForm_Load);
             this.viewVisitTableLayoutPanel.ResumeLayout(false);
             this.viewVisitTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.visitBindingSource)).EndInit();

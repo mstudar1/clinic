@@ -18,5 +18,10 @@ namespace Clinic.View
             InitializeComponent();
             this.theVisit = theVisit;
         }
+
+        private void ViewVisitForm_Load(object sender, EventArgs e)
+        {
+            this.visitBindingSource.Add(this.theVisit);
+        }
     }
 }

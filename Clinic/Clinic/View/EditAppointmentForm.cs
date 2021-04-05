@@ -135,7 +135,12 @@ namespace Clinic.View
             }
         }
 
-        private void ReserveAppointmentButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Submits the revised appointment information to be checked and then updated in DB if validated
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditAppointmentButton_Click(object sender, EventArgs e)
         {
             String alertText = "";
             DateTime startDateTime = new DateTime();

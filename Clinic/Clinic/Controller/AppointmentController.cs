@@ -52,7 +52,7 @@ namespace Clinic.Controller
         /// </summary>
         /// <param name="originalAppointment">original appointment object</param>
         /// <param name="revisedAppointment">revised appointment object</param>
-        /// <returns></returns>
+        /// <returns>true if a conflict exists</returns>
         public bool DoctorIsBookedForAppointmentEdit(Appointment originalAppointment, Appointment revisedAppointment)
         {
             return this.appointmentSource.DoctorIsBookedForAppointmentEdit(originalAppointment, revisedAppointment);

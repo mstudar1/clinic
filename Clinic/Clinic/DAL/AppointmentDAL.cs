@@ -89,6 +89,12 @@ namespace Clinic.DAL
                     selectCommand.Parameters.AddWithValue("@StartDateTime", startDateTime);
                     selectCommand.Parameters.AddWithValue("@EndDateTime", endDateTime);
                     selectCommand.ExecuteNonQuery();
+
+                    Console.WriteLine("COUNT = " + Convert.ToInt32(countParameter.Value)); //TODO: TEST OUTPUT
+                    Console.WriteLine("DoctorID = " + doctorId); //TODO: TEST OUTPUT
+                    Console.WriteLine("Start = " + startDateTime); //TODO: TEST OUTPUT
+                    Console.WriteLine("End = " + endDateTime); //TODO: TEST OUTPUT
+
                     if (Convert.ToInt32(countParameter.Value) == 0)
                     {
                         return false;
@@ -146,14 +152,12 @@ namespace Clinic.DAL
             string selectStatement =
                 "SELECT @NumberOfAppointments = COUNT(appointmentId) " +
                 "FROM Appointment " +
-                "WHERE " +
-                    "(" +
-                    "doctorId = @DoctorId " +
-                    "AND ((startDateTime <= @StartDateTime AND endDateTime > @StartDateTime) " +
-                    "OR (startDateTime < @EndDateTime AND endDateTime >= @EndDateTime)) " +
-                    ") " +
-                    "AND patientId != @PatientId"
-                    ;
+                "WHERE doctorId = @DoctorId " +
+                "AND " +
+                "((startDateTime <= @StartDateTime AND endDateTime > @StartDateTime) " +
+                "OR " +
+                "(startDateTime < @EndDateTime AND endDateTime >= @EndDateTime)) " +
+                "AND patientId != @PatientId";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -165,13 +169,13 @@ namespace Clinic.DAL
                         Direction = ParameterDirection.Output
                     };
                     selectCommand.Parameters.Add(countParameter);
-                    selectCommand.Parameters.AddWithValue("@DoctorId", revisedAppointment.PatientId);
-                    selectCommand.Parameters.AddWithValue("@PatientId", revisedAppointment.DoctorId);
+                    selectCommand.Parameters.AddWithValue("@DoctorId", revisedAppointment.DoctorId);
+                    selectCommand.Parameters.AddWithValue("@PatientId", revisedAppointment.PatientId);
                     selectCommand.Parameters.AddWithValue("@StartDateTime", revisedAppointment.StartDateTime);
                     selectCommand.Parameters.AddWithValue("@EndDateTime", revisedAppointment.EndDateTime);
                     selectCommand.ExecuteNonQuery();
-                    
-                    return !(Convert.ToInt32(countParameter.Value) == 0);
+
+                    return (Convert.ToInt32(countParameter.Value) > 0);
                 }
             }
         }

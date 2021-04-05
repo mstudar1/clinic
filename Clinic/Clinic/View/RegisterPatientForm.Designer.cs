@@ -38,7 +38,6 @@ namespace Clinic.View
             this.address1TextBox = new System.Windows.Forms.TextBox();
             this.address2Label = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.stateTextBox = new System.Windows.Forms.TextBox();
             this.stateLabel = new System.Windows.Forms.Label();
             this.address2TextBox = new System.Windows.Forms.TextBox();
             this.phoneNumberLlabel = new System.Windows.Forms.Label();
@@ -59,6 +58,7 @@ namespace Clinic.View
             this.zipLlabel = new System.Windows.Forms.Label();
             this.cityTextBox = new System.Windows.Forms.TextBox();
             this.dateOfBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.stateComboBox = new System.Windows.Forms.ComboBox();
             this.registerPatientTableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -193,24 +193,15 @@ namespace Clinic.View
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.62327F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.37673F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
-            this.tableLayoutPanel2.Controls.Add(this.stateTextBox, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.stateLabel, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.address2TextBox, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.stateComboBox, 2, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(201, 532);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(518, 48);
             this.tableLayoutPanel2.TabIndex = 70;
-            // 
-            // stateTextBox
-            // 
-            this.stateTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.stateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stateTextBox.Location = new System.Drawing.Point(364, 10);
-            this.stateTextBox.Name = "stateTextBox";
-            this.stateTextBox.Size = new System.Drawing.Size(151, 35);
-            this.stateTextBox.TabIndex = 20;
             // 
             // stateLabel
             // 
@@ -397,18 +388,18 @@ namespace Clinic.View
             this.tableLayoutPanel4.Controls.Add(this.zipTextBox, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.zipLlabel, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.cityTextBox, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(201, 586);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(201, 592);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(518, 60);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(518, 54);
             this.tableLayoutPanel4.TabIndex = 80;
             // 
             // zipTextBox
             // 
             this.zipTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.zipTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zipTextBox.Location = new System.Drawing.Point(364, 22);
+            this.zipTextBox.Location = new System.Drawing.Point(364, 16);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(151, 35);
             this.zipTextBox.TabIndex = 20;
@@ -418,7 +409,7 @@ namespace Clinic.View
             this.zipLlabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.zipLlabel.AutoSize = true;
             this.zipLlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zipLlabel.Location = new System.Drawing.Point(301, 31);
+            this.zipLlabel.Location = new System.Drawing.Point(301, 25);
             this.zipLlabel.Name = "zipLlabel";
             this.zipLlabel.Size = new System.Drawing.Size(53, 29);
             this.zipLlabel.TabIndex = 12;
@@ -429,7 +420,7 @@ namespace Clinic.View
             // 
             this.cityTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityTextBox.Location = new System.Drawing.Point(34, 22);
+            this.cityTextBox.Location = new System.Drawing.Point(34, 16);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(235, 35);
             this.cityTextBox.TabIndex = 10;
@@ -444,6 +435,22 @@ namespace Clinic.View
             this.dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
             this.dateOfBirthDateTimePicker.Size = new System.Drawing.Size(481, 35);
             this.dateOfBirthDateTimePicker.TabIndex = 30;
+            // 
+            // stateComboBox
+            // 
+            this.stateComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.stateComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stateComboBox.FormattingEnabled = true;
+            this.stateComboBox.Items.AddRange(new object[] {
+            "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
+            "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+            "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+            "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+            "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"});
+            this.stateComboBox.Location = new System.Drawing.Point(360, 17);
+            this.stateComboBox.Name = "stateComboBox";
+            this.stateComboBox.Size = new System.Drawing.Size(155, 37);
+            this.stateComboBox.TabIndex = 12;
             // 
             // RegisterPatientForm
             // 
@@ -494,7 +501,6 @@ namespace Clinic.View
         private System.Windows.Forms.Label S;
         private System.Windows.Forms.TextBox ssnTextBox;
         private System.Windows.Forms.Label registerPatientLabel;
-        private System.Windows.Forms.TextBox stateTextBox;
         private System.Windows.Forms.Label stateLabel;
         private System.Windows.Forms.Label cityLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
@@ -502,5 +508,6 @@ namespace Clinic.View
         private System.Windows.Forms.Label zipLlabel;
         private System.Windows.Forms.TextBox cityTextBox;
         private System.Windows.Forms.DateTimePicker dateOfBirthDateTimePicker;
+        private System.Windows.Forms.ComboBox stateComboBox;
     }
 }

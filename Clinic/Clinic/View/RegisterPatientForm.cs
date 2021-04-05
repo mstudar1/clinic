@@ -15,8 +15,6 @@ namespace Clinic.View
 
         private PatientUserControl thePatientUserControl;
         private PatientController thePatientController;
-        private NurseAdminForm theNurseAdminForm;
-
 
         /// <summary>
         /// Constructor used to initialize the thePatientUserControl and 
@@ -48,7 +46,7 @@ namespace Clinic.View
                 PhoneNumber = this.phoneNumberTextBox.Text,
                 AddressLine1 = this.address1TextBox.Text,
                 City = this.cityTextBox.Text,
-                State = this.stateTextBox.Text,
+                State = this.stateComboBox.Text,
                 ZipCode = this.zipTextBox.Text
             };
 

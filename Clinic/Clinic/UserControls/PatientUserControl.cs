@@ -133,10 +133,16 @@ namespace Clinic.UserControls
         {
             if (this.patientDataGridView.Columns[e.ColumnIndex].Name == "Edit")
             {
-                if (MessageBox.Show("Are you sure you want to delete this record?", "Messge", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    Console.WriteLine("BBBBBBBBBBBBBBBBBBBBBBBBBB");
-                    Patient theSelectedPatient = (Patient)this.patientBindingSource.Current;
-                    Console.WriteLine(theSelectedPatient.FirstName);
+                Patient theSelectedPatient = (Patient)this.patientBindingSource.Current;
+                EditPatientForm theEditPatientForm = new EditPatientForm(this, theSelectedPatient);
+                theEditPatientForm.Show();
+                this.Enabled = false;
+            } else if (this.patientDataGridView.Columns[e.ColumnIndex].Name == "View")
+            {
+                Patient theSelectedPatient = (Patient)this.patientBindingSource.Current;
+                ViewPatientForm theViewPatientForm = new ViewPatientForm(this,theSelectedPatient);
+                theViewPatientForm.Show();
+                this.Enabled = false;
 
             }
         }

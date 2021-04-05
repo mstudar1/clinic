@@ -185,6 +185,9 @@
     <EmbeddedResource Include="View\RegisterPatientForm.resx">
       <DependentUpon>RegisterPatientForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ViewPatientForm.resx">
+      <DependentUpon>ViewPatientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\DataSources\Clinic.Controller.DoctorController.datasource" />
     <None Include="Properties\DataSources\Clinic.Model.Doctor.datasource" />
     <None Include="Properties\DataSources\Clinic.Model.Patient.datasource" />

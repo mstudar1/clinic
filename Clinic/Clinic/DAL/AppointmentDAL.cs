@@ -102,6 +102,81 @@ namespace Clinic.DAL
         }
 
         /// <summary>
+        /// Method that returns true if the specified doctor is unavailable at the specified time.  This method
+        /// includes a check to prevent a false positive for an appointment overlapping itself when being edited
+        /// </summary>
+        /// <param name="originalAppointment">original appointment object</param>
+        /// <param name="revisedAppointment">revised appointment object</param>
+        /// <returns>True if doctor is booked for a different patient during the revised time slot</returns>
+        public bool DoctorIsBookedForAppointmentEdit(Appointment originalAppointment, Appointment revisedAppointment)
+        {
+            if (originalAppointment == null)
+            {
+                throw new ArgumentNullException("originalAppointment", "The original appointment cannot be null.");
+            }
+            if (revisedAppointment == null)
+            {
+                throw new ArgumentNullException("revisedAppointment", "The revised appointment cannot be null.");
+            }
+            if (revisedAppointment.StartDateTime == null)
+            {
+                throw new ArgumentNullException("revisedAppointment", "The start date and time of the original appointment cannot be null.");
+            }
+            if (revisedAppointment.EndDateTime == null)
+            {
+                throw new ArgumentNullException("revisedAppointment", "The end date and time of the original appointment cannot be null.");
+            }
+            if (originalAppointment.StartDateTime == null)
+            {
+                throw new ArgumentNullException("originalAppointment", "The start date and time of the revised appointment cannot be null.");
+            }
+            if (originalAppointment.EndDateTime == null)
+            {
+                throw new ArgumentNullException("originalAppointment", "The end date and time of the revised appointment cannot be null.");
+            }
+            if (DateTime.Compare(revisedAppointment.StartDateTime, revisedAppointment.EndDateTime) >= 0)
+            {
+                throw new ArgumentException("revisedAppointment", "The end date and time of revised appointment must be after the start date and time");
+            }
+            if (DateTime.Compare(originalAppointment.StartDateTime, originalAppointment.EndDateTime) >= 0)
+            {
+                throw new ArgumentException("originalAppointment", "The end date and time of original appointment must be after the start date and time");
+            }
+
+            string selectStatement =
+                "SELECT @NumberOfAppointments = COUNT(appointmentId) " +
+                "FROM Appointment " +
+                "WHERE " +
+                    "(" +
+                    "doctorId = @DoctorId " +
+                    "AND ((startDateTime <= @StartDateTime AND endDateTime > @StartDateTime) " +
+                    "OR (startDateTime < @EndDateTime AND endDateTime >= @EndDateTime)) " +
+                    ") " +
+                    "AND patientId != @PatientId"
+                    ;
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    SqlParameter countParameter = new SqlParameter("@NumberOfAppointments", SqlDbType.Int, 1)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    selectCommand.Parameters.Add(countParameter);
+                    selectCommand.Parameters.AddWithValue("@DoctorId", revisedAppointment.PatientId);
+                    selectCommand.Parameters.AddWithValue("@PatientId", revisedAppointment.DoctorId);
+                    selectCommand.Parameters.AddWithValue("@StartDateTime", revisedAppointment.StartDateTime);
+                    selectCommand.Parameters.AddWithValue("@EndDateTime", revisedAppointment.EndDateTime);
+                    selectCommand.ExecuteNonQuery();
+                    
+                    return !(Convert.ToInt32(countParameter.Value) == 0);
+                }
+            }
+        }
+
+        /// <summary>
         /// Method that revises a record for an appointment in the database.
         /// Requires that the record has not been changed since it was retrieved.
         /// </summary>

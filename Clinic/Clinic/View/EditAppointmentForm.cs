@@ -18,10 +18,9 @@ namespace Clinic.View
     /// </summary>
     public partial class EditAppointmentForm : Form
     {
-        private Appointment theAppointment;
+        private readonly Appointment theAppointment;
         private readonly AppointmentUserControl appointmentUserControl;
         private readonly AppointmentController appointmentController;
-        private readonly PatientController patientController;
         private readonly DoctorController doctorController;
         private List<Doctor> doctorList;
         private List<Appointment> appointmentList;
@@ -35,13 +34,8 @@ namespace Clinic.View
             InitializeComponent();
             this.appointmentUserControl = appointmentUserControl;
             this.appointmentController = new AppointmentController();
-            this.patientController = new PatientController();
             this.doctorController = new DoctorController();
-            if (theAppointment == null)
-            {
-                throw new ArgumentNullException("theAppointment", "Appointment cannot be null for this form");
-            }
-            this.theAppointment = theAppointment;
+            this.theAppointment = theAppointment ?? throw new ArgumentNullException("theAppointment", "Appointment cannot be null for this form");
         }
 
         /// <summary>
@@ -106,6 +100,7 @@ namespace Clinic.View
             this.appointmentUserControl.Enabled = false;
             this.doctorList = this.doctorController.GetAllDoctors();
             doctorComboBox.DataSource = this.doctorList;
+            this.doctorComboBox.SelectedValue = this.theAppointment.DoctorId;
         }
 
         /// <summary>
@@ -158,10 +153,6 @@ namespace Clinic.View
                 {
                     alertText += "Invalid Appointment Time:  The end time for the appointment cannot be before the start time.\n";
                 }
-                else if (this.appointmentController.DoctorIsBooked(int.Parse(this.doctorComboBox.SelectedValue.ToString()), startDateTime, endDateTime))
-                {
-                    alertText += "Appointment Conflict:  Appointment overlaps existing appointment.\n";
-                }
             }
 
             if (this.reasonTextBox.Text == "")
@@ -179,23 +170,31 @@ namespace Clinic.View
                     DoctorId = int.Parse(this.doctorComboBox.SelectedValue.ToString()),
                     ReasonForVisit = this.reasonTextBox.Text
                 };
-                try
+                if (this.appointmentController.DoctorIsBookedForAppointmentEdit(this.theAppointment, revisedAppointment))
                 {
-                    this.appointmentController.EditAppointment(this.theAppointment, revisedAppointment);
-                    String successText = "Appointment successfully updated for : \n" +
-                    startDateTime.ToString("f") + " - " +
-                    endDateTime.ToString("t");
-                    var dialogeResult = MessageBox.Show(successText, "Appointment Edit Success");
-                    if (dialogeResult == DialogResult.OK)
+                    alertText += "Appointment Conflict:  Appointment overlaps existing appointment.\n";
+                } 
+                else
+                {
+                    try
                     {
-                        this.CloseForm();
+                        this.appointmentController.EditAppointment(this.theAppointment, revisedAppointment);
+                        String successText = "Appointment successfully updated for : \n" +
+                        startDateTime.ToString("f") + " - " +
+                        endDateTime.ToString("t");
+                        var dialogeResult = MessageBox.Show(successText, "Appointment Edit Success");
+                        if (dialogeResult == DialogResult.OK)
+                        {
+                            this.CloseForm();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        alertText += "Error in updating appointment database:\n" +
+                            ex.Message + "\n";
                     }
                 }
-                catch (Exception ex)
-                {
-                    alertText += "Error in updating appointment database:\n" +
-                        ex.Message + "\n";
-                }
+                
             }
             this.alertNoticeLabel.Text = alertText;
         }
@@ -287,11 +286,8 @@ namespace Clinic.View
         private void CloseForm()
         {
             this.appointmentUserControl.Enabled = true;
+            this.appointmentUserControl.ResetAppointmentListResults();
             this.Close();
-        }
-
-        // TODO: Fix the DoctorIsBooked self-conflict issue
-
-        
+        }       
     }
 }

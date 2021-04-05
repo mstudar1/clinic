@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace Clinic.UserControls
 {
+    /// <summary>
+    /// User control for appointment making, searching, and editing
+    /// </summary>
     public partial class AppointmentUserControl : UserControl
     {
         private MakeAppointmentForm makeAppointmentForm;
@@ -14,18 +17,32 @@ namespace Clinic.UserControls
         private readonly AppointmentController appointmentController;
         private List<Appointment> appointmentList;
 
+        /// <summary>
+        /// Constructor for AppointmentUserControl
+        /// </summary>
         public AppointmentUserControl()
         {
             InitializeComponent();
             this.appointmentController = new AppointmentController();
         }
 
+        /// <summary>
+        /// Handler for clicks of the set appointment button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SetAppointmentButton_Click(object sender, System.EventArgs e)
         {
             this.makeAppointmentForm = new MakeAppointmentForm(this);
             this.makeAppointmentForm.Show();
         }
 
+        /// <summary>
+        /// Event handler for search by date button.  Searches for appointments with
+        /// matching date
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchDateButton_Click(object sender, System.EventArgs e)
         {
             this.appointmentsSearchResultsListView.Items.Clear();
@@ -44,6 +61,12 @@ namespace Clinic.UserControls
             }
         }
 
+        /// <summary>
+        /// Event handler for search by name button.  Searches for appointments with 
+        /// matching last name to that provided
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchNameButton_Click(object sender, EventArgs e)
         {
             this.appointmentsSearchResultsListView.Items.Clear();
@@ -62,11 +85,30 @@ namespace Clinic.UserControls
 
         }
 
+        /// <summary>
+        /// Event handler for reset button clicks
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ResetButton_Click(object sender, EventArgs e)
+        {
+            this.ResetAppointmentListResults();
+        }
+
+        /// <summary>
+        /// Reset the list of results.  This method is public so that it can be accessed by related forms as the 
+        /// return control back to the user control.
+        /// </summary>
+        public void ResetAppointmentListResults()
         {
             this.appointmentsSearchResultsListView.Items.Clear();
         }
 
+        /// <summary>
+        /// Event handler for edit appointment button clicks
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditAppointmentButton_Click(object sender, EventArgs e)
         {
             if (this.appointmentsSearchResultsListView.SelectedItems.Count == 0)

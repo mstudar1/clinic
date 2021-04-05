@@ -43,9 +43,6 @@ namespace Clinic.UserControls
             this.doctorColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nurseColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.viewColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.editColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.deleteColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.visitTableLayoutPanel.SuspendLayout();
             this.titleAndResetTableLayoutPanel.SuspendLayout();
             this.searchTableLayoutPanel.SuspendLayout();
@@ -88,7 +85,7 @@ namespace Clinic.UserControls
             this.titleAndResetTableLayoutPanel.ColumnCount = 3;
             this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.45783F));
             this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.54217F));
-            this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
+            this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
             this.titleAndResetTableLayoutPanel.Controls.Add(this.resetButton, 1, 0);
             this.titleAndResetTableLayoutPanel.Controls.Add(this.visitsLabel, 0, 0);
             this.titleAndResetTableLayoutPanel.Location = new System.Drawing.Point(3, 80);
@@ -104,7 +101,7 @@ namespace Clinic.UserControls
             this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.resetButton.AutoSize = true;
             this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetButton.Location = new System.Drawing.Point(555, 2);
+            this.resetButton.Location = new System.Drawing.Point(554, 2);
             this.resetButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(96, 28);
@@ -130,7 +127,7 @@ namespace Clinic.UserControls
             this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.35203F));
             this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.64797F));
             this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
-            this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
+            this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
             this.searchTableLayoutPanel.Controls.Add(this.searchButton, 3, 0);
             this.searchTableLayoutPanel.Controls.Add(this.patientIdTextBox, 2, 0);
             this.searchTableLayoutPanel.Location = new System.Drawing.Point(3, 2);
@@ -146,7 +143,7 @@ namespace Clinic.UserControls
             this.searchButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.searchButton.AutoSize = true;
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(611, 2);
+            this.searchButton.Location = new System.Drawing.Point(610, 2);
             this.searchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(93, 34);
@@ -159,7 +156,7 @@ namespace Clinic.UserControls
             // 
             this.patientIdTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.patientIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientIdTextBox.Location = new System.Drawing.Point(635, 5);
+            this.patientIdTextBox.Location = new System.Drawing.Point(507, 4);
             this.patientIdTextBox.Name = "patientIdTextBox";
             this.patientIdTextBox.Size = new System.Drawing.Size(93, 30);
             this.patientIdTextBox.TabIndex = 31;
@@ -173,10 +170,7 @@ namespace Clinic.UserControls
             this.dobColumnHeader,
             this.doctorColumnHeader,
             this.nurseColumnHeader,
-            this.dateColumnHeader,
-            this.viewColumnHeader,
-            this.editColumnHeader,
-            this.deleteColumnHeader});
+            this.dateColumnHeader});
             this.visitListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.visitListView.HideSelection = false;
             this.visitListView.Location = new System.Drawing.Point(13, 117);
@@ -218,24 +212,6 @@ namespace Clinic.UserControls
             this.dateColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dateColumnHeader.Width = 90;
             // 
-            // viewColumnHeader
-            // 
-            this.viewColumnHeader.Text = "View";
-            this.viewColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.viewColumnHeader.Width = 80;
-            // 
-            // editColumnHeader
-            // 
-            this.editColumnHeader.Text = "Edit";
-            this.editColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.editColumnHeader.Width = 80;
-            // 
-            // deleteColumnHeader
-            // 
-            this.deleteColumnHeader.Text = "Delete";
-            this.deleteColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.deleteColumnHeader.Width = 80;
-            // 
             // VisitUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -268,9 +244,6 @@ namespace Clinic.UserControls
         private System.Windows.Forms.ColumnHeader doctorColumnHeader;
         private System.Windows.Forms.ColumnHeader nurseColumnHeader;
         private System.Windows.Forms.ColumnHeader dateColumnHeader;
-        private System.Windows.Forms.ColumnHeader viewColumnHeader;
-        private System.Windows.Forms.ColumnHeader editColumnHeader;
-        private System.Windows.Forms.ColumnHeader deleteColumnHeader;
         private System.Windows.Forms.TextBox patientIdTextBox;
     }
 }

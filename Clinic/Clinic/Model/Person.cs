@@ -172,7 +172,7 @@ namespace Clinic.Model
 
         private bool IsValidPhoneNumber(string phoneNumber)
         {
-            return System.Text.RegularExpressions.Regex.IsMatch(phoneNumber, @"^\(\d{3}\)\s\d{3}-\d{4}$");
+            return System.Text.RegularExpressions.Regex.IsMatch(phoneNumber.Trim(), @"^\(\d{3}\)\s\d{3}-\d{4}$");
         }
 
         private bool IsValidCity(string city)

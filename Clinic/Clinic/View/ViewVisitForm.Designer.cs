@@ -40,20 +40,20 @@ namespace Clinic.View
             System.Windows.Forms.Label systolicBloodPressureLabel;
             System.Windows.Forms.Label visitDateLabel;
             System.Windows.Forms.Label weightLabel;
-            this.viewPatientTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.viewVisitTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.okayButton = new System.Windows.Forms.Button();
-            this.symptomsLabel1 = new System.Windows.Forms.Label();
+            this.symptomsOutputLabel = new System.Windows.Forms.Label();
             this.visitBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bodyTemperatureLabel1 = new System.Windows.Forms.Label();
-            this.diastolicBloodPressureLabel1 = new System.Windows.Forms.Label();
-            this.weightLabel1 = new System.Windows.Forms.Label();
-            this.pulseLabel1 = new System.Windows.Forms.Label();
-            this.systolicBloodPressureLabel1 = new System.Windows.Forms.Label();
-            this.doctorFullNameLabel1 = new System.Windows.Forms.Label();
+            this.bodyTemperatureOutputLabel = new System.Windows.Forms.Label();
+            this.diastolicBloodPressureOutputLabel = new System.Windows.Forms.Label();
+            this.weightOutputLabel = new System.Windows.Forms.Label();
+            this.pulseOutputLabel = new System.Windows.Forms.Label();
+            this.systolicBloodPressureOutputLabel = new System.Windows.Forms.Label();
+            this.doctorFullNameOutputLabel = new System.Windows.Forms.Label();
             this.visitInformationLabel = new System.Windows.Forms.Label();
-            this.nurseFullNameLabel1 = new System.Windows.Forms.Label();
-            this.patientFullNameLabel1 = new System.Windows.Forms.Label();
-            this.visitDateLabel1 = new System.Windows.Forms.Label();
+            this.nurseFullNameOutputLabel = new System.Windows.Forms.Label();
+            this.patientFullNameOutputLabel = new System.Windows.Forms.Label();
+            this.visitDateOutputLabel = new System.Windows.Forms.Label();
             bodyTemperatureLabel = new System.Windows.Forms.Label();
             diastolicBloodPressureLabel = new System.Windows.Forms.Label();
             doctorFullNameLabel = new System.Windows.Forms.Label();
@@ -64,7 +64,7 @@ namespace Clinic.View
             systolicBloodPressureLabel = new System.Windows.Forms.Label();
             visitDateLabel = new System.Windows.Forms.Label();
             weightLabel = new System.Windows.Forms.Label();
-            this.viewPatientTableLayoutPanel.SuspendLayout();
+            this.viewVisitTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.visitBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -178,51 +178,51 @@ namespace Clinic.View
             weightLabel.TabIndex = 38;
             weightLabel.Text = "Weight:";
             // 
-            // viewPatientTableLayoutPanel
+            // viewVisitTableLayoutPanel
             // 
-            this.viewPatientTableLayoutPanel.ColumnCount = 2;
-            this.viewPatientTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.2956F));
-            this.viewPatientTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.7044F));
-            this.viewPatientTableLayoutPanel.Controls.Add(this.okayButton, 1, 11);
-            this.viewPatientTableLayoutPanel.Controls.Add(this.symptomsLabel1, 1, 10);
-            this.viewPatientTableLayoutPanel.Controls.Add(this.bodyTemperatureLabel1, 1, 9);
-            this.viewPatientTableLayoutPanel.Controls.Add(bodyTemperatureLabel, 0, 9);
-            this.viewPatientTableLayoutPanel.Controls.Add(this.diastolicBloodPressureLabel1, 1, 7);
-            this.viewPatientTableLayoutPanel.Controls.Add(this.weightLabel1, 1, 8);
-            this.viewPatientTableLayoutPanel.Controls.Add(diastolicBloodPressureLabel, 0, 7);
-            this.viewPatientTableLayoutPanel.Controls.Add(this.pulseLabel1, 1, 5);
-            this.viewPatientTableLayoutPanel.Controls.Add(this.systolicBloodPressureLabel1, 1, 6);
-            this.viewPatientTableLayoutPanel.Controls.Add(this.doctorFullNameLabel1, 1, 4);
-            this.viewPatientTableLayoutPanel.Controls.Add(this.visitInformationLabel, 1, 0);
-            this.viewPatientTableLayoutPanel.Controls.Add(this.nurseFullNameLabel1, 1, 3);
-            this.viewPatientTableLayoutPanel.Controls.Add(symptomsLabel, 0, 10);
-            this.viewPatientTableLayoutPanel.Controls.Add(this.patientFullNameLabel1, 1, 2);
-            this.viewPatientTableLayoutPanel.Controls.Add(doctorFullNameLabel, 0, 4);
-            this.viewPatientTableLayoutPanel.Controls.Add(pulseLabel, 0, 5);
-            this.viewPatientTableLayoutPanel.Controls.Add(nurseFullNameLabel, 0, 3);
-            this.viewPatientTableLayoutPanel.Controls.Add(this.visitDateLabel1, 1, 1);
-            this.viewPatientTableLayoutPanel.Controls.Add(weightLabel, 0, 8);
-            this.viewPatientTableLayoutPanel.Controls.Add(systolicBloodPressureLabel, 0, 6);
-            this.viewPatientTableLayoutPanel.Controls.Add(patientFullNameLabel, 0, 2);
-            this.viewPatientTableLayoutPanel.Controls.Add(visitDateLabel, 0, 1);
-            this.viewPatientTableLayoutPanel.Location = new System.Drawing.Point(12, 11);
-            this.viewPatientTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.viewPatientTableLayoutPanel.Name = "viewPatientTableLayoutPanel";
-            this.viewPatientTableLayoutPanel.RowCount = 12;
-            this.viewPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.viewPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.viewPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.viewPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.viewPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.viewPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.viewPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.viewPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.viewPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.viewPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.viewPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.viewPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.viewPatientTableLayoutPanel.Size = new System.Drawing.Size(636, 626);
-            this.viewPatientTableLayoutPanel.TabIndex = 2;
+            this.viewVisitTableLayoutPanel.ColumnCount = 2;
+            this.viewVisitTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.2956F));
+            this.viewVisitTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.7044F));
+            this.viewVisitTableLayoutPanel.Controls.Add(this.okayButton, 1, 11);
+            this.viewVisitTableLayoutPanel.Controls.Add(this.symptomsOutputLabel, 1, 10);
+            this.viewVisitTableLayoutPanel.Controls.Add(this.bodyTemperatureOutputLabel, 1, 9);
+            this.viewVisitTableLayoutPanel.Controls.Add(bodyTemperatureLabel, 0, 9);
+            this.viewVisitTableLayoutPanel.Controls.Add(this.diastolicBloodPressureOutputLabel, 1, 7);
+            this.viewVisitTableLayoutPanel.Controls.Add(this.weightOutputLabel, 1, 8);
+            this.viewVisitTableLayoutPanel.Controls.Add(diastolicBloodPressureLabel, 0, 7);
+            this.viewVisitTableLayoutPanel.Controls.Add(this.pulseOutputLabel, 1, 5);
+            this.viewVisitTableLayoutPanel.Controls.Add(this.systolicBloodPressureOutputLabel, 1, 6);
+            this.viewVisitTableLayoutPanel.Controls.Add(this.doctorFullNameOutputLabel, 1, 4);
+            this.viewVisitTableLayoutPanel.Controls.Add(this.visitInformationLabel, 1, 0);
+            this.viewVisitTableLayoutPanel.Controls.Add(this.nurseFullNameOutputLabel, 1, 3);
+            this.viewVisitTableLayoutPanel.Controls.Add(symptomsLabel, 0, 10);
+            this.viewVisitTableLayoutPanel.Controls.Add(this.patientFullNameOutputLabel, 1, 2);
+            this.viewVisitTableLayoutPanel.Controls.Add(doctorFullNameLabel, 0, 4);
+            this.viewVisitTableLayoutPanel.Controls.Add(pulseLabel, 0, 5);
+            this.viewVisitTableLayoutPanel.Controls.Add(nurseFullNameLabel, 0, 3);
+            this.viewVisitTableLayoutPanel.Controls.Add(this.visitDateOutputLabel, 1, 1);
+            this.viewVisitTableLayoutPanel.Controls.Add(weightLabel, 0, 8);
+            this.viewVisitTableLayoutPanel.Controls.Add(systolicBloodPressureLabel, 0, 6);
+            this.viewVisitTableLayoutPanel.Controls.Add(patientFullNameLabel, 0, 2);
+            this.viewVisitTableLayoutPanel.Controls.Add(visitDateLabel, 0, 1);
+            this.viewVisitTableLayoutPanel.Location = new System.Drawing.Point(12, 11);
+            this.viewVisitTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.viewVisitTableLayoutPanel.Name = "viewVisitTableLayoutPanel";
+            this.viewVisitTableLayoutPanel.RowCount = 12;
+            this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.viewVisitTableLayoutPanel.Size = new System.Drawing.Size(636, 626);
+            this.viewVisitTableLayoutPanel.TabIndex = 2;
             // 
             // okayButton
             // 
@@ -237,86 +237,79 @@ namespace Clinic.View
             this.okayButton.Text = "OK";
             this.okayButton.UseVisualStyleBackColor = true;
             // 
-            // symptomsLabel1
+            // symptomsOutputLabel
             // 
-            this.symptomsLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.symptomsLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "Symptoms", true));
-            this.symptomsLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.symptomsLabel1.Location = new System.Drawing.Point(272, 540);
-            this.symptomsLabel1.Name = "symptomsLabel1";
-            this.symptomsLabel1.Size = new System.Drawing.Size(100, 23);
-            this.symptomsLabel1.TabIndex = 33;
-            this.symptomsLabel1.Text = "label1";
+            this.symptomsOutputLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.symptomsOutputLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "Symptoms", true));
+            this.symptomsOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.symptomsOutputLabel.Location = new System.Drawing.Point(272, 540);
+            this.symptomsOutputLabel.Name = "symptomsOutputLabel";
+            this.symptomsOutputLabel.Size = new System.Drawing.Size(100, 23);
+            this.symptomsOutputLabel.TabIndex = 33;
             // 
             // visitBindingSource
             // 
             this.visitBindingSource.DataSource = typeof(Clinic.Model.Visit);
             // 
-            // bodyTemperatureLabel1
+            // bodyTemperatureOutputLabel
             // 
-            this.bodyTemperatureLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bodyTemperatureLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "BodyTemperature", true));
-            this.bodyTemperatureLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bodyTemperatureLabel1.Location = new System.Drawing.Point(272, 490);
-            this.bodyTemperatureLabel1.Name = "bodyTemperatureLabel1";
-            this.bodyTemperatureLabel1.Size = new System.Drawing.Size(100, 23);
-            this.bodyTemperatureLabel1.TabIndex = 5;
-            this.bodyTemperatureLabel1.Text = "label1";
+            this.bodyTemperatureOutputLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.bodyTemperatureOutputLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "BodyTemperature", true));
+            this.bodyTemperatureOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bodyTemperatureOutputLabel.Location = new System.Drawing.Point(272, 490);
+            this.bodyTemperatureOutputLabel.Name = "bodyTemperatureOutputLabel";
+            this.bodyTemperatureOutputLabel.Size = new System.Drawing.Size(100, 23);
+            this.bodyTemperatureOutputLabel.TabIndex = 5;
             // 
-            // diastolicBloodPressureLabel1
+            // diastolicBloodPressureOutputLabel
             // 
-            this.diastolicBloodPressureLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.diastolicBloodPressureLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "DiastolicBloodPressure", true));
-            this.diastolicBloodPressureLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.diastolicBloodPressureLabel1.Location = new System.Drawing.Point(272, 390);
-            this.diastolicBloodPressureLabel1.Name = "diastolicBloodPressureLabel1";
-            this.diastolicBloodPressureLabel1.Size = new System.Drawing.Size(100, 23);
-            this.diastolicBloodPressureLabel1.TabIndex = 7;
-            this.diastolicBloodPressureLabel1.Text = "label1";
+            this.diastolicBloodPressureOutputLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.diastolicBloodPressureOutputLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "DiastolicBloodPressure", true));
+            this.diastolicBloodPressureOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.diastolicBloodPressureOutputLabel.Location = new System.Drawing.Point(272, 390);
+            this.diastolicBloodPressureOutputLabel.Name = "diastolicBloodPressureOutputLabel";
+            this.diastolicBloodPressureOutputLabel.Size = new System.Drawing.Size(100, 23);
+            this.diastolicBloodPressureOutputLabel.TabIndex = 7;
             // 
-            // weightLabel1
+            // weightOutputLabel
             // 
-            this.weightLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.weightLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "Weight", true));
-            this.weightLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightLabel1.Location = new System.Drawing.Point(272, 440);
-            this.weightLabel1.Name = "weightLabel1";
-            this.weightLabel1.Size = new System.Drawing.Size(100, 23);
-            this.weightLabel1.TabIndex = 39;
-            this.weightLabel1.Text = "label1";
+            this.weightOutputLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.weightOutputLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "Weight", true));
+            this.weightOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weightOutputLabel.Location = new System.Drawing.Point(272, 440);
+            this.weightOutputLabel.Name = "weightOutputLabel";
+            this.weightOutputLabel.Size = new System.Drawing.Size(100, 23);
+            this.weightOutputLabel.TabIndex = 39;
             // 
-            // pulseLabel1
+            // pulseOutputLabel
             // 
-            this.pulseLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pulseLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "Pulse", true));
-            this.pulseLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pulseLabel1.Location = new System.Drawing.Point(272, 290);
-            this.pulseLabel1.Name = "pulseLabel1";
-            this.pulseLabel1.Size = new System.Drawing.Size(100, 23);
-            this.pulseLabel1.TabIndex = 31;
-            this.pulseLabel1.Text = "label1";
+            this.pulseOutputLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pulseOutputLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "Pulse", true));
+            this.pulseOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pulseOutputLabel.Location = new System.Drawing.Point(272, 290);
+            this.pulseOutputLabel.Name = "pulseOutputLabel";
+            this.pulseOutputLabel.Size = new System.Drawing.Size(100, 23);
+            this.pulseOutputLabel.TabIndex = 31;
             // 
-            // systolicBloodPressureLabel1
+            // systolicBloodPressureOutputLabel
             // 
-            this.systolicBloodPressureLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.systolicBloodPressureLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "SystolicBloodPressure", true));
-            this.systolicBloodPressureLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.systolicBloodPressureLabel1.Location = new System.Drawing.Point(272, 340);
-            this.systolicBloodPressureLabel1.Name = "systolicBloodPressureLabel1";
-            this.systolicBloodPressureLabel1.Size = new System.Drawing.Size(100, 23);
-            this.systolicBloodPressureLabel1.TabIndex = 35;
-            this.systolicBloodPressureLabel1.Text = "label1";
+            this.systolicBloodPressureOutputLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.systolicBloodPressureOutputLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "SystolicBloodPressure", true));
+            this.systolicBloodPressureOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.systolicBloodPressureOutputLabel.Location = new System.Drawing.Point(272, 340);
+            this.systolicBloodPressureOutputLabel.Name = "systolicBloodPressureOutputLabel";
+            this.systolicBloodPressureOutputLabel.Size = new System.Drawing.Size(100, 23);
+            this.systolicBloodPressureOutputLabel.TabIndex = 35;
             // 
-            // doctorFullNameLabel1
+            // doctorFullNameOutputLabel
             // 
-            this.doctorFullNameLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.doctorFullNameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "DoctorFullName", true));
-            this.doctorFullNameLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.doctorFullNameLabel1.Location = new System.Drawing.Point(272, 240);
-            this.doctorFullNameLabel1.Name = "doctorFullNameLabel1";
-            this.doctorFullNameLabel1.Size = new System.Drawing.Size(100, 23);
-            this.doctorFullNameLabel1.TabIndex = 11;
-            this.doctorFullNameLabel1.Text = "label1";
+            this.doctorFullNameOutputLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.doctorFullNameOutputLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "DoctorFullName", true));
+            this.doctorFullNameOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctorFullNameOutputLabel.Location = new System.Drawing.Point(272, 240);
+            this.doctorFullNameOutputLabel.Name = "doctorFullNameOutputLabel";
+            this.doctorFullNameOutputLabel.Size = new System.Drawing.Size(100, 23);
+            this.doctorFullNameOutputLabel.TabIndex = 11;
             // 
             // visitInformationLabel
             // 
@@ -330,52 +323,50 @@ namespace Clinic.View
             this.visitInformationLabel.TabIndex = 16;
             this.visitInformationLabel.Text = "Visit Information";
             // 
-            // nurseFullNameLabel1
+            // nurseFullNameOutputLabel
             // 
-            this.nurseFullNameLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nurseFullNameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "NurseFullName", true));
-            this.nurseFullNameLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nurseFullNameLabel1.Location = new System.Drawing.Point(272, 190);
-            this.nurseFullNameLabel1.Name = "nurseFullNameLabel1";
-            this.nurseFullNameLabel1.Size = new System.Drawing.Size(100, 23);
-            this.nurseFullNameLabel1.TabIndex = 17;
-            this.nurseFullNameLabel1.Text = "label1";
+            this.nurseFullNameOutputLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.nurseFullNameOutputLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "NurseFullName", true));
+            this.nurseFullNameOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nurseFullNameOutputLabel.Location = new System.Drawing.Point(272, 190);
+            this.nurseFullNameOutputLabel.Name = "nurseFullNameOutputLabel";
+            this.nurseFullNameOutputLabel.Size = new System.Drawing.Size(100, 23);
+            this.nurseFullNameOutputLabel.TabIndex = 17;
             // 
-            // patientFullNameLabel1
+            // patientFullNameOutputLabel
             // 
-            this.patientFullNameLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.patientFullNameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "PatientFullName", true));
-            this.patientFullNameLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientFullNameLabel1.Location = new System.Drawing.Point(272, 140);
-            this.patientFullNameLabel1.Name = "patientFullNameLabel1";
-            this.patientFullNameLabel1.Size = new System.Drawing.Size(100, 23);
-            this.patientFullNameLabel1.TabIndex = 27;
-            this.patientFullNameLabel1.Text = "label1";
+            this.patientFullNameOutputLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.patientFullNameOutputLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "PatientFullName", true));
+            this.patientFullNameOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientFullNameOutputLabel.Location = new System.Drawing.Point(272, 140);
+            this.patientFullNameOutputLabel.Name = "patientFullNameOutputLabel";
+            this.patientFullNameOutputLabel.Size = new System.Drawing.Size(100, 23);
+            this.patientFullNameOutputLabel.TabIndex = 27;
             // 
-            // visitDateLabel1
+            // visitDateOutputLabel
             // 
-            this.visitDateLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.visitDateLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "VisitDate", true));
-            this.visitDateLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.visitDateLabel1.Location = new System.Drawing.Point(272, 90);
-            this.visitDateLabel1.Name = "visitDateLabel1";
-            this.visitDateLabel1.Size = new System.Drawing.Size(100, 23);
-            this.visitDateLabel1.TabIndex = 37;
-            this.visitDateLabel1.Text = "label1";
+            this.visitDateOutputLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.visitDateOutputLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "VisitDate", true));
+            this.visitDateOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.visitDateOutputLabel.Location = new System.Drawing.Point(272, 90);
+            this.visitDateOutputLabel.Name = "visitDateOutputLabel";
+            this.visitDateOutputLabel.Size = new System.Drawing.Size(100, 23);
+            this.visitDateOutputLabel.TabIndex = 37;
             // 
             // ViewVisitForm
             // 
+            this.AcceptButton = this.okayButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(662, 651);
-            this.Controls.Add(this.viewPatientTableLayoutPanel);
+            this.Controls.Add(this.viewVisitTableLayoutPanel);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ViewVisitForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "s";
-            this.viewPatientTableLayoutPanel.ResumeLayout(false);
-            this.viewPatientTableLayoutPanel.PerformLayout();
+            this.Text = "View Visit Details";
+            this.viewVisitTableLayoutPanel.ResumeLayout(false);
+            this.viewVisitTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.visitBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -383,19 +374,19 @@ namespace Clinic.View
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel viewPatientTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel viewVisitTableLayoutPanel;
         private System.Windows.Forms.Label visitInformationLabel;
         private System.Windows.Forms.Button okayButton;
         private System.Windows.Forms.BindingSource visitBindingSource;
-        private System.Windows.Forms.Label bodyTemperatureLabel1;
-        private System.Windows.Forms.Label diastolicBloodPressureLabel1;
-        private System.Windows.Forms.Label doctorFullNameLabel1;
-        private System.Windows.Forms.Label nurseFullNameLabel1;
-        private System.Windows.Forms.Label patientFullNameLabel1;
-        private System.Windows.Forms.Label pulseLabel1;
-        private System.Windows.Forms.Label symptomsLabel1;
-        private System.Windows.Forms.Label systolicBloodPressureLabel1;
-        private System.Windows.Forms.Label visitDateLabel1;
-        private System.Windows.Forms.Label weightLabel1;
+        private System.Windows.Forms.Label bodyTemperatureOutputLabel;
+        private System.Windows.Forms.Label diastolicBloodPressureOutputLabel;
+        private System.Windows.Forms.Label doctorFullNameOutputLabel;
+        private System.Windows.Forms.Label nurseFullNameOutputLabel;
+        private System.Windows.Forms.Label patientFullNameOutputLabel;
+        private System.Windows.Forms.Label pulseOutputLabel;
+        private System.Windows.Forms.Label symptomsOutputLabel;
+        private System.Windows.Forms.Label systolicBloodPressureOutputLabel;
+        private System.Windows.Forms.Label visitDateOutputLabel;
+        private System.Windows.Forms.Label weightOutputLabel;
     }
 }

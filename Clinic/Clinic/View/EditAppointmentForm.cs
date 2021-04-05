@@ -3,86 +3,104 @@ using Clinic.Model;
 using Clinic.UserControls;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Clinic.View
 {
     /// <summary>
-    /// This class will construct and manage the make appointment form
+    /// This class will create the edit appointment form
     /// </summary>
-    public partial class MakeAppointmentForm : Form
+    public partial class EditAppointmentForm : Form
     {
+        private readonly Appointment theAppointment;
         private readonly AppointmentUserControl appointmentUserControl;
         private readonly AppointmentController appointmentController;
-        private readonly PatientController patientController;
         private readonly DoctorController doctorController;
-        private List<Patient> patientList;
         private List<Doctor> doctorList;
         private List<Appointment> appointmentList;
 
         /// <summary>
-        /// Constructor for the make appointment form
+        /// Constructor for the edit appointment form
         /// </summary>
-        /// <param name="appointmentUserControl">the refering appointment user control</param>
-        public MakeAppointmentForm(AppointmentUserControl appointmentUserControl)
+        /// <param name="theAppointment">The appointment to be edited</param>
+        public EditAppointmentForm(AppointmentUserControl appointmentUserControl, Appointment theAppointment)
         {
             InitializeComponent();
             this.appointmentUserControl = appointmentUserControl;
             this.appointmentController = new AppointmentController();
-            this.patientController = new PatientController();
             this.doctorController = new DoctorController();
+            this.theAppointment = theAppointment ?? throw new ArgumentNullException("theAppointment", "Appointment cannot be null for this form");
         }
 
         /// <summary>
-        /// Actions to happen when form loads.  Populate doctor combobox.
+        /// Actions to perform on form load
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MakeAppointmentForm_Load(object sender, EventArgs e)
+        private void EditAppointmentForm_Load(object sender, EventArgs e)
+        {
+            this.VerifyNotIn24HourWindow();
+            this.PopulateTextFields();
+            this.SetDoctorComboBox();
+            this.SetDateTimeFields();
+        }
+
+        /// <summary>
+        /// Checks to see if the appointment is at least 24 hours away.  If not,
+        /// a dialogue box appears and user is then returned to the Appointment
+        /// User Control
+        /// </summary>
+        private void VerifyNotIn24HourWindow()
+        {
+            DateTime now = DateTime.Now;
+            if (now.AddHours(24) > this.theAppointment.StartDateTime)
+            {
+                String messageText = "Appointments cannot be edited within 24 hours of the start of the appointment.";
+                var dialogeResult = MessageBox.Show(messageText, "Alert - Appointment Too Close For Editing", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                if (dialogeResult == DialogResult.OK)
+                {
+                    this.CloseForm();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Set values for all date and time fields
+        /// </summary>
+        private void SetDateTimeFields()
+        {
+            this.datePicker.Value = this.theAppointment.StartDateTime;
+            this.startHourComboBox.SelectedIndex = this.startHourComboBox.FindStringExact(this.theAppointment.StartDateTime.ToString("HH"));
+            this.startMinuteComboBox.SelectedIndex = this.startMinuteComboBox.FindStringExact(this.theAppointment.StartDateTime.ToString("mm"));
+            this.endHourComboBox.SelectedIndex = this.endHourComboBox.FindStringExact(this.theAppointment.EndDateTime.ToString("HH"));
+            this.endMinuteComboBox.SelectedIndex = this.endMinuteComboBox.FindStringExact(this.theAppointment.EndDateTime.ToString("mm"));
+        }
+
+        /// <summary>
+        /// Set values for text fields based on current appointment
+        /// </summary>
+        private void PopulateTextFields()
+        {
+            this.searchPatientFirstNameTextBox.Text = this.theAppointment.PatientFirstName;
+            this.searchPatientLastNameTextBox.Text = this.theAppointment.PatientLastName;
+            this.reasonTextBox.Text = this.theAppointment.ReasonForVisit;
+        }
+
+        /// <summary>
+        /// Populate and set doctor combobox
+        /// </summary>
+        private void SetDoctorComboBox()
         {
             this.appointmentUserControl.Enabled = false;
             this.doctorList = this.doctorController.GetAllDoctors();
             doctorComboBox.DataSource = this.doctorList;
-        }
-
-        private void SearchPatient()
-        {
-            this.patientSearchResultListView.Items.Clear();
-            try
-            {
-                this.patientList = this.patientController.FindPatients(this.searchPatientLastNameTextBox.Text, this.searchPatientFirstNameTextBox.Text);
-                foreach (Patient current in this.patientList)
-                {
-                    ListViewItem item = new ListViewItem(current.FirstName);
-                    item.SubItems.Add(current.LastName);
-                    item.SubItems.Add(current.DateOfBirth.ToString("d"));
-                    item.SubItems.Add(current.PersonId.ToString());
-                    this.patientSearchResultListView.Items.Add(item);
-                }
-            }
-            catch (Exception)
-            {
-                this.alertNoticeLabel.Text = "Please enter both first and last name for search.";
-            }
-        }
-
-        /// <summary>
-        /// Search patient button click actions.  Search for patient by names 
-        /// and display selectable list.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SearchPatientButton_Click(object sender, EventArgs e)
-        {
-            this.SearchPatient();
-        }
-
-        private void SearchPatientFirstNameTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                this.SearchPatient();
-            }
+            this.doctorComboBox.SelectedValue = this.theAppointment.DoctorId;
         }
 
         /// <summary>
@@ -118,21 +136,15 @@ namespace Clinic.View
         }
 
         /// <summary>
-        /// The final submit button click for the form.  Validates form fields 
-        /// and if appropriate submits the appointment to be added to the DB.
+        /// Submits the revised appointment information to be checked and then updated in DB if validated
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReserveAppointmentButton_Click(object sender, EventArgs e)
+        private void EditAppointmentButton_Click(object sender, EventArgs e)
         {
             String alertText = "";
             DateTime startDateTime = new DateTime();
             DateTime endDateTime = new DateTime();
-
-            if (this.patientSearchResultListView.SelectedItems.Count == 0)
-            {
-                alertText += "Patient Name Not Selected:  A name from the patient list must be selected.\n";
-            }
 
             if (this.TimeFieldsNotSelected())
             {
@@ -146,10 +158,6 @@ namespace Clinic.View
                 {
                     alertText += "Invalid Appointment Time:  The end time for the appointment cannot be before the start time.\n";
                 }
-                else if (this.appointmentController.DoctorIsBooked(int.Parse(this.doctorComboBox.SelectedValue.ToString()), startDateTime, endDateTime))
-                {
-                    alertText += "Appointment Conflict:  Appointment overlaps existing appointment.\n";
-                }
             }
 
             if (this.reasonTextBox.Text == "")
@@ -159,33 +167,45 @@ namespace Clinic.View
 
             if (alertText == "")
             {
-                Appointment theAppointment = new Appointment
+                Appointment revisedAppointment = new Appointment
                 {
-                    PatientId = int.Parse(this.patientSearchResultListView.SelectedItems[0].SubItems[3].Text),
+                    PatientId = this.theAppointment.PatientId,
                     StartDateTime = startDateTime,
                     EndDateTime = endDateTime,
                     DoctorId = int.Parse(this.doctorComboBox.SelectedValue.ToString()),
                     ReasonForVisit = this.reasonTextBox.Text
                 };
-                try
+                if (this.appointmentController.DoctorIsBookedForAppointmentEdit(this.theAppointment, revisedAppointment))
                 {
-                    this.appointmentController.AddAppointment(theAppointment);
-                    String successText = "Appointment successfully registered for : \n" +
-                    startDateTime.ToString("f") + " - " +
-                    endDateTime.ToString("t");
-                    var dialogeResult = MessageBox.Show(successText, "Appointment Registration Success");
-                    if (dialogeResult == DialogResult.OK)
+                    alertText += "Appointment Conflict:  Appointment overlaps existing appointment.\n";
+                } 
+                else
+                {
+                    try
                     {
-                        this.CloseForm();
+                        this.appointmentController.EditAppointment(this.theAppointment, revisedAppointment);
+                        String successText = "Appointment successfully updated for : \n" +
+                        startDateTime.ToString("f") + " - " +
+                        endDateTime.ToString("t");
+                        var dialogeResult = MessageBox.Show(successText, "Appointment Edit Success");
+                        if (dialogeResult == DialogResult.OK)
+                        {
+                            this.CloseForm();
+                        }
                     }
-                } catch (Exception ex)
-                {
-                    alertText += "Error in updating appointment database:\n" + 
-                        ex.Message + "\n";
+                    catch (Exception ex)
+                    {
+                        alertText += "Error in updating appointment database:\n" +
+                            ex.Message + "\n";
+                    }
                 }
+                
             }
             this.alertNoticeLabel.Text = alertText;
         }
+
+
+        /* Helper Methods For Final Form Submit */
 
         /// <summary>
         /// Gets start time and minute from form and returns DateTime object
@@ -223,25 +243,7 @@ namespace Clinic.View
                 this.endMinuteComboBox.SelectedIndex == -1);
         }
 
-        /// <summary>
-        /// Clear patient ListView if text changes
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SearchPatientLastNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-            this.patientSearchResultListView.Items.Clear();
-        }
-
-        /// <summary>
-        /// Clear patient ListView if text changes
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SearchPatientFirstNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-            this.patientSearchResultListView.Items.Clear();
-        }
+        /* Additional Event Handlers */
 
         /// <summary>
         /// When date changed clear the ListView
@@ -268,7 +270,7 @@ namespace Clinic.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MakeAppointmentForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void EditAppointmentForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.appointmentUserControl.Enabled = true;
         }
@@ -289,6 +291,7 @@ namespace Clinic.View
         private void CloseForm()
         {
             this.appointmentUserControl.Enabled = true;
+            this.appointmentUserControl.ResetAppointmentListResults();
             this.Close();
         }
 
@@ -296,5 +299,6 @@ namespace Clinic.View
         {
             this.alertNoticeLabel.Text = "";
         }
+
     }
 }

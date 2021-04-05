@@ -43,20 +43,19 @@ namespace Clinic.Controller
         /// <returns>True if the specified doctor is booked at the specified time, false otherwise.</returns>
         public bool DoctorIsBooked(int doctorId, DateTime startDateTime, DateTime endDateTime)
         {
-            if (doctorId < 0)
-            {
-                throw new ArgumentException("The doctor's ID cannot be negative.", "doctorId");
-            }
-            if (startDateTime == null)
-            {
-                throw new ArgumentNullException("startDateTime", "The start date and time of the appointment cannot be null.");
-            }
-            if (startDateTime == null)
-            {
-                throw new ArgumentNullException("endDateTime", "The end date and time of the appointment cannot be null.");
-            }
-
             return this.appointmentSource.DoctorIsBooked(doctorId, startDateTime, endDateTime);
+        }
+
+        /// <summary>
+        /// Method that returns true if the specified doctor is unavailable at the specified time.  This method
+        /// includes a check to prevent a false positive for an appointment overlapping itself when being edited
+        /// </summary>
+        /// <param name="originalAppointment">original appointment object</param>
+        /// <param name="revisedAppointment">revised appointment object</param>
+        /// <returns>true if a conflict exists</returns>
+        public bool DoctorIsBookedForAppointmentEdit(Appointment originalAppointment, Appointment revisedAppointment)
+        {
+            return this.appointmentSource.DoctorIsBookedForAppointmentEdit(originalAppointment, revisedAppointment);
         }
 
         /// <summary>
@@ -103,10 +102,6 @@ namespace Clinic.Controller
         /// <returns>List of Appointment objects</returns>
         public List<Appointment> GetAppointmentsOnDate(DateTime date)
         {
-            if (date == null)
-            {
-                throw new ArgumentNullException("date", "The date cannot be null.");
-            }
             return this.appointmentSource.GetAppointmentsOnDate(date);
         }
 
@@ -118,10 +113,6 @@ namespace Clinic.Controller
         /// <returns>List of Appointment objects</returns>
         public List<Appointment> GetAppointmentsForDoctorOnDate(int doctorId, DateTime date)
         {
-            if (date == null)
-            {
-                throw new ArgumentNullException("date", "The date cannot be null.");
-            }
             return this.appointmentSource.GetAppointmentsForDoctorOnDate(doctorId, date);
         }
 
@@ -132,10 +123,6 @@ namespace Clinic.Controller
         /// <returns>List of Appointment objects/returns>
         public List<Appointment> GetAppointmentsForPatientLastName(String lastName)
         {
-            if (lastName == null || lastName == "")
-            {
-                throw new ArgumentException("lastName", "Last name for search cannot be empty");
-            }
             return this.appointmentSource.GetAppointmentsForPatientLastName(lastName);
         }
     }

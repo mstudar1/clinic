@@ -1,13 +1,6 @@
 ﻿using Clinic.Model;
 using Clinic.UserControls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Clinic.View
@@ -26,17 +19,17 @@ namespace Clinic.View
 
         private void ShowPatientInformation()
         {
-            this.firstNameTextBox.Text = this.thePatient.FirstName;
-            this.lastNameTextBox.Text = this.thePatient.LastName;
-            this.dateOfBirthDateTimePicker.Value = this.thePatient.DateOfBirth;
-            this.ssnTextBox.Text = this.thePatient.SocialSecurityNumber;
-            this.genderComboBox.Text = this.thePatient.Gender;
-            this.phoneNumberTextBox.Text = this.thePatient.PhoneNumber;
-            this.address1TextBox.Text = this.thePatient.AddressLine1;
-            this.address2TextBox.Text = this.thePatient.AddressLine2;
-            this.stateComboBox.Text = this.thePatient.State;
-            this.cityTextBox.Text = this.thePatient.City;
-            this.zipTextBox.Text = this.thePatient.ZipCode;
+            this.patientFirstNameLabel.Text = this.thePatient.FirstName;
+            this.patientListNameLabel.Text = this.thePatient.LastName;
+            this.patientDobLabel.Text = this.thePatient.DateOfBirth.ToString();
+            this.patientSsnLabel.Text = this.thePatient.SocialSecurityNumber;
+            this.patientGenderLabel.Text = this.thePatient.Gender;
+            this.patientPhoneNumberLabel.Text = this.thePatient.PhoneNumber;
+            this.patientAddress1Label.Text = this.thePatient.AddressLine1;
+            this.patientAddress2Label.Text = this.thePatient.AddressLine2;
+            this.patientStateLabel.Text = this.thePatient.State;
+            this.patientCityLabel.Text = this.thePatient.City;
+            this.patientZipLabel.Text = this.thePatient.ZipCode;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

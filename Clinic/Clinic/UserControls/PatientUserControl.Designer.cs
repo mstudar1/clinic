@@ -87,7 +87,7 @@ namespace Clinic.UserControls
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.85034F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.14966F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
             this.tableLayoutPanel3.Controls.Add(this.resetButton, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.listOfPatientsLabel, 0, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 130);
@@ -102,7 +102,7 @@ namespace Clinic.UserControls
             this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.resetButton.AutoSize = true;
             this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetButton.Location = new System.Drawing.Point(623, 3);
+            this.resetButton.Location = new System.Drawing.Point(617, 3);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(86, 32);
             this.resetButton.TabIndex = 1;
@@ -115,7 +115,7 @@ namespace Clinic.UserControls
             this.listOfPatientsLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.listOfPatientsLabel.AutoSize = true;
             this.listOfPatientsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listOfPatientsLabel.Location = new System.Drawing.Point(5, 9);
+            this.listOfPatientsLabel.Location = new System.Drawing.Point(4, 9);
             this.listOfPatientsLabel.Name = "listOfPatientsLabel";
             this.listOfPatientsLabel.Size = new System.Drawing.Size(174, 29);
             this.listOfPatientsLabel.TabIndex = 2;
@@ -128,7 +128,7 @@ namespace Clinic.UserControls
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.08458F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 169F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 129F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
             this.tableLayoutPanel4.Controls.Add(this.searchButton, 4, 1);
             this.tableLayoutPanel4.Controls.Add(this.lastNameTextBox, 2, 1);
             this.tableLayoutPanel4.Controls.Add(this.firstNameTextBox, 1, 1);
@@ -149,7 +149,7 @@ namespace Clinic.UserControls
             this.searchButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.searchButton.AutoSize = true;
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(675, 25);
+            this.searchButton.Location = new System.Drawing.Point(669, 25);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(99, 31);
             this.searchButton.TabIndex = 0;
@@ -161,7 +161,7 @@ namespace Clinic.UserControls
             // 
             this.lastNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameTextBox.Location = new System.Drawing.Point(378, 25);
+            this.lastNameTextBox.Location = new System.Drawing.Point(372, 25);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(122, 30);
             this.lastNameTextBox.TabIndex = 2;
@@ -171,9 +171,9 @@ namespace Clinic.UserControls
             // 
             this.firstNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.firstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameTextBox.Location = new System.Drawing.Point(254, 25);
+            this.firstNameTextBox.Location = new System.Drawing.Point(250, 25);
             this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(118, 30);
+            this.firstNameTextBox.Size = new System.Drawing.Size(116, 30);
             this.firstNameTextBox.TabIndex = 5;
             this.firstNameTextBox.Tag = "";
             // 
@@ -182,7 +182,7 @@ namespace Clinic.UserControls
             this.dateOfBirthDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dateOfBirthDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateOfBirthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateOfBirthDateTimePicker.Location = new System.Drawing.Point(507, 27);
+            this.dateOfBirthDateTimePicker.Location = new System.Drawing.Point(501, 27);
             this.dateOfBirthDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
             this.dateOfBirthDateTimePicker.Size = new System.Drawing.Size(161, 30);
@@ -194,7 +194,7 @@ namespace Clinic.UserControls
             this.lastNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lastNameLabel.AutoSize = true;
             this.lastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameLabel.Location = new System.Drawing.Point(378, 2);
+            this.lastNameLabel.Location = new System.Drawing.Point(372, 2);
             this.lastNameLabel.Name = "lastNameLabel";
             this.lastNameLabel.Size = new System.Drawing.Size(90, 20);
             this.lastNameLabel.TabIndex = 9;
@@ -205,7 +205,7 @@ namespace Clinic.UserControls
             this.firstNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.firstNameLabel.AutoSize = true;
             this.firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameLabel.Location = new System.Drawing.Point(254, 2);
+            this.firstNameLabel.Location = new System.Drawing.Point(250, 2);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(90, 20);
             this.firstNameLabel.TabIndex = 10;
@@ -216,7 +216,7 @@ namespace Clinic.UserControls
             this.dobLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dobLabel.AutoSize = true;
             this.dobLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dobLabel.Location = new System.Drawing.Point(506, 2);
+            this.dobLabel.Location = new System.Drawing.Point(500, 2);
             this.dobLabel.Name = "dobLabel";
             this.dobLabel.Size = new System.Drawing.Size(48, 20);
             this.dobLabel.TabIndex = 11;
@@ -236,11 +236,11 @@ namespace Clinic.UserControls
             this.Edit,
             this.Appointments});
             this.patientDataGridView.DataSource = this.patientBindingSource;
-            this.patientDataGridView.Location = new System.Drawing.Point(54, 174);
+            this.patientDataGridView.Location = new System.Drawing.Point(42, 174);
             this.patientDataGridView.Name = "patientDataGridView";
             this.patientDataGridView.RowHeadersWidth = 62;
             this.patientDataGridView.RowTemplate.Height = 28;
-            this.patientDataGridView.Size = new System.Drawing.Size(700, 275);
+            this.patientDataGridView.Size = new System.Drawing.Size(723, 275);
             this.patientDataGridView.TabIndex = 5;
             this.patientDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientDataGridView_CellContentClick);
             // 

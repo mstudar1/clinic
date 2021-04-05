@@ -1,4 +1,5 @@
 ﻿using Clinic.Controller;
+using Clinic.Model;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -74,21 +75,28 @@ namespace Clinic.View
         /// </summary>
         public void ShowNurseTabOnlyForAdmin()
         {
+
+            Person user = this.theCredentialController.GetUser(this.activeUsernameLabel.Text);
+      
             if (this.nurseAdminTabControl.TabPages.Contains(nurseTabPage))
             {
-                if (theCredentialController.GetUserRole(this.activeUsernameLabel.Text) == "Nurse")
+                if (user is Nurse)
                 {
                     this.nurseAdminTabControl.TabPages.Remove(nurseTabPage);
                 }
             } 
             else
             {
-                if (theCredentialController.GetUserRole(this.activeUsernameLabel.Text) == "Admin")
+                if (user is Administrator)
                 {
                     this.nurseAdminTabControl.TabPages.Add(nurseTabPage);
                 }
             }
         }
 
+        private void PatientUserControl_Load(object sender, EventArgs e)
+        {
+            this.patientUserControl1.RefreshPatientsListData();
+        }
     }
 }

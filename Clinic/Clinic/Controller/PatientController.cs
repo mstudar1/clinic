@@ -118,5 +118,14 @@ namespace Clinic.Controller
 
             return this.patientSource.FindPatients(dateOfBirth, lastName);
         }
+
+        /// <summary>
+        /// Method that finds all patients in the database.
+        /// </summary>
+        /// <returns>A list of patients.</returns>
+        public List<Patient> GetPatientsList()
+        {
+            return this.patientSource.GetPatientsList();
+        }
     }
 }

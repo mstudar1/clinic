@@ -158,7 +158,7 @@ namespace Clinic.DAL
                     SqlParameter dateOfBirthParameter = new SqlParameter("@DateOfBirth", SqlDbType.DateTime);
                     SqlParameter socialSecurityNumberParameter = new SqlParameter("@SocialSecurityNumber", SqlDbType.VarChar, 11);
                     SqlParameter genderParameter = new SqlParameter("@Gender", SqlDbType.Char, 1);
-                    SqlParameter phoneNumberParameter = new SqlParameter("@PhoneNumber", SqlDbType.Char, 10);
+                    SqlParameter phoneNumberParameter = new SqlParameter("@PhoneNumber", SqlDbType.Char, 20); 
                     SqlParameter addressLine1Parameter = new SqlParameter("@AddressLine1", SqlDbType.VarChar, 100);
                     SqlParameter addressLine2Parameter = new SqlParameter("@AddressLine2", SqlDbType.VarChar, 100);
                     SqlParameter cityParameter = new SqlParameter("@City", SqlDbType.VarChar, 50);
@@ -255,7 +255,7 @@ namespace Clinic.DAL
                     SqlParameter dateOfBirthParameter = new SqlParameter("@DateOfBirth", SqlDbType.DateTime);
                     SqlParameter socialSecurityNumberParameter = new SqlParameter("@SocialSecurityNumber", SqlDbType.VarChar, 11);
                     SqlParameter genderParameter = new SqlParameter("@Gender", SqlDbType.Char, 1);
-                    SqlParameter phoneNumberParameter = new SqlParameter("@PhoneNumber", SqlDbType.Char, 10);
+                    SqlParameter phoneNumberParameter = new SqlParameter("@PhoneNumber", SqlDbType.Char, 20);
                     SqlParameter addressLine1Parameter = new SqlParameter("@AddressLine1", SqlDbType.VarChar, 100);
                     SqlParameter addressLine2Parameter = new SqlParameter("@AddressLine2", SqlDbType.VarChar, 100);
                     SqlParameter cityParameter = new SqlParameter("@City", SqlDbType.VarChar, 50);

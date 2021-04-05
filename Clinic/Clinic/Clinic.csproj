@@ -220,6 +220,7 @@
     <None Include="Properties\DataSources\Clinic.Model.Doctor.datasource" />
     <None Include="Properties\DataSources\Clinic.Model.Patient.datasource" />
     <None Include="Properties\DataSources\Clinic.Model.Person.datasource" />
+    <None Include="Properties\DataSources\Clinic.Model.Visit.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

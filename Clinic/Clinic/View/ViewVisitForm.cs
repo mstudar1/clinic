@@ -1,20 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Clinic.Model;
+using System;
 using System.Windows.Forms;
 
 namespace Clinic.View
 {
     public partial class ViewVisitForm : Form
     {
-        public ViewVisitForm()
+        private Visit theVisit;
+
+        public ViewVisitForm(Visit theVisit)
         {
+            if (theVisit == null)
+            {
+                throw new ArgumentNullException("theVisit", "The visit object cannot be null.");
+            }
+
             InitializeComponent();
+            this.theVisit = theVisit;
+        }
+
+        private void ViewVisitForm_Load(object sender, EventArgs e)
+        {
+            this.visitBindingSource.Add(this.theVisit);
         }
     }
 }

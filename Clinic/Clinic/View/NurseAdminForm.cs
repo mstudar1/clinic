@@ -37,7 +37,7 @@ namespace Clinic.View
         public void SetActiveUsername(String inputUserName)
         {
             String realName = this.theCredentialController.GetUser(inputUserName).FullName;          
-            this.activeUsernameLabel.Text = realName + " (" + inputUserName + ")";
+            this.activeUsernameLabel.Text = inputUserName;
         }
 
         /// <summary>
@@ -75,7 +75,6 @@ namespace Clinic.View
         /// </summary>
         public void ShowNurseTabOnlyForAdmin()
         {
-
             Person user = this.theCredentialController.GetUser(this.activeUsernameLabel.Text);
       
             if (this.nurseAdminTabControl.TabPages.Contains(nurseTabPage))

@@ -117,6 +117,12 @@
     <Compile Include="View\EditPatientForm.Designer.cs">
       <DependentUpon>EditPatientForm.cs</DependentUpon>
     </Compile>
+	<Compile Include="View\EditAppointmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EditAppointmentForm.Designer.cs">
+      <DependentUpon>EditAppointmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\EditPatientForm.resx">
       <DependentUpon>EditPatientForm.cs</DependentUpon>
+    </EmbeddedResource>
+	<EmbeddedResource Include="View\EditAppointmentForm.resx">
+      <DependentUpon>EditAppointmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

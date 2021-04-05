@@ -278,5 +278,10 @@ namespace Clinic.View
             this.appointmentUserControl.Enabled = true;
             this.Close();
         }
+
+        private void TimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.alertNoticeLabel.Text = "";
+        }
     }
 }

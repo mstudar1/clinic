@@ -109,7 +109,7 @@ namespace Clinic.View
             this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel2, 2);
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.99319F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.0068F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 167F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 169F));
             this.tableLayoutPanel2.Controls.Add(this.label11, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.startHourComboBox, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.startMinuteComboBox, 2, 0);
@@ -126,7 +126,7 @@ namespace Clinic.View
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(118, 4);
+            this.label11.Location = new System.Drawing.Point(116, 4);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(11, 15);
             this.label11.TabIndex = 0;
@@ -162,10 +162,11 @@ namespace Clinic.View
             "21",
             "22",
             "23"});
-            this.startHourComboBox.Location = new System.Drawing.Point(67, 3);
+            this.startHourComboBox.Location = new System.Drawing.Point(66, 3);
             this.startHourComboBox.Name = "startHourComboBox";
             this.startHourComboBox.Size = new System.Drawing.Size(42, 21);
             this.startHourComboBox.TabIndex = 1;
+            this.startHourComboBox.SelectedIndexChanged += new System.EventHandler(this.TimeComboBox_SelectedIndexChanged);
             // 
             // startMinuteComboBox
             // 
@@ -185,10 +186,11 @@ namespace Clinic.View
             "45",
             "50",
             "55"});
-            this.startMinuteComboBox.Location = new System.Drawing.Point(138, 3);
+            this.startMinuteComboBox.Location = new System.Drawing.Point(136, 3);
             this.startMinuteComboBox.Name = "startMinuteComboBox";
             this.startMinuteComboBox.Size = new System.Drawing.Size(39, 21);
             this.startMinuteComboBox.TabIndex = 2;
+            this.startMinuteComboBox.SelectedIndexChanged += new System.EventHandler(this.TimeComboBox_SelectedIndexChanged);
             // 
             // reserveAppointmentButton
             // 
@@ -321,7 +323,7 @@ namespace Clinic.View
             this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel3, 2);
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.99319F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.0068F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
             this.tableLayoutPanel3.Controls.Add(this.label12, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.endHourComboBox, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.endMinuteComboBox, 2, 0);
@@ -338,7 +340,7 @@ namespace Clinic.View
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(117, 4);
+            this.label12.Location = new System.Drawing.Point(115, 4);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(11, 15);
             this.label12.TabIndex = 0;
@@ -374,10 +376,11 @@ namespace Clinic.View
             "21",
             "22",
             "23"});
-            this.endHourComboBox.Location = new System.Drawing.Point(67, 3);
+            this.endHourComboBox.Location = new System.Drawing.Point(65, 3);
             this.endHourComboBox.Name = "endHourComboBox";
             this.endHourComboBox.Size = new System.Drawing.Size(42, 21);
             this.endHourComboBox.TabIndex = 1;
+            this.endHourComboBox.SelectedIndexChanged += new System.EventHandler(this.TimeComboBox_SelectedIndexChanged);
             // 
             // endMinuteComboBox
             // 
@@ -397,10 +400,11 @@ namespace Clinic.View
             "45",
             "50",
             "55"});
-            this.endMinuteComboBox.Location = new System.Drawing.Point(137, 3);
+            this.endMinuteComboBox.Location = new System.Drawing.Point(135, 3);
             this.endMinuteComboBox.Name = "endMinuteComboBox";
             this.endMinuteComboBox.Size = new System.Drawing.Size(39, 21);
             this.endMinuteComboBox.TabIndex = 2;
+            this.endMinuteComboBox.SelectedIndexChanged += new System.EventHandler(this.TimeComboBox_SelectedIndexChanged);
             // 
             // label1
             // 

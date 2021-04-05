@@ -90,19 +90,7 @@ namespace Clinic.DAL
                     selectCommand.Parameters.AddWithValue("@EndDateTime", endDateTime);
                     selectCommand.ExecuteNonQuery();
 
-                    Console.WriteLine("COUNT = " + Convert.ToInt32(countParameter.Value)); //TODO: TEST OUTPUT
-                    Console.WriteLine("DoctorID = " + doctorId); //TODO: TEST OUTPUT
-                    Console.WriteLine("Start = " + startDateTime); //TODO: TEST OUTPUT
-                    Console.WriteLine("End = " + endDateTime); //TODO: TEST OUTPUT
-
-                    if (Convert.ToInt32(countParameter.Value) == 0)
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        return true;
-                    }
+                    return (Convert.ToInt32(countParameter.Value) > 0);
                 }
             }
         }

@@ -18,6 +18,7 @@ namespace Clinic.View
     {
         private LoginForm theLoginForm;
         private readonly CredentialController theCredentialController;
+        private string username;
 
         /// <summary>
         /// The constructor initializes the components
@@ -28,16 +29,19 @@ namespace Clinic.View
             InitializeComponent();
             this.theLoginForm = theInputLoginForm;
             theCredentialController = new CredentialController();
+            this.username = "";
         }
 
         /// <summary>
-        /// The method sets username(nurse or admin) to display on upper right corner of the form
+        /// The method sets username(nurse or admin) for the form and displays it along 
+        /// with the full name of the user in upper right corner of the form
         /// </summary>
         /// <param name="inputUuserName"> The inputted user name </param>
         public void SetActiveUsername(String inputUserName)
         {
-            String realName = this.theCredentialController.GetUser(inputUserName).FullName;          
-            this.activeUsernameLabel.Text = inputUserName;
+            this.username = inputUserName;
+            String realName = this.theCredentialController.GetUser(this.username).FullName;          
+            this.activeUsernameLabel.Text = realName + " (" + this.username + ")";
         }
 
         /// <summary>
@@ -75,7 +79,7 @@ namespace Clinic.View
         /// </summary>
         public void ShowNurseTabOnlyForAdmin()
         {
-            Person user = this.theCredentialController.GetUser(this.activeUsernameLabel.Text);
+            Person user = this.theCredentialController.GetUser(this.username);
       
             if (this.nurseAdminTabControl.TabPages.Contains(nurseTabPage))
             {

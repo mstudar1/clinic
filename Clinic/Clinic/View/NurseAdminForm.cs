@@ -35,7 +35,8 @@ namespace Clinic.View
         /// <param name="inputUuserName"> The inputted user name </param>
         public void SetActiveUsername(String inputUserName)
         {
-            this.activeUsernameLabel.Text = inputUserName;
+            String realName = this.theCredentialController.GetUser(inputUserName).FullName;
+            this.activeUsernameLabel.Text = realName + " (" + inputUserName + ")";
         }
 
         /// <summary>

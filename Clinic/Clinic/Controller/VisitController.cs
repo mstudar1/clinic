@@ -48,5 +48,20 @@ namespace Clinic.Controller
 
             return this.visitSource.FindVisits(patientId);
         }
+
+        /// <summary>
+        /// Method that finds all of the visits for patients with the specified last name.
+        /// </summary>
+        /// <param name="lastName">The last name of the patient(s).</param>
+        /// <returns>A list of Visit objects associated with the specified patient(s).</returns>
+        public List<Visit> FindVisits(string lastName)
+        {
+            if (string.IsNullOrEmpty(lastName))
+            {
+                throw new ArgumentNullException("lastName", "The last name cannot be null or empty.");
+            }
+
+            return this.visitSource.FindVisits(lastName);
+        }
     }
 }

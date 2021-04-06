@@ -7,8 +7,8 @@ namespace Clinic.View
 {
     public partial class ViewPatientForm : Form
     {
-        private Patient thePatient;
-        private PatientUserControl thePatientUserControl;
+        private readonly Patient thePatient;
+        private readonly PatientUserControl thePatientUserControl;
         public ViewPatientForm(PatientUserControl theInputPatientUserControl, Patient theInputedPatient)
         {
             InitializeComponent();

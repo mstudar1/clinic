@@ -13,8 +13,8 @@ namespace Clinic.View
     public partial class RegisterPatientForm : Form
     {
 
-        private PatientUserControl thePatientUserControl;
-        private PatientController thePatientController;
+        private readonly PatientUserControl thePatientUserControl;
+        private readonly PatientController thePatientController;
 
         /// <summary>
         /// Constructor used to initialize the thePatientUserControl and 

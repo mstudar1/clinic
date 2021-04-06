@@ -15,9 +15,9 @@ namespace Clinic.View
 {
     public partial class EditPatientForm : Form
     {
-        private Patient thePatient;
-        private PatientUserControl thePatientUserControl;
-        private PatientController thePatientController;
+        private readonly Patient thePatient;
+        private readonly PatientUserControl thePatientUserControl;
+        private readonly PatientController thePatientController;
         public EditPatientForm(PatientUserControl theInputPatientUserControl, Patient theInputedPatient)
         {
             InitializeComponent();

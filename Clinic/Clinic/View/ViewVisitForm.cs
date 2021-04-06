@@ -6,17 +6,12 @@ namespace Clinic.View
 {
     public partial class ViewVisitForm : Form
     {
-        private Visit theVisit;
+        private readonly Visit theVisit;
 
         public ViewVisitForm(Visit theVisit)
         {
-            if (theVisit == null)
-            {
-                throw new ArgumentNullException("theVisit", "The visit object cannot be null.");
-            }
-
             InitializeComponent();
-            this.theVisit = theVisit;
+            this.theVisit = theVisit ?? throw new ArgumentNullException("theVisit", "The visit object cannot be null.");
         }
 
         private void ViewVisitForm_Load(object sender, EventArgs e)

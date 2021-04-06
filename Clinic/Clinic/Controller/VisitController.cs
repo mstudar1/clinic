@@ -63,5 +63,15 @@ namespace Clinic.Controller
 
             return this.visitSource.FindVisits(lastName);
         }
+
+        /// <summary>
+        /// Method that determines if a visit has been entered in to the DB.
+        /// </summary>
+        /// <param name="appointmentId">The ID of the appointment.</param>
+        /// <returns>true if there is a visit in the DB matching the appointment ID</returns>
+        public bool IsVisitPresent(int appointmentId)
+        {
+            return this.visitSource.IsVisitPresent(appointmentId);
+        }
     }
 }

@@ -58,7 +58,7 @@ namespace Clinic.View
         /// </summary>
         private void CheckIfDupe()
         {
-            if (this.theVisitController.FindVisits(this.theAppointment.PatientId).Count > 1)
+            if (this.theVisitController.IsVisitPresent(this.theAppointment.AppointmentId))
             {
                 string title = "Visit Already Created";
                 string message = "The selected appointment already has a visit associated with it.  " +

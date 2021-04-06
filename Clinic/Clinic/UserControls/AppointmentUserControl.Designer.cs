@@ -308,6 +308,7 @@ namespace Clinic.UserControls
             this.beginVisitButton.TabIndex = 91;
             this.beginVisitButton.Text = "Begin Visit";
             this.beginVisitButton.UseVisualStyleBackColor = true;
+            this.beginVisitButton.Click += new System.EventHandler(this.BeginVisitButton_Click);
             // 
             // AppointmentUserControl
             // 

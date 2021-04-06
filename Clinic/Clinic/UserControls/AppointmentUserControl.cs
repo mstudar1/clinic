@@ -14,6 +14,7 @@ namespace Clinic.UserControls
     {
         private MakeAppointmentForm makeAppointmentForm;
         private EditAppointmentForm editAppointmentForm;
+        private AddVisitForm addVisitForm;
         private readonly AppointmentController appointmentController;
         private List<Appointment> appointmentList;
 
@@ -116,6 +117,27 @@ namespace Clinic.UserControls
         }
 
         /// <summary>
+        /// Opens the visit information form to begin a new visit from an appointment
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BeginVisitButton_Click(object sender, EventArgs e)
+        {
+            this.ResetFormMessages();
+            if (this.appointmentsSearchResultsListView.SelectedItems.Count == 0)
+            {
+                this.alertTextLabel.Text = "Please select an appointment for this visit.";
+            }
+            else
+            {
+                int selectedIndex = this.appointmentsSearchResultsListView.SelectedIndices[0];
+                Appointment selectedAppointment = this.appointmentList[selectedIndex];
+                this.addVisitForm = new AddVisitForm(selectedAppointment);
+                this.addVisitForm.Show();
+            }
+        }
+
+        /// <summary>
         /// Event handler for reset button clicks
         /// </summary>
         /// <param name="sender"></param>
@@ -142,6 +164,7 @@ namespace Clinic.UserControls
         {
             this.alertTextLabel.Text = "";
         }
-      
+
+        
     }
 }

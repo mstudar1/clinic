@@ -76,5 +76,10 @@ namespace Clinic.View
             }
     
         }
+
+        private void EditPatient_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.thePatientUserControl.Enabled = true;
+        }
     }
 }

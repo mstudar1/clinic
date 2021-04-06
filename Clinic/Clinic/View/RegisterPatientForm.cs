@@ -65,5 +65,10 @@ namespace Clinic.View
             this.thePatientUserControl.Enabled = true;
             this.Close(); 
         }
+
+        private void RegisterPatientForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.thePatientUserControl.Enabled = true;
+        }
     }
 }

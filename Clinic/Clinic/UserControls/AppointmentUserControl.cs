@@ -142,7 +142,6 @@ namespace Clinic.UserControls
         {
             this.alertTextLabel.Text = "";
         }
-
-       
+      
     }
 }

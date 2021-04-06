@@ -45,10 +45,12 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void EditAppointmentForm_Load(object sender, EventArgs e)
         {
+            this.appointmentUserControl.Enabled = false;
             this.VerifyNotIn24HourWindow();
             this.PopulateTextFields();
             this.SetDoctorComboBox();
             this.SetDateTimeFields();
+            this.appointmentUserControl.ResetFormMessages();
         }
 
         /// <summary>
@@ -104,7 +106,6 @@ namespace Clinic.View
         /// </summary>
         private void SetDoctorComboBox()
         {
-            this.appointmentUserControl.Enabled = false;
             this.doctorList = this.doctorController.GetAllDoctors();
             doctorComboBox.DataSource = this.doctorList;
             this.doctorComboBox.SelectedValue = this.theAppointment.DoctorId;
@@ -296,12 +297,17 @@ namespace Clinic.View
         /// Executes actions to properly close the form and re-enable the Appointment User Control
         /// </summary>
         private void CloseForm()
-        {
-            this.appointmentUserControl.Enabled = true;
+        {           
             this.appointmentUserControl.ResetAppointmentListResults();
+            this.appointmentUserControl.Enabled = true;
             this.Close();
         }
 
+        /// <summary>
+        /// Clears messages when date is changed on form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.alertNoticeLabel.Text = "";

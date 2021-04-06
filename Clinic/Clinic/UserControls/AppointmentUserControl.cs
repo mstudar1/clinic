@@ -93,6 +93,7 @@ namespace Clinic.UserControls
         private void ResetButton_Click(object sender, EventArgs e)
         {
             this.ResetAppointmentListResults();
+            this.ResetFormMessages();
         }
 
         /// <summary>
@@ -101,7 +102,15 @@ namespace Clinic.UserControls
         /// </summary>
         public void ResetAppointmentListResults()
         {
-            this.appointmentsSearchResultsListView.Items.Clear();
+            this.appointmentsSearchResultsListView.Items.Clear();           
+        }
+
+        /// <summary>
+        /// Reset alert messages on the form
+        /// </summary>
+        public void ResetFormMessages()
+        {
+            this.alertTextLabel.Text = "";
         }
 
         /// <summary>
@@ -120,8 +129,7 @@ namespace Clinic.UserControls
                 Appointment selectedAppointment = this.appointmentList[selectedIndex];
                 this.editAppointmentForm = new EditAppointmentForm(this, selectedAppointment);
                 this.editAppointmentForm.Show(); 
-            }
-            
+            }           
         }
     }
 }

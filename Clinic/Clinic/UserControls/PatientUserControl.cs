@@ -48,10 +48,16 @@ namespace Clinic.UserControls
 
         private void SearchButton_Click(object sender, System.EventArgs e)
         {
-            List<Patient> patientsList = this.thePatientController.GetPatientsList();
-            if (this.dateOfBirthDateTimePicker.Value > DateTimePicker.MinimumDateTime && this.lastNameTextBox.Text.Length > 0 && this.dateOfBirthDateTimePicker.Format != DateTimePickerFormat.Custom) 
+            String alertText = "";
+
+            if (DateTime.Compare(this.dateOfBirthDateTimePicker.Value, DateTime.Now) > 0)
             {
-                patientsList = this.thePatientController.FindPatients(DateTime.Parse(this.dateOfBirthDateTimePicker.Text), this.lastNameTextBox.Text);               
+                alertText += "The date of birth cannot be in the future. ";
+            }
+            List<Patient> patientsList = this.thePatientController.GetPatientsList();
+            if (this.dateOfBirthDateTimePicker.Value > DateTimePicker.MinimumDateTime && this.lastNameTextBox.Text.Length > 0 && this.dateOfBirthDateTimePicker.Format != DateTimePickerFormat.Custom)
+            {
+                patientsList = this.thePatientController.FindPatients(DateTime.Parse(this.dateOfBirthDateTimePicker.Text), this.lastNameTextBox.Text);
             }
             else if (this.dateOfBirthDateTimePicker.Value > DateTimePicker.MinimumDateTime && this.dateOfBirthDateTimePicker.Format != DateTimePickerFormat.Custom)
             {
@@ -61,19 +67,34 @@ namespace Clinic.UserControls
             {
                 patientsList = this.thePatientController.FindPatients(this.lastNameTextBox.Text, this.firstNameTextBox.Text);
             }
+            else
+            {
+                alertText = "Search patient by DOB, or last name and first name, or DOB and last name. ";
+
+            }
             this.UpdateListView(patientsList);
+            this.alertNoticeLabel.Text = alertText;
         }
 
         private void ResetButton_Click(object sender, System.EventArgs e)
+        {
+            this.ResetFieldsAndRefresh();
+        }
+
+        /// <summary>
+        /// Method every time clears the search fiels, alert message and refreshes the grid view 
+        /// </summary>
+        public void ResetFieldsAndRefresh()
         {
             this.RefreshPatientsListData();
             this.dateOfBirthDateTimePicker.Value = DateTimePicker.MinimumDateTime;
             this.firstNameTextBox.Text = "";
             this.lastNameTextBox.Text = "";
+            this.alertNoticeLabel.Text = "";
         }
 
         /// <summary>
-        /// Method every time clears the patients list from the ViewList and then goes through the data 
+        /// Method every time clears the patients list from the DataGridView and then goes through the data 
         /// and adds patients to the list
         /// </summary>
         public void RefreshPatientsListData()
@@ -106,7 +127,6 @@ namespace Clinic.UserControls
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
-                //this.Close();
             }
         }
 

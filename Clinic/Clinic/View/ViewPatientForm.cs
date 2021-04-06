@@ -21,7 +21,7 @@ namespace Clinic.View
         {
             this.patientFirstNameLabel.Text = this.thePatient.FirstName;
             this.patientListNameLabel.Text = this.thePatient.LastName;
-            this.patientDobLabel.Text = this.thePatient.DateOfBirth.ToString();
+            this.patientDobLabel.Text = this.thePatient.DateOfBirth.ToShortDateString();
             this.patientSsnLabel.Text = this.thePatient.SocialSecurityNumber;
             this.patientGenderLabel.Text = this.thePatient.Gender;
             this.patientPhoneNumberLabel.Text = this.thePatient.PhoneNumber;
@@ -36,6 +36,11 @@ namespace Clinic.View
         {
             this.thePatientUserControl.Enabled = true;
             this.Close();
+        }
+
+        private void ViewPatient_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.thePatientUserControl.Enabled = true;
         }
     }
 }

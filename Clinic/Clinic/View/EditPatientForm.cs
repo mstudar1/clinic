@@ -32,14 +32,14 @@ namespace Clinic.View
             this.firstNameTextBox.Text = this.thePatient.FirstName;
             this.lastNameTextBox.Text = this.thePatient.LastName;
             this.dateOfBirthDateTimePicker.Value = this.thePatient.DateOfBirth;
-            this.ssnTextBox.Text = this.thePatient.SocialSecurityNumber;
+            this.ssnMaskedTextBox.Text = this.thePatient.SocialSecurityNumber;
             this.genderComboBox.Text = this.thePatient.Gender;
-            this.phoneNumberTextBox.Text = this.thePatient.PhoneNumber;
+            this.phoneNumberMaskedTextBox.Text = this.thePatient.PhoneNumber;
             this.address1TextBox.Text = this.thePatient.AddressLine1;
             this.address2TextBox.Text = this.thePatient.AddressLine2;
             this.stateComboBox.Text = this.thePatient.State;
             this.cityTextBox.Text = this.thePatient.City;
-            this.zipTextBox.Text = this.thePatient.ZipCode;
+            this.zipMaskedTextBox.Text = this.thePatient.ZipCode;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -50,31 +50,86 @@ namespace Clinic.View
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to save the changes?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                Patient updatedPatient = new Patient
-                {
-                    LastName = this.lastNameTextBox.Text,
-                    FirstName = this.firstNameTextBox.Text,
-                    DateOfBirth = this.dateOfBirthDateTimePicker.Value,
-                    SocialSecurityNumber = this.ssnTextBox.Text,
-                    Gender = this.genderComboBox.Text,
-                    PhoneNumber = this.phoneNumberTextBox.Text,
-                    AddressLine1 = this.address1TextBox.Text,
-                    AddressLine2 = this.address2TextBox.Text,
-                    City = this.cityTextBox.Text,
-                    State = this.stateComboBox.Text,
-                    ZipCode = this.zipTextBox.Text,
-                    PersonId = this.thePatient.PersonId,
-                    PatientId = this.thePatient.PatientId
-                };
+            String alertText = "";
 
-                this.thePatientController.EditPatient(this.thePatient, updatedPatient);
-                this.thePatientUserControl.Enabled = true;
-                this.thePatientUserControl.RefreshPatientsListData();
-                this.Close();
+            if (String.IsNullOrEmpty(this.lastNameTextBox.Text))
+            {
+                alertText += "Patient last name cannot be blank. ";
             }
-    
+            if (String.IsNullOrEmpty(this.firstNameTextBox.Text))
+            {
+                alertText += "Patient first name cannot be blank. ";
+            }
+            if (DateTime.Compare(this.dateOfBirthDateTimePicker.Value, DateTime.Now) > 0)
+            {
+                alertText += "The date of birth cannot be in the future. ";
+            }
+            if (this.ssnMaskedTextBox.Text.Length != 11)
+            {
+                alertText += "Nine digit social security number is required. ";
+            }
+            if (String.IsNullOrEmpty(this.genderComboBox.Text))
+            {
+                alertText += "Gender must be selected. ";
+            }
+            if (this.phoneNumberMaskedTextBox.Text.Length != 14)
+            {
+                alertText += "Ten digit phone number is required. ";
+            }
+            if (String.IsNullOrEmpty(this.address1TextBox.Text))
+            {
+                alertText += "Address cannot be blank. ";
+            }
+            if (String.IsNullOrEmpty(this.stateComboBox.Text))
+            {
+                alertText += "State must be selected. ";
+            }
+            if (String.IsNullOrEmpty(this.cityTextBox.Text))
+            {
+                alertText += "City is required. ";
+            }
+            else if (char.IsLower(cityTextBox.Text[0]))
+            {
+                alertText += "City name should start with a capital letter. ";
+            }
+            if (this.zipMaskedTextBox.Text.Length != 5)
+            {
+                alertText += "Five digit zip number is required. ";
+            }
+
+            if (alertText == "")
+            {
+                if (MessageBox.Show("Are you sure you want to save the changes?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Patient updatedPatient = new Patient
+                    {
+                        LastName = this.lastNameTextBox.Text,
+                        FirstName = this.firstNameTextBox.Text,
+                        DateOfBirth = this.dateOfBirthDateTimePicker.Value,
+                        SocialSecurityNumber = this.ssnMaskedTextBox.Text,
+                        Gender = this.genderComboBox.Text,
+                        PhoneNumber = this.phoneNumberMaskedTextBox.Text,
+                        AddressLine1 = this.address1TextBox.Text,
+                        AddressLine2 = this.address2TextBox.Text,
+                        City = this.cityTextBox.Text,
+                        State = this.stateComboBox.Text,
+                        ZipCode = this.zipMaskedTextBox.Text,
+                        PersonId = this.thePatient.PersonId,
+                        PatientId = this.thePatient.PatientId
+                    };
+
+                    this.thePatientController.EditPatient(this.thePatient, updatedPatient);
+                    this.thePatientUserControl.Enabled = true;
+                    this.thePatientUserControl.RefreshPatientsListData();
+                    this.Close();
+                }
+            }
+            this.alertNoticeLabel.Text = alertText;
+        }
+
+        private void EditPatient_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.thePatientUserControl.Enabled = true;
         }
     }
 }

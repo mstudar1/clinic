@@ -1,6 +1,7 @@
 ﻿using Clinic.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Clinic.DAL
@@ -207,6 +208,41 @@ namespace Clinic.DAL
                 }
             }
             return visitList;
+        }
+
+        /// <summary>
+        /// Method that determines if a visit has been entered in to the DB.
+        /// </summary>
+        /// <param name="appointmentId">The ID of the appointment.</param>
+        /// <returns>true if there is a visit in the DB matching the appointment ID</returns>
+        public bool IsVisitPresent(int appointmentId)
+        {
+            if (appointmentId < 0)
+            {
+                throw new ArgumentException("The appointment ID cannot be negative.");
+            }
+
+            string selectStatement =
+                "SELECT @NumberOfVisits = COUNT(appointmentId) " +
+                "FROM Visit " +
+                "WHERE appointmentId = @AppointmentId ";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    SqlParameter countParameter = new SqlParameter("@NumberOfVisits", SqlDbType.Int, 1)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    selectCommand.Parameters.Add(countParameter);
+                    selectCommand.Parameters.AddWithValue("@AppointmentId", appointmentId);
+                    selectCommand.ExecuteNonQuery();
+
+                    return (Convert.ToInt32(countParameter.Value) > 0);
+                }
+            }
         }
     }
 }

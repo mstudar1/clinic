@@ -236,6 +236,7 @@ namespace Clinic.View
             this.okayButton.TabIndex = 20;
             this.okayButton.Text = "OK";
             this.okayButton.UseVisualStyleBackColor = true;
+            this.okayButton.Click += new System.EventHandler(this.OkayButton_Click);
             // 
             // symptomsOutputLabel
             // 

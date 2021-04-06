@@ -23,5 +23,10 @@ namespace Clinic.View
         {
             this.visitBindingSource.Add(this.theVisit);
         }
+
+        private void OkayButton_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
     }
 }

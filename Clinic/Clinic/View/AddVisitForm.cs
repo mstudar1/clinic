@@ -14,13 +14,8 @@ namespace Clinic.View
 
         public AddVisitForm(Appointment theAppointment)
         {
-            if (theAppointment == null)
-            {
-                throw new ArgumentNullException("theAppointment", "The appointment object cannot be null.");
-            }
-
             InitializeComponent();
-            this.theAppointment = theAppointment;
+            this.theAppointment = theAppointment ?? throw new ArgumentNullException("theAppointment", "The appointment object cannot be null.");
             this.theVisitController = new VisitController();
             this.theNurseController = new NurseController();
         }
@@ -56,9 +51,21 @@ namespace Clinic.View
             }
         }
 
+        /// <summary>
+        /// Handle cancel button clicks by opening a yes/no dialog box and acting accordingly.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
+            string message = "Any information entered int his form will be lost.  " +
+                "Are you sure you want to cancel entering the visit information?";
+            string title = "Cancel Entering Visit Details";
+            var selectedOption = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (selectedOption == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

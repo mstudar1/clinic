@@ -115,11 +115,11 @@ namespace Clinic.UserControls
             {
                 this.alertTextLabel.Text = "Please select an appointment to edit.";
             } else
-            {
+            {              
                 int selectedIndex = this.appointmentsSearchResultsListView.SelectedIndices[0];
                 Appointment selectedAppointment = this.appointmentList[selectedIndex];
                 this.editAppointmentForm = new EditAppointmentForm(this, selectedAppointment);
-                this.editAppointmentForm.Show();
+                this.editAppointmentForm.Show(); 
             }
             
         }

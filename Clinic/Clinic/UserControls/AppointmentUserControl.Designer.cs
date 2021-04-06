@@ -116,6 +116,7 @@ namespace Clinic.UserControls
             this.nameTextBox.Size = new System.Drawing.Size(129, 23);
             this.nameTextBox.TabIndex = 40;
             this.nameTextBox.Tag = "";
+            this.nameTextBox.TextChanged += new System.EventHandler(this.ResetButton_Click);
             // 
             // searchDateTimePicker
             // 
@@ -126,6 +127,7 @@ namespace Clinic.UserControls
             this.searchDateTimePicker.Name = "searchDateTimePicker";
             this.searchDateTimePicker.Size = new System.Drawing.Size(100, 23);
             this.searchDateTimePicker.TabIndex = 20;
+            this.searchDateTimePicker.ValueChanged += new System.EventHandler(this.ResetButton_Click);
             // 
             // searchDateButton
             // 

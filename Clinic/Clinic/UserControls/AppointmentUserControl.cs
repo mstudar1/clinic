@@ -45,6 +45,7 @@ namespace Clinic.UserControls
         /// <param name="e"></param>
         private void SearchDateButton_Click(object sender, System.EventArgs e)
         {
+            this.ResetFormMessages();
             this.appointmentsSearchResultsListView.Items.Clear();
             this.nameTextBox.Text = "";
             DateTime searchDateTime = this.searchDateTimePicker.Value;
@@ -69,6 +70,7 @@ namespace Clinic.UserControls
         /// <param name="e"></param>
         private void SearchNameButton_Click(object sender, EventArgs e)
         {
+            this.ResetFormMessages();
             if (this.nameTextBox.Text == "")
             {
                 this.alertTextLabel.Text = "Search Name Empty:  Please provide a search name.";
@@ -88,6 +90,26 @@ namespace Clinic.UserControls
                     item.SubItems.Add(current.DoctorLastName.ToString());
                     this.appointmentsSearchResultsListView.Items.Add(item);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Event handler for edit appointment button clicks
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditAppointmentButton_Click(object sender, EventArgs e)
+        {
+            if (this.appointmentsSearchResultsListView.SelectedItems.Count == 0)
+            {
+                this.alertTextLabel.Text = "Please select an appointment to edit.";
+            }
+            else
+            {
+                int selectedIndex = this.appointmentsSearchResultsListView.SelectedIndices[0];
+                Appointment selectedAppointment = this.appointmentList[selectedIndex];
+                this.editAppointmentForm = new EditAppointmentForm(this, selectedAppointment);
+                this.editAppointmentForm.Show();
             }
         }
 
@@ -119,23 +141,6 @@ namespace Clinic.UserControls
             this.alertTextLabel.Text = "";
         }
 
-        /// <summary>
-        /// Event handler for edit appointment button clicks
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void EditAppointmentButton_Click(object sender, EventArgs e)
-        {
-            if (this.appointmentsSearchResultsListView.SelectedItems.Count == 0)
-            {
-                this.alertTextLabel.Text = "Please select an appointment to edit.";
-            } else
-            {              
-                int selectedIndex = this.appointmentsSearchResultsListView.SelectedIndices[0];
-                Appointment selectedAppointment = this.appointmentList[selectedIndex];
-                this.editAppointmentForm = new EditAppointmentForm(this, selectedAppointment);
-                this.editAppointmentForm.Show(); 
-            }           
-        }
+       
     }
 }

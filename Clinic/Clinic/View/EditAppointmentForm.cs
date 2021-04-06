@@ -125,6 +125,7 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void SearchTimesButton_Click(object sender, EventArgs e)
         {
+            this.ClearErrorMessages();
             this.appointmentTimeListView.Items.Clear();
             DateTime chosenDate = this.datePicker.Value;
             int chosenDoctorId = int.Parse(this.doctorComboBox.SelectedValue.ToString());
@@ -144,6 +145,7 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void EditAppointmentButton_Click(object sender, EventArgs e)
         {
+            this.ClearErrorMessages();
             String alertText = "";
             DateTime startDateTime = new DateTime();
             DateTime endDateTime = new DateTime();
@@ -255,6 +257,7 @@ namespace Clinic.View
         private void DatePicker_ValueChanged(object sender, EventArgs e)
         {
             this.appointmentTimeListView.Items.Clear();
+            this.ClearErrorMessages();
         }
 
         /// <summary>
@@ -265,6 +268,7 @@ namespace Clinic.View
         private void DoctorComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.appointmentTimeListView.Items.Clear();
+            this.ClearErrorMessages();
         }
 
         /// <summary>
@@ -304,8 +308,25 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void TimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.alertNoticeLabel.Text = "";
+            this.ClearErrorMessages();
         }
 
+        /// <summary>
+        /// Clears messages when reason field is edited
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ReasonTextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.ClearErrorMessages();
+        }
+
+        /// <summary>
+        /// Clear error messages on the form
+        /// </summary>
+        private void ClearErrorMessages()
+        {
+            this.alertNoticeLabel.Text = "";
+        }
     }
 }

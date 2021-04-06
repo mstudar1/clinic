@@ -87,6 +87,7 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void SearchPatientButton_Click(object sender, EventArgs e)
         {
+            this.ClearErrorMessages();
             this.SearchPatient();
         }
 
@@ -118,6 +119,7 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void SearchTimesButton_Click(object sender, EventArgs e)
         {
+            this.ClearErrorMessages();
             this.appointmentTimeListView.Items.Clear();
             DateTime chosenDate = this.datePicker.Value;
             int chosenDoctorId = int.Parse(this.doctorComboBox.SelectedValue.ToString());
@@ -138,6 +140,7 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void ReserveAppointmentButton_Click(object sender, EventArgs e)
         {
+            this.ClearErrorMessages();
             String alertText = "";
             DateTime startDateTime = new DateTime();
             DateTime endDateTime = new DateTime();
@@ -244,6 +247,7 @@ namespace Clinic.View
         private void SearchPatientLastNameTextBox_TextChanged(object sender, EventArgs e)
         {
             this.patientSearchResultListView.Items.Clear();
+            this.ClearErrorMessages();
         }
 
         /// <summary>
@@ -254,6 +258,7 @@ namespace Clinic.View
         private void SearchPatientFirstNameTextBox_TextChanged(object sender, EventArgs e)
         {
             this.patientSearchResultListView.Items.Clear();
+            this.ClearErrorMessages();
         }
 
         /// <summary>
@@ -264,6 +269,7 @@ namespace Clinic.View
         private void DatePicker_ValueChanged(object sender, EventArgs e)
         {
             this.appointmentTimeListView.Items.Clear();
+            this.ClearErrorMessages();
         }
 
         /// <summary>
@@ -274,6 +280,7 @@ namespace Clinic.View
         private void DoctorComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.appointmentTimeListView.Items.Clear();
+            this.ClearErrorMessages();
         }
 
         /// <summary>
@@ -305,9 +312,33 @@ namespace Clinic.View
             this.Close();
         }
 
+        /// <summary>
+        /// Reset alert text when any time combo box value changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.ClearErrorMessages();
+        }
+
+        /// <summary>
+        /// Reset alert text when any time value changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ReasonTextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.ClearErrorMessages();
+        }
+
+        /// <summary>
+        /// Clear error messages on the form
+        /// </summary>
+        private void ClearErrorMessages()
         {
             this.alertNoticeLabel.Text = "";
         }
+
     }
 }

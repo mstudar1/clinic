@@ -43,8 +43,21 @@ namespace Clinic.View
             this.appointmentUserControl.Enabled = false;
             this.doctorList = this.doctorController.GetAllDoctors();
             doctorComboBox.DataSource = this.doctorList;
+            this.InitializeDatePicker();
         }
 
+        /// <summary>
+        /// Set minimum date and default value in date picker to current date
+        /// </summary>
+        private void InitializeDatePicker()
+        {
+            this.datePicker.Value = DateTime.Now;
+            this.datePicker.MinDate = DateTime.Now;
+        }
+
+        /// <summary>
+        /// Search for patient based on maes entered in textboxes
+        /// </summary>
         private void SearchPatient()
         {
             this.patientSearchResultListView.Items.Clear();

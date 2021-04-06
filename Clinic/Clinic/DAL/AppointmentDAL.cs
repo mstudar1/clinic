@@ -17,12 +17,6 @@ namespace Clinic.DAL
         /// <param name="theAppointment">The Appointment object being added to the database.</param>
         public void AddAppointment(Appointment theAppointment)
         {
-            Console.WriteLine("TESTING: PatientID = " + theAppointment.PatientId); // TODO: Remove
-            Console.WriteLine("TESTING: start = " + theAppointment.StartDateTime); // TODO: Remove
-            Console.WriteLine("TESTING: end = " + theAppointment.EndDateTime); // TODO: Remove
-            Console.WriteLine("TESTING: docID = " + theAppointment.DoctorId); // TODO: Remove
-            Console.WriteLine("TESTING: reason = " + theAppointment.ReasonForVisit); // TODO: Remove
-
             if (theAppointment == null)
             {
                 throw new ArgumentNullException("theAppointment", "The appointment cannot be null.");

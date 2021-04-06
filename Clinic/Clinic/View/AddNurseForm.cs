@@ -11,7 +11,6 @@ namespace Clinic.View
     /// </summary>
     public partial class AddNurseForm : Form
     {
-        private readonly NurseUserControl theNurseUserControl;
         private readonly NurseController theNursecontroller;
 
         /// <summary>
@@ -21,7 +20,6 @@ namespace Clinic.View
         public AddNurseForm(NurseUserControl theInputNurseUserControl)
         {
             InitializeComponent();
-            this.theNurseUserControl = theInputNurseUserControl;
             this.theNursecontroller = new NurseController();
         }
 
@@ -66,7 +64,7 @@ namespace Clinic.View
                     ZipCode = zip
                 };
                 this.theNursecontroller.AddNurse(newNurse);
-                this.noticeLabel.Text = "Success";  //TODO:  Replace with pop up success message followed by close form 
+                this.noticeLabel.Text = "Success";  
             }
             catch(Exception ex)
             {

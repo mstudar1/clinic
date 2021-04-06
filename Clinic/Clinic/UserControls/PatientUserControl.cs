@@ -16,8 +16,7 @@ namespace Clinic.UserControls
     public partial class PatientUserControl : UserControl
     {
         private NurseAdminForm theNurseAdminForm;
-        private PatientController thePatientController;
-        private RegisterPatientForm theRegisterPatientForm;
+        private readonly PatientController thePatientController;
 
         /// <summary>
         /// The constructor initializes the components
@@ -26,7 +25,6 @@ namespace Clinic.UserControls
         {
             InitializeComponent();
             this.thePatientController = new PatientController();
-            this.theRegisterPatientForm = null;
             this.dateOfBirthDateTimePicker.Value = DateTimePicker.MinimumDateTime;
             this.RefreshPatientsListData();
         }
@@ -118,7 +116,6 @@ namespace Clinic.UserControls
 
                 if (patientsList.Count > 0)
                 {
-                    Patient thePatient;
                     for (int i = 0; i < patientsList.Count; i++)
                     {
                         this.patientBindingSource.Add(patientsList[i]);

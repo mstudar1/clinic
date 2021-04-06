@@ -175,7 +175,6 @@ namespace Clinic.View
 
             if (alertText == "")
             {
-                Console.WriteLine("TESTING: Form says is patientId = " + this.patientSearchResultListView.SelectedItems[0].SubItems[3].Text);// TODO: Remove
                 Appointment theAppointment = new Appointment
                 {
                     PatientId = int.Parse(this.patientSearchResultListView.SelectedItems[0].SubItems[3].Text),

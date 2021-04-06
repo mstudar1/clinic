@@ -34,9 +34,6 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void AddVisitForm_Load(object sender, EventArgs e)
         {
-            Console.WriteLine("TESTING COUNT = " + this.theVisitController.FindVisits(this.theAppointment.PatientId).Count); //TODO: Remove
-            Console.WriteLine("TESTING PATIENT ID = " + this.theAppointment.PatientId); //TODO: Remove
-            Console.WriteLine("TESTING APPOINTMENT ID = " + this.theAppointment.AppointmentId); //TOSO: Remove
             this.CheckIfDupe();
             this.PopulateNurseComboBox();
         }

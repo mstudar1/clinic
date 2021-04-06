@@ -266,6 +266,7 @@ namespace Clinic.UserControls
             // alertTextLabel
             // 
             this.alertTextLabel.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.alertTextLabel, 2);
             this.alertTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.alertTextLabel.ForeColor = System.Drawing.Color.Red;
             this.alertTextLabel.Location = new System.Drawing.Point(108, 280);

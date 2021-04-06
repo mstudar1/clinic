@@ -209,17 +209,17 @@ namespace Clinic.View
         }
 
         #endregion
-        private System.Windows.Forms.TabControl nurseAdminTabControl;
+        public System.Windows.Forms.TabControl nurseAdminTabControl;
         private System.Windows.Forms.TabPage nurseTabPage;
         private UserControls.NurseUserControl nurse1;
         private System.Windows.Forms.LinkLabel logoutLinkLabel;
-        private System.Windows.Forms.TabPage appointmentTabPage;
+        public System.Windows.Forms.TabPage appointmentTabPage;
         private System.Windows.Forms.TabPage visitTabPage;
         private System.Windows.Forms.TabPage patientTabPage;
         private UserControls.PatientUserControl patientUserControl1;
         private UserControls.VisitUserControl visitUserControl1;
         private System.Windows.Forms.Label activeUsernameLabel;
-        private UserControls.AppointmentUserControl appointmentUserControl1;
+        public UserControls.AppointmentUserControl appointmentUserControl1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

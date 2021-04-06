@@ -333,7 +333,7 @@ namespace Clinic.UserControls
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.Label appointmentsLabel;
         private System.Windows.Forms.Button searchDateButton;
-        private System.Windows.Forms.ListView appointmentsSearchResultsListView;
+        public System.Windows.Forms.ListView appointmentsSearchResultsListView;
         private System.Windows.Forms.ColumnHeader lastNameCol;
         private System.Windows.Forms.ColumnHeader dateCol;
         private System.Windows.Forms.ColumnHeader firstNameCol;

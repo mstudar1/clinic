@@ -15,8 +15,8 @@ namespace Clinic.UserControls
         private MakeAppointmentForm makeAppointmentForm;
         private EditAppointmentForm editAppointmentForm;
         private AddVisitForm addVisitForm;
-        private readonly AppointmentController appointmentController;
-        private List<Appointment> appointmentList;
+        public  AppointmentController appointmentController;
+        public List<Appointment> appointmentList;
 
         /// <summary>
         /// Constructor for AppointmentUserControl

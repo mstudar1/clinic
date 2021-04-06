@@ -15,7 +15,7 @@ namespace Clinic.UserControls
     /// </summary>
     public partial class PatientUserControl : UserControl
     {
-
+        private NurseAdminForm theNurseAdminForm;
         private PatientController thePatientController;
         private RegisterPatientForm theRegisterPatientForm;
 
@@ -32,14 +32,15 @@ namespace Clinic.UserControls
         }
 
         /// <summary>
-        ///  The method sets the RegisterPatientForm to show it.
+        ///  The method sets the NurseAdminForm .
         /// </summary>
-        /// <param name="theInputRegisterPatientForm"> Inputted form </param>
-        public void SetNurseAdminForm(RegisterPatientForm theInputRegisterPatientForm)
+        /// <param name="theInputedNurseAdminForm"> Inputted form </param>
+        public void SetNurseAdminForm(NurseAdminForm theInputedNurseAdminForm)
         {
-            this.theRegisterPatientForm = theInputRegisterPatientForm;
+            this.theNurseAdminForm = theInputedNurseAdminForm;
         }
 
+        
         private void RegisterPatientButton_Click(object sender, System.EventArgs e)
         {
             RegisterPatientForm theRegisterPatientForm = new RegisterPatientForm(this);
@@ -163,6 +164,27 @@ namespace Clinic.UserControls
                 ViewPatientForm theViewPatientForm = new ViewPatientForm(this,theSelectedPatient);
                 theViewPatientForm.Show();
                 this.Enabled = false;
+
+            } else if (this.patientDataGridView.Columns[e.ColumnIndex].Name == "Appointments")
+            {
+                Patient theSelectedPatient = (Patient)this.patientBindingSource.Current;
+                this.theNurseAdminForm.nurseAdminTabControl.SelectedTab = theNurseAdminForm.appointmentTabPage;
+                this.theNurseAdminForm.appointmentUserControl1.ResetFormMessages();
+
+                this.theNurseAdminForm.appointmentUserControl1.appointmentsSearchResultsListView.Items.Clear();
+
+                List < Appointment > theAppointments = this.theNurseAdminForm.appointmentUserControl1.appointmentController.FindAppointments(theSelectedPatient.PatientId);
+
+                foreach (Appointment current in theAppointments)
+                {
+                    ListViewItem item = new ListViewItem(current.PatientLastName.ToString());
+                    item.SubItems.Add(current.PatientFirstName.ToString());
+                    item.SubItems.Add(current.StartDateTime.ToString("dddd, dd MMMM yyyy"));
+                    item.SubItems.Add(current.StartDateTime.ToString("hh:mm tt"));
+                    item.SubItems.Add(current.EndDateTime.ToString("hh:mm tt"));
+                    item.SubItems.Add(current.DoctorLastName.ToString());
+                    this.theNurseAdminForm.appointmentUserControl1.appointmentsSearchResultsListView.Items.Add(item);
+                }
 
             }
         }

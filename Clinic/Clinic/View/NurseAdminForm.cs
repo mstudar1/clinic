@@ -30,6 +30,7 @@ namespace Clinic.View
             this.theLoginForm = theInputLoginForm;
             theCredentialController = new CredentialController();
             this.username = "";
+            this.patientUserControl1.SetNurseAdminForm(this);
         }
 
         /// <summary>
@@ -99,7 +100,7 @@ namespace Clinic.View
 
         private void PatientUserControl_Load(object sender, EventArgs e)
         {
-            this.patientUserControl1.ResetFieldsAndRefresh();
+            this.patientUserControl1.RefreshPatientsListData();
         }
     }
 }

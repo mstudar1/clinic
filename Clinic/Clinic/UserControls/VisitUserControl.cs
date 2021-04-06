@@ -41,8 +41,8 @@ namespace Clinic.UserControls
             List<Visit> visitList;
             try
             {
-                int patientId = int.Parse(this.patientIdTextBox.Text);
-                visitList = this.theVisitController.FindVisits(patientId);
+                string lastName = this.lastNameTextBox.Text;
+                visitList = this.theVisitController.FindVisits(lastName);
 
                 if (visitList.Count > 0)
                 {

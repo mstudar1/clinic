@@ -481,9 +481,8 @@ namespace Clinic.View
             this.alertNoticeLabel.ForeColor = System.Drawing.Color.Red;
             this.alertNoticeLabel.Location = new System.Drawing.Point(201, 777);
             this.alertNoticeLabel.Name = "alertNoticeLabel";
-            this.alertNoticeLabel.Size = new System.Drawing.Size(15, 22);
+            this.alertNoticeLabel.Size = new System.Drawing.Size(0, 22);
             this.alertNoticeLabel.TabIndex = 92;
-            this.alertNoticeLabel.Text = ".";
             // 
             // ssnMaskedTextBox
             // 

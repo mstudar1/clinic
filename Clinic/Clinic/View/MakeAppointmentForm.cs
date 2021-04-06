@@ -69,7 +69,7 @@ namespace Clinic.View
                     ListViewItem item = new ListViewItem(current.FirstName);
                     item.SubItems.Add(current.LastName);
                     item.SubItems.Add(current.DateOfBirth.ToString("d"));
-                    item.SubItems.Add(current.PersonId.ToString());
+                    item.SubItems.Add(current.PatientId.ToString());
                     this.patientSearchResultListView.Items.Add(item);
                 }
             }
@@ -175,6 +175,7 @@ namespace Clinic.View
 
             if (alertText == "")
             {
+                Console.WriteLine("TESTING: Form says is patientId = " + this.patientSearchResultListView.SelectedItems[0].SubItems[3].Text);// TODO: Remove
                 Appointment theAppointment = new Appointment
                 {
                     PatientId = int.Parse(this.patientSearchResultListView.SelectedItems[0].SubItems[3].Text),

@@ -1,5 +1,6 @@
 ﻿using Clinic.Controller;
 using Clinic.Model;
+using Clinic.View;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace Clinic.UserControls
     public partial class VisitUserControl : UserControl
     {
         private readonly VisitController theVisitController;
+        private List<Visit> visitList;
 
         /// <summary>
         /// Constructor for the VisitUserControl class.
@@ -38,18 +40,17 @@ namespace Clinic.UserControls
 
         private void PopulateList()
         {
-            List<Visit> visitList;
             try
             {
                 string lastName = this.lastNameTextBox.Text;
-                visitList = this.theVisitController.FindVisits(lastName);
+                this.visitList = this.theVisitController.FindVisits(lastName);
 
-                if (visitList.Count > 0)
+                if (this.visitList.Count > 0)
                 {
                     Visit theVisit;
                     for (int i = 0; i < visitList.Count; i++)
                     {
-                        theVisit = visitList[i];
+                        theVisit = this.visitList[i];
                         this.visitListView.Items.Add(theVisit.PatientFullName);
                         this.visitListView.Items[i].SubItems.Add(theVisit.PatientDateOfBirth.ToShortDateString());
                         this.visitListView.Items[i].SubItems.Add(theVisit.DoctorFullName);
@@ -84,6 +85,20 @@ namespace Clinic.UserControls
         private void ResetButton_Click(object sender, EventArgs e)
         {
             this.ClearList();
+        }
+
+        private void ViewVisitDetailsButton_Click(object sender, EventArgs e)
+        {
+            if (this.visitListView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select a visit, then click the button again.", "Select a Visit to View");
+                return;
+            }
+
+            int selectedIndex = this.visitListView.SelectedIndices[0];
+            Visit selectedVisit = this.visitList[selectedIndex];
+            ViewVisitForm theViewVisitForm = new ViewVisitForm(selectedVisit);
+            theViewVisitForm.ShowDialog();
         }
     }
 }

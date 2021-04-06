@@ -224,6 +224,7 @@ namespace Clinic.UserControls
             this.viewVisitDetailsButton.TabIndex = 41;
             this.viewVisitDetailsButton.Text = "View Visit Details";
             this.viewVisitDetailsButton.UseVisualStyleBackColor = true;
+            this.viewVisitDetailsButton.Click += new System.EventHandler(this.ViewVisitDetailsButton_Click);
             // 
             // VisitUserControl
             // 

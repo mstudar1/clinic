@@ -3,12 +3,6 @@ using Clinic.Model;
 using Clinic.UserControls;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Clinic.View
@@ -45,10 +39,12 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void EditAppointmentForm_Load(object sender, EventArgs e)
         {
+            this.appointmentUserControl.Enabled = false;
             this.VerifyNotIn24HourWindow();
             this.PopulateTextFields();
             this.SetDoctorComboBox();
             this.SetDateTimeFields();
+            this.appointmentUserControl.ResetFormMessages();
         }
 
         /// <summary>
@@ -75,11 +71,18 @@ namespace Clinic.View
         /// </summary>
         private void SetDateTimeFields()
         {
-            this.datePicker.Value = this.theAppointment.StartDateTime;
-            this.startHourComboBox.SelectedIndex = this.startHourComboBox.FindStringExact(this.theAppointment.StartDateTime.ToString("HH"));
-            this.startMinuteComboBox.SelectedIndex = this.startMinuteComboBox.FindStringExact(this.theAppointment.StartDateTime.ToString("mm"));
-            this.endHourComboBox.SelectedIndex = this.endHourComboBox.FindStringExact(this.theAppointment.EndDateTime.ToString("HH"));
-            this.endMinuteComboBox.SelectedIndex = this.endMinuteComboBox.FindStringExact(this.theAppointment.EndDateTime.ToString("mm"));
+            try
+            {
+                this.datePicker.Value = this.theAppointment.StartDateTime;
+                this.startHourComboBox.SelectedIndex = this.startHourComboBox.FindStringExact(this.theAppointment.StartDateTime.ToString("HH"));
+                this.startMinuteComboBox.SelectedIndex = this.startMinuteComboBox.FindStringExact(this.theAppointment.StartDateTime.ToString("mm"));
+                this.endHourComboBox.SelectedIndex = this.endHourComboBox.FindStringExact(this.theAppointment.EndDateTime.ToString("HH"));
+                this.endMinuteComboBox.SelectedIndex = this.endMinuteComboBox.FindStringExact(this.theAppointment.EndDateTime.ToString("mm"));
+            }
+            catch (Exception) 
+            {
+                this.CloseForm();
+            }
         }
 
         /// <summary>
@@ -97,7 +100,6 @@ namespace Clinic.View
         /// </summary>
         private void SetDoctorComboBox()
         {
-            this.appointmentUserControl.Enabled = false;
             this.doctorList = this.doctorController.GetAllDoctors();
             doctorComboBox.DataSource = this.doctorList;
             this.doctorComboBox.SelectedValue = this.theAppointment.DoctorId;
@@ -123,6 +125,7 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void SearchTimesButton_Click(object sender, EventArgs e)
         {
+            this.ClearErrorMessages();
             this.appointmentTimeListView.Items.Clear();
             DateTime chosenDate = this.datePicker.Value;
             int chosenDoctorId = int.Parse(this.doctorComboBox.SelectedValue.ToString());
@@ -142,6 +145,7 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void EditAppointmentButton_Click(object sender, EventArgs e)
         {
+            this.ClearErrorMessages();
             String alertText = "";
             DateTime startDateTime = new DateTime();
             DateTime endDateTime = new DateTime();
@@ -253,6 +257,7 @@ namespace Clinic.View
         private void DatePicker_ValueChanged(object sender, EventArgs e)
         {
             this.appointmentTimeListView.Items.Clear();
+            this.ClearErrorMessages();
         }
 
         /// <summary>
@@ -263,6 +268,7 @@ namespace Clinic.View
         private void DoctorComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.appointmentTimeListView.Items.Clear();
+            this.ClearErrorMessages();
         }
 
         /// <summary>
@@ -289,16 +295,38 @@ namespace Clinic.View
         /// Executes actions to properly close the form and re-enable the Appointment User Control
         /// </summary>
         private void CloseForm()
-        {
-            this.appointmentUserControl.Enabled = true;
+        {           
             this.appointmentUserControl.ResetAppointmentListResults();
+            this.appointmentUserControl.Enabled = true;
             this.Close();
         }
 
+        /// <summary>
+        /// Clears messages when date is changed on form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.ClearErrorMessages();
+        }
+
+        /// <summary>
+        /// Clears messages when reason field is edited
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ReasonTextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.ClearErrorMessages();
+        }
+
+        /// <summary>
+        /// Clear error messages on the form
+        /// </summary>
+        private void ClearErrorMessages()
         {
             this.alertNoticeLabel.Text = "";
         }
-
     }
 }

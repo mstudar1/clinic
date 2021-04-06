@@ -33,6 +33,7 @@ namespace Clinic.UserControls
         /// <param name="e"></param>
         private void SetAppointmentButton_Click(object sender, System.EventArgs e)
         {
+            this.ResetFormMessages();
             this.makeAppointmentForm = new MakeAppointmentForm(this);
             this.makeAppointmentForm.Show();
         }
@@ -45,6 +46,7 @@ namespace Clinic.UserControls
         /// <param name="e"></param>
         private void SearchDateButton_Click(object sender, System.EventArgs e)
         {
+            this.ResetFormMessages();
             this.appointmentsSearchResultsListView.Items.Clear();
             this.nameTextBox.Text = "";
             DateTime searchDateTime = this.searchDateTimePicker.Value;
@@ -69,20 +71,48 @@ namespace Clinic.UserControls
         /// <param name="e"></param>
         private void SearchNameButton_Click(object sender, EventArgs e)
         {
-            this.appointmentsSearchResultsListView.Items.Clear();
-            String searchName = this.nameTextBox.Text;
-            this.appointmentList = this.appointmentController.GetAppointmentsForPatientLastName(searchName);
-            foreach (Appointment current in this.appointmentList)
+            this.ResetFormMessages();
+            if (this.nameTextBox.Text == "")
             {
-                ListViewItem item = new ListViewItem(current.PatientLastName.ToString());
-                item.SubItems.Add(current.PatientFirstName.ToString());
-                item.SubItems.Add(current.StartDateTime.ToString("dddd, dd MMMM yyyy"));
-                item.SubItems.Add(current.StartDateTime.ToString("hh:mm tt"));
-                item.SubItems.Add(current.EndDateTime.ToString("hh:mm tt"));
-                item.SubItems.Add(current.DoctorLastName.ToString());
-                this.appointmentsSearchResultsListView.Items.Add(item);
+                this.alertTextLabel.Text = "Search Name Empty:  Please provide a search name.";
             }
+            else
+            {
+                this.appointmentsSearchResultsListView.Items.Clear();
+                String searchName = this.nameTextBox.Text;
+                this.appointmentList = this.appointmentController.GetAppointmentsForPatientLastName(searchName);
+                foreach (Appointment current in this.appointmentList)
+                {
+                    ListViewItem item = new ListViewItem(current.PatientLastName.ToString());
+                    item.SubItems.Add(current.PatientFirstName.ToString());
+                    item.SubItems.Add(current.StartDateTime.ToString("dddd, dd MMMM yyyy"));
+                    item.SubItems.Add(current.StartDateTime.ToString("hh:mm tt"));
+                    item.SubItems.Add(current.EndDateTime.ToString("hh:mm tt"));
+                    item.SubItems.Add(current.DoctorLastName.ToString());
+                    this.appointmentsSearchResultsListView.Items.Add(item);
+                }
+            }
+        }
 
+        /// <summary>
+        /// Event handler for edit appointment button clicks
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditAppointmentButton_Click(object sender, EventArgs e)
+        {
+            this.ResetFormMessages();
+            if (this.appointmentsSearchResultsListView.SelectedItems.Count == 0)
+            {
+                this.alertTextLabel.Text = "Please select an appointment to edit.";
+            }
+            else
+            {
+                int selectedIndex = this.appointmentsSearchResultsListView.SelectedIndices[0];
+                Appointment selectedAppointment = this.appointmentList[selectedIndex];
+                this.editAppointmentForm = new EditAppointmentForm(this, selectedAppointment);
+                this.editAppointmentForm.Show();
+            }
         }
 
         /// <summary>
@@ -93,6 +123,7 @@ namespace Clinic.UserControls
         private void ResetButton_Click(object sender, EventArgs e)
         {
             this.ResetAppointmentListResults();
+            this.ResetFormMessages();
         }
 
         /// <summary>
@@ -101,27 +132,16 @@ namespace Clinic.UserControls
         /// </summary>
         public void ResetAppointmentListResults()
         {
-            this.appointmentsSearchResultsListView.Items.Clear();
+            this.appointmentsSearchResultsListView.Items.Clear();           
         }
 
         /// <summary>
-        /// Event handler for edit appointment button clicks
+        /// Reset alert messages on the form
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void EditAppointmentButton_Click(object sender, EventArgs e)
+        public void ResetFormMessages()
         {
-            if (this.appointmentsSearchResultsListView.SelectedItems.Count == 0)
-            {
-                this.alertTextLabel.Text = "Please select an appointment to edit.";
-            } else
-            {
-                int selectedIndex = this.appointmentsSearchResultsListView.SelectedIndices[0];
-                Appointment selectedAppointment = this.appointmentList[selectedIndex];
-                this.editAppointmentForm = new EditAppointmentForm(this, selectedAppointment);
-                this.editAppointmentForm.Show();
-            }
-            
+            this.alertTextLabel.Text = "";
         }
+      
     }
 }

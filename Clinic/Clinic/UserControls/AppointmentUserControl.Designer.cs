@@ -38,18 +38,19 @@ namespace Clinic.UserControls
             this.searchNameButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
             this.appointmentsLabel = new System.Windows.Forms.Label();
-            this.editAppointmentButton = new System.Windows.Forms.Button();
-            this.setAppointmentButton = new System.Windows.Forms.Button();
             this.appointmentsSearchResultsListView = new System.Windows.Forms.ListView();
             this.lastNameCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.firstNameCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dobCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.patientIdCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.startTimeCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.endTimeCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.doctorCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.alertTextLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.setAppointmentButton = new System.Windows.Forms.Button();
+            this.editAppointmentButton = new System.Windows.Forms.Button();
             this.beginVisitButton = new System.Windows.Forms.Button();
+            this.docCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -189,39 +190,16 @@ namespace Clinic.UserControls
             this.appointmentsLabel.TabIndex = 2;
             this.appointmentsLabel.Text = "Search Results:";
             // 
-            // editAppointmentButton
-            // 
-            this.editAppointmentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editAppointmentButton.Location = new System.Drawing.Point(3, 3);
-            this.editAppointmentButton.Name = "editAppointmentButton";
-            this.editAppointmentButton.Size = new System.Drawing.Size(171, 27);
-            this.editAppointmentButton.TabIndex = 80;
-            this.editAppointmentButton.Text = "Edit Selected Appointment";
-            this.editAppointmentButton.UseVisualStyleBackColor = true;
-            this.editAppointmentButton.Click += new System.EventHandler(this.EditAppointmentButton_Click);
-            // 
-            // setAppointmentButton
-            // 
-            this.setAppointmentButton.AutoSize = true;
-            this.setAppointmentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.setAppointmentButton.Location = new System.Drawing.Point(179, 2);
-            this.setAppointmentButton.Margin = new System.Windows.Forms.Padding(2);
-            this.setAppointmentButton.Name = "setAppointmentButton";
-            this.setAppointmentButton.Size = new System.Drawing.Size(173, 27);
-            this.setAppointmentButton.TabIndex = 90;
-            this.setAppointmentButton.Text = "Schedule New Appointment";
-            this.setAppointmentButton.UseVisualStyleBackColor = true;
-            this.setAppointmentButton.Click += new System.EventHandler(this.SetAppointmentButton_Click);
-            // 
             // appointmentsSearchResultsListView
             // 
             this.appointmentsSearchResultsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.lastNameCol,
             this.firstNameCol,
+            this.dobCol,
+            this.patientIdCol,
             this.dateCol,
             this.startTimeCol,
-            this.endTimeCol,
-            this.doctorCol});
+            this.docCol});
             this.tableLayoutPanel1.SetColumnSpan(this.appointmentsSearchResultsListView, 4);
             this.appointmentsSearchResultsListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.appointmentsSearchResultsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -247,29 +225,29 @@ namespace Clinic.UserControls
             this.firstNameCol.Text = "First Name";
             this.firstNameCol.Width = 113;
             // 
+            // dobCol
+            // 
+            this.dobCol.Text = "D.O.B";
+            this.dobCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dobCol.Width = 175;
+            // 
+            // patientIdCol
+            // 
+            this.patientIdCol.Text = "Patient ID#";
+            this.patientIdCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.patientIdCol.Width = 91;
+            // 
             // dateCol
             // 
             this.dateCol.Text = "Date";
             this.dateCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.dateCol.Width = 175;
+            this.dateCol.Width = 80;
             // 
             // startTimeCol
             // 
-            this.startTimeCol.Text = "Start Time";
+            this.startTimeCol.Text = "Time";
             this.startTimeCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.startTimeCol.Width = 91;
-            // 
-            // endTimeCol
-            // 
-            this.endTimeCol.Text = "End Time";
-            this.endTimeCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.endTimeCol.Width = 80;
-            // 
-            // doctorCol
-            // 
-            this.doctorCol.Text = "Doctor";
-            this.doctorCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.doctorCol.Width = 90;
+            this.startTimeCol.Width = 90;
             // 
             // alertTextLabel
             // 
@@ -299,6 +277,30 @@ namespace Clinic.UserControls
             this.tableLayoutPanel2.Size = new System.Drawing.Size(533, 33);
             this.tableLayoutPanel2.TabIndex = 92;
             // 
+            // setAppointmentButton
+            // 
+            this.setAppointmentButton.AutoSize = true;
+            this.setAppointmentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.setAppointmentButton.Location = new System.Drawing.Point(179, 2);
+            this.setAppointmentButton.Margin = new System.Windows.Forms.Padding(2);
+            this.setAppointmentButton.Name = "setAppointmentButton";
+            this.setAppointmentButton.Size = new System.Drawing.Size(173, 27);
+            this.setAppointmentButton.TabIndex = 90;
+            this.setAppointmentButton.Text = "Schedule New Appointment";
+            this.setAppointmentButton.UseVisualStyleBackColor = true;
+            this.setAppointmentButton.Click += new System.EventHandler(this.SetAppointmentButton_Click);
+            // 
+            // editAppointmentButton
+            // 
+            this.editAppointmentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editAppointmentButton.Location = new System.Drawing.Point(3, 3);
+            this.editAppointmentButton.Name = "editAppointmentButton";
+            this.editAppointmentButton.Size = new System.Drawing.Size(171, 27);
+            this.editAppointmentButton.TabIndex = 80;
+            this.editAppointmentButton.Text = "Edit Selected Appointment";
+            this.editAppointmentButton.UseVisualStyleBackColor = true;
+            this.editAppointmentButton.Click += new System.EventHandler(this.EditAppointmentButton_Click);
+            // 
             // beginVisitButton
             // 
             this.beginVisitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -309,6 +311,10 @@ namespace Clinic.UserControls
             this.beginVisitButton.Text = "Begin Visit";
             this.beginVisitButton.UseVisualStyleBackColor = true;
             this.beginVisitButton.Click += new System.EventHandler(this.BeginVisitButton_Click);
+            // 
+            // docCol
+            // 
+            this.docCol.Text = "Doctor";
             // 
             // AppointmentUserControl
             // 
@@ -335,12 +341,12 @@ namespace Clinic.UserControls
         private System.Windows.Forms.Button searchDateButton;
         public System.Windows.Forms.ListView appointmentsSearchResultsListView;
         private System.Windows.Forms.ColumnHeader lastNameCol;
-        private System.Windows.Forms.ColumnHeader dateCol;
+        private System.Windows.Forms.ColumnHeader dobCol;
         private System.Windows.Forms.ColumnHeader firstNameCol;
-        private System.Windows.Forms.ColumnHeader endTimeCol;
-        private System.Windows.Forms.ColumnHeader doctorCol;
-        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.ColumnHeader dateCol;
         private System.Windows.Forms.ColumnHeader startTimeCol;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.ColumnHeader patientIdCol;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker searchDateTimePicker;
@@ -349,5 +355,6 @@ namespace Clinic.UserControls
         private System.Windows.Forms.Label alertTextLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button beginVisitButton;
+        private System.Windows.Forms.ColumnHeader docCol;
     }
 }

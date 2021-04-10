@@ -45,7 +45,7 @@ namespace Clinic.View
             string address1 = this.address1TextBox.Text;
             string address2 = this.address2TextBox.Text;
             string city = this.cityTextBox.Text;
-            string state = this.stateTextBox.Text;
+            string state = this.stateComboBox.Text;
             string zip = this.zipTextBox.Text;
             try
             {

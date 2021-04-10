@@ -39,16 +39,17 @@ namespace Clinic.Controller
         /// </summary>
         /// <param name="doctorId">The ID of the doctor in question.</param>
         /// <param name="startDateTime">The start date and time of the appointment in question.</param>
-        /// <param name="endDateTime">The end date and time of the appointment in question.</param>
         /// <returns>True if the specified doctor is booked at the specified time, false otherwise.</returns>
-        public bool DoctorIsBooked(int doctorId, DateTime startDateTime, DateTime endDateTime)
+        public bool DoctorIsBooked(int doctorId, DateTime startDateTime)
         {
-            return this.appointmentSource.DoctorIsBooked(doctorId, startDateTime, endDateTime);
+            return this.appointmentSource.DoctorIsBooked(doctorId, startDateTime);
         }
 
         /// <summary>
         /// Method that returns true if the specified doctor is unavailable at the specified time.  This method
-        /// includes a check to prevent a false positive for an appointment overlapping itself when being edited
+        /// includes a check to prevent a false positive for an appointment overlapping itself when being edited.
+        /// This also assumes that appointment time structure is such that start time is sufficient to check for appointment
+        /// overlaps (i.e. all appointments are 30 minutes long and start on hour or half hour).
         /// </summary>
         /// <param name="originalAppointment">original appointment object</param>
         /// <param name="revisedAppointment">revised appointment object</param>

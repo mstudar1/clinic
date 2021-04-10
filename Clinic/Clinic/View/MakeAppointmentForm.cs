@@ -3,6 +3,7 @@ using Clinic.Model;
 using Clinic.UserControls;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace Clinic.View
@@ -56,7 +57,7 @@ namespace Clinic.View
         }
 
         /// <summary>
-        /// Search for patient based on maes entered in textboxes
+        /// Search for patient based on names entered in textboxes
         /// </summary>
         private void SearchPatient()
         {
@@ -143,7 +144,6 @@ namespace Clinic.View
             this.ClearErrorMessages();
             String alertText = "";
             DateTime startDateTime = new DateTime();
-            DateTime endDateTime = new DateTime();
 
             if (this.patientSearchResultListView.SelectedItems.Count == 0)
             {
@@ -157,12 +157,7 @@ namespace Clinic.View
             else
             {
                 startDateTime = this.GetFormStartDateTime();
-                endDateTime = this.GetFormEndDateTime();
-                if (startDateTime >= endDateTime)
-                {
-                    alertText += "Invalid Appointment Time:  The end time for the appointment cannot be before the start time.\n";
-                }
-                else if (this.appointmentController.DoctorIsBooked(int.Parse(this.doctorComboBox.SelectedValue.ToString()), startDateTime, endDateTime))
+                if (this.appointmentController.DoctorIsBooked(int.Parse(this.doctorComboBox.SelectedValue.ToString()), startDateTime))
                 {
                     alertText += "Appointment Conflict:  Appointment overlaps existing appointment.\n";
                 }
@@ -179,7 +174,6 @@ namespace Clinic.View
                 {
                     PatientId = int.Parse(this.patientSearchResultListView.SelectedItems[0].SubItems[3].Text),
                     StartDateTime = startDateTime,
-                    EndDateTime = endDateTime,
                     DoctorId = int.Parse(this.doctorComboBox.SelectedValue.ToString()),
                     ReasonForVisit = this.reasonTextBox.Text
                 };
@@ -187,19 +181,26 @@ namespace Clinic.View
                 {
                     this.appointmentController.AddAppointment(theAppointment);
                     String successText = "Appointment successfully registered for : \n" +
-                    startDateTime.ToString("f") + " - " +
-                    endDateTime.ToString("t");
+                        startDateTime.ToString("f") + " - ";
                     var dialogeResult = MessageBox.Show(successText, "Appointment Registration Success");
                     if (dialogeResult == DialogResult.OK)
                     {
                         this.CloseForm();
                     }
-                } catch (Exception ex)
+                } 
+                catch (SqlException ex)
                 {
-                    alertText += "Error in updating appointment database:\n" + 
+                    if (ex.Number == 2627)
+                    {
+                        alertText += "Patient is already booked for an appointment at that time. Please choose another time.";
+                    }
+                } 
+                catch (Exception ex)
+                {
+                    alertText += "Error in updating appointment database:\n" +
                         ex.Message + "\n";
                 }
-            }
+        }
             this.alertNoticeLabel.Text = alertText;
         }
 
@@ -216,27 +217,12 @@ namespace Clinic.View
         }
 
         /// <summary>
-        /// Gets end time and minute from form and returns DateTime object
-        /// </summary>
-        /// <returns></returns>
-        private DateTime GetFormEndDateTime()
-        {
-            DateTime date = this.datePicker.Value;
-            int endHour = int.Parse(this.endHourComboBox.SelectedItem.ToString());
-            int endMinute = int.Parse(this.endMinuteComboBox.SelectedItem.ToString());
-            return new DateTime(date.Year, date.Month, date.Day, endHour, endMinute, 0);
-        }
-
-        /// <summary>
         /// Checks to see if any time comboBox is not selected
         /// </summary>
         /// <returns>true if any box is NOT selected</returns>
         private bool TimeFieldsNotSelected()
         {
-            return (this.startHourComboBox.SelectedIndex == -1 ||
-                this.startMinuteComboBox.SelectedIndex == -1 ||
-                this.endHourComboBox.SelectedIndex == -1 ||
-                this.endMinuteComboBox.SelectedIndex == -1);
+            return (this.startHourComboBox.SelectedIndex == -1 || this.startMinuteComboBox.SelectedIndex == -1);
         }
 
         /// <summary>

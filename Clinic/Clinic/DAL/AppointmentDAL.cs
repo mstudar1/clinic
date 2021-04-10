@@ -321,14 +321,14 @@ namespace Clinic.DAL
                 "SELECT " +
                     "appointmentId, " +
                     "startDateTime, " +
-                    "endDateTime, " +
                     "a.doctorId AS doctorId, " +
                     "reasonForVisit, " +
                     "a.patientId AS patientId, " +
                     "docInfo.firstName AS doctorFirstName, " +
                     "docInfo.lastName AS doctorLastName, " +
                     "patInfo.firstName AS patientFirstName, " +
-                    "patInfo.lastName AS patientLastName " +
+                    "patInfo.lastName AS patientLastName, " +
+                    "patInfo.dateOfBirth AS patientDateOfBirth " +
                 "FROM Appointment a " +
                 "LEFT JOIN Doctor doc ON a.doctorId = doc.doctorId " +
                 "LEFT JOIN Patient pat ON a.patientId = pat.patientId " +
@@ -347,7 +347,6 @@ namespace Clinic.DAL
                     {
                         int appointmentIdOrdinal = reader.GetOrdinal("appointmentId");
                         int startDateTimeOrdinal = reader.GetOrdinal("startDateTime");
-                        int endDateTimeOrdinal = reader.GetOrdinal("endDateTime");
                         int doctorIdOrdinal = reader.GetOrdinal("doctorId");
                         int doctorfirstNameOrdinal = reader.GetOrdinal("doctorFirstName");
                         int doctorlastNameOrdinal = reader.GetOrdinal("doctorLastName");
@@ -355,12 +354,12 @@ namespace Clinic.DAL
                         int patientIdOrdinal = reader.GetOrdinal("patientId");
                         int patientfirstNameOrdinal = reader.GetOrdinal("patientFirstName");
                         int patientlastNameOrdinal = reader.GetOrdinal("patientLastName");
+                        int patientDateOfBirthOrdinal = reader.GetOrdinal("patientDateOfBirth");
                         while (reader.Read())
                         {
                             Appointment theAppointment = new Appointment();
                             if (!reader.IsDBNull(appointmentIdOrdinal)) { theAppointment.AppointmentId = reader.GetInt32(appointmentIdOrdinal); }
                             if (!reader.IsDBNull(startDateTimeOrdinal)) { theAppointment.StartDateTime = reader.GetDateTime(startDateTimeOrdinal); }
-                            if (!reader.IsDBNull(endDateTimeOrdinal)) { theAppointment.EndDateTime = reader.GetDateTime(endDateTimeOrdinal); }
                             if (!reader.IsDBNull(doctorIdOrdinal)) { theAppointment.DoctorId = reader.GetInt32(doctorIdOrdinal); }
                             if (!reader.IsDBNull(doctorfirstNameOrdinal)) { theAppointment.DoctorFirstName = reader.GetString(doctorfirstNameOrdinal); }
                             if (!reader.IsDBNull(doctorlastNameOrdinal)) { theAppointment.DoctorLastName = reader.GetString(doctorlastNameOrdinal); }
@@ -368,6 +367,7 @@ namespace Clinic.DAL
                             if (!reader.IsDBNull(patientIdOrdinal)) { theAppointment.PatientId = reader.GetInt32(patientIdOrdinal); }
                             if (!reader.IsDBNull(patientfirstNameOrdinal)) { theAppointment.PatientFirstName = reader.GetString(patientfirstNameOrdinal); }
                             if (!reader.IsDBNull(patientlastNameOrdinal)) { theAppointment.PatientLastName = reader.GetString(patientlastNameOrdinal); }
+                            if (!reader.IsDBNull(patientDateOfBirthOrdinal)) { theAppointment.PatientDateOfBirth = reader.GetDateTime(patientDateOfBirthOrdinal); }
                             appointmentList.Add(theAppointment);
                         }
                     }
@@ -377,15 +377,21 @@ namespace Clinic.DAL
         }
 
         /// <summary>
-        /// Get a list of Appointment objects with last name matching the seach name
+        /// Get a list of Appointment objects with last name and date of birth 
+        /// matching the seach name and DOB
         /// </summary>
         /// <param name="lastName">the last name to search for</param>
+        /// <param name="dob">the date of birth to search for</param>
         /// <returns>List of Appointment objects</returns>
-        public List<Appointment> GetAppointmentsForPatientLastName(String lastName)
+        public List<Appointment> GetAppointmentsForPatientLastNameAndDOB(String lastName, DateTime dob)
         {
             if (lastName == null || lastName == "")
             {
                 throw new ArgumentException("lastName", "Last name for search cannot be empty");
+            }
+            if (dob == null)
+            {
+                throw new ArgumentNullException("date", "The date cannot be null.");
             }
             List<Appointment> appointmentList = new List<Appointment>();
 
@@ -393,33 +399,34 @@ namespace Clinic.DAL
                 "SELECT " +
                     "appointmentId, " +
                     "startDateTime, " +
-                    "endDateTime, " +
                     "a.doctorId AS doctorId, " +
                     "reasonForVisit, " +
                     "a.patientId AS patientId, " +
                     "docInfo.firstName AS doctorFirstName, " +
                     "docInfo.lastName AS doctorLastName, " +
                     "patInfo.firstName AS patientFirstName, " +
-                    "patInfo.lastName AS patientLastName " +
+                    "patInfo.lastName AS patientLastName, " +
+                    "patInfo.dateOfBirth AS patientDateOfBirth " +
                 "FROM Appointment a " +
                 "LEFT JOIN Doctor doc ON a.doctorId = doc.doctorId " +
                 "LEFT JOIN Patient pat ON a.patientId = pat.patientId " +
                 "LEFT JOIN Person docInfo ON doc.personId = docInfo.personId " +
                 "LEFT JOIN Person patInfo ON pat.personId = patInfo.personId " +
                 "WHERE patInfo.lastName = @searchName  " +
+                    "AND datediff(day, patInfo.dateOfBirth, @searchDOB) = 0 " +
                 "ORDER BY startDateTime ASC";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
                 connection.Open();
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
-                {
+                {                   
                     selectCommand.Parameters.AddWithValue("@searchName", lastName);
+                    selectCommand.Parameters.AddWithValue("@searchDOB", dob);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
                         int appointmentIdOrdinal = reader.GetOrdinal("appointmentId");
                         int startDateTimeOrdinal = reader.GetOrdinal("startDateTime");
-                        int endDateTimeOrdinal = reader.GetOrdinal("endDateTime");
                         int doctorIdOrdinal = reader.GetOrdinal("doctorId");
                         int doctorfirstNameOrdinal = reader.GetOrdinal("doctorFirstName");
                         int doctorlastNameOrdinal = reader.GetOrdinal("doctorLastName");
@@ -427,12 +434,12 @@ namespace Clinic.DAL
                         int patientIdOrdinal = reader.GetOrdinal("patientId");
                         int patientfirstNameOrdinal = reader.GetOrdinal("patientFirstName");
                         int patientlastNameOrdinal = reader.GetOrdinal("patientLastName");
+                        int patientDateOfBirthOrdinal = reader.GetOrdinal("patientDateOfBirth");
                         while (reader.Read())
                         {
                             Appointment theAppointment = new Appointment();
                             if (!reader.IsDBNull(appointmentIdOrdinal)) { theAppointment.AppointmentId = reader.GetInt32(appointmentIdOrdinal); }
                             if (!reader.IsDBNull(startDateTimeOrdinal)) { theAppointment.StartDateTime = reader.GetDateTime(startDateTimeOrdinal); }
-                            if (!reader.IsDBNull(endDateTimeOrdinal)) { theAppointment.EndDateTime = reader.GetDateTime(endDateTimeOrdinal); }
                             if (!reader.IsDBNull(doctorIdOrdinal)) { theAppointment.DoctorId = reader.GetInt32(doctorIdOrdinal); }
                             if (!reader.IsDBNull(doctorfirstNameOrdinal)) { theAppointment.DoctorFirstName = reader.GetString(doctorfirstNameOrdinal); }
                             if (!reader.IsDBNull(doctorlastNameOrdinal)) { theAppointment.DoctorLastName = reader.GetString(doctorlastNameOrdinal); }
@@ -440,6 +447,7 @@ namespace Clinic.DAL
                             if (!reader.IsDBNull(patientIdOrdinal)) { theAppointment.PatientId = reader.GetInt32(patientIdOrdinal); }
                             if (!reader.IsDBNull(patientfirstNameOrdinal)) { theAppointment.PatientFirstName = reader.GetString(patientfirstNameOrdinal); }
                             if (!reader.IsDBNull(patientlastNameOrdinal)) { theAppointment.PatientLastName = reader.GetString(patientlastNameOrdinal); }
+                            if (!reader.IsDBNull(patientDateOfBirthOrdinal)) { theAppointment.PatientDateOfBirth = reader.GetDateTime(patientDateOfBirthOrdinal); }
                             appointmentList.Add(theAppointment);
                         }
                     }

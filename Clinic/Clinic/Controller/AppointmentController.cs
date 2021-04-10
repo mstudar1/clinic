@@ -117,13 +117,14 @@ namespace Clinic.Controller
         }
 
         /// <summary>
-        /// Get list of Appointment objects that match the desired last name
+        /// Get list of Appointment objects that match the desired last name and date of birth
         /// </summary>
         /// <param name="lastName">the last name to search for</param>
+        /// <param name="dob">the date of birth to search for</param>
         /// <returns>List of Appointment objects/returns>
-        public List<Appointment> GetAppointmentsForPatientLastName(String lastName)
+        public List<Appointment> GetAppointmentsForPatientLastNameAndDOB(String lastName, DateTime dob)
         {
-            return this.appointmentSource.GetAppointmentsForPatientLastName(lastName);
+            return this.appointmentSource.GetAppointmentsForPatientLastNameAndDOB(lastName, dob);
         }
     }
 }

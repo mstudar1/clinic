@@ -403,7 +403,8 @@ namespace Clinic.DAL
                     "docInfo.firstName AS doctorFirstName, " +
                     "docInfo.lastName AS doctorLastName, " +
                     "patInfo.firstName AS patientFirstName, " +
-                    "patInfo.lastName AS patientLastName " +
+                    "patInfo.lastName AS patientLastName, " +
+                    "patInfo.dateOfBirth AS patientDateOfBirth " +
                 "FROM Appointment a " +
                 "LEFT JOIN Doctor doc ON a.doctorId = doc.doctorId " +
                 "LEFT JOIN Patient pat ON a.patientId = pat.patientId " +
@@ -430,6 +431,7 @@ namespace Clinic.DAL
                         int patientIdOrdinal = reader.GetOrdinal("patientId");
                         int patientfirstNameOrdinal = reader.GetOrdinal("patientFirstName");
                         int patientlastNameOrdinal = reader.GetOrdinal("patientLastName");
+                        int patientDateOfBirthOrdinal = reader.GetOrdinal("patientDateOfBirth");
                         while (reader.Read())
                         {
                             Appointment theAppointment = new Appointment();
@@ -443,6 +445,7 @@ namespace Clinic.DAL
                             if (!reader.IsDBNull(patientIdOrdinal)) { theAppointment.PatientId = reader.GetInt32(patientIdOrdinal); }
                             if (!reader.IsDBNull(patientfirstNameOrdinal)) { theAppointment.PatientFirstName = reader.GetString(patientfirstNameOrdinal); }
                             if (!reader.IsDBNull(patientlastNameOrdinal)) { theAppointment.PatientLastName = reader.GetString(patientlastNameOrdinal); }
+                            if (!reader.IsDBNull(patientDateOfBirthOrdinal)) { theAppointment.PatientDateOfBirth = reader.GetDateTime(patientDateOfBirthOrdinal); }
                             appointmentList.Add(theAppointment);
                         }
                     }

@@ -56,7 +56,6 @@ namespace Clinic.UserControls
             {
                 ListViewItem item = new ListViewItem(current.PatientLastName.ToString());
                 item.SubItems.Add(current.PatientFirstName.ToString());
-                //item.SubItems.Add(current.EndDateTime.ToString("hh:mm tt")); //TODO: Remove
                 item.SubItems.Add(current.PatientDateOfBirth.ToString("MM/dd/yyyy"));
                 item.SubItems.Add(current.PatientId.ToString());
                 item.SubItems.Add(current.StartDateTime.ToString("dddd, dd MMMM yyyy"));
@@ -88,9 +87,10 @@ namespace Clinic.UserControls
                 {
                     ListViewItem item = new ListViewItem(current.PatientLastName.ToString());
                     item.SubItems.Add(current.PatientFirstName.ToString());
+                    item.SubItems.Add(current.PatientDateOfBirth.ToString("MM/dd/yyyy"));
+                    item.SubItems.Add(current.PatientId.ToString());
                     item.SubItems.Add(current.StartDateTime.ToString("dddd, dd MMMM yyyy"));
                     item.SubItems.Add(current.StartDateTime.ToString("hh:mm tt"));
-                    item.SubItems.Add(current.EndDateTime.ToString("hh:mm tt"));
                     item.SubItems.Add(current.DoctorLastName.ToString());
                     this.appointmentsSearchResultsListView.Items.Add(item);
                 }

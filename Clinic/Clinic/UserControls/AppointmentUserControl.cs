@@ -82,7 +82,7 @@ namespace Clinic.UserControls
             {
                 this.appointmentsSearchResultsListView.Items.Clear();
                 String searchName = this.nameTextBox.Text;
-                DateTime searchDOB = new DateTime();  //TODO: Finish implementing
+                DateTime searchDOB = this.dobDateTimePicker.Value;         
                 this.appointmentList = this.appointmentController.GetAppointmentsForPatientLastNameAndDOB(searchName, searchDOB);
                 foreach (Appointment current in this.appointmentList)
                 {

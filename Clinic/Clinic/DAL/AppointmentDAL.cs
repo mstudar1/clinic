@@ -413,16 +413,16 @@ namespace Clinic.DAL
                 "LEFT JOIN Person docInfo ON doc.personId = docInfo.personId " +
                 "LEFT JOIN Person patInfo ON pat.personId = patInfo.personId " +
                 "WHERE patInfo.lastName = @searchName  " +
-                "   AND patInfo.dateOfBirth = @searchDOB" +
+                    "AND datediff(day, patInfo.dateOfBirth, @searchDOB) = 0 " +
                 "ORDER BY startDateTime ASC";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
                 connection.Open();
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
-                {
-                    selectCommand.Parameters.AddWithValue("@searchDOB", dob);
+                {                   
                     selectCommand.Parameters.AddWithValue("@searchName", lastName);
+                    selectCommand.Parameters.AddWithValue("@searchDOB", dob);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
                         int appointmentIdOrdinal = reader.GetOrdinal("appointmentId");

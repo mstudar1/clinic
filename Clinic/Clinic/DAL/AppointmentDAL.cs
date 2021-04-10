@@ -23,8 +23,8 @@ namespace Clinic.DAL
             }
 
             string insertStatement =
-                "INSERT Appointment (patientId, startDateTime, endDateTime, doctorId, reasonForVisit) " +
-                "VALUES (@PatientId, @StartDateTime, @EndDateTime, @DoctorId, @ReasonForVisit)";
+                "INSERT Appointment (patientId, startDateTime, doctorId, reasonForVisit) " +
+                "VALUES (@PatientId, @StartDateTime, @DoctorId, @ReasonForVisit)";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -33,7 +33,6 @@ namespace Clinic.DAL
                 {
                     insertCommand.Parameters.AddWithValue("@PatientId", theAppointment.PatientId);
                     insertCommand.Parameters.AddWithValue("@StartDateTime", theAppointment.StartDateTime);
-                    insertCommand.Parameters.AddWithValue("@EndDateTime", theAppointment.EndDateTime);
                     insertCommand.Parameters.AddWithValue("@DoctorId", theAppointment.DoctorId);
                     insertCommand.Parameters.AddWithValue("@ReasonForVisit", theAppointment.ReasonForVisit);
                     insertCommand.ExecuteNonQuery();
@@ -42,12 +41,13 @@ namespace Clinic.DAL
         }
 
         /// <summary>
-        /// Method that returns true if the specified doctor is unavailable at the specified time.
+        /// Method that returns true if the specified doctor is unavailable at the specified start time
+        /// assuming appointments are structured such that only start time is needed to confirm no overlap.
         /// </summary>
         /// <param name="doctorId">The ID of the doctor in question.</param>
-        /// <param name="appointmentDateAndTime">The date and time of the appointment in question.</param>
+        /// <param name="startDateTime">The date and time of the appointment in question.</param>
         /// <returns>True if the specified doctor is booked at the specified time, false otherwise.</returns>
-        public bool DoctorIsBooked(int doctorId, DateTime startDateTime, DateTime endDateTime)
+        public bool DoctorIsBooked(int doctorId, DateTime startDateTime)
         {
             if (doctorId < 0)
             {
@@ -57,23 +57,13 @@ namespace Clinic.DAL
             {
                 throw new ArgumentNullException("startDateTime", "The start date and time of the appointment cannot be null.");
             }
-            if (endDateTime == null)
-            {
-                throw new ArgumentNullException("endDateTime", "The end date and time of the appointment cannot be null.");
-            }
-            if (DateTime.Compare(startDateTime, endDateTime) >= 0)
-            {
-                throw new ArgumentException("endDateTime", "The end date and time of appointment must be after the start date and time");
-            }
 
             string selectStatement =
                 "SELECT @NumberOfAppointments = COUNT(appointmentId) " +
                 "FROM Appointment " +
                 "WHERE doctorId = @DoctorId " +
-                "AND " +
-                "((startDateTime <= @StartDateTime AND endDateTime > @StartDateTime) " +
-                "OR " +
-                "(startDateTime < @EndDateTime AND endDateTime >= @EndDateTime))";
+                    "AND " +
+                    "startDateTime = @StartDateTime";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -87,9 +77,7 @@ namespace Clinic.DAL
                     selectCommand.Parameters.Add(countParameter);
                     selectCommand.Parameters.AddWithValue("@DoctorId", doctorId);
                     selectCommand.Parameters.AddWithValue("@StartDateTime", startDateTime);
-                    selectCommand.Parameters.AddWithValue("@EndDateTime", endDateTime);
                     selectCommand.ExecuteNonQuery();
-
                     return (Convert.ToInt32(countParameter.Value) > 0);
                 }
             }

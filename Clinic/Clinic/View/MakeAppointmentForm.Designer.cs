@@ -33,10 +33,6 @@ namespace Clinic.View
         {
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.endHourComboBox = new System.Windows.Forms.ComboBox();
-            this.endMinuteComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,7 +52,6 @@ namespace Clinic.View
             this.reasonTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.startHourComboBox = new System.Windows.Forms.ComboBox();
@@ -71,7 +66,6 @@ namespace Clinic.View
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -84,7 +78,6 @@ namespace Clinic.View
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
@@ -98,7 +91,6 @@ namespace Clinic.View
             this.tableLayoutPanel1.Controls.Add(this.reasonTextBox, 1, 9);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.alertNoticeLabel, 1, 11);
             this.tableLayoutPanel1.Controls.Add(this.searchPatientFirstNameTextBox, 4, 0);
@@ -125,95 +117,6 @@ namespace Clinic.View
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(776, 576);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel3, 2);
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.99319F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.0068F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 151F));
-            this.tableLayoutPanel3.Controls.Add(this.label12, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.endHourComboBox, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.endMinuteComboBox, 2, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(158, 408);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(303, 24);
-            this.tableLayoutPanel3.TabIndex = 11;
-            // 
-            // label12
-            // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(133, 4);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(11, 15);
-            this.label12.TabIndex = 0;
-            this.label12.Text = ":";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // endHourComboBox
-            // 
-            this.endHourComboBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.endHourComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.endHourComboBox.FormattingEnabled = true;
-            this.endHourComboBox.Items.AddRange(new object[] {
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23"});
-            this.endHourComboBox.Location = new System.Drawing.Point(81, 3);
-            this.endHourComboBox.Name = "endHourComboBox";
-            this.endHourComboBox.Size = new System.Drawing.Size(42, 21);
-            this.endHourComboBox.TabIndex = 1;
-            this.endHourComboBox.SelectedIndexChanged += new System.EventHandler(this.TimeComboBox_SelectedIndexChanged);
-            // 
-            // endMinuteComboBox
-            // 
-            this.endMinuteComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.endMinuteComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.endMinuteComboBox.FormattingEnabled = true;
-            this.endMinuteComboBox.Items.AddRange(new object[] {
-            "00",
-            "05",
-            "10",
-            "15",
-            "20",
-            "25",
-            "30",
-            "35",
-            "40",
-            "45",
-            "50",
-            "55"});
-            this.endMinuteComboBox.Location = new System.Drawing.Point(154, 3);
-            this.endMinuteComboBox.Name = "endMinuteComboBox";
-            this.endMinuteComboBox.Size = new System.Drawing.Size(39, 21);
-            this.endMinuteComboBox.TabIndex = 2;
-            this.endMinuteComboBox.SelectedIndexChanged += new System.EventHandler(this.TimeComboBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -393,22 +296,13 @@ namespace Clinic.View
             this.label7.TabIndex = 13;
             this.label7.Text = "Choose a start time:";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 405);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(104, 13);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Choose an end time:";
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel2, 2);
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.99319F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.0068F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 151F));
             this.tableLayoutPanel2.Controls.Add(this.label11, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.startHourComboBox, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.startMinuteComboBox, 2, 0);
@@ -485,7 +379,7 @@ namespace Clinic.View
             "45",
             "50",
             "55"});
-            this.startMinuteComboBox.Location = new System.Drawing.Point(155, 3);
+            this.startMinuteComboBox.Location = new System.Drawing.Point(154, 3);
             this.startMinuteComboBox.Name = "startMinuteComboBox";
             this.startMinuteComboBox.Size = new System.Drawing.Size(39, 21);
             this.startMinuteComboBox.TabIndex = 2;
@@ -596,8 +490,6 @@ namespace Clinic.View
             this.Load += new System.EventHandler(this.MakeAppointmentForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -632,7 +524,6 @@ namespace Clinic.View
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.BindingSource doctorBindingSource;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label11;
@@ -640,10 +531,6 @@ namespace Clinic.View
         private System.Windows.Forms.ComboBox startMinuteComboBox;
         private System.Windows.Forms.ColumnHeader startTimeColumnHeader;
         private System.Windows.Forms.ColumnHeader endTimeColumnHeader;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox endHourComboBox;
-        private System.Windows.Forms.ComboBox endMinuteComboBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label13;
     }

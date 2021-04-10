@@ -39,11 +39,10 @@ namespace Clinic.Controller
         /// </summary>
         /// <param name="doctorId">The ID of the doctor in question.</param>
         /// <param name="startDateTime">The start date and time of the appointment in question.</param>
-        /// <param name="endDateTime">The end date and time of the appointment in question.</param>
         /// <returns>True if the specified doctor is booked at the specified time, false otherwise.</returns>
-        public bool DoctorIsBooked(int doctorId, DateTime startDateTime, DateTime endDateTime)
+        public bool DoctorIsBooked(int doctorId, DateTime startDateTime)
         {
-            return this.appointmentSource.DoctorIsBooked(doctorId, startDateTime, endDateTime);
+            return this.appointmentSource.DoctorIsBooked(doctorId, startDateTime);
         }
 
         /// <summary>

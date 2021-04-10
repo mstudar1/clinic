@@ -66,7 +66,7 @@ namespace Clinic.View
                     ZipCode = zip
                 };
                 this.theNursecontroller.AddNurse(newNurse);
-                String successText = "Nurse  (" + lastName + ", " + firstName + ") successfully added.";
+                String successText = "Nurse  (" + firstName + " " + lastName + ") successfully added.";
                 var dialogeResult = MessageBox.Show(successText, "Nurse Added Success");
                 if (dialogeResult == DialogResult.OK)
                 {

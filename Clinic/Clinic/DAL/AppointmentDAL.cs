@@ -377,15 +377,21 @@ namespace Clinic.DAL
         }
 
         /// <summary>
-        /// Get a list of Appointment objects with last name matching the seach name
+        /// Get a list of Appointment objects with last name and date of birth 
+        /// matching the seach name and DOB
         /// </summary>
         /// <param name="lastName">the last name to search for</param>
+        /// <param name="dob">the date of birth to search for</param>
         /// <returns>List of Appointment objects</returns>
-        public List<Appointment> GetAppointmentsForPatientLastName(String lastName)
+        public List<Appointment> GetAppointmentsForPatientLastNameAndDOB(String lastName, DateTime dob)
         {
             if (lastName == null || lastName == "")
             {
                 throw new ArgumentException("lastName", "Last name for search cannot be empty");
+            }
+            if (dob == null)
+            {
+                throw new ArgumentNullException("date", "The date cannot be null.");
             }
             List<Appointment> appointmentList = new List<Appointment>();
 
@@ -407,6 +413,7 @@ namespace Clinic.DAL
                 "LEFT JOIN Person docInfo ON doc.personId = docInfo.personId " +
                 "LEFT JOIN Person patInfo ON pat.personId = patInfo.personId " +
                 "WHERE patInfo.lastName = @searchName  " +
+                "   AND patInfo.dateOfBirth = @searchDOB" +
                 "ORDER BY startDateTime ASC";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
@@ -414,6 +421,7 @@ namespace Clinic.DAL
                 connection.Open();
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
+                    selectCommand.Parameters.AddWithValue("@searchDOB", dob);
                     selectCommand.Parameters.AddWithValue("@searchName", lastName);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {

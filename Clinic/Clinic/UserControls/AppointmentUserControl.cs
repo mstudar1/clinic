@@ -82,7 +82,8 @@ namespace Clinic.UserControls
             {
                 this.appointmentsSearchResultsListView.Items.Clear();
                 String searchName = this.nameTextBox.Text;
-                this.appointmentList = this.appointmentController.GetAppointmentsForPatientLastName(searchName);
+                DateTime searchDOB = new DateTime();  //TODO: Finish implementing
+                this.appointmentList = this.appointmentController.GetAppointmentsForPatientLastNameAndDOB(searchName, searchDOB);
                 foreach (Appointment current in this.appointmentList)
                 {
                     ListViewItem item = new ListViewItem(current.PatientLastName.ToString());

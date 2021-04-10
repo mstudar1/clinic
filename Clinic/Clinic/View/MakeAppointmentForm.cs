@@ -3,6 +3,7 @@ using Clinic.Model;
 using Clinic.UserControls;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace Clinic.View
@@ -186,12 +187,20 @@ namespace Clinic.View
                     {
                         this.CloseForm();
                     }
-                } catch (Exception ex)
+                } 
+                catch (SqlException ex)
                 {
-                    alertText += "Error in updating appointment database:\n" + 
+                    if (ex.Number == 2627)
+                    {
+                        alertText += "Patient is already booked for an appointment at that time. Please choose another time.";
+                    }
+                } 
+                catch (Exception ex)
+                {
+                    alertText += "Error in updating appointment database:\n" +
                         ex.Message + "\n";
                 }
-            }
+        }
             this.alertNoticeLabel.Text = alertText;
         }
 

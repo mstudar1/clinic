@@ -131,7 +131,7 @@ namespace Clinic.View
             foreach (Appointment current in this.appointmentList)
             {
                 ListViewItem item = new ListViewItem(current.StartDateTime.ToString("t"));
-                item.SubItems.Add(current.EndDateTime.ToString("t"));  //TODO: replace with start + 30 minutes
+                item.SubItems.Add(current.StartDateTime.AddMinutes(30).ToString("t"));
                 this.appointmentTimeListView.Items.Add(item);
             }
         }

@@ -76,8 +76,6 @@ namespace Clinic.View
                 this.datePicker.Value = this.theAppointment.StartDateTime;
                 this.startHourComboBox.SelectedIndex = this.startHourComboBox.FindStringExact(this.theAppointment.StartDateTime.ToString("HH"));
                 this.startMinuteComboBox.SelectedIndex = this.startMinuteComboBox.FindStringExact(this.theAppointment.StartDateTime.ToString("mm"));
-                this.endHourComboBox.SelectedIndex = this.endHourComboBox.FindStringExact(this.theAppointment.EndDateTime.ToString("HH"));
-                this.endMinuteComboBox.SelectedIndex = this.endMinuteComboBox.FindStringExact(this.theAppointment.EndDateTime.ToString("mm"));
             }
             catch (Exception) 
             {
@@ -133,7 +131,7 @@ namespace Clinic.View
             foreach (Appointment current in this.appointmentList)
             {
                 ListViewItem item = new ListViewItem(current.StartDateTime.ToString("t"));
-                item.SubItems.Add(current.EndDateTime.ToString("t"));
+                item.SubItems.Add(current.EndDateTime.ToString("t"));  //TODO: replace with start + 30 minutes
                 this.appointmentTimeListView.Items.Add(item);
             }
         }
@@ -148,7 +146,6 @@ namespace Clinic.View
             this.ClearErrorMessages();
             String alertText = "";
             DateTime startDateTime = new DateTime();
-            DateTime endDateTime = new DateTime();
 
             if (this.TimeFieldsNotSelected())
             {
@@ -157,11 +154,6 @@ namespace Clinic.View
             else
             {
                 startDateTime = this.GetFormStartDateTime();
-                endDateTime = this.GetFormEndDateTime();
-                if (startDateTime >= endDateTime)
-                {
-                    alertText += "Invalid Appointment Time:  The end time for the appointment cannot be before the start time.\n";
-                }
             }
 
             if (this.reasonTextBox.Text == "")
@@ -175,7 +167,6 @@ namespace Clinic.View
                 {
                     PatientId = this.theAppointment.PatientId,
                     StartDateTime = startDateTime,
-                    EndDateTime = endDateTime,
                     DoctorId = int.Parse(this.doctorComboBox.SelectedValue.ToString()),
                     ReasonForVisit = this.reasonTextBox.Text
                 };
@@ -188,9 +179,7 @@ namespace Clinic.View
                     try
                     {
                         this.appointmentController.EditAppointment(this.theAppointment, revisedAppointment);
-                        String successText = "Appointment successfully updated for : \n" +
-                        startDateTime.ToString("f") + " - " +
-                        endDateTime.ToString("t");
+                        String successText = "Appointment successfully updated for : \n" + startDateTime.ToString("f") + " - ";
                         var dialogeResult = MessageBox.Show(successText, "Appointment Edit Success");
                         if (dialogeResult == DialogResult.OK)
                         {
@@ -224,27 +213,12 @@ namespace Clinic.View
         }
 
         /// <summary>
-        /// Gets end time and minute from form and returns DateTime object
-        /// </summary>
-        /// <returns></returns>
-        private DateTime GetFormEndDateTime()
-        {
-            DateTime date = this.datePicker.Value;
-            int endHour = int.Parse(this.endHourComboBox.SelectedItem.ToString());
-            int endMinute = int.Parse(this.endMinuteComboBox.SelectedItem.ToString());
-            return new DateTime(date.Year, date.Month, date.Day, endHour, endMinute, 0);
-        }
-
-        /// <summary>
         /// Checks to see if any time comboBox is not selected
         /// </summary>
         /// <returns>true if any box is NOT selected</returns>
         private bool TimeFieldsNotSelected()
         {
-            return (this.startHourComboBox.SelectedIndex == -1 ||
-                this.startMinuteComboBox.SelectedIndex == -1 ||
-                this.endHourComboBox.SelectedIndex == -1 ||
-                this.endMinuteComboBox.SelectedIndex == -1);
+            return (this.startHourComboBox.SelectedIndex == -1 || this.startMinuteComboBox.SelectedIndex == -1);
         }
 
         /* Additional Event Handlers */

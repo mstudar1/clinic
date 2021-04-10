@@ -62,8 +62,7 @@ namespace Clinic.DAL
                 "SELECT @NumberOfAppointments = COUNT(appointmentId) " +
                 "FROM Appointment " +
                 "WHERE doctorId = @DoctorId " +
-                    "AND " +
-                    "startDateTime = @StartDateTime";
+                    "AND startDateTime = @StartDateTime";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -85,7 +84,9 @@ namespace Clinic.DAL
 
         /// <summary>
         /// Method that returns true if the specified doctor is unavailable at the specified time.  This method
-        /// includes a check to prevent a false positive for an appointment overlapping itself when being edited
+        /// includes a check to prevent a false positive for an appointment overlapping itself when being edited.
+        /// This also assumes that appointment time structure is such that start time is sufficient to check for appointment
+        /// overlaps (i.e. all appointments are 30 minutes long and start on hour or half hour).
         /// </summary>
         /// <param name="originalAppointment">original appointment object</param>
         /// <param name="revisedAppointment">revised appointment object</param>
@@ -102,38 +103,19 @@ namespace Clinic.DAL
             }
             if (revisedAppointment.StartDateTime == null)
             {
-                throw new ArgumentNullException("revisedAppointment", "The start date and time of the original appointment cannot be null.");
-            }
-            if (revisedAppointment.EndDateTime == null)
-            {
-                throw new ArgumentNullException("revisedAppointment", "The end date and time of the original appointment cannot be null.");
+                throw new ArgumentNullException("revisedAppointment", "The start date and time of the revised appointment cannot be null.");
             }
             if (originalAppointment.StartDateTime == null)
             {
-                throw new ArgumentNullException("originalAppointment", "The start date and time of the revised appointment cannot be null.");
-            }
-            if (originalAppointment.EndDateTime == null)
-            {
-                throw new ArgumentNullException("originalAppointment", "The end date and time of the revised appointment cannot be null.");
-            }
-            if (DateTime.Compare(revisedAppointment.StartDateTime, revisedAppointment.EndDateTime) >= 0)
-            {
-                throw new ArgumentException("revisedAppointment", "The end date and time of revised appointment must be after the start date and time");
-            }
-            if (DateTime.Compare(originalAppointment.StartDateTime, originalAppointment.EndDateTime) >= 0)
-            {
-                throw new ArgumentException("originalAppointment", "The end date and time of original appointment must be after the start date and time");
+                throw new ArgumentNullException("originalAppointment", "The start date and time of the original appointment cannot be null.");
             }
 
             string selectStatement =
                 "SELECT @NumberOfAppointments = COUNT(appointmentId) " +
                 "FROM Appointment " +
                 "WHERE doctorId = @DoctorId " +
-                "AND " +
-                "((startDateTime <= @StartDateTime AND endDateTime > @StartDateTime) " +
-                "OR " +
-                "(startDateTime < @EndDateTime AND endDateTime >= @EndDateTime)) " +
-                "AND patientId != @PatientId";
+                    "AND startDateTime = @StartDateTime " +
+                    "AND patientId != @PatientId";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -148,9 +130,7 @@ namespace Clinic.DAL
                     selectCommand.Parameters.AddWithValue("@DoctorId", revisedAppointment.DoctorId);
                     selectCommand.Parameters.AddWithValue("@PatientId", revisedAppointment.PatientId);
                     selectCommand.Parameters.AddWithValue("@StartDateTime", revisedAppointment.StartDateTime);
-                    selectCommand.Parameters.AddWithValue("@EndDateTime", revisedAppointment.EndDateTime);
                     selectCommand.ExecuteNonQuery();
-
                     return (Convert.ToInt32(countParameter.Value) > 0);
                 }
             }
@@ -179,12 +159,10 @@ namespace Clinic.DAL
                 "UPDATE Appointment SET " +
                     "patientId = @RevisedPatientId, " +
                     "startDateTime = @RevisedStartDateTime, " +
-                    "endDateTime = @RevisedEndDateTime, " +
                     "doctorId = @RevisedDoctorId, " +
                     "reasonForVisit = @RevisedReasonForVisit " +
                 "WHERE patientId = @OriginalPatientId " +
                     "AND startDateTime = @OriginalStartDatetime " +
-                    "AND endDateTime = @OriginalEndDateTime " +
                     "AND doctorId = @OriginalDoctorId " +
                     "AND reasonForVisit = @OriginalReasonForVisit";
 
@@ -195,24 +173,14 @@ namespace Clinic.DAL
                 {
                     updateCommand.Parameters.AddWithValue("@OriginalPatientId", originalAppointment.PatientId);
                     updateCommand.Parameters.AddWithValue("@OriginalStartDateTime", originalAppointment.StartDateTime);
-                    updateCommand.Parameters.AddWithValue("@OriginalEndDateTime", originalAppointment.EndDateTime);
                     updateCommand.Parameters.AddWithValue("@OriginalDoctorId", originalAppointment.DoctorId);
                     updateCommand.Parameters.AddWithValue("@OriginalReasonForVisit", originalAppointment.ReasonForVisit);
                     updateCommand.Parameters.AddWithValue("@RevisedPatientId", revisedAppointment.PatientId);
                     updateCommand.Parameters.AddWithValue("@RevisedStartDatetime", revisedAppointment.StartDateTime);
-                    updateCommand.Parameters.AddWithValue("@RevisedEndDateTime", revisedAppointment.EndDateTime);
                     updateCommand.Parameters.AddWithValue("@RevisedDoctorId", revisedAppointment.DoctorId);
                     updateCommand.Parameters.AddWithValue("@RevisedReasonForVisit", revisedAppointment.ReasonForVisit);
-
                     int count = updateCommand.ExecuteNonQuery();
-                    if (count > 0)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    return (count > 0); 
                 }
             }
         }

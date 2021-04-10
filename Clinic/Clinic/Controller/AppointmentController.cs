@@ -47,7 +47,9 @@ namespace Clinic.Controller
 
         /// <summary>
         /// Method that returns true if the specified doctor is unavailable at the specified time.  This method
-        /// includes a check to prevent a false positive for an appointment overlapping itself when being edited
+        /// includes a check to prevent a false positive for an appointment overlapping itself when being edited.
+        /// This also assumes that appointment time structure is such that start time is sufficient to check for appointment
+        /// overlaps (i.e. all appointments are 30 minutes long and start on hour or half hour).
         /// </summary>
         /// <param name="originalAppointment">original appointment object</param>
         /// <param name="revisedAppointment">revised appointment object</param>

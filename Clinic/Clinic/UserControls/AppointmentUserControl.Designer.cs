@@ -241,7 +241,7 @@ namespace Clinic.UserControls
             // 
             this.dateCol.Text = "Date";
             this.dateCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.dateCol.Width = 80;
+            this.dateCol.Width = 175;
             // 
             // startTimeCol
             // 

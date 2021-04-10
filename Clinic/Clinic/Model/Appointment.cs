@@ -22,6 +22,8 @@ namespace Clinic.Model
         public string PatientLastName { get; set; }
 
         public string PatientFirstName { get; set; }
+        
+        public DateTime PatientDateOfBirth { get; set; }
 
         public string DoctorFirstName { get; set; }
 

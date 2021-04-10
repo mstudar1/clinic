@@ -68,7 +68,7 @@ namespace Clinic.View
             }
             catch(Exception ex)
             {
-                this.noticeLabel.Text = "Error. Form data not submitted (" + ex.Message + "). Please fix and try again. ";
+                this.noticeLabel.Text = "Form data not submitted.\n" + ex.Message + " Please fix and try again. ";
             }
         }
     }

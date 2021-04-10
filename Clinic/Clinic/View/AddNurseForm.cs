@@ -12,6 +12,7 @@ namespace Clinic.View
     public partial class AddNurseForm : Form
     {
         private readonly NurseController theNursecontroller;
+        private readonly NurseUserControl nurseUserControl;
 
         /// <summary>
         /// Constructor for the add nurse form
@@ -21,6 +22,7 @@ namespace Clinic.View
         {
             InitializeComponent();
             this.theNursecontroller = new NurseController();
+            this.nurseUserControl = theInputNurseUserControl;
         }
 
         /// <summary>
@@ -64,14 +66,56 @@ namespace Clinic.View
                     ZipCode = zip
                 };
                 this.theNursecontroller.AddNurse(newNurse);
-                this.noticeLabel.Text = "Success";  
+                String successText = "Nurse  (" + lastName + ", " + firstName + ") successfully added.";
+                var dialogeResult = MessageBox.Show(successText, "Nurse Added Success");
+                if (dialogeResult == DialogResult.OK)
+                {
+                    this.CloseForm();
+                }
             }
             catch(Exception ex)
             {
                 this.noticeLabel.Text = "Form data not submitted.\n" + ex.Message + " Please fix and try again. ";
             }
         }
-    }
-    
 
+        /// <summary>
+        /// Cancel button click actions
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.CloseForm();
+        }
+
+        /// <summary>
+        /// Executes actions to properly close the form and re-enable the Nurse User Control
+        /// </summary>
+        private void CloseForm()
+        {
+            this.nurseUserControl.Enabled = true;
+            this.Close();
+        }
+
+        /// <summary>
+        /// Actions to perform when form loads.  Disable the nurse user control.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddNurseForm_Load(object sender, EventArgs e)
+        {
+            this.nurseUserControl.Enabled = false;
+        }
+
+        /// <summary>
+        /// Re-enable user control when form closes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddNurseForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.nurseUserControl.Enabled = true;
+        }
+    }
 }

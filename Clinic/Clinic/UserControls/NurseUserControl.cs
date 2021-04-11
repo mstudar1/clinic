@@ -43,7 +43,7 @@ namespace Clinic.UserControls
             this.PopulateList();
         }
 
-        private void ClearList()
+        public void ClearList()
         {
             foreach (ListViewItem item in this.nurseListView.Items)
             {
@@ -51,7 +51,7 @@ namespace Clinic.UserControls
             }
         }
 
-        private void PopulateList()
+        public void PopulateList()
         {
             List<Nurse> nurseList;
             try

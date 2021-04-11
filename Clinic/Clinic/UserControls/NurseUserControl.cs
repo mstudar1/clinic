@@ -98,5 +98,15 @@ namespace Clinic.UserControls
         {
             this.ClearList();
         }
+
+        private void editNurseButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewNurseButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

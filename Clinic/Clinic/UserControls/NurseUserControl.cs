@@ -102,10 +102,10 @@ namespace Clinic.UserControls
 
         private void EditNurseButton_Click(object sender, EventArgs e)
         {
-            //this.ResetFormMessages();
+            this.ResetFormMessages();
             if (this.nurseListView.SelectedItems.Count == 0)
             {
-                //this.alertTextLabel.Text = "Please select an appointment to edit.";
+                this.alertTextLabel.Text = "Please select an appointment to edit.";
             }
             else
             {
@@ -119,6 +119,14 @@ namespace Clinic.UserControls
         private void ViewNurseButton_Click(object sender, EventArgs e)
         {
             //TODO: implement handler
+        }
+
+        /// <summary>
+        /// Reset alert messages on the form
+        /// </summary>
+        public void ResetFormMessages()
+        {
+            this.alertTextLabel.Text = "";
         }
     }
 }

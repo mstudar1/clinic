@@ -47,7 +47,43 @@ namespace Clinic.View
             this.zipMaskedTextBox.Text = this.theNurse.ZipCode;
         }
 
-        private void SaveButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Cancel button click handler to close form and re-enable userControl
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.theNurseUserControl.Enabled = true;
+            this.Close();
+        }
+
+        /// <summary>
+        /// Re-enable userControl if form closes for any other reason
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditPatient_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.theNurseUserControl.Enabled = true;
+        }
+
+        /// <summary>
+        /// Disable userControl when form loads
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditNurseForm_Load(object sender, EventArgs e)
+        {
+            this.theNurseUserControl.Enabled = false;
+        }
+        
+        /// <summary>
+        /// Execute checks and update when button click 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void updateNurseButton_Click(object sender, EventArgs e)
         {
             String alertText = "";
 
@@ -124,18 +160,7 @@ namespace Clinic.View
                     this.Close();
                 }
             }
-            //this.alertNoticeLabel.Text = alertText;
-        }
-
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            this.theNurseUserControl.Enabled = true;
-            this.Close();
-        }
-
-        private void EditPatient_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.theNurseUserControl.Enabled = true;
+            this.alertNoticeLabel.Text = alertText;
         }
     }
 }

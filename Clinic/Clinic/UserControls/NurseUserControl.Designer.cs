@@ -46,6 +46,7 @@ namespace Clinic.UserControls
             this.editViewTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.viewNurseButton = new System.Windows.Forms.Button();
             this.editNurseButton = new System.Windows.Forms.Button();
+            this.alertTextLabel = new System.Windows.Forms.Label();
             this.nurseTableLayoutPanel.SuspendLayout();
             this.addNurseTableLayoutPanel.SuspendLayout();
             this.titleAndResetTableLayoutPanel.SuspendLayout();
@@ -62,6 +63,7 @@ namespace Clinic.UserControls
             this.nurseTableLayoutPanel.Controls.Add(this.searchTableLayoutPanel, 0, 0);
             this.nurseTableLayoutPanel.Controls.Add(this.nurseListView, 0, 3);
             this.nurseTableLayoutPanel.Controls.Add(this.editViewTableLayoutPanel, 0, 4);
+            this.nurseTableLayoutPanel.Controls.Add(this.alertTextLabel, 0, 5);
             this.nurseTableLayoutPanel.Location = new System.Drawing.Point(2, 2);
             this.nurseTableLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.nurseTableLayoutPanel.Name = "nurseTableLayoutPanel";
@@ -108,7 +110,7 @@ namespace Clinic.UserControls
             this.titleAndResetTableLayoutPanel.ColumnCount = 3;
             this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.87248F));
             this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.12752F));
-            this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.titleAndResetTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.titleAndResetTableLayoutPanel.Controls.Add(this.resetButton, 1, 0);
             this.titleAndResetTableLayoutPanel.Controls.Add(this.listOfNursesLabel, 0, 0);
             this.titleAndResetTableLayoutPanel.Location = new System.Drawing.Point(2, 72);
@@ -124,7 +126,7 @@ namespace Clinic.UserControls
             this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.resetButton.AutoSize = true;
             this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetButton.Location = new System.Drawing.Point(414, 2);
+            this.resetButton.Location = new System.Drawing.Point(413, 2);
             this.resetButton.Margin = new System.Windows.Forms.Padding(2);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(72, 22);
@@ -151,7 +153,7 @@ namespace Clinic.UserControls
             this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.87591F));
             this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.12409F));
             this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 179F));
-            this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this.searchTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 83F));
             this.searchTableLayoutPanel.Controls.Add(this.searchButton, 3, 0);
             this.searchTableLayoutPanel.Controls.Add(this.lastNameTextBox, 2, 0);
             this.searchTableLayoutPanel.Controls.Add(this.searchNameLabel, 1, 0);
@@ -168,7 +170,7 @@ namespace Clinic.UserControls
             this.searchButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.searchButton.AutoSize = true;
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(454, 2);
+            this.searchButton.Location = new System.Drawing.Point(453, 2);
             this.searchButton.Margin = new System.Windows.Forms.Padding(2);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(76, 25);
@@ -181,7 +183,7 @@ namespace Clinic.UserControls
             // 
             this.lastNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameTextBox.Location = new System.Drawing.Point(275, 2);
+            this.lastNameTextBox.Location = new System.Drawing.Point(274, 2);
             this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(167, 26);
@@ -194,7 +196,7 @@ namespace Clinic.UserControls
             this.searchNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.searchNameLabel.AutoSize = true;
             this.searchNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchNameLabel.Location = new System.Drawing.Point(125, 4);
+            this.searchNameLabel.Location = new System.Drawing.Point(124, 4);
             this.searchNameLabel.Name = "searchNameLabel";
             this.searchNameLabel.Size = new System.Drawing.Size(145, 20);
             this.searchNameLabel.TabIndex = 21;
@@ -277,6 +279,17 @@ namespace Clinic.UserControls
             this.editNurseButton.UseVisualStyleBackColor = true;
             this.editNurseButton.Click += new System.EventHandler(this.EditNurseButton_Click);
             // 
+            // alertTextLabel
+            // 
+            this.alertTextLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.alertTextLabel.AutoSize = true;
+            this.alertTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertTextLabel.ForeColor = System.Drawing.Color.Red;
+            this.alertTextLabel.Location = new System.Drawing.Point(269, 240);
+            this.alertTextLabel.Name = "alertTextLabel";
+            this.alertTextLabel.Size = new System.Drawing.Size(0, 20);
+            this.alertTextLabel.TabIndex = 42;
+            // 
             // NurseUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,6 +299,7 @@ namespace Clinic.UserControls
             this.Name = "NurseUserControl";
             this.Size = new System.Drawing.Size(552, 315);
             this.nurseTableLayoutPanel.ResumeLayout(false);
+            this.nurseTableLayoutPanel.PerformLayout();
             this.addNurseTableLayoutPanel.ResumeLayout(false);
             this.addNurseTableLayoutPanel.PerformLayout();
             this.titleAndResetTableLayoutPanel.ResumeLayout(false);
@@ -316,5 +330,6 @@ namespace Clinic.UserControls
         private System.Windows.Forms.Button viewNurseButton;
         private System.Windows.Forms.Button editNurseButton;
         private System.Windows.Forms.Label searchNameLabel;
+        private System.Windows.Forms.Label alertTextLabel;
     }
 }

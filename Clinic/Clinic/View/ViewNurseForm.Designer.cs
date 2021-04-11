@@ -248,6 +248,7 @@ namespace Clinic.View
             this.cancelButton.TabIndex = 20;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // cityLabel
             // 
@@ -435,6 +436,7 @@ namespace Clinic.View
             this.Name = "ViewNurseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View Nurse Details";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViewPatient_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.viewNurseTableLayoutPanel.ResumeLayout(false);

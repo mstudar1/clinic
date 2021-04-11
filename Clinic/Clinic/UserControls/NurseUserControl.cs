@@ -16,6 +16,7 @@ namespace Clinic.UserControls
     {
         private AddNurseForm theAddNurseForm;
         private EditNurseForm theEditNurseForm;
+        private ViewNurseForm theViewNurseForm;
         private readonly NurseController theNurseController;
         public List<Nurse> nurseList;
 
@@ -100,12 +101,17 @@ namespace Clinic.UserControls
             this.ClearList();
         }
 
+        /// <summary>
+        /// Handles edit nurse button clicks to open the edit nurse form with selected nurse info
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditNurseButton_Click(object sender, EventArgs e)
         {
             this.ResetFormMessages();
             if (this.nurseListView.SelectedItems.Count == 0)
             {
-                this.alertTextLabel.Text = "Please select an appointment to edit.";
+                this.alertTextLabel.Text = "Please select a nurse to edit.";
             }
             else
             {
@@ -116,9 +122,25 @@ namespace Clinic.UserControls
             }
         }
 
+        /// <summary>
+        /// Handles view nurse button click events to open view nurse details form for selected nurse
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ViewNurseButton_Click(object sender, EventArgs e)
         {
-            //TODO: implement handler
+            this.ResetFormMessages();
+            if (this.nurseListView.SelectedItems.Count == 0)
+            {
+                this.alertTextLabel.Text = "Please select a nurse to view.";
+            }
+            else
+            {
+                int selectedIndex = this.nurseListView.SelectedIndices[0];
+                Nurse selectedNurse = this.nurseList[selectedIndex];
+                this.theViewNurseForm = new ViewNurseForm(this, selectedNurse);
+                this.theViewNurseForm.Show();
+            }
         }
 
         /// <summary>

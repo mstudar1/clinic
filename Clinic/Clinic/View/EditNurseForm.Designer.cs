@@ -219,7 +219,7 @@ namespace Clinic.View
             this.ssnAndGenderTableLayoutPanel.ColumnCount = 3;
             this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.80103F));
             this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.19897F));
-            this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
+            this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.ssnMaskedTextBox, 0, 0);
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.genderComboBox, 2, 0);
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.genderLabel, 1, 0);
@@ -235,7 +235,7 @@ namespace Clinic.View
             // 
             this.ssnMaskedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ssnMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ssnMaskedTextBox.Location = new System.Drawing.Point(18, 8);
+            this.ssnMaskedTextBox.Location = new System.Drawing.Point(17, 8);
             this.ssnMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.ssnMaskedTextBox.Mask = "000-00-0000";
             this.ssnMaskedTextBox.Name = "ssnMaskedTextBox";
@@ -264,7 +264,7 @@ namespace Clinic.View
             this.genderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.genderLabel.AutoSize = true;
             this.genderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genderLabel.Location = new System.Drawing.Point(179, 16);
+            this.genderLabel.Location = new System.Drawing.Point(178, 16);
             this.genderLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.genderLabel.Name = "genderLabel";
             this.genderLabel.Size = new System.Drawing.Size(67, 20);
@@ -290,7 +290,7 @@ namespace Clinic.View
             this.cityAndStateTableLayoutPanel.ColumnCount = 3;
             this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.50427F));
             this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.49573F));
-            this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 113F));
+            this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
             this.cityAndStateTableLayoutPanel.Controls.Add(this.cityTextBox, 0, 0);
             this.cityAndStateTableLayoutPanel.Controls.Add(this.stateLabel, 1, 0);
             this.cityAndStateTableLayoutPanel.Controls.Add(this.stateComboBox, 2, 0);
@@ -307,7 +307,7 @@ namespace Clinic.View
             // 
             this.cityTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityTextBox.Location = new System.Drawing.Point(20, 8);
+            this.cityTextBox.Location = new System.Drawing.Point(19, 8);
             this.cityTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(148, 26);
@@ -318,7 +318,7 @@ namespace Clinic.View
             this.stateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.stateLabel.AutoSize = true;
             this.stateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stateLabel.Location = new System.Drawing.Point(177, 16);
+            this.stateLabel.Location = new System.Drawing.Point(176, 16);
             this.stateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.stateLabel.Name = "stateLabel";
             this.stateLabel.Size = new System.Drawing.Size(52, 20);
@@ -384,7 +384,7 @@ namespace Clinic.View
             "WV",
             "WI",
             "WY"});
-            this.stateComboBox.Location = new System.Drawing.Point(234, 12);
+            this.stateComboBox.Location = new System.Drawing.Point(233, 12);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(63, 21);
             this.stateComboBox.TabIndex = 12;
@@ -554,6 +554,7 @@ namespace Clinic.View
             this.Name = "EditNurseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Nurse Information";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditPatient_FormClosing);
             this.Load += new System.EventHandler(this.EditNurseForm_Load);
             this.ssnAndGenderTableLayoutPanel.ResumeLayout(false);
             this.ssnAndGenderTableLayoutPanel.PerformLayout();

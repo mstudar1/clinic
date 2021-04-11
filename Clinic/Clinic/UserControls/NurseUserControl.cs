@@ -15,7 +15,9 @@ namespace Clinic.UserControls
     public partial class NurseUserControl : UserControl
     {
         private AddNurseForm theAddNurseForm;
+        private EditNurseForm theEditNurseForm;
         private readonly NurseController theNurseController;
+        public List<Nurse> nurseList;
 
         /// <summary>
         /// Initialize the form
@@ -43,7 +45,7 @@ namespace Clinic.UserControls
             this.PopulateList();
         }
 
-        private void ClearList()
+        public void ClearList()
         {
             foreach (ListViewItem item in this.nurseListView.Items)
             {
@@ -51,20 +53,19 @@ namespace Clinic.UserControls
             }
         }
 
-        private void PopulateList()
+        public void PopulateList()
         {
-            List<Nurse> nurseList;
             try
             {
                 string lastName = this.lastNameTextBox.Text;
-                nurseList = this.theNurseController.FindNurses(lastName);
+                this.nurseList = this.theNurseController.FindNurses(lastName);
 
-                if (nurseList.Count > 0)
+                if (this.nurseList.Count > 0)
                 {
                     Nurse theNurse;
-                    for (int i = 0; i < nurseList.Count; i++)
+                    for (int i = 0; i < this.nurseList.Count; i++)
                     {
-                        theNurse = nurseList[i];
+                        theNurse = this.nurseList[i];
                         this.nurseListView.Items.Add(theNurse.FirstName);
                         this.nurseListView.Items[i].SubItems.Add(theNurse.LastName);
                         this.nurseListView.Items[i].SubItems.Add(theNurse.DateOfBirth.ToShortDateString());
@@ -97,6 +98,35 @@ namespace Clinic.UserControls
         private void ResetButton_Click(object sender, EventArgs e)
         {
             this.ClearList();
+        }
+
+        private void EditNurseButton_Click(object sender, EventArgs e)
+        {
+            this.ResetFormMessages();
+            if (this.nurseListView.SelectedItems.Count == 0)
+            {
+                this.alertTextLabel.Text = "Please select an appointment to edit.";
+            }
+            else
+            {
+                int selectedIndex = this.nurseListView.SelectedIndices[0];
+                Nurse selectedNurse = this.nurseList[selectedIndex];
+                this.theEditNurseForm = new EditNurseForm(this, selectedNurse);
+                this.theEditNurseForm.Show();
+            }
+        }
+
+        private void ViewNurseButton_Click(object sender, EventArgs e)
+        {
+            //TODO: implement handler
+        }
+
+        /// <summary>
+        /// Reset alert messages on the form
+        /// </summary>
+        public void ResetFormMessages()
+        {
+            this.alertTextLabel.Text = "";
         }
     }
 }

@@ -7,63 +7,83 @@ using System.Windows.Forms;
 namespace Clinic.View
 {
     /// <summary>
-    /// Constructs and manages the edit patient information form
+    /// Clas to construct and manage edit nurse information form
     /// </summary>
-    public partial class EditPatientForm : Form
+    public partial class EditNurseForm : Form
     {
-        private readonly Patient thePatient;
-        private readonly PatientUserControl thePatientUserControl;
-        private readonly PatientController thePatientController;
+        private readonly Nurse theNurse;
+        private readonly NurseUserControl theNurseUserControl;
+        private readonly NurseController theNurseController;
 
         /// <summary>
-        /// Constructor for the edit patient information form
+        /// Constructor for edit nurse form
         /// </summary>
-        /// <param name="theInputPatientUserControl">the referring patientUsercontroller</param>
-        /// <param name="theInputedPatient">the Patient to be edited</param>
-        public EditPatientForm(PatientUserControl theInputPatientUserControl, Patient theInputedPatient)
+        /// <param name="theInputNurseUserControl"></param>
+        /// <param name="theInputNurse"></param>
+        public EditNurseForm(NurseUserControl theInputNurseUserControl, Nurse theInputNurse)
         {
             InitializeComponent();
-            this.thePatientUserControl = theInputPatientUserControl;
-            this.thePatient = theInputedPatient;
-            this.ShowPatientInformation();
-            this.thePatientController = new PatientController();
+            this.theNurseUserControl = theInputNurseUserControl;
+            this.theNurse = theInputNurse;           
+            this.theNurseController = new NurseController();
+            this.ShowNurseInformation();
         }
 
         /// <summary>
-        /// Fill in the form with current patient information
+        /// Fill in selected nurse information into the form
         /// </summary>
-        private void ShowPatientInformation()
+        private void ShowNurseInformation()
         {
-            this.firstNameTextBox.Text = this.thePatient.FirstName;
-            this.lastNameTextBox.Text = this.thePatient.LastName;
-            this.dateOfBirthDateTimePicker.Value = this.thePatient.DateOfBirth;
-            this.ssnMaskedTextBox.Text = this.thePatient.SocialSecurityNumber;
-            this.genderComboBox.Text = this.thePatient.Gender;
-            this.phoneNumberMaskedTextBox.Text = this.thePatient.PhoneNumber;
-            this.address1TextBox.Text = this.thePatient.AddressLine1;
-            this.address2TextBox.Text = this.thePatient.AddressLine2;
-            this.stateComboBox.Text = this.thePatient.State;
-            this.cityTextBox.Text = this.thePatient.City;
-            this.zipMaskedTextBox.Text = this.thePatient.ZipCode;
+            this.firstNameTextBox.Text = this.theNurse.FirstName;
+            this.lastNameTextBox.Text = this.theNurse.LastName;
+            this.dateOfBirthDateTimePicker.Value = this.theNurse.DateOfBirth;
+            this.ssnMaskedTextBox.Text = this.theNurse.SocialSecurityNumber;
+            this.genderComboBox.Text = this.theNurse.Gender;
+            this.phoneNumberMaskedTextBox.Text = this.theNurse.PhoneNumber;
+            this.address1TextBox.Text = this.theNurse.AddressLine1;
+            this.address2TextBox.Text = this.theNurse.AddressLine2;
+            this.stateComboBox.Text = this.theNurse.State;
+            this.cityTextBox.Text = this.theNurse.City;
+            this.zipMaskedTextBox.Text = this.theNurse.ZipCode;
         }
 
         /// <summary>
-        /// Cancel button click handler to close form and re-enable the user control
+        /// Cancel button click handler to close form and re-enable userControl
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.thePatientUserControl.Enabled = true;
+            this.theNurseUserControl.Enabled = true;
             this.Close();
         }
 
         /// <summary>
-        /// Save button click handler to verify and update the patient information according to form input
+        /// Re-enable userControl if form closes for any other reason
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SaveButton_Click(object sender, EventArgs e)
+        private void EditPatient_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.theNurseUserControl.Enabled = true;
+        }
+
+        /// <summary>
+        /// Disable userControl when form loads
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditNurseForm_Load(object sender, EventArgs e)
+        {
+            this.theNurseUserControl.Enabled = false;
+        }
+        
+        /// <summary>
+        /// Execute checks and update when button click 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void updateNurseButton_Click(object sender, EventArgs e)
         {
             String alertText = "";
 
@@ -116,7 +136,7 @@ namespace Clinic.View
             {
                 if (MessageBox.Show("Are you sure you want to save the changes?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    Patient updatedPatient = new Patient
+                    Nurse updatedNurse = new Nurse
                     {
                         LastName = this.lastNameTextBox.Text,
                         FirstName = this.firstNameTextBox.Text,
@@ -129,27 +149,18 @@ namespace Clinic.View
                         City = this.cityTextBox.Text,
                         State = this.stateComboBox.Text,
                         ZipCode = this.zipMaskedTextBox.Text,
-                        PersonId = this.thePatient.PersonId,
-                        PatientId = this.thePatient.PatientId
+                        PersonId = this.theNurse.PersonId,
+                        NurseId = this.theNurse.NurseId
                     };
 
-                    this.thePatientController.EditPatient(this.thePatient, updatedPatient);
-                    this.thePatientUserControl.Enabled = true;
-                    this.thePatientUserControl.RefreshPatientsListData();
+                    this.theNurseController.EditNurse(this.theNurse, updatedNurse);
+                    this.theNurseUserControl.Enabled = true;
+                    this.theNurseUserControl.ClearList();
+                    this.theNurseUserControl.PopulateList();
                     this.Close();
                 }
             }
             this.alertNoticeLabel.Text = alertText;
-        }
-
-        /// <summary>
-        /// Re-enable user control upon form closing
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void EditPatient_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.thePatientUserControl.Enabled = true;
         }
     }
 }

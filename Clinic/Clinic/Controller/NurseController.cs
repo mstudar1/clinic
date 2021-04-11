@@ -57,5 +57,18 @@ namespace Clinic.Controller
         {
             return this.nurseSource.GetAllNurses();
         }
+
+        /// <summary>
+        /// Method that revises a record for a Nurse in the database.
+        /// Edits the Person and Nurse tables.
+        /// Requires that the record has not been changed since it was retrieved.
+        /// </summary>
+        /// <param name="originalNurse">The Nurse object that was originally retrieved.</param>
+        /// <param name="revisedNurse">A Nurse object with the revised values.</param>
+        /// <returns>True if the operation is successful, false otherwise.</returns>
+        public bool EditNurse(Nurse originalNurse, Nurse revisedNurse)
+        {
+            return this.nurseSource.EditNurse(originalNurse, revisedNurse);
+        }
     }
 }

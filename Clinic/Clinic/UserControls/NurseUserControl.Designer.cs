@@ -263,7 +263,7 @@ namespace Clinic.UserControls
             this.viewNurseButton.TabIndex = 0;
             this.viewNurseButton.Text = "View Nurse Details";
             this.viewNurseButton.UseVisualStyleBackColor = true;
-            this.viewNurseButton.Click += new System.EventHandler(this.viewNurseButton_Click);
+            this.viewNurseButton.Click += new System.EventHandler(this.ViewNurseButton_Click);
             // 
             // editNurseButton
             // 
@@ -275,7 +275,7 @@ namespace Clinic.UserControls
             this.editNurseButton.TabIndex = 1;
             this.editNurseButton.Text = "Edit Nurse Information";
             this.editNurseButton.UseVisualStyleBackColor = true;
-            this.editNurseButton.Click += new System.EventHandler(this.editNurseButton_Click);
+            this.editNurseButton.Click += new System.EventHandler(this.EditNurseButton_Click);
             // 
             // NurseUserControl
             // 

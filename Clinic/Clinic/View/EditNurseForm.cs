@@ -9,7 +9,7 @@ namespace Clinic.View
     /// <summary>
     /// Clas to construct and manage edit nurse information form
     /// </summary>
-    public partial class EditNurse : Form
+    public partial class EditNurseForm : Form
     {
         private readonly Nurse theNurse;
         private readonly NurseUserControl theNurseUserControl;
@@ -20,7 +20,7 @@ namespace Clinic.View
         /// </summary>
         /// <param name="theInputNurseUserControl"></param>
         /// <param name="theInputNurse"></param>
-        public EditNurse(NurseUserControl theInputNurseUserControl, Nurse theInputNurse)
+        public EditNurseForm(NurseUserControl theInputNurseUserControl, Nurse theInputNurse)
         {
             InitializeComponent();
             this.theNurseUserControl = theInputNurseUserControl;

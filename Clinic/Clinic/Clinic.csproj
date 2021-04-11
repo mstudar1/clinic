@@ -105,11 +105,11 @@
     <Compile Include="View\AddVisitForm.Designer.cs">
       <DependentUpon>AddVisitForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\EditNurse.cs">
+    <Compile Include="View\EditNurseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\EditNurse.Designer.cs">
-      <DependentUpon>EditNurse.cs</DependentUpon>
+    <Compile Include="View\EditNurseForm.Designer.cs">
+      <DependentUpon>EditNurseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\EditPatientForm.cs">
       <SubType>Form</SubType>
@@ -188,8 +188,8 @@
     <EmbeddedResource Include="View\AddVisitForm.resx">
       <DependentUpon>AddVisitForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\EditNurse.resx">
-      <DependentUpon>EditNurse.cs</DependentUpon>
+    <EmbeddedResource Include="View\EditNurseForm.resx">
+      <DependentUpon>EditNurseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\EditPatientForm.resx">
       <DependentUpon>EditPatientForm.cs</DependentUpon>

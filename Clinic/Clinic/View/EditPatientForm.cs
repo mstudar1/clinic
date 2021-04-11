@@ -2,22 +2,24 @@
 using Clinic.Model;
 using Clinic.UserControls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Clinic.View
 {
+    /// <summary>
+    /// Constructs and manages the edit patient information form
+    /// </summary>
     public partial class EditPatientForm : Form
     {
         private readonly Patient thePatient;
         private readonly PatientUserControl thePatientUserControl;
         private readonly PatientController thePatientController;
+
+        /// <summary>
+        /// Constructor for the edit patient information form
+        /// </summary>
+        /// <param name="theInputPatientUserControl">the referring patientUsercontroller</param>
+        /// <param name="theInputedPatient">the Patient to be edited</param>
         public EditPatientForm(PatientUserControl theInputPatientUserControl, Patient theInputedPatient)
         {
             InitializeComponent();
@@ -27,6 +29,9 @@ namespace Clinic.View
             this.thePatientController = new PatientController();
         }
 
+        /// <summary>
+        /// Fill in the form with current patient information
+        /// </summary>
         private void ShowPatientInformation()
         {
             this.firstNameTextBox.Text = this.thePatient.FirstName;
@@ -42,12 +47,22 @@ namespace Clinic.View
             this.zipMaskedTextBox.Text = this.thePatient.ZipCode;
         }
 
+        /// <summary>
+        /// Cancel button click handler to close form and re-enable the user control
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.thePatientUserControl.Enabled = true;
             this.Close();
         }
 
+        /// <summary>
+        /// Save button click handler to verify and update the patient information according to form input
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
             String alertText = "";
@@ -127,6 +142,11 @@ namespace Clinic.View
             this.alertNoticeLabel.Text = alertText;
         }
 
+        /// <summary>
+        /// Re-enable user control upon form closing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditPatient_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.thePatientUserControl.Enabled = true;

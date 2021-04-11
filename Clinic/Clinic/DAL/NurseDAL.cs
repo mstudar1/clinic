@@ -196,5 +196,38 @@ namespace Clinic.DAL
             }
             return nurseList;
         }
+
+        /// <summary>
+        /// Method that revises a record for a Nurse in the database.
+        /// Edits the Person and Nurse tables.
+        /// Requires that the record has not been changed since it was retrieved.
+        /// </summary>
+        /// <param name="originalNurse">The Nurse object that was originally retrieved.</param>
+        /// <param name="revisedNurse">A Nurse object with the revised values.</param>
+        /// <returns>True if the operation is successful, false otherwise.</returns>
+        public bool EditNurse(Nurse originalNurse, Nurse revisedNurse)
+        {
+            if (originalNurse == null)
+            {
+                throw new ArgumentNullException("originalPatient", "The original patient cannot be null.");
+            }
+
+            if (revisedNurse == null)
+            {
+                throw new ArgumentNullException("revisedPatient", "The revised patient cannot be null.");
+            }
+
+            if (originalNurse.PersonId != revisedNurse.PersonId)
+            {
+                throw new ArgumentException("The person ID must be the same for both Patient objects.");
+            }
+
+            if (originalNurse.NurseId != revisedNurse.NurseId)
+            {
+                throw new ArgumentException("The patient ID must be the same for both Patient objects.");
+            }
+
+            return this.thePersonDAL.EditPerson(originalNurse, revisedNurse);
+        }
     }
 }

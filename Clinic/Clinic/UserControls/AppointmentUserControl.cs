@@ -28,6 +28,23 @@ namespace Clinic.UserControls
         }
 
         /// <summary>
+        /// Reset the list of results.  This method is public so that it can be accessed by related forms as the 
+        /// return control back to the user control.
+        /// </summary>
+        public void ResetAppointmentListResults()
+        {
+            this.appointmentsSearchResultsListView.Items.Clear();
+        }
+
+        /// <summary>
+        /// Reset alert messages on the form
+        /// </summary>
+        public void ResetFormMessages()
+        {
+            this.alertTextLabel.Text = "";
+        }
+
+        /// <summary>
         /// Handler for clicks of the set appointment button
         /// </summary>
         /// <param name="sender"></param>
@@ -150,24 +167,5 @@ namespace Clinic.UserControls
             this.ResetAppointmentListResults();
             this.ResetFormMessages();
         }
-
-        /// <summary>
-        /// Reset the list of results.  This method is public so that it can be accessed by related forms as the 
-        /// return control back to the user control.
-        /// </summary>
-        public void ResetAppointmentListResults()
-        {
-            this.appointmentsSearchResultsListView.Items.Clear();           
-        }
-
-        /// <summary>
-        /// Reset alert messages on the form
-        /// </summary>
-        public void ResetFormMessages()
-        {
-            this.alertTextLabel.Text = "";
-        }
-
-        
     }
 }

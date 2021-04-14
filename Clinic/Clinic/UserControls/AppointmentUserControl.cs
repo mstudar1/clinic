@@ -36,6 +36,17 @@ namespace Clinic.UserControls
             this.appointmentsSearchResultsListView.Items.Clear();
         }
 
+        public void EnableOrDisableBeginVisitButton(Person theUser)
+        {
+            if (theUser is Nurse)
+            {
+                this.beginVisitButton.Enabled = true;
+            } else
+            {
+                this.beginVisitButton.Enabled = false;
+            }
+        }
+
         /// <summary>
         /// Reset alert messages on the form
         /// </summary>

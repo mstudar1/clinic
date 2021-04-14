@@ -54,6 +54,12 @@ namespace Clinic.View
             this.theLoginForm = theInputLoginForm;
         }
 
+        public void EnableOrDisableBeginVisitButtonOnAppointmentUserControl(string username)
+        {
+            Person user = this.theCredentialController.GetUser(this.username);
+            this.appointmentUserControl1.EnableOrDisableBeginVisitButton(user);
+        }
+
         // Exits the program when the NurseAdminForm 'X' is clicked
         private void ApplicationFormsClosing(object sender, FormClosingEventArgs e)
         {
@@ -101,6 +107,11 @@ namespace Clinic.View
         private void PatientUserControl_Load(object sender, EventArgs e)
         {
             this.patientUserControl1.RefreshPatientsListData();
+        }
+
+        private void RefreshNurseList(object sender, TabControlEventArgs e)
+        {
+
         }
     }
 }

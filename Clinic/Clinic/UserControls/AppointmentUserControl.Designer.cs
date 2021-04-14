@@ -30,6 +30,8 @@ namespace Clinic.UserControls
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dobDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.searchDobLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
@@ -51,8 +53,6 @@ namespace Clinic.UserControls
             this.setAppointmentButton = new System.Windows.Forms.Button();
             this.editAppointmentButton = new System.Windows.Forms.Button();
             this.beginVisitButton = new System.Windows.Forms.Button();
-            this.searchDobLabel = new System.Windows.Forms.Label();
-            this.dobDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -91,6 +91,27 @@ namespace Clinic.UserControls
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(539, 304);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // dobDateTimePicker
+            // 
+            this.dobDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dobDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dobDateTimePicker.Location = new System.Drawing.Point(137, 63);
+            this.dobDateTimePicker.Name = "dobDateTimePicker";
+            this.dobDateTimePicker.Size = new System.Drawing.Size(100, 23);
+            this.dobDateTimePicker.TabIndex = 44;
+            // 
+            // searchDobLabel
+            // 
+            this.searchDobLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchDobLabel.AutoSize = true;
+            this.searchDobLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchDobLabel.Location = new System.Drawing.Point(28, 60);
+            this.searchDobLabel.Name = "searchDobLabel";
+            this.searchDobLabel.Size = new System.Drawing.Size(103, 30);
+            this.searchDobLabel.TabIndex = 93;
+            this.searchDobLabel.Text = "Search Date of Birth:";
+            this.searchDobLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
@@ -322,27 +343,6 @@ namespace Clinic.UserControls
             this.beginVisitButton.Text = "Begin Visit";
             this.beginVisitButton.UseVisualStyleBackColor = true;
             this.beginVisitButton.Click += new System.EventHandler(this.BeginVisitButton_Click);
-            // 
-            // searchDobLabel
-            // 
-            this.searchDobLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchDobLabel.AutoSize = true;
-            this.searchDobLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchDobLabel.Location = new System.Drawing.Point(28, 60);
-            this.searchDobLabel.Name = "searchDobLabel";
-            this.searchDobLabel.Size = new System.Drawing.Size(103, 30);
-            this.searchDobLabel.TabIndex = 93;
-            this.searchDobLabel.Text = "Search Date of Birth:";
-            this.searchDobLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // dobDateTimePicker
-            // 
-            this.dobDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dobDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dobDateTimePicker.Location = new System.Drawing.Point(137, 63);
-            this.dobDateTimePicker.Name = "dobDateTimePicker";
-            this.dobDateTimePicker.Size = new System.Drawing.Size(100, 23);
-            this.dobDateTimePicker.TabIndex = 44;
             // 
             // AppointmentUserControl
             // 

@@ -37,6 +37,13 @@ namespace Clinic.UserControls
             this.appointmentsSearchResultsListView.Items.Clear();
         }
 
+        /// <summary>
+        /// Method that selectively enables or diables the
+        /// 'begin visit' button based on the type of user
+        /// that is logged in.  For nurses, the button is enabled.
+        /// For administrators, the button is disabled.
+        /// </summary>
+        /// <param name="theUser"></param>
         public void EnableOrDisableBeginVisitButton(Person theUser)
         {
             if (theUser is Nurse)
@@ -56,6 +63,10 @@ namespace Clinic.UserControls
             this.alertTextLabel.Text = "";
         }
 
+        /// <summary>
+        /// Method that can be called to set the current user instance variable.
+        /// </summary>
+        /// <param name="currentUser">The current user.</param>
         public void SetCurrentUser(Person currentUser)
         {
             this.currentUser = currentUser;

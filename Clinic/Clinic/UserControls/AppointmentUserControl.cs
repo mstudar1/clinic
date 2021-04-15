@@ -15,6 +15,7 @@ namespace Clinic.UserControls
         private MakeAppointmentForm makeAppointmentForm;
         private EditAppointmentForm editAppointmentForm;
         private AddVisitForm addVisitForm;
+        private Person currentUser;
         public  AppointmentController appointmentController;
         public List<Appointment> appointmentList;
 
@@ -53,6 +54,11 @@ namespace Clinic.UserControls
         public void ResetFormMessages()
         {
             this.alertTextLabel.Text = "";
+        }
+
+        public void SetCurrentUser(Person currentUser)
+        {
+            this.currentUser = currentUser;
         }
 
         /// <summary>
@@ -163,7 +169,7 @@ namespace Clinic.UserControls
             {
                 int selectedIndex = this.appointmentsSearchResultsListView.SelectedIndices[0];
                 Appointment selectedAppointment = this.appointmentList[selectedIndex];
-                this.addVisitForm = new AddVisitForm(selectedAppointment);
+                this.addVisitForm = new AddVisitForm(selectedAppointment, (Nurse) this.currentUser);
                 this.addVisitForm.Show();
             }
         }

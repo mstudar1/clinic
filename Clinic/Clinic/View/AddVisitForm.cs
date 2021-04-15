@@ -1,7 +1,6 @@
 ﻿using Clinic.Controller;
 using Clinic.Model;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Clinic.View
@@ -13,18 +12,18 @@ namespace Clinic.View
     {
         private readonly Appointment theAppointment;
         private readonly VisitController theVisitController;
-        private readonly NurseController theNurseController;
+        private readonly Nurse currentUser;
 
         /// <summary>
         /// Constructor for the form
         /// </summary>
         /// <param name="theAppointment">the Appointment object for the visit</param>
-        public AddVisitForm(Appointment theAppointment)
+        public AddVisitForm(Appointment theAppointment, Nurse currentUser)
         {
             InitializeComponent();
             this.theAppointment = theAppointment ?? throw new ArgumentNullException("theAppointment", "The appointment object cannot be null.");
+            this.currentUser = currentUser ?? throw new ArgumentNullException("currentUser", "The user object cannot be null.");
             this.theVisitController = new VisitController();
-            this.theNurseController = new NurseController();
         }
 
         /// <summary>
@@ -35,17 +34,7 @@ namespace Clinic.View
         private void AddVisitForm_Load(object sender, EventArgs e)
         {
             this.CheckIfDupe();
-            this.PopulateNurseComboBox();
-        }
-
-        /// <summary>
-        /// Populate the nurse combo box with nurse names from the DB
-        /// </summary>
-        private void PopulateNurseComboBox()
-        {
-            List<Nurse> nurseList = this.theNurseController.GetAllNurses();
-            this.nurseComboBox.DataSource = nurseList;
-            this.appointmentBindingSource.Add(theAppointment);
+            this.appointmentBindingSource.Add(this.theAppointment);
         }
 
         /// <summary>
@@ -81,7 +70,7 @@ namespace Clinic.View
                 Visit theVisit = new Visit
                 {
                     AppointmentId = this.theAppointment.AppointmentId,
-                    NurseId = int.Parse(this.nurseComboBox.SelectedValue.ToString()),
+                    NurseId = currentUser.NurseId,
                     Weight = double.Parse(this.weightTextBox.Text),
                     Pulse = int.Parse(this.pulseTextBox.Text),
                     SystolicBloodPressure = int.Parse(this.systolicBloodPressureTextBox.Text),

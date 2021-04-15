@@ -58,7 +58,7 @@ namespace Clinic
                     this.theNurseAdminForm.ShowNurseTabOnlyForAdmin();
                     this.theNurseAdminForm.Show();
                     this.theNurseAdminForm.SetActiveUsername(usernameTextBox.Text);
-                    this.theNurseAdminForm.EnableOrDisableBeginVisitButtonOnAppointmentUserControl(usernameTextBox.Text);
+                    this.theNurseAdminForm.SetCurrentUserOnAppointmentUserControl();
                     this.passwordTextBox.Text = "";
                     this.Hide();
                 }

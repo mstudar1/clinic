@@ -54,9 +54,13 @@ namespace Clinic.View
             this.theLoginForm = theInputLoginForm;
         }
 
-        public void EnableOrDisableBeginVisitButtonOnAppointmentUserControl(string username)
+        /// <summary>
+        /// Method that can be called to set the value of the instance variable for the current user on the appointment user control.
+        /// </summary>
+        public void SetCurrentUserOnAppointmentUserControl()
         {
             Person user = this.theCredentialController.GetUser(this.username);
+            this.appointmentUserControl1.SetCurrentUser(user);
             this.appointmentUserControl1.EnableOrDisableBeginVisitButton(user);
         }
 

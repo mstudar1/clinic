@@ -65,6 +65,21 @@ namespace Clinic.Controller
         }
 
         /// <summary>
+        /// Method that finds all of the visits on the specified date.
+        /// </summary>
+        /// <param name="visitDate">The visit date to search for.</param>
+        /// <returns>A list of Visit objects associated with the specified patient(s).</returns>
+        public List<Visit> FindVisits(DateTime visitDate)
+        {
+            if (visitDate == null)
+            {
+                throw new ArgumentNullException("visitDate", "The visit date cannot be null or empty.");
+            }
+
+            return this.visitSource.FindVisits(visitDate);
+        }
+
+        /// <summary>
         /// Method that determines if a visit has been entered in to the DB.
         /// </summary>
         /// <param name="appointmentId">The ID of the appointment.</param>

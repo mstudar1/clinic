@@ -141,12 +141,12 @@ namespace Clinic.View
                 {
                     AppointmentId = this.theAppointment.AppointmentId,
                     NurseId = currentUser.NurseId,
-                    Weight = double.Parse(this.weightTextBox.Text),
-                    Pulse = int.Parse(this.pulseTextBox.Text),
-                    SystolicBloodPressure = int.Parse(this.systolicBloodPressureTextBox.Text),
-                    DiastolicBloodPressure = int.Parse(this.diastolicBloodPressureTextBox.Text),
-                    BodyTemperature = double.Parse(this.bodyTemperatureTextBox.Text),
-                    Symptoms = this.symptomsTextBox.Text
+                    Weight = weight,
+                    Pulse = pulse,
+                    SystolicBloodPressure = systolicBloodPressure,
+                    DiastolicBloodPressure = diastolicBloodPressure,
+                    BodyTemperature = bodyTemperature,
+                    Symptoms = symptoms
                 };
                 this.theVisitController.AddVisit(theVisit);
                 string title = "Success";

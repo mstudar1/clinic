@@ -13,6 +13,12 @@ namespace Clinic.View
         private readonly Appointment theAppointment;
         private readonly VisitController theVisitController;
         private readonly Nurse currentUser;
+        private double weight;
+        private int pulse;
+        private int systolicBloodPressure;
+        private int diastolicBloodPressure;
+        private double bodyTemperature;
+        private string symptoms;
 
         /// <summary>
         /// Constructor for the form
@@ -57,6 +63,55 @@ namespace Clinic.View
             }
         }
 
+        private bool AllInputsAreValid()
+        {
+            bool allInputsAreValid = true;
+
+            bool weightIsValid = double.TryParse(this.weightTextBox.Text, out this.weight);
+            if (!weightIsValid)
+            {
+                this.weightValidationLabel.Text = "The weight must be a valid number.";
+                allInputsAreValid = false;
+            }
+
+            bool pulseIsValid = int.TryParse(this.pulseTextBox.Text, out this.pulse);
+            if (!pulseIsValid)
+            {
+                this.pulseValidationLabel.Text = "The pulse must be a valid integer.";
+                allInputsAreValid = false;
+            }
+
+            bool systolicBloodPressureIsValid = int.TryParse(this.systolicBloodPressureTextBox.Text, out this.systolicBloodPressure);
+            if (!systolicBloodPressureIsValid)
+            {
+                this.systolicBloodPressureValidationLabel.Text = "The systolic blood pressure must be a valid integer.";
+                allInputsAreValid = false;
+            }
+
+            bool diastolicBloodPressureIsValid = int.TryParse(this.diastolicBloodPressureTextBox.Text, out this.diastolicBloodPressure);
+            if (!diastolicBloodPressureIsValid)
+            {
+                this.diastolicBloodPressureValidationLabel.Text = "The diastolic blood pressure must be a valid integer.";
+                allInputsAreValid = false;
+            }
+
+            bool bodyTemperatureIsValid = double.TryParse(this.bodyTemperatureTextBox.Text, out this.bodyTemperature);
+            if (!bodyTemperatureIsValid)
+            {
+                this.bodyTemperatureValidationLabel.Text = "The body temperature must be a valid number.";
+                allInputsAreValid = false;
+            }
+
+            bool symptomsAreValid = string.IsNullOrEmpty(this.symptomsTextBox.Text);
+            if (!symptomsAreValid)
+            {
+                this.symptomsValidationLabel.Text = "The symptoms field cannot be empty.";
+                allInputsAreValid = false;
+            }
+
+            return allInputsAreValid;
+        }
+
         /// <summary>
         /// Button click handler which creates new visit in DB with information 
         /// from the form and handles exceptions as needed
@@ -65,6 +120,11 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void AddButton_Click(object sender, EventArgs e)
         {
+            if (!AllInputsAreValid())
+            {
+                return;
+            }
+
             try
             {
                 Visit theVisit = new Visit

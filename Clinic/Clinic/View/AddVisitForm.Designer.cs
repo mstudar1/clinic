@@ -151,6 +151,7 @@ namespace Clinic.View
             // 
             this.tableLayoutPanel6.ColumnCount = 1;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.symptomsTextBox, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.symptomsValidationLabel, 0, 0);
             this.tableLayoutPanel6.Location = new System.Drawing.Point(291, 519);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -215,6 +216,7 @@ namespace Clinic.View
             this.bodyTemperatureTextBox.Name = "bodyTemperatureTextBox";
             this.bodyTemperatureTextBox.Size = new System.Drawing.Size(341, 30);
             this.bodyTemperatureTextBox.TabIndex = 70;
+            this.bodyTemperatureTextBox.TextChanged += new System.EventHandler(this.BodyTemperatureTextBox_TextChanged);
             // 
             // pulseLabel
             // 
@@ -261,6 +263,7 @@ namespace Clinic.View
             this.diastolicBloodPressureTextBox.Name = "diastolicBloodPressureTextBox";
             this.diastolicBloodPressureTextBox.Size = new System.Drawing.Size(341, 30);
             this.diastolicBloodPressureTextBox.TabIndex = 60;
+            this.diastolicBloodPressureTextBox.TextChanged += new System.EventHandler(this.DiastolicBloodPressureTextBox_TextChanged);
             // 
             // systolicBloodPressureLabel
             // 
@@ -307,6 +310,7 @@ namespace Clinic.View
             this.systolicBloodPressureTextBox.Name = "systolicBloodPressureTextBox";
             this.systolicBloodPressureTextBox.Size = new System.Drawing.Size(341, 30);
             this.systolicBloodPressureTextBox.TabIndex = 50;
+            this.systolicBloodPressureTextBox.TextChanged += new System.EventHandler(this.SystolicBloodPressureTextBox_TextChanged);
             // 
             // diastolicBloodPressureLabel
             // 
@@ -353,6 +357,7 @@ namespace Clinic.View
             this.pulseTextBox.Name = "pulseTextBox";
             this.pulseTextBox.Size = new System.Drawing.Size(341, 30);
             this.pulseTextBox.TabIndex = 40;
+            this.pulseTextBox.TextChanged += new System.EventHandler(this.PulseTextBox_TextChanged);
             // 
             // bodyTemperatureLabel
             // 
@@ -389,6 +394,7 @@ namespace Clinic.View
             this.weightTextBox.Name = "weightTextBox";
             this.weightTextBox.Size = new System.Drawing.Size(341, 30);
             this.weightTextBox.TabIndex = 30;
+            this.weightTextBox.TextChanged += new System.EventHandler(this.WeightTextBox_TextChanged);
             // 
             // weightValidationLabel
             // 
@@ -530,8 +536,9 @@ namespace Clinic.View
             this.symptomsTextBox.Location = new System.Drawing.Point(3, 30);
             this.symptomsTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.symptomsTextBox.Name = "symptomsTextBox";
-            this.symptomsTextBox.Size = new System.Drawing.Size(372, 30);
-            this.symptomsTextBox.TabIndex = 80;
+            this.symptomsTextBox.Size = new System.Drawing.Size(341, 30);
+            this.symptomsTextBox.TabIndex = 71;
+            this.symptomsTextBox.TextChanged += new System.EventHandler(this.SymptomsTextBox_TextChanged);
             // 
             // AddVisitForm
             // 
@@ -589,7 +596,6 @@ namespace Clinic.View
         private System.Windows.Forms.TextBox weightTextBox;
         private System.Windows.Forms.TextBox pulseTextBox;
         private System.Windows.Forms.TextBox bodyTemperatureTextBox;
-        private System.Windows.Forms.TextBox symptomsTextBox;
         private System.Windows.Forms.TableLayoutPanel headerTableLayoutPanel;
         private System.Windows.Forms.BindingSource appointmentBindingSource;
         private System.Windows.Forms.Label doctorFullNameOutputLabel;
@@ -607,5 +613,6 @@ namespace Clinic.View
         private System.Windows.Forms.Label bodyTemperatureValidationLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Label symptomsValidationLabel;
+        private System.Windows.Forms.TextBox symptomsTextBox;
     }
 }

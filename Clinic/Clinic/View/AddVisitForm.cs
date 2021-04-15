@@ -102,7 +102,7 @@ namespace Clinic.View
                 allInputsAreValid = false;
             }
 
-            bool symptomsAreValid = string.IsNullOrEmpty(this.symptomsTextBox.Text);
+            bool symptomsAreValid = !string.IsNullOrWhiteSpace(this.symptomsTextBox.Text);
             if (!symptomsAreValid)
             {
                 this.symptomsValidationLabel.Text = "The symptoms field cannot be empty.";
@@ -110,6 +110,16 @@ namespace Clinic.View
             }
 
             return allInputsAreValid;
+        }
+
+        private void ResetValidationLabels()
+        {
+            this.weightValidationLabel.Text = "";
+            this.pulseValidationLabel.Text = "";
+            this.systolicBloodPressureValidationLabel.Text = "";
+            this.diastolicBloodPressureValidationLabel.Text = "";
+            this.bodyTemperatureValidationLabel.Text = "";
+            this.symptomsValidationLabel.Text = "";
         }
 
         /// <summary>
@@ -168,6 +178,36 @@ namespace Clinic.View
             {
                 this.Close();
             }
+        }
+
+        private void WeightTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ResetValidationLabels();
+        }
+
+        private void PulseTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ResetValidationLabels();
+        }
+
+        private void SystolicBloodPressureTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ResetValidationLabels();
+        }
+
+        private void DiastolicBloodPressureTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ResetValidationLabels();
+        }
+
+        private void BodyTemperatureTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ResetValidationLabels();
+        }
+
+        private void SymptomsTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ResetValidationLabels();
         }
     }
 }

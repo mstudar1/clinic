@@ -68,7 +68,7 @@ namespace Clinic.Controller
         /// Method that finds all of the visits on the specified date.
         /// </summary>
         /// <param name="visitDate">The visit date to search for.</param>
-        /// <returns>A list of Visit objects associated with the specified patient(s).</returns>
+        /// <returns>A list of visits scheduled for the specified date.</returns>
         public List<Visit> FindVisits(DateTime visitDate)
         {
             if (visitDate == null)
@@ -77,6 +77,27 @@ namespace Clinic.Controller
             }
 
             return this.visitSource.FindVisits(visitDate);
+        }
+
+        /// <summary>
+        /// Method that finds all of the visits for patient(s) with the specified last name and date of birth.
+        /// </summary>
+        /// <param name="lastName">The last name of the patient.</param>
+        /// <param name="dateOfBirth">The patient's date of birth.</param>
+        /// <returns>A list of Visit objects associated with the specified patient(s).</returns>
+        public List<Visit> FindVisits(string lastName, DateTime dateOfBirth)
+        {
+            if (string.IsNullOrEmpty(lastName))
+            {
+                throw new ArgumentNullException("lastName", "The last name cannot be null or empty.");
+            }
+
+            if (dateOfBirth == null)
+            {
+                throw new ArgumentNullException("dateOfBirth", "The date of birth cannot be null or empty.");
+            }
+
+            return this.visitSource.FindVisits(lastName, dateOfBirth);
         }
 
         /// <summary>

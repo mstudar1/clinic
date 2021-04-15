@@ -258,6 +258,7 @@ namespace Clinic.UserControls
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(171, 20);
             this.lastNameTextBox.TabIndex = 4;
+            this.lastNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LastNameTextBox_KeyDown);
             // 
             // dateOfBirthDateTimePicker
             // 
@@ -268,6 +269,7 @@ namespace Clinic.UserControls
             this.dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
             this.dateOfBirthDateTimePicker.Size = new System.Drawing.Size(171, 20);
             this.dateOfBirthDateTimePicker.TabIndex = 3;
+            this.dateOfBirthDateTimePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DateOfBirthDateTimePicker_KeyDown);
             // 
             // clearSearchResultsTableLayoutPanel
             // 

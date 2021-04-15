@@ -133,5 +133,21 @@ namespace Clinic.UserControls
         {
             this.SearchByLastNameAndDateOfBirth();
         }
+
+        private void DateOfBirthDateTimePicker_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SearchByLastNameAndDateOfBirth();
+            }
+        }
+
+        private void LastNameTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SearchByLastNameAndDateOfBirth();
+            }
+        }
     }
 }

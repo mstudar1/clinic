@@ -64,6 +64,39 @@ namespace Clinic.UserControls
             }
         }
 
+        private void SearchByLastNameAndDateOfBirth()
+        {
+            this.ClearList();
+            try
+            {
+                string lastName = this.lastNameTextBox.Text;
+                DateTime dateOfBirth = this.dateOfBirthDateTimePicker.Value.Date;
+                this.visitList = this.theVisitController.FindVisits(lastName, dateOfBirth);
+
+                if (this.visitList.Count > 0)
+                {
+                    Visit theVisit;
+                    for (int i = 0; i < visitList.Count; i++)
+                    {
+                        theVisit = this.visitList[i];
+                        this.visitListView.Items.Add(theVisit.PatientFullName);
+                        this.visitListView.Items[i].SubItems.Add(theVisit.PatientDateOfBirth.ToShortDateString());
+                        this.visitListView.Items[i].SubItems.Add(theVisit.DoctorFullName);
+                        this.visitListView.Items[i].SubItems.Add(theVisit.NurseFullName);
+                        this.visitListView.Items[i].SubItems.Add(theVisit.VisitDate.ToShortDateString());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("There are no visits for the specified patient(s).", "No Matching Visits");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
         private void ResetButton_Click(object sender, EventArgs e)
         {
             this.ClearList();
@@ -94,6 +127,11 @@ namespace Clinic.UserControls
             {
                 this.SearchByDate();
             }
+        }
+
+        private void SearchByLastNameAndDateOfBirthButton_Click(object sender, EventArgs e)
+        {
+            this.SearchByLastNameAndDateOfBirth();
         }
     }
 }

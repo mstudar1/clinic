@@ -224,6 +224,7 @@ namespace Clinic.UserControls
             this.searchByLastNameAndDateOfBirthButton.TabIndex = 0;
             this.searchByLastNameAndDateOfBirthButton.Text = "Search by Last Name and Date of Birth";
             this.searchByLastNameAndDateOfBirthButton.UseVisualStyleBackColor = true;
+            this.searchByLastNameAndDateOfBirthButton.Click += new System.EventHandler(this.SearchByLastNameAndDateOfBirthButton_Click);
             // 
             // lastNameLabel
             // 

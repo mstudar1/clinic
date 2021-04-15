@@ -27,7 +27,7 @@ namespace Clinic.UserControls
         private void Search()
         {
             this.ClearList();
-            this.PopulateList();
+            // this.PopulateList();
         }
 
         private void ClearList()
@@ -38,6 +38,7 @@ namespace Clinic.UserControls
             }
         }
 
+        /*
         private void PopulateList()
         {
             try
@@ -68,6 +69,7 @@ namespace Clinic.UserControls
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
+        */
 
         private void SearchButton_Click(object sender, EventArgs e)
         {

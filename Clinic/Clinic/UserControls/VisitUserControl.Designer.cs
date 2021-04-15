@@ -95,8 +95,7 @@ namespace Clinic.UserControls
             this.visitListView.Margin = new System.Windows.Forms.Padding(2);
             this.visitListView.Name = "visitListView";
             this.visitListView.Size = new System.Drawing.Size(521, 96);
-            this.visitListView.TabIndex = 4;
-            this.visitListView.TabStop = false;
+            this.visitListView.TabIndex = 40;
             this.visitListView.UseCompatibleStateImageBehavior = false;
             this.visitListView.View = System.Windows.Forms.View.Details;
             // 
@@ -137,7 +136,7 @@ namespace Clinic.UserControls
             this.viewVisitDetailsButton.Margin = new System.Windows.Forms.Padding(2);
             this.viewVisitDetailsButton.Name = "viewVisitDetailsButton";
             this.viewVisitDetailsButton.Size = new System.Drawing.Size(535, 34);
-            this.viewVisitDetailsButton.TabIndex = 5;
+            this.viewVisitDetailsButton.TabIndex = 50;
             this.viewVisitDetailsButton.Text = "View Visit Details";
             this.viewVisitDetailsButton.UseVisualStyleBackColor = true;
             this.viewVisitDetailsButton.Click += new System.EventHandler(this.ViewVisitDetailsButton_Click);
@@ -158,7 +157,7 @@ namespace Clinic.UserControls
             this.searchByDateTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.searchByDateTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.searchByDateTableLayoutPanel.Size = new System.Drawing.Size(533, 24);
-            this.searchByDateTableLayoutPanel.TabIndex = 6;
+            this.searchByDateTableLayoutPanel.TabIndex = 10;
             // 
             // searchByDateButton
             // 
@@ -166,7 +165,7 @@ namespace Clinic.UserControls
             this.searchByDateButton.Location = new System.Drawing.Point(357, 3);
             this.searchByDateButton.Name = "searchByDateButton";
             this.searchByDateButton.Size = new System.Drawing.Size(173, 18);
-            this.searchByDateButton.TabIndex = 0;
+            this.searchByDateButton.TabIndex = 20;
             this.searchByDateButton.Text = "Search By Date";
             this.searchByDateButton.UseVisualStyleBackColor = true;
             this.searchByDateButton.Click += new System.EventHandler(this.SearchByDateButton_Click);
@@ -191,7 +190,7 @@ namespace Clinic.UserControls
             this.visitDateTimePicker.Location = new System.Drawing.Point(180, 3);
             this.visitDateTimePicker.Name = "visitDateTimePicker";
             this.visitDateTimePicker.Size = new System.Drawing.Size(171, 20);
-            this.visitDateTimePicker.TabIndex = 2;
+            this.visitDateTimePicker.TabIndex = 10;
             this.visitDateTimePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VisitDateTimePicker_KeyDown);
             // 
             // searchByLastNameAndDateOfBirthTableLayoutPanel
@@ -212,7 +211,7 @@ namespace Clinic.UserControls
             this.searchByLastNameAndDateOfBirthTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.searchByLastNameAndDateOfBirthTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.searchByLastNameAndDateOfBirthTableLayoutPanel.Size = new System.Drawing.Size(533, 54);
-            this.searchByLastNameAndDateOfBirthTableLayoutPanel.TabIndex = 7;
+            this.searchByLastNameAndDateOfBirthTableLayoutPanel.TabIndex = 20;
             // 
             // searchByLastNameAndDateOfBirthButton
             // 
@@ -221,7 +220,7 @@ namespace Clinic.UserControls
             this.searchByLastNameAndDateOfBirthButton.Name = "searchByLastNameAndDateOfBirthButton";
             this.searchByLastNameAndDateOfBirthTableLayoutPanel.SetRowSpan(this.searchByLastNameAndDateOfBirthButton, 2);
             this.searchByLastNameAndDateOfBirthButton.Size = new System.Drawing.Size(173, 48);
-            this.searchByLastNameAndDateOfBirthButton.TabIndex = 0;
+            this.searchByLastNameAndDateOfBirthButton.TabIndex = 30;
             this.searchByLastNameAndDateOfBirthButton.Text = "Search by Last Name and Date of Birth";
             this.searchByLastNameAndDateOfBirthButton.UseVisualStyleBackColor = true;
             this.searchByLastNameAndDateOfBirthButton.Click += new System.EventHandler(this.SearchByLastNameAndDateOfBirthButton_Click);
@@ -257,7 +256,7 @@ namespace Clinic.UserControls
             this.lastNameTextBox.Location = new System.Drawing.Point(180, 4);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(171, 20);
-            this.lastNameTextBox.TabIndex = 4;
+            this.lastNameTextBox.TabIndex = 10;
             this.lastNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LastNameTextBox_KeyDown);
             // 
             // dateOfBirthDateTimePicker
@@ -268,7 +267,7 @@ namespace Clinic.UserControls
             this.dateOfBirthDateTimePicker.Location = new System.Drawing.Point(180, 31);
             this.dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
             this.dateOfBirthDateTimePicker.Size = new System.Drawing.Size(171, 20);
-            this.dateOfBirthDateTimePicker.TabIndex = 3;
+            this.dateOfBirthDateTimePicker.TabIndex = 20;
             this.dateOfBirthDateTimePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DateOfBirthDateTimePicker_KeyDown);
             // 
             // clearSearchResultsTableLayoutPanel
@@ -285,7 +284,7 @@ namespace Clinic.UserControls
             this.clearSearchResultsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.clearSearchResultsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.clearSearchResultsTableLayoutPanel.Size = new System.Drawing.Size(533, 24);
-            this.clearSearchResultsTableLayoutPanel.TabIndex = 8;
+            this.clearSearchResultsTableLayoutPanel.TabIndex = 30;
             // 
             // clearSearchResultsButton
             // 
@@ -293,7 +292,7 @@ namespace Clinic.UserControls
             this.clearSearchResultsButton.Location = new System.Drawing.Point(357, 3);
             this.clearSearchResultsButton.Name = "clearSearchResultsButton";
             this.clearSearchResultsButton.Size = new System.Drawing.Size(173, 18);
-            this.clearSearchResultsButton.TabIndex = 0;
+            this.clearSearchResultsButton.TabIndex = 10;
             this.clearSearchResultsButton.Text = "Clear Search Results";
             this.clearSearchResultsButton.UseVisualStyleBackColor = true;
             this.clearSearchResultsButton.Click += new System.EventHandler(this.ClearSearchResultsButton_Click);

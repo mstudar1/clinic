@@ -107,6 +107,9 @@ namespace Clinic.View
             {
                 this.symptomsValidationLabel.Text = "The symptoms field cannot be empty.";
                 allInputsAreValid = false;
+            } else
+            {
+                symptoms = this.symptomsTextBox.Text;
             }
 
             return allInputsAreValid;

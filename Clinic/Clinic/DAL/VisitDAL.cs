@@ -238,7 +238,7 @@ namespace Clinic.DAL
                     "JOIN Person patInfo ON pat.personId = patInfo.personId " +
                     "JOIN Person docInfo ON doc.personId = docInfo.personId " +
                     "JOIN Person nurseInfo ON nurse.nurseId = nurseInfo.personId " +
-                "WHERE a.startDateTime = @VisitDate " +
+                "WHERE CONVERT(DATE, a.startDateTime) = @VisitDate " +
                 "ORDER BY a.startDateTime ASC";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())

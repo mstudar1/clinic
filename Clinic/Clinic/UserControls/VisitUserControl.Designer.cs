@@ -296,6 +296,7 @@ namespace Clinic.UserControls
             this.clearSearchResultsButton.TabIndex = 0;
             this.clearSearchResultsButton.Text = "Clear Search Results";
             this.clearSearchResultsButton.UseVisualStyleBackColor = true;
+            this.clearSearchResultsButton.Click += new System.EventHandler(this.ClearSearchResultsButton_Click);
             // 
             // searchResultsLabel
             // 

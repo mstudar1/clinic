@@ -61,7 +61,6 @@ namespace Clinic.View
         {
             Person user = this.theCredentialController.GetUser(this.username);
             this.appointmentUserControl1.SetCurrentUser(user);
-            this.appointmentUserControl1.EnableOrDisableBeginVisitButton(user);
         }
 
         // Exits the program when the NurseAdminForm 'X' is clicked

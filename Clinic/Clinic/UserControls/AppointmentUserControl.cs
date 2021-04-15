@@ -16,7 +16,7 @@ namespace Clinic.UserControls
         private EditAppointmentForm editAppointmentForm;
         private AddVisitForm addVisitForm;
         private Person currentUser;
-        public  AppointmentController appointmentController;
+        public AppointmentController appointmentController;
         public List<Appointment> appointmentList;
 
         /// <summary>
@@ -38,24 +38,6 @@ namespace Clinic.UserControls
         }
 
         /// <summary>
-        /// Method that selectively enables or diables the
-        /// 'begin visit' button based on the type of user
-        /// that is logged in.  For nurses, the button is enabled.
-        /// For administrators, the button is disabled.
-        /// </summary>
-        /// <param name="theUser"></param>
-        public void EnableOrDisableBeginVisitButton(Person theUser)
-        {
-            if (theUser is Nurse)
-            {
-                this.beginVisitButton.Enabled = true;
-            } else
-            {
-                this.beginVisitButton.Enabled = false;
-            }
-        }
-
-        /// <summary>
         /// Reset alert messages on the form
         /// </summary>
         public void ResetFormMessages()
@@ -70,6 +52,24 @@ namespace Clinic.UserControls
         public void SetCurrentUser(Person currentUser)
         {
             this.currentUser = currentUser;
+            this.EnableOrDisableBeginVisitButton();
+        }
+
+        private void EnableOrDisableBeginVisitButton()
+        {
+            if (this.currentUser == default)
+            {
+                throw new ArgumentNullException("The current user must be set before this method can be called.");
+            }
+
+            if (this.currentUser is Nurse)
+            {
+                this.beginVisitButton.Enabled = true;
+            }
+            else
+            {
+                this.beginVisitButton.Enabled = false;
+            }
         }
 
         /// <summary>

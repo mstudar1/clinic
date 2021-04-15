@@ -192,6 +192,7 @@ namespace Clinic.UserControls
             this.visitDateTimePicker.Name = "visitDateTimePicker";
             this.visitDateTimePicker.Size = new System.Drawing.Size(171, 20);
             this.visitDateTimePicker.TabIndex = 2;
+            this.visitDateTimePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VisitDateTimePicker_KeyDown);
             // 
             // searchByLastNameAndDateOfBirthTableLayoutPanel
             // 

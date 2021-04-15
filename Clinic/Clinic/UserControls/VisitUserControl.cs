@@ -87,5 +87,13 @@ namespace Clinic.UserControls
         {
             this.SearchByDate();
         }
+
+        private void VisitDateTimePicker_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SearchByDate();
+            }
+        }
     }
 }

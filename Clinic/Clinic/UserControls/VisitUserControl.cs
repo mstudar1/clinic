@@ -24,12 +24,6 @@ namespace Clinic.UserControls
             this.theVisitController = new VisitController();
         }
 
-        private void Search()
-        {
-            this.ClearList();
-            // this.PopulateList();
-        }
-
         private void ClearList()
         {
             foreach (ListViewItem item in this.visitListView.Items)
@@ -38,13 +32,13 @@ namespace Clinic.UserControls
             }
         }
 
-        /*
-        private void PopulateList()
+        private void SearchByDate()
         {
+            this.ClearList();
             try
             {
-                string lastName = this.lastNameTextBox.Text;
-                this.visitList = this.theVisitController.FindVisits(lastName);
+                DateTime visitDate = this.visitDateTimePicker.Value.Date;
+                this.visitList = this.theVisitController.FindVisits(visitDate);
 
                 if (this.visitList.Count > 0)
                 {
@@ -61,26 +55,12 @@ namespace Clinic.UserControls
                 }
                 else
                 {
-                    MessageBox.Show("There are no visits for the specified patient.", "No Matching Visits");
+                    MessageBox.Show("There are no visits for the specified date.", "No Matching Visits");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-        }
-        */
-
-        private void SearchButton_Click(object sender, EventArgs e)
-        {
-            this.Search();
-        }
-
-        private void PatientIdTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                this.Search();
             }
         }
 
@@ -101,6 +81,11 @@ namespace Clinic.UserControls
             Visit selectedVisit = this.visitList[selectedIndex];
             ViewVisitForm theViewVisitForm = new ViewVisitForm(selectedVisit);
             theViewVisitForm.ShowDialog();
+        }
+
+        private void SearchByDateButton_Click(object sender, EventArgs e)
+        {
+            this.SearchByDate();
         }
     }
 }

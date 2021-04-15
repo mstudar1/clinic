@@ -45,8 +45,8 @@ namespace Clinic.UserControls
             this.searchByLastNameAndDateOfBirthButton = new System.Windows.Forms.Button();
             this.lastNameLabel = new System.Windows.Forms.Label();
             this.dateOfBirthLabel = new System.Windows.Forms.Label();
-            this.dateOfBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
+            this.dateOfBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.clearSearchResultsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.clearSearchResultsButton = new System.Windows.Forms.Button();
             this.searchResultsLabel = new System.Windows.Forms.Label();
@@ -156,7 +156,7 @@ namespace Clinic.UserControls
             this.searchByDateTableLayoutPanel.Name = "searchByDateTableLayoutPanel";
             this.searchByDateTableLayoutPanel.RowCount = 1;
             this.searchByDateTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.searchByDateTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.searchByDateTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.searchByDateTableLayoutPanel.Size = new System.Drawing.Size(533, 24);
             this.searchByDateTableLayoutPanel.TabIndex = 6;
             // 
@@ -169,6 +169,7 @@ namespace Clinic.UserControls
             this.searchByDateButton.TabIndex = 0;
             this.searchByDateButton.Text = "Search By Date";
             this.searchByDateButton.UseVisualStyleBackColor = true;
+            this.searchByDateButton.Click += new System.EventHandler(this.SearchByDateButton_Click);
             // 
             // visitDateLabel
             // 
@@ -247,6 +248,15 @@ namespace Clinic.UserControls
             this.dateOfBirthLabel.TabIndex = 2;
             this.dateOfBirthLabel.Text = "Date of Birth:";
             // 
+            // lastNameTextBox
+            // 
+            this.lastNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameTextBox.Location = new System.Drawing.Point(180, 4);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(171, 20);
+            this.lastNameTextBox.TabIndex = 4;
+            // 
             // dateOfBirthDateTimePicker
             // 
             this.dateOfBirthDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -256,15 +266,6 @@ namespace Clinic.UserControls
             this.dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
             this.dateOfBirthDateTimePicker.Size = new System.Drawing.Size(171, 20);
             this.dateOfBirthDateTimePicker.TabIndex = 3;
-            // 
-            // lastNameTextBox
-            // 
-            this.lastNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameTextBox.Location = new System.Drawing.Point(180, 4);
-            this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(171, 20);
-            this.lastNameTextBox.TabIndex = 4;
             // 
             // clearSearchResultsTableLayoutPanel
             // 
@@ -278,7 +279,7 @@ namespace Clinic.UserControls
             this.clearSearchResultsTableLayoutPanel.Name = "clearSearchResultsTableLayoutPanel";
             this.clearSearchResultsTableLayoutPanel.RowCount = 1;
             this.clearSearchResultsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.clearSearchResultsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.clearSearchResultsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.clearSearchResultsTableLayoutPanel.Size = new System.Drawing.Size(533, 24);
             this.clearSearchResultsTableLayoutPanel.TabIndex = 8;
             // 

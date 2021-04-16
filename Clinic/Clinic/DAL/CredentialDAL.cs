@@ -14,16 +14,16 @@ namespace Clinic.DAL
         /// Method for checking if the specified credentials are valid.
         /// </summary>
         /// <param name="username">The username being checked.</param>
-        /// <param name="password">The password being checked.</param>
+        /// <param name="passwordHash">The SHA 256 hashed password being checked.</param>
         /// <returns>True if the specified credentials are valid.  False if the specified credentials are invalid.</returns>
-        public bool CredentialsAreValid(string username, string password)
+        public bool CredentialsAreValid(string username, string passwordHash)
         {
             if (string.IsNullOrEmpty(username))
             {
                 throw new ArgumentNullException("username", "The username cannot be null or empty.");
             }
 
-            if (string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(passwordHash))
             {
                 throw new ArgumentNullException("password", "The password cannot be null or empty.");
             }
@@ -32,7 +32,7 @@ namespace Clinic.DAL
                 "SELECT @NumberOfMatchingUsers = COUNT(username) " +
                 "FROM Credential " +
                 "WHERE userName = @Username " +
-                "AND password = @Password";
+                "AND passwordHash = @PasswordHash";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -45,7 +45,7 @@ namespace Clinic.DAL
                     };
                     selectCommand.Parameters.Add(countParameter);
                     selectCommand.Parameters.AddWithValue("@Username", username);
-                    selectCommand.Parameters.AddWithValue("@Password", password);
+                    selectCommand.Parameters.AddWithValue("@PasswordHash", passwordHash);
                     selectCommand.ExecuteNonQuery();
                     if (Convert.ToInt32(countParameter.Value) == 0)
                     {

@@ -1,6 +1,8 @@
 ﻿using Clinic.Controller;
 using Clinic.View;
 using System;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Clinic
@@ -34,45 +36,54 @@ namespace Clinic
         }
 
         /// <summary>
-        /// Executes the actions to check credentials and attempt to log in to the application
+        /// Executes the actions to check credentials and attempt to log in to the application.
+        /// Passwords are hashed using SHA256 before being checked against the DB to prevent 
+        /// passwords from being stored anywhere in the application.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void LoginButton_Click(object sender, EventArgs e)
         {
             string username = this.usernameTextBox.Text;
-            string password = this.passwordTextBox.Text;
-            try
+
+            using (var sha256 = SHA256.Create())
             {
-                if (this.theCredentialController.CredentialsAreValid(username, password))
+                var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(this.passwordTextBox.Text));
+                string passwordHash = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+
+                try
                 {
-                    if (this.theNurseAdminForm == null)
+                    if (this.theCredentialController.CredentialsAreValid(username, passwordHash))
                     {
-                        this.theNurseAdminForm = new NurseAdminForm(this);
+                        if (this.theNurseAdminForm == null)
+                        {
+                            this.theNurseAdminForm = new NurseAdminForm(this);
+                        }
+                        else
+                        {
+                            this.theNurseAdminForm.SetTheLoginForm(this);
+                        }
+                        this.theNurseAdminForm.SetActiveUsername(username);
+                        this.theNurseAdminForm.ShowNurseTabOnlyForAdmin();
+                        this.theNurseAdminForm.Show();
+                        this.theNurseAdminForm.SetActiveUsername(usernameTextBox.Text);
+                        this.theNurseAdminForm.SetCurrentUserOnAppointmentUserControl();
+                        this.passwordTextBox.Text = "";
+                        this.Hide();
                     }
                     else
                     {
-                        this.theNurseAdminForm.SetTheLoginForm(this);
+                        this.errorMessageLabel.Text = "Invalid username/password";
                     }
-                    this.theNurseAdminForm.SetActiveUsername(username);
-                    this.theNurseAdminForm.ShowNurseTabOnlyForAdmin();
-                    this.theNurseAdminForm.Show();
-                    this.theNurseAdminForm.SetActiveUsername(usernameTextBox.Text);
-                    this.theNurseAdminForm.SetCurrentUserOnAppointmentUserControl();
-                    this.passwordTextBox.Text = "";
-                    this.Hide();
                 }
-                else
+                catch (ArgumentNullException ex)
                 {
-                    this.errorMessageLabel.Text = "Invalid username/password";
+                    if (ex.ParamName == "username")
+                        this.errorMessageLabel.Text = "Please enter a username";
+                    else if (ex.ParamName == "password")
+                        this.errorMessageLabel.Text = "Please enter a password";
                 }
-            } catch (ArgumentNullException ex)
-            {
-                if (ex.ParamName == "username")
-                    this.errorMessageLabel.Text = "Please enter a username";
-                else if (ex.ParamName == "password")
-                    this.errorMessageLabel.Text = "Please enter a password";
-            } 
+            }
         }
 
         /// <summary>

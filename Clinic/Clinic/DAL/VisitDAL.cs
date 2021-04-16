@@ -71,7 +71,7 @@ namespace Clinic.DAL
                     "JOIN Nurse nurse ON v.nurseId = nurse.nurseId " +
                     "JOIN Person patInfo ON pat.personId = patInfo.personId " +
                     "JOIN Person docInfo ON doc.personId = docInfo.personId " +
-                    "JOIN Person nurseInfo ON nurse.nurseId = nurseInfo.personId " +
+                    "JOIN Person nurseInfo ON nurse.personId = nurseInfo.personId " +
                 "WHERE a.patientId = @PatientId " +
                 "ORDER BY a.startDateTime ASC";
 
@@ -154,7 +154,7 @@ namespace Clinic.DAL
                     "JOIN Nurse nurse ON v.nurseId = nurse.nurseId " +
                     "JOIN Person patInfo ON pat.personId = patInfo.personId " +
                     "JOIN Person docInfo ON doc.personId = docInfo.personId " +
-                    "JOIN Person nurseInfo ON nurse.nurseId = nurseInfo.personId " +
+                    "JOIN Person nurseInfo ON nurse.personId = nurseInfo.personId " +
                 "WHERE patInfo.lastName = @LastName " +
                 "ORDER BY a.startDateTime ASC";
 
@@ -237,7 +237,7 @@ namespace Clinic.DAL
                     "JOIN Nurse nurse ON v.nurseId = nurse.nurseId " +
                     "JOIN Person patInfo ON pat.personId = patInfo.personId " +
                     "JOIN Person docInfo ON doc.personId = docInfo.personId " +
-                    "JOIN Person nurseInfo ON nurse.nurseId = nurseInfo.personId " +
+                    "JOIN Person nurseInfo ON nurse.personId = nurseInfo.personId " +
                 "WHERE CONVERT(DATE, a.startDateTime) = @VisitDate " +
                 "ORDER BY a.startDateTime ASC";
 
@@ -326,7 +326,7 @@ namespace Clinic.DAL
                     "JOIN Nurse nurse ON v.nurseId = nurse.nurseId " +
                     "JOIN Person patInfo ON pat.personId = patInfo.personId " +
                     "JOIN Person docInfo ON doc.personId = docInfo.personId " +
-                    "JOIN Person nurseInfo ON nurse.nurseId = nurseInfo.personId " +
+                    "JOIN Person nurseInfo ON nurse.personId = nurseInfo.personId " +
                 "WHERE patInfo.lastName = @LastName " +
                     "AND patInfo.dateOfBirth = @DateOfBirth " +
                 "ORDER BY a.startDateTime ASC";

@@ -112,34 +112,43 @@ namespace Clinic.View
                 alertText += "Five digit zip number is required. ";
             }
 
+            this.alertNoticeLabel.Text = alertText;
+            
             if (alertText == "")
             {
                 if (MessageBox.Show("Are you sure you want to save the changes?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    Patient updatedPatient = new Patient
+                    try
                     {
-                        LastName = this.lastNameTextBox.Text,
-                        FirstName = this.firstNameTextBox.Text,
-                        DateOfBirth = this.dateOfBirthDateTimePicker.Value,
-                        SocialSecurityNumber = this.ssnMaskedTextBox.Text,
-                        Gender = this.genderComboBox.Text,
-                        PhoneNumber = this.phoneNumberMaskedTextBox.Text,
-                        AddressLine1 = this.address1TextBox.Text,
-                        AddressLine2 = this.address2TextBox.Text,
-                        City = this.cityTextBox.Text,
-                        State = this.stateComboBox.Text,
-                        ZipCode = this.zipMaskedTextBox.Text,
-                        PersonId = this.thePatient.PersonId,
-                        PatientId = this.thePatient.PatientId
-                    };
+                        Patient updatedPatient = new Patient
+                        {
+                            LastName = this.lastNameTextBox.Text,
+                            FirstName = this.firstNameTextBox.Text,
+                            DateOfBirth = this.dateOfBirthDateTimePicker.Value,
+                            SocialSecurityNumber = this.ssnMaskedTextBox.Text,
+                            Gender = this.genderComboBox.Text,
+                            PhoneNumber = this.phoneNumberMaskedTextBox.Text,
+                            AddressLine1 = this.address1TextBox.Text,
+                            AddressLine2 = this.address2TextBox.Text,
+                            City = this.cityTextBox.Text,
+                            State = this.stateComboBox.Text,
+                            ZipCode = this.zipMaskedTextBox.Text,
+                            PersonId = this.thePatient.PersonId,
+                            PatientId = this.thePatient.PatientId
+                        };
 
-                    this.thePatientController.EditPatient(this.thePatient, updatedPatient);
-                    this.thePatientUserControl.Enabled = true;
-                    this.thePatientUserControl.RefreshPatientsListData();
-                    this.Close();
+                        this.thePatientController.EditPatient(this.thePatient, updatedPatient);
+                        this.thePatientUserControl.Enabled = true;
+                        this.thePatientUserControl.RefreshPatientsListData();
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        this.alertNoticeLabel.Text = "Form data not submitted.\n" + ex.Message + " Please fix and try again. ";
+                    }
+
                 }
             }
-            this.alertNoticeLabel.Text = alertText;
         }
 
         /// <summary>

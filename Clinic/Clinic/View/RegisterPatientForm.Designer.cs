@@ -91,22 +91,21 @@ namespace Clinic.View
             this.registerPatientTableLayoutPanel.Controls.Add(this.dateOfBirthDateTimePicker, 1, 3);
             this.registerPatientTableLayoutPanel.Controls.Add(this.phoneNumberMaskedTextBox, 1, 5);
             this.registerPatientTableLayoutPanel.Controls.Add(this.alertNoticeLabel, 1, 10);
-            this.registerPatientTableLayoutPanel.Location = new System.Drawing.Point(1, 2);
-            this.registerPatientTableLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.registerPatientTableLayoutPanel.Location = new System.Drawing.Point(2, 3);
             this.registerPatientTableLayoutPanel.Name = "registerPatientTableLayoutPanel";
             this.registerPatientTableLayoutPanel.RowCount = 11;
             this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 71.59091F));
             this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.40909F));
-            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 83F));
-            this.registerPatientTableLayoutPanel.Size = new System.Drawing.Size(481, 562);
+            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
+            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
+            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
+            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 108F));
+            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 128F));
+            this.registerPatientTableLayoutPanel.Size = new System.Drawing.Size(722, 865);
             this.registerPatientTableLayoutPanel.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -117,22 +116,20 @@ namespace Clinic.View
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.09836F));
             this.tableLayoutPanel1.Controls.Add(this.cancelButton, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.registerButton, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(164, 421);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(246, 648);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(285, 44);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(428, 68);
             this.tableLayoutPanel1.TabIndex = 90;
             // 
             // cancelButton
             // 
             this.cancelButton.AutoSize = true;
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(132, 2);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelButton.Location = new System.Drawing.Point(199, 3);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(98, 39);
+            this.cancelButton.Size = new System.Drawing.Size(147, 60);
             this.cancelButton.TabIndex = 130;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -142,10 +139,9 @@ namespace Clinic.View
             // 
             this.registerButton.AutoSize = true;
             this.registerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerButton.Location = new System.Drawing.Point(2, 2);
-            this.registerButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.registerButton.Location = new System.Drawing.Point(3, 3);
             this.registerButton.Name = "registerButton";
-            this.registerButton.Size = new System.Drawing.Size(114, 39);
+            this.registerButton.Size = new System.Drawing.Size(171, 60);
             this.registerButton.TabIndex = 120;
             this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = true;
@@ -156,10 +152,9 @@ namespace Clinic.View
             this.addressLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.addressLabel.AutoSize = true;
             this.addressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressLabel.Location = new System.Drawing.Point(49, 306);
-            this.addressLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.addressLabel.Location = new System.Drawing.Point(74, 473);
             this.addressLabel.Name = "addressLabel";
-            this.addressLabel.Size = new System.Drawing.Size(81, 20);
+            this.addressLabel.Size = new System.Drawing.Size(121, 29);
             this.addressLabel.TabIndex = 6;
             this.addressLabel.Tag = "";
             this.addressLabel.Text = "Address1:";
@@ -168,10 +163,9 @@ namespace Clinic.View
             // 
             this.address1TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.address1TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address1TextBox.Location = new System.Drawing.Point(156, 298);
-            this.address1TextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.address1TextBox.Location = new System.Drawing.Point(237, 464);
             this.address1TextBox.Name = "address1TextBox";
-            this.address1TextBox.Size = new System.Drawing.Size(323, 26);
+            this.address1TextBox.Size = new System.Drawing.Size(482, 35);
             this.address1TextBox.TabIndex = 70;
             // 
             // address2Label
@@ -179,10 +173,9 @@ namespace Clinic.View
             this.address2Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.address2Label.AutoSize = true;
             this.address2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address2Label.Location = new System.Drawing.Point(49, 345);
-            this.address2Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.address2Label.Location = new System.Drawing.Point(74, 533);
             this.address2Label.Name = "address2Label";
-            this.address2Label.Size = new System.Drawing.Size(81, 20);
+            this.address2Label.Size = new System.Drawing.Size(121, 29);
             this.address2Label.TabIndex = 10;
             this.address2Label.Tag = "";
             this.address2Label.Text = "Address2:";
@@ -193,16 +186,15 @@ namespace Clinic.View
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.62327F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.37673F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 165F));
             this.tableLayoutPanel2.Controls.Add(this.stateLabel, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.address2TextBox, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.stateComboBox, 2, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(134, 332);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(201, 511);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(345, 31);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(518, 48);
             this.tableLayoutPanel2.TabIndex = 70;
             // 
             // stateLabel
@@ -210,10 +202,9 @@ namespace Clinic.View
             this.stateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.stateLabel.AutoSize = true;
             this.stateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stateLabel.Location = new System.Drawing.Point(181, 11);
-            this.stateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.stateLabel.Location = new System.Drawing.Point(275, 19);
             this.stateLabel.Name = "stateLabel";
-            this.stateLabel.Size = new System.Drawing.Size(52, 20);
+            this.stateLabel.Size = new System.Drawing.Size(74, 29);
             this.stateLabel.TabIndex = 11;
             this.stateLabel.Tag = "";
             this.stateLabel.Text = "State:";
@@ -222,15 +213,15 @@ namespace Clinic.View
             // 
             this.address2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.address2TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address2TextBox.Location = new System.Drawing.Point(21, 3);
-            this.address2TextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.address2TextBox.Location = new System.Drawing.Point(33, 10);
             this.address2TextBox.Name = "address2TextBox";
-            this.address2TextBox.Size = new System.Drawing.Size(155, 26);
+            this.address2TextBox.Size = new System.Drawing.Size(230, 35);
             this.address2TextBox.TabIndex = 80;
             // 
             // stateComboBox
             // 
             this.stateComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.stateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stateComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stateComboBox.FormattingEnabled = true;
             this.stateComboBox.Items.AddRange(new object[] {
@@ -285,10 +276,9 @@ namespace Clinic.View
             "WV",
             "WI",
             "WY"});
-            this.stateComboBox.Location = new System.Drawing.Point(237, 2);
-            this.stateComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.stateComboBox.Location = new System.Drawing.Point(355, 8);
             this.stateComboBox.Name = "stateComboBox";
-            this.stateComboBox.Size = new System.Drawing.Size(105, 28);
+            this.stateComboBox.Size = new System.Drawing.Size(156, 37);
             this.stateComboBox.TabIndex = 90;
             // 
             // phoneNumberLlabel
@@ -296,10 +286,9 @@ namespace Clinic.View
             this.phoneNumberLlabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.phoneNumberLlabel.AutoSize = true;
             this.phoneNumberLlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneNumberLlabel.Location = new System.Drawing.Point(11, 262);
-            this.phoneNumberLlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.phoneNumberLlabel.Location = new System.Drawing.Point(13, 405);
             this.phoneNumberLlabel.Name = "phoneNumberLlabel";
-            this.phoneNumberLlabel.Size = new System.Drawing.Size(119, 20);
+            this.phoneNumberLlabel.Size = new System.Drawing.Size(182, 29);
             this.phoneNumberLlabel.TabIndex = 12;
             this.phoneNumberLlabel.Tag = "";
             this.phoneNumberLlabel.Text = "Phone Number:";
@@ -309,10 +298,9 @@ namespace Clinic.View
             this.S.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.S.AutoSize = true;
             this.S.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S.Location = new System.Drawing.Point(84, 222);
-            this.S.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.S.Location = new System.Drawing.Point(126, 343);
             this.S.Name = "S";
-            this.S.Size = new System.Drawing.Size(46, 20);
+            this.S.Size = new System.Drawing.Size(69, 29);
             this.S.TabIndex = 14;
             this.S.Tag = "";
             this.S.Text = "SSN:";
@@ -322,10 +310,9 @@ namespace Clinic.View
             this.dobLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.dobLabel.AutoSize = true;
             this.dobLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dobLabel.Location = new System.Drawing.Point(24, 180);
-            this.dobLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.dobLabel.Location = new System.Drawing.Point(40, 278);
             this.dobLabel.Name = "dobLabel";
-            this.dobLabel.Size = new System.Drawing.Size(106, 20);
+            this.dobLabel.Size = new System.Drawing.Size(155, 29);
             this.dobLabel.TabIndex = 4;
             this.dobLabel.Tag = "";
             this.dobLabel.Text = "Date Of Birth:";
@@ -335,10 +322,9 @@ namespace Clinic.View
             this.lastNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lastNameLabel.AutoSize = true;
             this.lastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameLabel.Location = new System.Drawing.Point(40, 135);
-            this.lastNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lastNameLabel.Location = new System.Drawing.Point(61, 209);
             this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(90, 20);
+            this.lastNameLabel.Size = new System.Drawing.Size(134, 29);
             this.lastNameLabel.TabIndex = 2;
             this.lastNameLabel.Tag = "";
             this.lastNameLabel.Text = "Last Name:";
@@ -347,10 +333,9 @@ namespace Clinic.View
             // 
             this.lastNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameTextBox.Location = new System.Drawing.Point(156, 127);
-            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lastNameTextBox.Location = new System.Drawing.Point(237, 200);
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(323, 26);
+            this.lastNameTextBox.Size = new System.Drawing.Size(482, 35);
             this.lastNameTextBox.TabIndex = 20;
             // 
             // firstNameLabel
@@ -358,10 +343,9 @@ namespace Clinic.View
             this.firstNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.firstNameLabel.AutoSize = true;
             this.firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameLabel.Location = new System.Drawing.Point(40, 91);
-            this.firstNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.firstNameLabel.Location = new System.Drawing.Point(58, 141);
             this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(90, 20);
+            this.firstNameLabel.Size = new System.Drawing.Size(137, 29);
             this.firstNameLabel.TabIndex = 0;
             this.firstNameLabel.Tag = "";
             this.firstNameLabel.Text = "First Name:";
@@ -370,10 +354,9 @@ namespace Clinic.View
             // 
             this.firstNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.firstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameTextBox.Location = new System.Drawing.Point(156, 83);
-            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.firstNameTextBox.Location = new System.Drawing.Point(237, 132);
             this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(323, 26);
+            this.firstNameTextBox.Size = new System.Drawing.Size(482, 35);
             this.firstNameTextBox.TabIndex = 10;
             // 
             // registerPatientLabel
@@ -382,10 +365,9 @@ namespace Clinic.View
             this.registerPatientLabel.AutoSize = true;
             this.registerPatientLabel.Font = new System.Drawing.Font("Javanese Text", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.registerPatientLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.registerPatientLabel.Location = new System.Drawing.Point(134, 26);
-            this.registerPatientLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.registerPatientLabel.Location = new System.Drawing.Point(201, 40);
             this.registerPatientLabel.Name = "registerPatientLabel";
-            this.registerPatientLabel.Size = new System.Drawing.Size(265, 54);
+            this.registerPatientLabel.Size = new System.Drawing.Size(383, 82);
             this.registerPatientLabel.TabIndex = 16;
             this.registerPatientLabel.Text = "Register New Patient";
             // 
@@ -394,31 +376,30 @@ namespace Clinic.View
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.80103F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.19897F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 91F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
             this.tableLayoutPanel3.Controls.Add(this.genderComboBox, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.genderLabel, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.ssnMaskedTextBox, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(134, 202);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(201, 310);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(345, 38);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(518, 58);
             this.tableLayoutPanel3.TabIndex = 40;
             // 
             // genderComboBox
             // 
             this.genderComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.genderComboBox.DisplayMember = "1";
+            this.genderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genderComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.genderComboBox.FormattingEnabled = true;
             this.genderComboBox.Items.AddRange(new object[] {
             "M",
             "F"});
-            this.genderComboBox.Location = new System.Drawing.Point(259, 8);
-            this.genderComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.genderComboBox.Location = new System.Drawing.Point(391, 18);
             this.genderComboBox.Name = "genderComboBox";
-            this.genderComboBox.Size = new System.Drawing.Size(84, 28);
+            this.genderComboBox.Size = new System.Drawing.Size(124, 37);
             this.genderComboBox.TabIndex = 50;
             this.genderComboBox.Tag = "";
             // 
@@ -427,10 +408,9 @@ namespace Clinic.View
             this.genderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.genderLabel.AutoSize = true;
             this.genderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genderLabel.Location = new System.Drawing.Point(184, 18);
-            this.genderLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.genderLabel.Location = new System.Drawing.Point(276, 29);
             this.genderLabel.Name = "genderLabel";
-            this.genderLabel.Size = new System.Drawing.Size(67, 20);
+            this.genderLabel.Size = new System.Drawing.Size(100, 29);
             this.genderLabel.TabIndex = 13;
             this.genderLabel.Tag = "";
             this.genderLabel.Text = "Gender:";
@@ -439,11 +419,10 @@ namespace Clinic.View
             // 
             this.ssnMaskedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ssnMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ssnMaskedTextBox.Location = new System.Drawing.Point(21, 10);
-            this.ssnMaskedTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ssnMaskedTextBox.Location = new System.Drawing.Point(34, 20);
             this.ssnMaskedTextBox.Mask = "000-00-0000";
             this.ssnMaskedTextBox.Name = "ssnMaskedTextBox";
-            this.ssnMaskedTextBox.Size = new System.Drawing.Size(156, 26);
+            this.ssnMaskedTextBox.Size = new System.Drawing.Size(232, 35);
             this.ssnMaskedTextBox.TabIndex = 40;
             // 
             // cityLabel
@@ -451,10 +430,9 @@ namespace Clinic.View
             this.cityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cityLabel.AutoSize = true;
             this.cityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityLabel.Location = new System.Drawing.Point(91, 388);
-            this.cityLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cityLabel.Location = new System.Drawing.Point(136, 599);
             this.cityLabel.Name = "cityLabel";
-            this.cityLabel.Size = new System.Drawing.Size(39, 20);
+            this.cityLabel.Size = new System.Drawing.Size(59, 29);
             this.cityLabel.TabIndex = 17;
             this.cityLabel.Tag = "";
             this.cityLabel.Text = "City:";
@@ -465,27 +443,25 @@ namespace Clinic.View
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.17728F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.82271F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 165F));
             this.tableLayoutPanel4.Controls.Add(this.zipMaskedTextBox, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.zipLlabel, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.cityTextBox, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(134, 371);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(201, 571);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(345, 35);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(518, 54);
             this.tableLayoutPanel4.TabIndex = 80;
             // 
             // zipMaskedTextBox
             // 
             this.zipMaskedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.zipMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zipMaskedTextBox.Location = new System.Drawing.Point(237, 7);
-            this.zipMaskedTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.zipMaskedTextBox.Location = new System.Drawing.Point(358, 16);
             this.zipMaskedTextBox.Mask = "00000";
             this.zipMaskedTextBox.Name = "zipMaskedTextBox";
-            this.zipMaskedTextBox.Size = new System.Drawing.Size(106, 26);
+            this.zipMaskedTextBox.Size = new System.Drawing.Size(157, 35);
             this.zipMaskedTextBox.TabIndex = 101;
             // 
             // zipLlabel
@@ -493,10 +469,9 @@ namespace Clinic.View
             this.zipLlabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.zipLlabel.AutoSize = true;
             this.zipLlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zipLlabel.Location = new System.Drawing.Point(198, 15);
-            this.zipLlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.zipLlabel.Location = new System.Drawing.Point(296, 25);
             this.zipLlabel.Name = "zipLlabel";
-            this.zipLlabel.Size = new System.Drawing.Size(35, 20);
+            this.zipLlabel.Size = new System.Drawing.Size(53, 29);
             this.zipLlabel.TabIndex = 12;
             this.zipLlabel.Tag = "";
             this.zipLlabel.Text = "Zip:";
@@ -505,10 +480,9 @@ namespace Clinic.View
             // 
             this.cityTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityTextBox.Location = new System.Drawing.Point(21, 7);
-            this.cityTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cityTextBox.Location = new System.Drawing.Point(33, 16);
             this.cityTextBox.Name = "cityTextBox";
-            this.cityTextBox.Size = new System.Drawing.Size(156, 26);
+            this.cityTextBox.Size = new System.Drawing.Size(232, 35);
             this.cityTextBox.TabIndex = 100;
             // 
             // dateOfBirthDateTimePicker
@@ -516,20 +490,20 @@ namespace Clinic.View
             this.dateOfBirthDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.dateOfBirthDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateOfBirthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateOfBirthDateTimePicker.Location = new System.Drawing.Point(156, 171);
+            this.dateOfBirthDateTimePicker.Location = new System.Drawing.Point(237, 267);
+            this.dateOfBirthDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
-            this.dateOfBirthDateTimePicker.Size = new System.Drawing.Size(322, 26);
+            this.dateOfBirthDateTimePicker.Size = new System.Drawing.Size(481, 35);
             this.dateOfBirthDateTimePicker.TabIndex = 30;
             // 
             // phoneNumberMaskedTextBox
             // 
             this.phoneNumberMaskedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.phoneNumberMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneNumberMaskedTextBox.Location = new System.Drawing.Point(156, 254);
-            this.phoneNumberMaskedTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.phoneNumberMaskedTextBox.Location = new System.Drawing.Point(237, 396);
             this.phoneNumberMaskedTextBox.Mask = "(999) 000-0000";
             this.phoneNumberMaskedTextBox.Name = "phoneNumberMaskedTextBox";
-            this.phoneNumberMaskedTextBox.Size = new System.Drawing.Size(323, 26);
+            this.phoneNumberMaskedTextBox.Size = new System.Drawing.Size(482, 35);
             this.phoneNumberMaskedTextBox.TabIndex = 60;
             // 
             // alertNoticeLabel
@@ -537,20 +511,18 @@ namespace Clinic.View
             this.alertNoticeLabel.AutoSize = true;
             this.alertNoticeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.alertNoticeLabel.ForeColor = System.Drawing.Color.Red;
-            this.alertNoticeLabel.Location = new System.Drawing.Point(134, 478);
-            this.alertNoticeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.alertNoticeLabel.Location = new System.Drawing.Point(201, 736);
             this.alertNoticeLabel.Name = "alertNoticeLabel";
-            this.alertNoticeLabel.Size = new System.Drawing.Size(0, 15);
+            this.alertNoticeLabel.Size = new System.Drawing.Size(0, 22);
             this.alertNoticeLabel.TabIndex = 91;
             // 
             // RegisterPatientForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 572);
+            this.ClientSize = new System.Drawing.Size(790, 880);
             this.Controls.Add(this.registerPatientTableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RegisterPatientForm";

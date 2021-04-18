@@ -33,19 +33,79 @@ namespace Clinic.DAL
                 throw new ArgumentException("The Nurse object being passed in cannot have an ID, because one will be assigned by the database.");
             }
 
-            int personId = this.thePersonDAL.AddPerson(theNurse);
+            string insertPersonStatement =
+                "INSERT Person (lastName, firstName, dateOfBirth, ssn, gender, phoneNumber, addressLine1, addressLine2, city, state, zipCode) " +
+                "VALUES (@LastName, @FirstName, @DateOfBirth, @SocialSecurityNumber, @Gender, @PhoneNumber, @AddressLine1, @AddressLine2, @City, @State, @ZipCode) ";
 
-            string insertStatement =
+
+            string insertNurseStatement =
                 "INSERT Nurse (personId) " +
-                "VALUES (@PersonId)";
+                "VALUES (@@identity)";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
                 connection.Open();
-                using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
+                SqlCommand insertCommand = connection.CreateCommand();
+                SqlTransaction transaction;
+
+                //Start a local transaction
+                transaction = connection.BeginTransaction("InsertPatient");
+
+                insertCommand.Connection = connection;
+                insertCommand.Transaction = transaction;
+                insertCommand.Parameters.AddWithValue("@LastName", theNurse.LastName);
+                insertCommand.Parameters.AddWithValue("@FirstName", theNurse.FirstName);
+                insertCommand.Parameters.AddWithValue("@DateOfBirth", theNurse.DateOfBirth);
+                insertCommand.Parameters.AddWithValue("@SocialSecurityNumber", theNurse.SocialSecurityNumber);
+                insertCommand.Parameters.AddWithValue("@Gender", theNurse.Gender);
+                if (theNurse.PhoneNumber == default)
                 {
-                    insertCommand.Parameters.AddWithValue("@PersonId", personId);
+                    insertCommand.Parameters.AddWithValue("@PhoneNumber", DBNull.Value);
+                }
+                else
+                {
+                    insertCommand.Parameters.AddWithValue("@PhoneNumber", theNurse.PhoneNumber);
+                }
+                insertCommand.Parameters.AddWithValue("@AddressLine1", theNurse.AddressLine1);
+                if (theNurse.AddressLine2 == default)
+                {
+                    insertCommand.Parameters.AddWithValue("@AddressLine2", DBNull.Value);
+                }
+                else
+                {
+                    insertCommand.Parameters.AddWithValue("@AddressLine2", theNurse.AddressLine2);
+                }
+                insertCommand.Parameters.AddWithValue("@City", theNurse.City);
+                insertCommand.Parameters.AddWithValue("@State", theNurse.State);
+                insertCommand.Parameters.AddWithValue("@ZipCode", theNurse.ZipCode);
+
+
+                try
+                {
+                    insertCommand.CommandText = insertPersonStatement;
                     insertCommand.ExecuteNonQuery();
+                    insertCommand.CommandText = insertNurseStatement;
+                    insertCommand.ExecuteNonQuery();
+
+                    //Attemp to commit the transaction
+                    transaction.Commit();
+                    Console.WriteLine("Data was inserted in both tables");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Commit Exception Type: {0}", ex.GetType());
+                    Console.WriteLine("   Message: {0}", ex.Message);
+
+                    // Attemp to roll back the transaction
+                    try
+                    {
+                        transaction.Rollback();
+                    }
+                    catch (Exception ex2)
+                    {
+                        Console.WriteLine("Rollback Exception Type: {0}", ex2.GetType());
+                        Console.WriteLine("    Message: {0}", ex2.Message);
+                    }
                 }
             }
         }

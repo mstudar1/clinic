@@ -1,4 +1,5 @@
-﻿using Clinic.Model;
+﻿using Clinic.DAL;
+using Clinic.Model;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -10,6 +11,13 @@ namespace Clinic.Controller
     /// </summary>
     public class ConductedLabTestController
     {
+        private readonly ConductedLabTestDAL conductedLabTestSource;
+
+        public ConductedLabTestController()
+        {
+            this.conductedLabTestSource = new ConductedLabTestDAL();
+        }
+
         /// <summary>
         /// Method that orders lab tests.
         /// </summary>
@@ -17,7 +25,17 @@ namespace Clinic.Controller
         /// <param name="labTest">An object representing the type of test that is being ordered.</param>
         public void OrderLabTest(int appointmentId, LabTest labTest)
         {
-            MessageBox.Show("The ConductedLabTestController#OrderLabTest method was called.");
+            if (appointmentId < 0)
+            {
+                throw new ArgumentException("The appointment ID cannot be negative.", "appointmentId");
+            }
+
+            if (labTest == null)
+            {
+                throw new ArgumentNullException("labTest", "The lab test cannot be null.");
+            }
+
+            this.conductedLabTestSource.OrderLabTest(appointmentId, labTest);
         }
 
         /// <summary>

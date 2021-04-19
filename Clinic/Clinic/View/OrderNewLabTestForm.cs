@@ -36,16 +36,17 @@ namespace Clinic.View
             this.labTestComboBox.DataSource = this.labTestList;
         }
 
-
-
         private void OrderTestButton_Click(object sender, EventArgs e)
         {
             // TODO: Add GetAppointmentId() method to ViewVisitForm
-            LabTest selectedLabTest = new LabTest
+            if (this.labTestComboBox.SelectedIndex == -1)
             {
-                TestCode = int.Parse(this.labTestComboBox.SelectedValue.ToString()),
-                Name = this.labTestComboBox.SelectedItem.ToString()
-            };
+                MessageBox.Show("Please select a lab test.", "Form Incomplete");
+                return;
+            } else
+            {
+                LabTest selectedLabTest = this.labTestList[this.labTestComboBox.SelectedIndex];
+            }
             try
             {
                 // TODO: Once ViewVisitForm is revised uncomment this.

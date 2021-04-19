@@ -133,8 +133,11 @@ namespace Clinic.DAL
                             if (!reader.IsDBNull(testCodeOrdinal)) { labTest.TestCode = reader.GetInt32(testCodeOrdinal); }
                             if (!reader.IsDBNull(testNameOrdinal)) { labTest.Name = reader.GetString(testNameOrdinal); }
 
-                            ConductedLabTest conductedLabTest = new ConductedLabTest();
-                            conductedLabTest.LabTest = labTest;
+                            ConductedLabTest conductedLabTest = new ConductedLabTest
+                            {
+                                LabTest = labTest
+                            };
+
                             if (!reader.IsDBNull(appointmentIdOrdinal)) { conductedLabTest.AppointmentId = reader.GetInt32(appointmentIdOrdinal); }
                             if (!reader.IsDBNull(datePerformedOrdinal)) { conductedLabTest.DatePerformed = reader.GetDateTime(datePerformedOrdinal); }
                             if (!reader.IsDBNull(resultsOrdinal)) { conductedLabTest.Results = reader.GetString(resultsOrdinal); }

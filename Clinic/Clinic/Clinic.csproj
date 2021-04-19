@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AppointmentController.cs" />
+    <Compile Include="Controller\ConductedLabTestController.cs" />
     <Compile Include="Controller\DoctorController.cs" />
     <Compile Include="Controller\CredentialController.cs" />
     <Compile Include="Controller\LabTestController.cs" />

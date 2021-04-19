@@ -2,12 +2,6 @@
 using Clinic.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Clinic.View
@@ -24,30 +18,37 @@ namespace Clinic.View
 
 
         public OrderNewLabTestForm(ViewVisitForm theViewVsitForm)
-        {            
+        {
+            this.theLabTestController = new LabTestController();
+            this.theConductedLabTestController = new ConductedLabTestController();
             this.theViewVsitForm = theViewVsitForm;
             this.theViewVsitForm.Enabled = false;
             InitializeComponent();
-            //this.SetLabTestComboBox();
+            this.SetLabTestComboBox();
         }
 
         /// <summary>
         /// Populate and set lab test combobox
         /// </summary>
-        //private void SetLabTestComboBox()
-        //{
-        //    this.labTestList = this.theLabTestController.GetAllLabTests();
-        //    this.labTestComboBox.DataSource = this.labTestList;
-        //}
-        
-        
+        private void SetLabTestComboBox()
+        {
+            this.labTestList = this.theLabTestController.GetAllLabTests();
+            this.labTestComboBox.DataSource = this.labTestList;
+        }
+
+
 
         private void OrderTestButton_Click(object sender, EventArgs e)
         {
             // TODO: Add GetAppointmentId() method to ViewVisitForm
+            LabTest selectedLabTest = new LabTest
+            {
+                TestCode = int.Parse(this.labTestComboBox.SelectedValue.ToString()),
+                Name = this.labTestComboBox.SelectedItem.ToString()
+            };
             try
             {
-                this.theConductedLabTestController.AddLabTestResults(this.theViewVsitForm.GetAppointmentId(), this.labTestComboBox.SelectedValue);
+                this.theConductedLabTestController.OrderLabTest(this.theViewVsitForm.GetAppointmentId(), selectedLabTest);
             }
             catch (Exception ex)
             {

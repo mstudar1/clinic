@@ -1,5 +1,7 @@
-﻿using Clinic.Model;
+﻿using Clinic.Controller;
+using Clinic.Model;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Clinic.View
@@ -11,6 +13,8 @@ namespace Clinic.View
     public partial class ViewVisitForm : Form
     {
         private readonly Visit theVisit;
+        private DiagnosisController theDiagnosisController;
+        private bool finalDiagnosis;
 
         /// <summary>
         /// Constructor for the form
@@ -19,7 +23,10 @@ namespace Clinic.View
         public ViewVisitForm(Visit theVisit)
         {
             InitializeComponent();
+            this.theDiagnosisController = new DiagnosisController();
             this.theVisit = theVisit ?? throw new ArgumentNullException("theVisit", "The visit object cannot be null.");
+            this.LoadDiagnosis();
+            this.EnableDisableButtons();
         }
 
         /// <summary>
@@ -32,6 +39,26 @@ namespace Clinic.View
             // TODO: This line of code loads data into the 'conductedLabTests.ConductedLabTest' table. You can move, or remove it, as needed.
             this.conductedLabTestTableAdapter.Fill(this.conductedLabTests.ConductedLabTest);
             this.visitBindingSource.Add(this.theVisit);
+            this.finalDiagnosis = false;
+            this.LoadDiagnosis();
+            this.EnableDisableButtons();
+        }
+
+        private void LoadDiagnosis()
+        {
+            String theAllDiagnosis = "";
+            int indexOfDiagnosis = 1;
+            List<Diagnosis> theDiagnosis = this.theDiagnosisController.GetDiagnoses(this.GetAppointmentId());
+            foreach (Diagnosis theDiagnos in theDiagnosis)
+            {
+                theAllDiagnosis = theAllDiagnosis + indexOfDiagnosis.ToString() + ". " + theDiagnos.DiagnosisName + "\n";
+                indexOfDiagnosis += 1;
+                if (theDiagnos.IsFinal)
+                {
+                    this.finalDiagnosis = true;
+                }
+            }
+            this.diagnosisOutputLabel.Text = theAllDiagnosis;
         }
 
         /// <summary>
@@ -57,6 +84,31 @@ namespace Clinic.View
         public int GetAppointmentId()
         {
             return this.theVisit.AppointmentId;
+        }
+
+        private void EnableDisableButtons()
+        {
+            if (this.finalDiagnosis)
+            {
+                this.orderTestButton.Enabled = false;
+                this.addDiagnosisButton.Enabled = false;
+            }
+            else
+            {
+                this.addDiagnosisButton.Enabled = true;
+                if (this.diagnosisOutputLabel.Text == "")
+                {
+                    this.orderTestButton.Enabled = false;
+                }
+                else
+                {
+                    this.orderTestButton.Enabled = true;
+                }
+            }
+            
+
+            
+
         }
     }
 }

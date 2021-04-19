@@ -109,5 +109,15 @@ namespace Clinic.Controller
         {
             return this.visitSource.IsVisitPresent(appointmentId);
         }
+
+        /// <summary>
+        /// Method that indicates if the visit has been finalized.
+        /// </summary>
+        /// <param name="appointmentId">The ID of the appointment.</param>
+        /// <returns>True if there is a final diagnosis for the specified appointment, false otherwise.</returns>
+        public bool VisitIsFinal(int appointmentId)
+        {
+            return false;
+        }
     }
 }

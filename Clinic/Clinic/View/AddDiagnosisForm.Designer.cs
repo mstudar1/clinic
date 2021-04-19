@@ -35,10 +35,10 @@ namespace Clinic.View
             this.finalLabel = new System.Windows.Forms.Label();
             this.OkayButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.diagnosisTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.finalYesRadioButton = new System.Windows.Forms.RadioButton();
             this.finalNoRadioButton = new System.Windows.Forms.RadioButton();
+            this.finalYesRadioButton = new System.Windows.Forms.RadioButton();
             this.alertMessage = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -56,7 +56,7 @@ namespace Clinic.View
             this.tableLayoutPanel1.Controls.Add(this.finalLabel, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.OkayButton, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.cancelButton, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.diagnosisTextBox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.alertMessage, 1, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 13);
@@ -114,6 +114,7 @@ namespace Clinic.View
             this.OkayButton.TabIndex = 3;
             this.OkayButton.Text = "Okay";
             this.OkayButton.UseVisualStyleBackColor = true;
+            this.OkayButton.Click += new System.EventHandler(this.OkayButton_Click);
             // 
             // cancelButton
             // 
@@ -124,17 +125,18 @@ namespace Clinic.View
             this.cancelButton.TabIndex = 4;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // textBox1
+            // diagnosisTextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.diagnosisTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.textBox1, 3);
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(130, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(378, 23);
-            this.textBox1.TabIndex = 5;
+            this.tableLayoutPanel1.SetColumnSpan(this.diagnosisTextBox, 3);
+            this.diagnosisTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.diagnosisTextBox.Location = new System.Drawing.Point(130, 53);
+            this.diagnosisTextBox.Name = "diagnosisTextBox";
+            this.diagnosisTextBox.Size = new System.Drawing.Size(378, 23);
+            this.diagnosisTextBox.TabIndex = 5;
             // 
             // groupBox1
             // 
@@ -149,17 +151,6 @@ namespace Clinic.View
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
-            // finalYesRadioButton
-            // 
-            this.finalYesRadioButton.AutoSize = true;
-            this.finalYesRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.finalYesRadioButton.Location = new System.Drawing.Point(46, 20);
-            this.finalYesRadioButton.Name = "finalYesRadioButton";
-            this.finalYesRadioButton.Size = new System.Drawing.Size(50, 21);
-            this.finalYesRadioButton.TabIndex = 0;
-            this.finalYesRadioButton.Text = "Yes";
-            this.finalYesRadioButton.UseVisualStyleBackColor = true;
-            // 
             // finalNoRadioButton
             // 
             this.finalNoRadioButton.AutoSize = true;
@@ -172,6 +163,17 @@ namespace Clinic.View
             this.finalNoRadioButton.TabStop = true;
             this.finalNoRadioButton.Text = "No";
             this.finalNoRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // finalYesRadioButton
+            // 
+            this.finalYesRadioButton.AutoSize = true;
+            this.finalYesRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.finalYesRadioButton.Location = new System.Drawing.Point(46, 20);
+            this.finalYesRadioButton.Name = "finalYesRadioButton";
+            this.finalYesRadioButton.Size = new System.Drawing.Size(50, 21);
+            this.finalYesRadioButton.TabIndex = 0;
+            this.finalYesRadioButton.Text = "Yes";
+            this.finalYesRadioButton.UseVisualStyleBackColor = true;
             // 
             // alertMessage
             // 
@@ -195,6 +197,7 @@ namespace Clinic.View
             this.Name = "AddDiagnosisForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Diagnosis";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddDiagnosisForm_FormClosed);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -211,7 +214,7 @@ namespace Clinic.View
         private System.Windows.Forms.Label finalLabel;
         private System.Windows.Forms.Button OkayButton;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox diagnosisTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton finalNoRadioButton;
         private System.Windows.Forms.RadioButton finalYesRadioButton;

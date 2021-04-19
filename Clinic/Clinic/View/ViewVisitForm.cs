@@ -30,7 +30,7 @@ namespace Clinic.View
         private void ViewVisitForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'conductedLabTests.ConductedLabTest' table. You can move, or remove it, as needed.
-            this.conductedLabTestTableAdapter.Fill(this.conductedLabTests.ConductedLabTest);
+            //this.conductedLabTestTableAdapter.Fill(this.conductedLabTests.ConductedLabTest);
             this.visitBindingSource.Add(this.theVisit);
         }
 

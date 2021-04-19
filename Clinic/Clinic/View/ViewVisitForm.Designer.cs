@@ -273,7 +273,7 @@ namespace Clinic.View
             this.viewVisitTableLayoutPanel.Controls.Add(this.initialDiagnosisRichTextBox, 1, 11);
             this.viewVisitTableLayoutPanel.Controls.Add(this.buttonTableLayoutPanel, 0, 14);
             this.viewVisitTableLayoutPanel.Location = new System.Drawing.Point(9, 9);
-            this.viewVisitTableLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewVisitTableLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.viewVisitTableLayoutPanel.Name = "viewVisitTableLayoutPanel";
             this.viewVisitTableLayoutPanel.RowCount = 15;
             this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
@@ -498,7 +498,7 @@ namespace Clinic.View
             // finalDiagnosisRichTextBox
             // 
             this.finalDiagnosisRichTextBox.Location = new System.Drawing.Point(219, 332);
-            this.finalDiagnosisRichTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.finalDiagnosisRichTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.finalDiagnosisRichTextBox.Name = "finalDiagnosisRichTextBox";
             this.finalDiagnosisRichTextBox.Size = new System.Drawing.Size(256, 61);
             this.finalDiagnosisRichTextBox.TabIndex = 45;
@@ -507,7 +507,7 @@ namespace Clinic.View
             // initialDiagnosisRichTextBox
             // 
             this.initialDiagnosisRichTextBox.Location = new System.Drawing.Point(219, 267);
-            this.initialDiagnosisRichTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.initialDiagnosisRichTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.initialDiagnosisRichTextBox.Name = "initialDiagnosisRichTextBox";
             this.initialDiagnosisRichTextBox.Size = new System.Drawing.Size(256, 61);
             this.initialDiagnosisRichTextBox.TabIndex = 46;
@@ -537,10 +537,10 @@ namespace Clinic.View
             this.saveButton.AutoSize = true;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.Location = new System.Drawing.Point(167, 12);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.saveButton.Location = new System.Drawing.Point(167, 5);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(134, 30);
+            this.saveButton.Size = new System.Drawing.Size(134, 37);
             this.saveButton.TabIndex = 23;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -551,10 +551,10 @@ namespace Clinic.View
             this.closeButton.AutoSize = true;
             this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeButton.Location = new System.Drawing.Point(321, 12);
-            this.closeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.closeButton.Location = new System.Drawing.Point(321, 5);
+            this.closeButton.Margin = new System.Windows.Forms.Padding(2);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(134, 30);
+            this.closeButton.Size = new System.Drawing.Size(134, 37);
             this.closeButton.TabIndex = 20;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
@@ -594,7 +594,7 @@ namespace Clinic.View
             this.ClientSize = new System.Drawing.Size(496, 609);
             this.Controls.Add(this.viewVisitTableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ViewVisitForm";

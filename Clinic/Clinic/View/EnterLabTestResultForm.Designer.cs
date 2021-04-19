@@ -43,6 +43,9 @@ namespace Clinic.View
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.normalRadioButton = new System.Windows.Forms.RadioButton();
             this.abnormalRadioButton = new System.Windows.Forms.RadioButton();
+            this.submitButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.alertTextLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +57,6 @@ namespace Clinic.View
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.formTitleLabel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.patientNameLabel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.testNameLabel, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.dateLabel, 0, 3);
@@ -65,6 +67,10 @@ namespace Clinic.View
             this.tableLayoutPanel1.Controls.Add(this.resultDateTimePicker, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.formTitleLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.submitButton, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.cancelButton, 2, 6);
+            this.tableLayoutPanel1.Controls.Add(this.alertTextLabel, 1, 7);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
@@ -76,7 +82,7 @@ namespace Clinic.View
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(786, 297);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(604, 309);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // formTitleLabel
@@ -86,9 +92,9 @@ namespace Clinic.View
             this.tableLayoutPanel1.SetColumnSpan(this.formTitleLabel, 2);
             this.formTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.formTitleLabel.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.formTitleLabel.Location = new System.Drawing.Point(199, 10);
+            this.formTitleLabel.Location = new System.Drawing.Point(3, 10);
             this.formTitleLabel.Name = "formTitleLabel";
-            this.formTitleLabel.Size = new System.Drawing.Size(386, 29);
+            this.formTitleLabel.Size = new System.Drawing.Size(296, 29);
             this.formTitleLabel.TabIndex = 0;
             this.formTitleLabel.Text = "Enter Lab Test Results";
             this.formTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -147,9 +153,10 @@ namespace Clinic.View
             // prefillPatientNameLabel
             // 
             this.prefillPatientNameLabel.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.prefillPatientNameLabel, 2);
             this.prefillPatientNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prefillPatientNameLabel.ForeColor = System.Drawing.Color.Teal;
-            this.prefillPatientNameLabel.Location = new System.Drawing.Point(199, 50);
+            this.prefillPatientNameLabel.Location = new System.Drawing.Point(154, 50);
             this.prefillPatientNameLabel.Name = "prefillPatientNameLabel";
             this.prefillPatientNameLabel.Size = new System.Drawing.Size(46, 17);
             this.prefillPatientNameLabel.TabIndex = 6;
@@ -158,9 +165,10 @@ namespace Clinic.View
             // prefillTestNameLabel
             // 
             this.prefillTestNameLabel.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.prefillTestNameLabel, 2);
             this.prefillTestNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prefillTestNameLabel.ForeColor = System.Drawing.Color.Teal;
-            this.prefillTestNameLabel.Location = new System.Drawing.Point(199, 85);
+            this.prefillTestNameLabel.Location = new System.Drawing.Point(154, 85);
             this.prefillTestNameLabel.Name = "prefillTestNameLabel";
             this.prefillTestNameLabel.Size = new System.Drawing.Size(46, 17);
             this.prefillTestNameLabel.TabIndex = 7;
@@ -168,20 +176,22 @@ namespace Clinic.View
             // 
             // resultDateTimePicker
             // 
+            this.tableLayoutPanel1.SetColumnSpan(this.resultDateTimePicker, 3);
             this.resultDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultDateTimePicker.Location = new System.Drawing.Point(199, 123);
+            this.resultDateTimePicker.Location = new System.Drawing.Point(154, 123);
             this.resultDateTimePicker.Name = "resultDateTimePicker";
-            this.resultDateTimePicker.Size = new System.Drawing.Size(190, 23);
+            this.resultDateTimePicker.Size = new System.Drawing.Size(200, 23);
             this.resultDateTimePicker.TabIndex = 8;
             // 
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.textBox1, 3);
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(199, 158);
+            this.textBox1.Location = new System.Drawing.Point(154, 158);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 23);
+            this.textBox1.Size = new System.Drawing.Size(447, 23);
             this.textBox1.TabIndex = 9;
             // 
             // groupBox1
@@ -190,9 +200,9 @@ namespace Clinic.View
             this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 2);
             this.groupBox1.Controls.Add(this.abnormalRadioButton);
             this.groupBox1.Controls.Add(this.normalRadioButton);
-            this.groupBox1.Location = new System.Drawing.Point(199, 193);
+            this.groupBox1.Location = new System.Drawing.Point(154, 193);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(386, 39);
+            this.groupBox1.Size = new System.Drawing.Size(296, 39);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
@@ -212,7 +222,7 @@ namespace Clinic.View
             // 
             this.abnormalRadioButton.AutoSize = true;
             this.abnormalRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.abnormalRadioButton.Location = new System.Drawing.Point(140, 12);
+            this.abnormalRadioButton.Location = new System.Drawing.Point(83, 12);
             this.abnormalRadioButton.Name = "abnormalRadioButton";
             this.abnormalRadioButton.Size = new System.Drawing.Size(86, 21);
             this.abnormalRadioButton.TabIndex = 1;
@@ -220,11 +230,43 @@ namespace Clinic.View
             this.abnormalRadioButton.Text = "Abnormal";
             this.abnormalRadioButton.UseVisualStyleBackColor = true;
             // 
+            // submitButton
+            // 
+            this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitButton.Location = new System.Drawing.Point(154, 238);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(75, 29);
+            this.submitButton.TabIndex = 11;
+            this.submitButton.Text = "Submit";
+            this.submitButton.UseVisualStyleBackColor = true;
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.Location = new System.Drawing.Point(305, 238);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 29);
+            this.cancelButton.TabIndex = 12;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            // 
+            // alertTextLabel
+            // 
+            this.alertTextLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.alertTextLabel.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.alertTextLabel, 3);
+            this.alertTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertTextLabel.ForeColor = System.Drawing.Color.Red;
+            this.alertTextLabel.Location = new System.Drawing.Point(154, 281);
+            this.alertTextLabel.Name = "alertTextLabel";
+            this.alertTextLabel.Size = new System.Drawing.Size(0, 17);
+            this.alertTextLabel.TabIndex = 13;
+            // 
             // EnterLabTestResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 310);
+            this.ClientSize = new System.Drawing.Size(613, 325);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -256,5 +298,8 @@ namespace Clinic.View
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton abnormalRadioButton;
         private System.Windows.Forms.RadioButton normalRadioButton;
+        private System.Windows.Forms.Button submitButton;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Label alertTextLabel;
     }
 }

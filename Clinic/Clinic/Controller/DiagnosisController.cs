@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Clinic.Controller
 {
     /// <summary>
-    /// Class serving as a controller for diagnosis.
+    /// Class serving as a controller for diagnoses.
     /// </summary>
     public class DiagnosisController
     {

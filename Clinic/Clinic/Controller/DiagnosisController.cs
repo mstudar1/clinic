@@ -40,31 +40,18 @@ namespace Clinic.Controller
         }
 
         /// <summary>
-        /// Method that gets all of the diagnoses associated with a 
+        /// Method that gets all of the diagnoses associated with a specific appointment.
         /// </summary>
-        /// <param name="appointmentId"></param>
-        /// <returns></returns>
+        /// <param name="appointmentId">The ID of the appointment.</param>
+        /// <returns>A list of diagnoses associated with the appointment.</returns>
         public List<Diagnosis> GetDiagnoses(int appointmentId)
         {
-            List<Diagnosis> diagnoses = new List<Diagnosis>();
-
-            Diagnosis initialDiagnosis = new Diagnosis
+            if (appointmentId < 0)
             {
-                AppointmentId = 1,
-                DiagnosisName = "Flu",
-                IsFinal = false
-            };
-            diagnoses.Add(initialDiagnosis);
+                throw new ArgumentException("The appointment ID cannot be negative.", "appointmentId");
+            }
 
-            Diagnosis finalDiagnosis = new Diagnosis
-            {
-                AppointmentId = 1,
-                DiagnosisName = "Cold",
-                IsFinal = true
-            };
-            diagnoses.Add(finalDiagnosis);
-
-            return diagnoses;
+            return this.diagnosisSource.GetDiagnoses(appointmentId);
         }
     }
 }

@@ -43,5 +43,20 @@ namespace Clinic.View
         {
             this.DialogResult = DialogResult.OK;
         }
+
+        private void OrderTestButton_Click(object sender, EventArgs e)
+        {
+            OrderNewLabTestForm theOrderNewLabtestForm = new OrderNewLabTestForm(this);
+            theOrderNewLabtestForm.Show();
+        }
+
+        /// <summary>
+        /// Gets the appointment ID associated with the form.
+        /// </summary>
+        /// <returns></returns>
+        public int GetAppointmentId()
+        {
+            return this.theVisit.AppointmentId;
+        }
     }
 }

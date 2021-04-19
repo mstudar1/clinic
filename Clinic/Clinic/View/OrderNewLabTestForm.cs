@@ -48,7 +48,8 @@ namespace Clinic.View
             };
             try
             {
-                this.theConductedLabTestController.OrderLabTest(this.theViewVsitForm.GetAppointmentId(), selectedLabTest);
+                // TODO: Once ViewVisitForm is revised uncomment this.
+                // this.theConductedLabTestController.OrderLabTest(this.theViewVsitForm.GetAppointmentId(), selectedLabTest);
             }
             catch (Exception ex)
             {

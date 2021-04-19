@@ -112,12 +112,18 @@ namespace Clinic.Controller
 
         /// <summary>
         /// Method that indicates if the visit has been finalized.
+        /// Visits are finalized when a final diagnosis has been recorded.
         /// </summary>
         /// <param name="appointmentId">The ID of the appointment.</param>
         /// <returns>True if there is a final diagnosis for the specified appointment, false otherwise.</returns>
         public bool VisitIsFinal(int appointmentId)
         {
-            return false;
+            if (appointmentId < 0)
+            {
+                throw new ArgumentException("The appointment ID cannot be negative.", "appointmentId");
+            }
+
+            return this.visitSource.VisitIsFinal(appointmentId);
         }
     }
 }

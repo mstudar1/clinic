@@ -1,4 +1,5 @@
-﻿using Clinic.Model;
+﻿using Clinic.DAL;
+using Clinic.Model;
 using System.Collections.Generic;
 
 namespace Clinic.Controller
@@ -8,36 +9,23 @@ namespace Clinic.Controller
     /// </summary>
     public class LabTestController
     {
+        private readonly LabTestDAL labTestSource;
+
+        /// <summary>
+        /// Constructor for the LabTestController class.
+        /// </summary>
+        public LabTestController()
+        {
+            this.labTestSource = new LabTestDAL();
+        }
+
         /// <summary>
         /// Method that returns a list of all the LabTest objects in the database.
         /// </summary>
         /// <returns>A list of all the LabTest objects.</returns>
         public List<LabTest> GetAllLabTests()
         {
-            List<LabTest> dummyList = new List<LabTest>();
-
-            LabTest firstLabTest = new LabTest
-            {
-                TestCode = 1,
-                Name = "X-ray"
-            };
-            dummyList.Add(firstLabTest);
-
-            LabTest secondLabTest = new LabTest
-            {
-                TestCode = 2,
-                Name = "MRI"
-            };
-            dummyList.Add(secondLabTest);
-
-            LabTest thirdLabTest = new LabTest
-            {
-                TestCode = 3,
-                Name = "Strep Test"
-            };
-            dummyList.Add(thirdLabTest);
-
-            return dummyList;
+            return this.labTestSource.GetAllLabTests();
         }
     }
 }

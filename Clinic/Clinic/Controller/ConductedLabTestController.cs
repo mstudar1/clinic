@@ -1,7 +1,7 @@
-﻿using Clinic.Model;
+﻿using Clinic.DAL;
+using Clinic.Model;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace Clinic.Controller
 {
@@ -10,6 +10,13 @@ namespace Clinic.Controller
     /// </summary>
     public class ConductedLabTestController
     {
+        private readonly ConductedLabTestDAL conductedLabTestSource;
+
+        public ConductedLabTestController()
+        {
+            this.conductedLabTestSource = new ConductedLabTestDAL();
+        }
+
         /// <summary>
         /// Method that orders lab tests.
         /// </summary>
@@ -17,7 +24,17 @@ namespace Clinic.Controller
         /// <param name="labTest">An object representing the type of test that is being ordered.</param>
         public void OrderLabTest(int appointmentId, LabTest labTest)
         {
-            MessageBox.Show("The ConductedLabTestController#OrderLabTest method was called.");
+            if (appointmentId < 0)
+            {
+                throw new ArgumentException("The appointment ID cannot be negative.", "appointmentId");
+            }
+
+            if (labTest == null)
+            {
+                throw new ArgumentNullException("labTest", "The lab test cannot be null.");
+            }
+
+            this.conductedLabTestSource.OrderLabTest(appointmentId, labTest);
         }
 
         /// <summary>
@@ -30,7 +47,27 @@ namespace Clinic.Controller
         /// <param name="isNormal">A bool indicating if the results are normal.</param>
         public void AddLabTestResults(int appointmentId, LabTest labTest, DateTime datePerformed, string results, bool isNormal)
         {
-            MessageBox.Show("The ConductedLabTestController#AddLabTestResults method was called.");
+            if (appointmentId < 0)
+            {
+                throw new ArgumentException("The appointment ID cannot be negative.", "appointmentId");
+            }
+
+            if (labTest == null)
+            {
+                throw new ArgumentNullException("labTest", "The lab test cannot be null.");
+            }
+
+            if (datePerformed == null)
+            {
+                throw new ArgumentNullException("datePerformed", "The date performed cannot be null.");
+            }
+
+            if (string.IsNullOrEmpty(results))
+            {
+                throw new ArgumentNullException("results", "The results cannot be null or empty.");
+            }
+
+            this.conductedLabTestSource.AddLabTestResults(appointmentId, labTest, datePerformed, results, isNormal);
         }
 
         /// <summary>
@@ -40,27 +77,12 @@ namespace Clinic.Controller
         /// <returns>A list of the conducted lab tests for the specified appointment.</returns>
         public List<ConductedLabTest> GetConductedLabTests(int appointmentId)
         {
-            LabTest mri = new LabTest
+            if (appointmentId < 0)
             {
-                TestCode = 2,
-                Name = "MRI"
-            };
+                throw new ArgumentException("The appointment ID cannot be negative.", "appointmentId");
+            }
 
-            ConductedLabTest firstConductedLabTest = new ConductedLabTest
-            {
-                AppointmentId = 1,
-                LabTest = mri,
-                DatePerformed = new DateTime(2020, 1, 1),
-                Results = "Abnormal",
-                IsNormal = false
-            };
-
-            List<ConductedLabTest> dummyList = new List<ConductedLabTest>
-            {
-                firstConductedLabTest
-            };
-
-            return dummyList;
+            return this.conductedLabTestSource.GetConductedLabTests(appointmentId);
         }
     }
 }

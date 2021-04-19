@@ -418,5 +418,41 @@ namespace Clinic.DAL
                 }
             }
         }
+
+        /// <summary>
+        /// Method that indicates if the visit has been finalized.
+        /// Visits are finalized when a final diagnosis has been recorded.
+        /// </summary>
+        /// <param name="appointmentId">The ID of the appointment.</param>
+        /// <returns>True if there is a final diagnosis for the specified appointment, false otherwise.</returns>
+        public bool VisitIsFinal(int appointmentId)
+        {
+            if (appointmentId < 0)
+            {
+                throw new ArgumentException("The appointment ID cannot be negative.", "appointmentId");
+            }
+
+            string selectStatement =
+                "SELECT @NumberOfFinalizedDiagnoses = COUNT(diagnosisName) " +
+                "FROM Diagnosis " +
+                "WHERE appointmentId = @AppointmentId " +
+                "AND isFinal = 1";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    SqlParameter countParameter = new SqlParameter("@NumberOfFinalizedDiagnoses", SqlDbType.Bit)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    selectCommand.Parameters.Add(countParameter);
+                    selectCommand.Parameters.AddWithValue("@AppointmentId", appointmentId);
+                    selectCommand.ExecuteNonQuery();
+                    return (Convert.ToInt32(countParameter.Value) > 0);
+                }
+            }
+        }
     }
 }

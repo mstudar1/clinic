@@ -67,8 +67,11 @@
     <Compile Include="Controller\VisitController.cs" />
     <Compile Include="DAL\AppointmentDAL.cs" />
     <Compile Include="DAL\ClinicDBConnection.cs" />
+    <Compile Include="DAL\ConductedLabTestDAL.cs" />
     <Compile Include="DAL\CredentialDAL.cs" />
+    <Compile Include="DAL\DiagnosisDAL.cs" />
     <Compile Include="DAL\DoctorDAL.cs" />
+    <Compile Include="DAL\LabTestDAL.cs" />
     <Compile Include="Model\ConductedLabTest.cs" />
     <Compile Include="Model\Diagnosis.cs" />
     <Compile Include="Model\LabTest.cs" />

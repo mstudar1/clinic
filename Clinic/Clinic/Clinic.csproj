@@ -106,6 +106,12 @@
       <DependentUpon>VisitUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Visit.cs" />
+    <Compile Include="View\AddDiagnosisForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AddDiagnosisForm.Designer.cs">
+      <DependentUpon>AddDiagnosisForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AddNurseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\VisitUserControl.resx">
       <DependentUpon>VisitUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AddDiagnosisForm.resx">
+      <DependentUpon>AddDiagnosisForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AddNurseForm.resx">
       <DependentUpon>AddNurseForm.cs</DependentUpon>

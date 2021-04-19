@@ -30,7 +30,6 @@ namespace Clinic.View
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.formTitleLabel = new System.Windows.Forms.Label();
             this.patientNameLabel = new System.Windows.Forms.Label();
             this.testNameLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
@@ -41,8 +40,9 @@ namespace Clinic.View
             this.resultDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.normalRadioButton = new System.Windows.Forms.RadioButton();
             this.abnormalRadioButton = new System.Windows.Forms.RadioButton();
+            this.normalRadioButton = new System.Windows.Forms.RadioButton();
+            this.formTitleLabel = new System.Windows.Forms.Label();
             this.submitButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.alertTextLabel = new System.Windows.Forms.Label();
@@ -84,20 +84,6 @@ namespace Clinic.View
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(604, 309);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // formTitleLabel
-            // 
-            this.formTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.formTitleLabel.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.formTitleLabel, 2);
-            this.formTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.formTitleLabel.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.formTitleLabel.Location = new System.Drawing.Point(3, 10);
-            this.formTitleLabel.Name = "formTitleLabel";
-            this.formTitleLabel.Size = new System.Drawing.Size(296, 29);
-            this.formTitleLabel.TabIndex = 0;
-            this.formTitleLabel.Text = "Enter Lab Test Results";
-            this.formTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // patientNameLabel
             // 
@@ -206,6 +192,18 @@ namespace Clinic.View
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
+            // abnormalRadioButton
+            // 
+            this.abnormalRadioButton.AutoSize = true;
+            this.abnormalRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.abnormalRadioButton.Location = new System.Drawing.Point(83, 12);
+            this.abnormalRadioButton.Name = "abnormalRadioButton";
+            this.abnormalRadioButton.Size = new System.Drawing.Size(86, 21);
+            this.abnormalRadioButton.TabIndex = 1;
+            this.abnormalRadioButton.TabStop = true;
+            this.abnormalRadioButton.Text = "Abnormal";
+            this.abnormalRadioButton.UseVisualStyleBackColor = true;
+            // 
             // normalRadioButton
             // 
             this.normalRadioButton.AutoSize = true;
@@ -218,17 +216,19 @@ namespace Clinic.View
             this.normalRadioButton.Text = "Normal";
             this.normalRadioButton.UseVisualStyleBackColor = true;
             // 
-            // abnormalRadioButton
+            // formTitleLabel
             // 
-            this.abnormalRadioButton.AutoSize = true;
-            this.abnormalRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.abnormalRadioButton.Location = new System.Drawing.Point(83, 12);
-            this.abnormalRadioButton.Name = "abnormalRadioButton";
-            this.abnormalRadioButton.Size = new System.Drawing.Size(86, 21);
-            this.abnormalRadioButton.TabIndex = 1;
-            this.abnormalRadioButton.TabStop = true;
-            this.abnormalRadioButton.Text = "Abnormal";
-            this.abnormalRadioButton.UseVisualStyleBackColor = true;
+            this.formTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.formTitleLabel.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.formTitleLabel, 2);
+            this.formTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.formTitleLabel.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.formTitleLabel.Location = new System.Drawing.Point(3, 10);
+            this.formTitleLabel.Name = "formTitleLabel";
+            this.formTitleLabel.Size = new System.Drawing.Size(296, 29);
+            this.formTitleLabel.TabIndex = 0;
+            this.formTitleLabel.Text = "Enter Lab Test Results";
+            this.formTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // submitButton
             // 
@@ -249,6 +249,7 @@ namespace Clinic.View
             this.cancelButton.TabIndex = 12;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // alertTextLabel
             // 
@@ -274,6 +275,7 @@ namespace Clinic.View
             this.Name = "EnterLabTestResultForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Enter Lab Test Result";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EnterLabTestResultForm_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

@@ -12,9 +12,34 @@ namespace Clinic.View
 {
     public partial class EnterLabTestResultForm : Form
     {
-        public EnterLabTestResultForm()
+        private readonly int appointmentId;
+        private readonly ViewVisitForm referringForm;
+
+        public EnterLabTestResultForm(int appointmentId, ViewVisitForm referringForm)
         {
             InitializeComponent();
+            this.appointmentId = appointmentId;
+            this.referringForm = referringForm;
+            this.referringForm.Enabled = false;
+        }
+
+        /// <summary>
+        /// Helper method to handle actions of closing the form
+        /// </summary>
+        private void CloseForm()
+        {
+            this.referringForm.Enabled = true;
+            this.Close();
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.CloseForm();
+        }
+
+        private void EnterLabTestResultForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.referringForm.Enabled = true;
         }
     }
 }

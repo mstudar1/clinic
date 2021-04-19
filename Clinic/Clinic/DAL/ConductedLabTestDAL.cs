@@ -1,5 +1,6 @@
 ﻿using Clinic.Model;
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace Clinic.DAL
@@ -72,7 +73,7 @@ namespace Clinic.DAL
                 throw new ArgumentNullException("results", "The results cannot be null or empty.");
             }
 
-            string insertStatement =
+            string updateStatement =
                 "UPDATE ConductedLabTest " +
                 "SET datePerformed = @DatePerformed, results = @Results, isNormal = @IsNormal " +
                 "WHERE appointmentId = @AppointmentId AND testCode = @TestCode";
@@ -80,7 +81,7 @@ namespace Clinic.DAL
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
                 connection.Open();
-                using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
+                using (SqlCommand insertCommand = new SqlCommand(updateStatement, connection))
                 {
                     insertCommand.Parameters.AddWithValue("@AppointmentId", appointmentId);
                     insertCommand.Parameters.AddWithValue("@TestCode", labTest.TestCode);
@@ -90,6 +91,60 @@ namespace Clinic.DAL
                     insertCommand.ExecuteNonQuery();
                 }
             }
+        }
+
+        /// <summary>
+        /// Method that returns all of the conducted lab tests for the specified appointment.
+        /// </summary>
+        /// <param name="appointmentId">The ID of the appointment.</param>
+        /// <returns>A list of the conducted lab tests for the specified appointment.</returns>
+        public List<ConductedLabTest> GetConductedLabTests(int appointmentId)
+        {
+            if (appointmentId < 0)
+            {
+                throw new ArgumentException("The appointment ID cannot be negative.", "appointmentId");
+            }
+
+            List<ConductedLabTest> conductedLabTests = new List<ConductedLabTest>();
+
+            string selectStatement =
+                "SELECT clt.appointmentId, clt.testCode, lt.name, clt.datePerformed, clt.results, clt.isNormal " +
+                "FROM ConductedLabTest clt " +
+                "JOIN LabTest lt ON lt.testCode = clt.testCode " +
+                "WHERE appointmentId = @AppointmentId";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@AppointmentId", appointmentId);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        int appointmentIdOrdinal = reader.GetOrdinal("appointmentId");
+                        int testCodeOrdinal = reader.GetOrdinal("testCode");
+                        int testNameOrdinal = reader.GetOrdinal("name");
+                        int datePerformedOrdinal = reader.GetOrdinal("datePerformed");
+                        int resultsOrdinal = reader.GetOrdinal("results");
+                        int isNormalOrdinal = reader.GetOrdinal("isNormal");
+                        while (reader.Read())
+                        {
+                            LabTest labTest = new LabTest();
+                            if (!reader.IsDBNull(testCodeOrdinal)) { labTest.TestCode = reader.GetInt32(testCodeOrdinal); }
+                            if (!reader.IsDBNull(testNameOrdinal)) { labTest.Name = reader.GetString(testNameOrdinal); }
+
+                            ConductedLabTest conductedLabTest = new ConductedLabTest();
+                            conductedLabTest.LabTest = labTest;
+                            if (!reader.IsDBNull(appointmentIdOrdinal)) { conductedLabTest.AppointmentId = reader.GetInt32(appointmentIdOrdinal); }
+                            if (!reader.IsDBNull(datePerformedOrdinal)) { conductedLabTest.DatePerformed = reader.GetDateTime(datePerformedOrdinal); }
+                            if (!reader.IsDBNull(resultsOrdinal)) { conductedLabTest.Results = reader.GetString(resultsOrdinal); }
+                            if (!reader.IsDBNull(isNormalOrdinal)) { conductedLabTest.IsNormal = reader.GetBoolean(isNormalOrdinal); }
+                            conductedLabTests.Add(conductedLabTest);
+                        }
+                    }
+                }
+            }
+            return conductedLabTests;
         }
     }
 }

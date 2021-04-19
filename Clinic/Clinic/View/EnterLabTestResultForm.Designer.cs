@@ -32,10 +32,10 @@ namespace Clinic.View
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.formTitleLabel = new System.Windows.Forms.Label();
             this.patientNameLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.testNameLabel = new System.Windows.Forms.Label();
+            this.dateLabel = new System.Windows.Forms.Label();
+            this.resultTextLabel = new System.Windows.Forms.Label();
+            this.conclusionLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,10 +48,10 @@ namespace Clinic.View
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Controls.Add(this.formTitleLabel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.patientNameLabel, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.testNameLabel, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.dateLabel, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.resultTextLabel, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.conclusionLabel, 0, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
@@ -86,49 +86,49 @@ namespace Clinic.View
             this.patientNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patientNameLabel.Location = new System.Drawing.Point(3, 50);
             this.patientNameLabel.Name = "patientNameLabel";
-            this.patientNameLabel.Size = new System.Drawing.Size(46, 17);
+            this.patientNameLabel.Size = new System.Drawing.Size(97, 17);
             this.patientNameLabel.TabIndex = 1;
-            this.patientNameLabel.Text = "label1";
+            this.patientNameLabel.Text = "Patient Name:";
             // 
-            // label1
+            // testNameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 85);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.testNameLabel.AutoSize = true;
+            this.testNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.testNameLabel.Location = new System.Drawing.Point(3, 85);
+            this.testNameLabel.Name = "testNameLabel";
+            this.testNameLabel.Size = new System.Drawing.Size(81, 17);
+            this.testNameLabel.TabIndex = 2;
+            this.testNameLabel.Text = "Test Name:";
             // 
-            // label2
+            // dateLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 120);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel.Location = new System.Drawing.Point(3, 120);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(102, 17);
+            this.dateLabel.TabIndex = 3;
+            this.dateLabel.Text = "Date of Result:";
             // 
-            // label3
+            // resultTextLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 155);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "label3";
+            this.resultTextLabel.AutoSize = true;
+            this.resultTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultTextLabel.Location = new System.Drawing.Point(3, 155);
+            this.resultTextLabel.Name = "resultTextLabel";
+            this.resultTextLabel.Size = new System.Drawing.Size(52, 17);
+            this.resultTextLabel.TabIndex = 4;
+            this.resultTextLabel.Text = "Result:";
             // 
-            // label4
+            // conclusionLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 190);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 17);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "label4";
+            this.conclusionLabel.AutoSize = true;
+            this.conclusionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.conclusionLabel.Location = new System.Drawing.Point(3, 190);
+            this.conclusionLabel.Name = "conclusionLabel";
+            this.conclusionLabel.Size = new System.Drawing.Size(81, 17);
+            this.conclusionLabel.TabIndex = 5;
+            this.conclusionLabel.Text = "Conclusion:";
             // 
             // EnterLabTestResultForm
             // 
@@ -153,9 +153,9 @@ namespace Clinic.View
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label formTitleLabel;
         private System.Windows.Forms.Label patientNameLabel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label testNameLabel;
+        private System.Windows.Forms.Label dateLabel;
+        private System.Windows.Forms.Label resultTextLabel;
+        private System.Windows.Forms.Label conclusionLabel;
     }
 }

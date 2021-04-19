@@ -48,7 +48,27 @@ namespace Clinic.Controller
         /// <param name="isNormal">A bool indicating if the results are normal.</param>
         public void AddLabTestResults(int appointmentId, LabTest labTest, DateTime datePerformed, string results, bool isNormal)
         {
-            MessageBox.Show("The ConductedLabTestController#AddLabTestResults method was called.");
+            if (appointmentId < 0)
+            {
+                throw new ArgumentException("The appointment ID cannot be negative.", "appointmentId");
+            }
+
+            if (labTest == null)
+            {
+                throw new ArgumentNullException("labTest", "The lab test cannot be null.");
+            }
+
+            if (datePerformed == null)
+            {
+                throw new ArgumentNullException("datePerformed", "The date performed cannot be null.");
+            }
+
+            if (string.IsNullOrEmpty(results))
+            {
+                throw new ArgumentNullException("results", "The results cannot be null or empty.");
+            }
+
+            this.conductedLabTestSource.AddLabTestResults(appointmentId, labTest, datePerformed, results, isNormal);
         }
 
         /// <summary>

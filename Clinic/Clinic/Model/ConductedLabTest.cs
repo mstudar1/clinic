@@ -9,7 +9,7 @@ namespace Clinic.Model
     {
         public int AppointmentId { get; set; }
 
-        public int LabTestId { get; set; }
+        public LabTest LabTest { get; set; }
 
         public DateTime DatePerformed { get; set; }
 

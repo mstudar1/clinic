@@ -137,7 +137,7 @@ namespace Clinic.UserControls
             this.viewVisitDetailsButton.Name = "viewVisitDetailsButton";
             this.viewVisitDetailsButton.Size = new System.Drawing.Size(535, 34);
             this.viewVisitDetailsButton.TabIndex = 50;
-            this.viewVisitDetailsButton.Text = "View Visit Details";
+            this.viewVisitDetailsButton.Text = "Manage Visit Details";
             this.viewVisitDetailsButton.UseVisualStyleBackColor = true;
             this.viewVisitDetailsButton.Click += new System.EventHandler(this.ViewVisitDetailsButton_Click);
             // 

@@ -2,7 +2,6 @@
 using Clinic.Model;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace Clinic.Controller
 {
@@ -78,27 +77,12 @@ namespace Clinic.Controller
         /// <returns>A list of the conducted lab tests for the specified appointment.</returns>
         public List<ConductedLabTest> GetConductedLabTests(int appointmentId)
         {
-            LabTest mri = new LabTest
+            if (appointmentId < 0)
             {
-                TestCode = 2,
-                Name = "MRI"
-            };
+                throw new ArgumentException("The appointment ID cannot be negative.", "appointmentId");
+            }
 
-            ConductedLabTest firstConductedLabTest = new ConductedLabTest
-            {
-                AppointmentId = 1,
-                LabTest = mri,
-                DatePerformed = new DateTime(2020, 1, 1),
-                Results = "Abnormal",
-                IsNormal = false
-            };
-
-            List<ConductedLabTest> dummyList = new List<ConductedLabTest>
-            {
-                firstConductedLabTest
-            };
-
-            return dummyList;
+            return this.conductedLabTestSource.GetConductedLabTests(appointmentId);
         }
     }
 }

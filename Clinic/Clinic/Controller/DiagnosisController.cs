@@ -1,4 +1,6 @@
-﻿using Clinic.Model;
+﻿using Clinic.DAL;
+using Clinic.Model;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -9,6 +11,13 @@ namespace Clinic.Controller
     /// </summary>
     public class DiagnosisController
     {
+        private readonly DiagnosisDAL diagnosisSource;
+
+        public DiagnosisController()
+        {
+            this.diagnosisSource = new DiagnosisDAL();
+        }
+
         /// <summary>
         /// Method that can be used to add a diagnosis to the database.
         /// </summary>
@@ -17,7 +26,17 @@ namespace Clinic.Controller
         /// <param name="isFinal">A boolean value indicating if the diagnosis is final.</param>
         public void AddDiagnosis(int appointmentId, string diagnosisName, bool isFinal)
         {
-            MessageBox.Show("The DiagnosisController#AddDiagnosis method was called.");
+            if (appointmentId < 0)
+            {
+                throw new ArgumentException("The appointment ID cannot be negative.", "appointmentId");
+            }
+
+            if (string.IsNullOrEmpty(diagnosisName))
+            {
+                throw new ArgumentNullException("diagnosisName", "The diagnosis name cannot be null or empty.");
+            }
+
+            this.diagnosisSource.AddDiagnosis(appointmentId, diagnosisName, isFinal);
         }
 
         /// <summary>

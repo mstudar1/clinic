@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clinic.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +14,35 @@ namespace Clinic.View
     public partial class EnterLabTestResultForm : Form
     {
         private readonly int appointmentId;
+        private readonly ConductedLabTestController theConductedLabTestController;
         private readonly ViewVisitForm referringForm;
 
         public EnterLabTestResultForm(int appointmentId, ViewVisitForm referringForm)
         {
             InitializeComponent();
             this.appointmentId = appointmentId;
+            this.theConductedLabTestController = new ConductedLabTestController();
             this.referringForm = referringForm;
             this.referringForm.Enabled = false;
+        }
+
+        private void SubmitButton_Click(object sender, EventArgs e)
+        {
+            this.alertTextLabel.Text = "";
+            if (this.normalRadioButton.Checked == false && this.abnormalRadioButton.Checked == false)
+            {
+                this.alertTextLabel.Text = "Please select a conclusion.";
+            }
+
+            if (this.alertTextLabel.Text == "")
+            {
+                LabTestController labTest = new LabTestController();
+               // DateTime datePerformed = this.resultDateTimePicker;
+                string results = this.resultTextBox.Text;
+                bool isNormal = this.normalRadioButton.Checked;
+                //this.theConductedLabTestController.AddLabTestResults(this.appointmentId, labTest, datePerformed, results, isNormal);
+            }
+            
         }
 
         /// <summary>
@@ -41,5 +63,7 @@ namespace Clinic.View
         {
             this.referringForm.Enabled = true;
         }
+
+       
     }
 }

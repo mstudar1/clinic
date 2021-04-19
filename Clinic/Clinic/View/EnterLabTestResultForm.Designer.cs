@@ -38,7 +38,7 @@ namespace Clinic.View
             this.prefillPatientNameLabel = new System.Windows.Forms.Label();
             this.prefillTestNameLabel = new System.Windows.Forms.Label();
             this.resultDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.resultTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.abnormalRadioButton = new System.Windows.Forms.RadioButton();
             this.normalRadioButton = new System.Windows.Forms.RadioButton();
@@ -65,7 +65,7 @@ namespace Clinic.View
             this.tableLayoutPanel1.Controls.Add(this.prefillPatientNameLabel, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.prefillTestNameLabel, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.resultDateTimePicker, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.resultTextBox, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.formTitleLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.submitButton, 1, 6);
@@ -169,16 +169,16 @@ namespace Clinic.View
             this.resultDateTimePicker.Size = new System.Drawing.Size(200, 23);
             this.resultDateTimePicker.TabIndex = 8;
             // 
-            // textBox1
+            // resultTextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.resultTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.textBox1, 3);
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(154, 158);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(447, 23);
-            this.textBox1.TabIndex = 9;
+            this.tableLayoutPanel1.SetColumnSpan(this.resultTextBox, 3);
+            this.resultTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultTextBox.Location = new System.Drawing.Point(154, 158);
+            this.resultTextBox.Name = "resultTextBox";
+            this.resultTextBox.Size = new System.Drawing.Size(447, 23);
+            this.resultTextBox.TabIndex = 9;
             // 
             // groupBox1
             // 
@@ -200,7 +200,6 @@ namespace Clinic.View
             this.abnormalRadioButton.Name = "abnormalRadioButton";
             this.abnormalRadioButton.Size = new System.Drawing.Size(86, 21);
             this.abnormalRadioButton.TabIndex = 1;
-            this.abnormalRadioButton.TabStop = true;
             this.abnormalRadioButton.Text = "Abnormal";
             this.abnormalRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -212,7 +211,6 @@ namespace Clinic.View
             this.normalRadioButton.Name = "normalRadioButton";
             this.normalRadioButton.Size = new System.Drawing.Size(71, 21);
             this.normalRadioButton.TabIndex = 0;
-            this.normalRadioButton.TabStop = true;
             this.normalRadioButton.Text = "Normal";
             this.normalRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -239,6 +237,7 @@ namespace Clinic.View
             this.submitButton.TabIndex = 11;
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
             // cancelButton
             // 
@@ -296,7 +295,7 @@ namespace Clinic.View
         private System.Windows.Forms.Label prefillPatientNameLabel;
         private System.Windows.Forms.Label prefillTestNameLabel;
         private System.Windows.Forms.DateTimePicker resultDateTimePicker;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox resultTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton abnormalRadioButton;
         private System.Windows.Forms.RadioButton normalRadioButton;

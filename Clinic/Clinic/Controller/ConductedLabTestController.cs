@@ -49,7 +49,7 @@ namespace Clinic.Controller
             ConductedLabTest firstConductedLabTest = new ConductedLabTest
             {
                 AppointmentId = 1,
-                LabTestId = mri.TestCode,
+                LabTest = mri,
                 DatePerformed = new DateTime(2020, 1, 1),
                 Results = "Abnormal",
                 IsNormal = false

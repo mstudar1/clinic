@@ -21,6 +21,7 @@ namespace Clinic.View
 
         private void OkayButton_Click(object sender, EventArgs e)
         {
+            this.alertMessage.Text = "";
             string diagnosisName = this.diagnosisTextBox.Text;
             if (diagnosisName == "")
             {
@@ -29,31 +30,42 @@ namespace Clinic.View
             bool isFinal = this.finalYesRadioButton.Checked;
             if (isFinal)
             {
-                DialogResult dialogResult = MessageBox.Show(
-                    "Are you sure you want to enter a final diagnosis.  " +
-                    "You will not longer be able to add or edit this visit.", 
-                    "Confirm Final diagnosis", MessageBoxButtons.YesNo);
+                string boxMessage = "Are you sure you want to enter a final diagnosis.  " +
+                    "You will not longer be able to add or edit this visit.";
+                string boxTitle = "Confirm Final diagnosis";
+                DialogResult dialogResult = MessageBox.Show(boxMessage, boxTitle, MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    try
-                    {
-                        this.theDiagnosisController.AddDiagnosis(this.appointmentId, diagnosisName, isFinal);
-                    }
-                    catch (Exception ex)
-                    {
-
-                    }
+                    this.AddDiagnosisToDB(diagnosisName, isFinal);
                 }
+                else
+                {
+                    this.alertMessage.Text = "Diagnosis was not recorded.";
+                }              
             }
             else
+            {
+                this.AddDiagnosisToDB(diagnosisName, isFinal);               
+            }
+        }
+
+        private void AddDiagnosisToDB(string diagnosisName, bool isFinal)
+        {
             {
                 try
                 {
                     this.theDiagnosisController.AddDiagnosis(this.appointmentId, diagnosisName, isFinal);
+                    string boxMessage = "The diagnosis was successfully added to the visit record.";
+                    string boxTitle = "Diagnosis Submitted";
+                    DialogResult dialogResult = MessageBox.Show(boxMessage, boxTitle);
                 }
                 catch (Exception ex)
                 {
-
+                    string boxMessage = "The diagnosis was not successfully saved for the following reason: \n" +
+                        ex.Message;
+                    string boxTitle = "Diagnosis Update Failure";
+                    MessageBox.Show(boxMessage, boxTitle);
+                    this.CloseForm();
                 }
             }
         }
@@ -76,10 +88,7 @@ namespace Clinic.View
         }
 
         // TODO:
-        // Disable referring form and re-enable when complete
-        // Add confirmation box when submitting final=yes
-        // Add OK box when submit successfully final=no
         // Verify that text diagnosis is not equal to one already used in that diagnosis (it is a key)
-        //
+        // Test form when I can merge back to master and wire to the ViewVisitForm
     }
 }

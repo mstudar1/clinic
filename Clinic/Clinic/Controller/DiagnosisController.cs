@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using Clinic.Model;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Clinic.Controller
 {
@@ -16,6 +18,34 @@ namespace Clinic.Controller
         public void AddDiagnosis(int appointmentId, string diagnosisName, bool isFinal)
         {
             MessageBox.Show("The DiagnosisController#AddDiagnosis method was called.");
+        }
+
+        /// <summary>
+        /// Method that gets all of the diagnoses associated with a 
+        /// </summary>
+        /// <param name="appointmentId"></param>
+        /// <returns></returns>
+        public List<Diagnosis> GetDiagnoses(int appointmentId)
+        {
+            List<Diagnosis> diagnoses = new List<Diagnosis>();
+
+            Diagnosis initialDiagnosis = new Diagnosis
+            {
+                AppointmentId = 1,
+                DiagnosisName = "Flu",
+                IsFinal = false
+            };
+            diagnoses.Add(initialDiagnosis);
+
+            Diagnosis finalDiagnosis = new Diagnosis
+            {
+                AppointmentId = 1,
+                DiagnosisName = "Cold",
+                IsFinal = true
+            };
+            diagnoses.Add(finalDiagnosis);
+
+            return diagnoses;
         }
     }
 }

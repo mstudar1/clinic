@@ -112,7 +112,7 @@ namespace Clinic.View
             this.OkayButton.Name = "OkayButton";
             this.OkayButton.Size = new System.Drawing.Size(108, 29);
             this.OkayButton.TabIndex = 3;
-            this.OkayButton.Text = "Okay";
+            this.OkayButton.Text = "Submit";
             this.OkayButton.UseVisualStyleBackColor = true;
             this.OkayButton.Click += new System.EventHandler(this.OkayButton_Click);
             // 
@@ -137,6 +137,7 @@ namespace Clinic.View
             this.diagnosisTextBox.Name = "diagnosisTextBox";
             this.diagnosisTextBox.Size = new System.Drawing.Size(378, 23);
             this.diagnosisTextBox.TabIndex = 5;
+            this.diagnosisTextBox.TextChanged += new System.EventHandler(this.DiagnosisTextBox_TextChanged);
             // 
             // groupBox1
             // 
@@ -163,6 +164,7 @@ namespace Clinic.View
             this.finalNoRadioButton.TabStop = true;
             this.finalNoRadioButton.Text = "No";
             this.finalNoRadioButton.UseVisualStyleBackColor = true;
+            this.finalNoRadioButton.TextChanged += new System.EventHandler(this.DiagnosisTextBox_TextChanged);
             // 
             // finalYesRadioButton
             // 
@@ -174,6 +176,7 @@ namespace Clinic.View
             this.finalYesRadioButton.TabIndex = 0;
             this.finalYesRadioButton.Text = "Yes";
             this.finalYesRadioButton.UseVisualStyleBackColor = true;
+            this.finalYesRadioButton.TextChanged += new System.EventHandler(this.DiagnosisTextBox_TextChanged);
             // 
             // alertMessage
             // 

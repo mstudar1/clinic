@@ -148,6 +148,12 @@
     <Compile Include="View\NurseAdminForm.Designer.cs">
       <DependentUpon>NurseAdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\OrderNewLabTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OrderNewLabTestForm.Designer.cs">
+      <DependentUpon>OrderNewLabTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\RegisterPatientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NurseAdminForm.resx">
       <DependentUpon>NurseAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OrderNewLabTestForm.resx">
+      <DependentUpon>OrderNewLabTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RegisterPatientForm.resx">
       <DependentUpon>RegisterPatientForm.cs</DependentUpon>

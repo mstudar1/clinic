@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Clinic.Model;
+using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace Clinic.DAL
@@ -41,6 +43,50 @@ namespace Clinic.DAL
                     insertCommand.ExecuteNonQuery();
                 }
             }
+        }
+
+        /// <summary>
+        /// Method that gets all of the diagnoses associated with a specific appointment.
+        /// </summary>
+        /// <param name="appointmentId">The ID of the appointment.</param>
+        /// <returns>A list of diagnoses associated with the appointment.</returns>
+        public List<Diagnosis> GetDiagnoses(int appointmentId)
+        {
+            if (appointmentId < 0)
+            {
+                throw new ArgumentException("The appointment ID cannot be negative.", "appointmentId");
+            }
+
+            List<Diagnosis> diagnoses = new List<Diagnosis>();
+
+            string selectStatement =
+                "SELECT appointmentId, diagnosisName, isFinal " +
+                "FROM Diagnosis " +
+                "WHERE appointmentId = @AppointmentId";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@AppointmentId", appointmentId);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        int appointmentIdOrdinal = reader.GetOrdinal("appointmentId");
+                        int diagnosisNameOrdinal = reader.GetOrdinal("diagnosisName");
+                        int isFinalOrdinal = reader.GetOrdinal("isFinal");
+                        while (reader.Read())
+                        {
+                            Diagnosis diagnosis = new Diagnosis();
+                            if (!reader.IsDBNull(appointmentIdOrdinal)) { diagnosis.AppointmentId = reader.GetInt32(appointmentIdOrdinal); }
+                            if (!reader.IsDBNull(diagnosisNameOrdinal)) { diagnosis.DiagnosisName = reader.GetString(diagnosisNameOrdinal); }
+                            if (!reader.IsDBNull(isFinalOrdinal)) { diagnosis.IsFinal = reader.GetBoolean(isFinalOrdinal); }
+                            diagnoses.Add(diagnosis);
+                        }
+                    }
+                }
+            }
+            return diagnoses;
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Clinic.DAL;
-using System;
+﻿using System;
 
 namespace Clinic.Model
 {

@@ -1,4 +1,4 @@
-﻿namespace Clinic.DAL
+﻿namespace Clinic.Model
 {
     /// <summary>
     /// Class representing a lab test.

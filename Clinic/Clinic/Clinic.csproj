@@ -137,6 +137,12 @@
     <Compile Include="View\EditAppointmentForm.Designer.cs">
       <DependentUpon>EditAppointmentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\EnterLabTestResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EnterLabTestResultForm.Designer.cs">
+      <DependentUpon>EnterLabTestResultForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\EditAppointmentForm.resx">
       <DependentUpon>EditAppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\EnterLabTestResultForm.resx">
+      <DependentUpon>EnterLabTestResultForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

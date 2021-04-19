@@ -31,9 +31,9 @@ namespace Clinic.View
         {
             this.components = new System.ComponentModel.Container();
             this.mainTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.labTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labTestComboBox = new System.Windows.Forms.ComboBox();
+            this.labTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.titleLabel = new System.Windows.Forms.Label();
             this.testChoiceLabel = new System.Windows.Forms.Label();
             this.orderTestButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -65,6 +65,22 @@ namespace Clinic.View
             this.mainTableLayoutPanel.Size = new System.Drawing.Size(430, 136);
             this.mainTableLayoutPanel.TabIndex = 0;
             // 
+            // labTestComboBox
+            // 
+            this.mainTableLayoutPanel.SetColumnSpan(this.labTestComboBox, 3);
+            this.labTestComboBox.DataSource = this.labTestBindingSource;
+            this.labTestComboBox.DisplayMember = "Name";
+            this.labTestComboBox.FormattingEnabled = true;
+            this.labTestComboBox.Location = new System.Drawing.Point(110, 57);
+            this.labTestComboBox.Name = "labTestComboBox";
+            this.labTestComboBox.Size = new System.Drawing.Size(300, 21);
+            this.labTestComboBox.TabIndex = 17;
+            this.labTestComboBox.ValueMember = "TestCode";
+            // 
+            // labTestBindingSource
+            // 
+            this.labTestBindingSource.DataSource = typeof(Clinic.Model.LabTest);
+            // 
             // titleLabel
             // 
             this.titleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -79,22 +95,6 @@ namespace Clinic.View
             this.titleLabel.TabIndex = 17;
             this.titleLabel.Text = "Order New Lab Test";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labTestBindingSource
-            // 
-            this.labTestBindingSource.DataSource = typeof(Clinic.Model.LabTest);
-            // 
-            // labTestComboBox
-            // 
-            this.mainTableLayoutPanel.SetColumnSpan(this.labTestComboBox, 3);
-            this.labTestComboBox.DataSource = this.labTestBindingSource;
-            this.labTestComboBox.DisplayMember = "Name";
-            this.labTestComboBox.FormattingEnabled = true;
-            this.labTestComboBox.Location = new System.Drawing.Point(110, 57);
-            this.labTestComboBox.Name = "labTestComboBox";
-            this.labTestComboBox.Size = new System.Drawing.Size(300, 21);
-            this.labTestComboBox.TabIndex = 17;
-            this.labTestComboBox.ValueMember = "TestCode";
             // 
             // testChoiceLabel
             // 
@@ -113,6 +113,7 @@ namespace Clinic.View
             this.orderTestButton.TabIndex = 19;
             this.orderTestButton.Text = "Order Test";
             this.orderTestButton.UseVisualStyleBackColor = true;
+            this.orderTestButton.Click += new System.EventHandler(this.OrderTestButton_Click);
             // 
             // cancelButton
             // 
@@ -122,6 +123,7 @@ namespace Clinic.View
             this.cancelButton.TabIndex = 20;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // alertTextLable
             // 
@@ -145,6 +147,7 @@ namespace Clinic.View
             this.Name = "OrderNewLabTestForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order Lab Test";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OrderNewLabTestForm_FormClosed);
             this.mainTableLayoutPanel.ResumeLayout(false);
             this.mainTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.labTestBindingSource)).EndInit();

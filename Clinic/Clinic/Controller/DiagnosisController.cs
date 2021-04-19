@@ -12,6 +12,9 @@ namespace Clinic.Controller
     {
         private readonly DiagnosisDAL diagnosisSource;
 
+        /// <summary>
+        /// Constructor for the DiagnosisController class.
+        /// </summary>
         public DiagnosisController()
         {
             this.diagnosisSource = new DiagnosisDAL();

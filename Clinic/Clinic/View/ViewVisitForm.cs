@@ -95,21 +95,32 @@ namespace Clinic.View
                 string datePerformed;
                 if (theConductedLabTest.DatePerformed == default)
                 {
-                    datePerformed = "";
-                } else
+                    datePerformed = "Not performed yet";
+                } 
+                else
                 {
                     datePerformed = theConductedLabTest.DatePerformed.ToShortDateString();
                 }
                 this.testsListView.Items[i].SubItems.Add(datePerformed);
-
-                this.testsListView.Items[i].SubItems.Add(theConductedLabTest.Results);
-                if (theConductedLabTest.IsNormal)
+                if (theConductedLabTest.Results == null)
                 {
-                    this.testsListView.Items[i].SubItems.Add("Yes");
+                    this.testsListView.Items[i].SubItems.Add("N/A");
                 }
                 else
                 {
+                    this.testsListView.Items[i].SubItems.Add(theConductedLabTest.Results);
+                }               
+                if (theConductedLabTest.IsNormal && datePerformed != "Not performed yet")
+                {
+                    this.testsListView.Items[i].SubItems.Add("Yes");
+                }
+                else if (datePerformed != "Not performed yet")
+                {
                     this.testsListView.Items[i].SubItems.Add("No");
+                }
+                else
+                {
+                    this.testsListView.Items[i].SubItems.Add("N/A");
                 }
             }
         }

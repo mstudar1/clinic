@@ -77,8 +77,10 @@ namespace Clinic.View
 
         private void LoadTests()
         {
+            this.ClearList();
             this.theTests = this.theConductedLabTestController.GetConductedLabTests(this.GetAppointmentId());
             ConductedLabTest theConductedLabTest;
+
             for (int i = 0; i < this.theTests.Count; i++)
             {
                 theConductedLabTest = this.theTests[i];
@@ -93,6 +95,14 @@ namespace Clinic.View
                 {
                     this.testsListView.Items[i].SubItems.Add("No");
                 }
+            }
+        }
+
+        private void ClearList()
+        {
+            foreach (ListViewItem item in this.testsListView.Items)
+            {
+                this.testsListView.Items.Remove(item);
             }
         }
 

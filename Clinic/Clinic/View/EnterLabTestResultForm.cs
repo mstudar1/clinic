@@ -19,16 +19,15 @@ namespace Clinic.View
         /// <summary>
         /// Constructor for the form
         /// </summary>
-        /// <param name="appointmentId">the appointment ID associated with the lab test (part of the key)</param>
         /// <param name="testCode">the test code associated with the conducted test (part of the key)</param>
         /// <param name="referringForm">the referring ViewVisitForm</param>
-        public EnterLabTestResultForm(int appointmentId, int testCode, ViewVisitForm referringForm)
+        public EnterLabTestResultForm(int testCode, ViewVisitForm referringForm)
         {
-            InitializeComponent();
-            this.appointmentId = appointmentId;
+            InitializeComponent();           
             this.testCode = testCode;
             this.theConductedLabTestController = new ConductedLabTestController();
-            this.referringForm = referringForm;          
+            this.referringForm = referringForm;
+            this.appointmentId = this.referringForm.GetAppointmentId();
             this.referringForm.Enabled = false;
             this.currentConductedLabTest = this.GetCurrentConductedLabTest();
             this.SetPrefilledValues();
@@ -87,6 +86,10 @@ namespace Clinic.View
                 try
                 {
                     this.theConductedLabTestController.AddLabTestResults(this.appointmentId, labTest, datePerformed, results, isNormal);
+                    string boxMessage = "The lab result was successfully recorded";
+                    string boxTitle = "Lab Test Result Update Success";
+                    MessageBox.Show(boxMessage, boxTitle);
+                    this.CloseForm();
                 }
                 catch (Exception ex)
                 {

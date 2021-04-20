@@ -140,10 +140,6 @@ namespace Clinic.View
                     this.orderTestButton.Enabled = false;
                 }
             }
-            
-
-            
-
         }
 
         private void EnterResult_Click(object sender, EventArgs e)
@@ -153,11 +149,21 @@ namespace Clinic.View
                 MessageBox.Show("Please select a Test, then click the button again.", "Select a Test to Enter Results");
                 return;
             }
-
             int selectedIndex = this.testsListView.SelectedIndices[0];
             ConductedLabTest selectedTest = this.theTests[selectedIndex];
-            //Create new EnterResult Form
-            //EnterResultForm.ShowDialog();
+            EnterLabTestResultForm enterLabTestResultForm = new EnterLabTestResultForm(selectedTest.LabTest.TestCode, this);
+            enterLabTestResultForm.Show();
+        }
+
+        /// <summary>
+        /// On button click open up new AddDiagnosis form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddDiagnosisButton_Click(object sender, EventArgs e)
+        {
+            AddDiagnosisForm addDiagnosisForm = new AddDiagnosisForm(this);
+            addDiagnosisForm.Show();
         }
     }
 }

@@ -164,7 +164,7 @@ namespace Clinic.View
                 this.addDiagnosisButton.Enabled = true;
                 if (this.diagnosisOutputLabel.Text == "")
                 {
-                    this.orderTestButton.Enabled = false;
+                    this.orderTestButton.Enabled = true; //TODO: Temporary Fix
                 }
                 else
                 {

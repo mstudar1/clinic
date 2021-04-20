@@ -137,6 +137,10 @@ namespace Clinic.View
             return this.theVisit.AppointmentId;
         }
 
+        /// <summary>
+        /// Enables/Disables buttons depending on options that shoujld be available
+        /// to user
+        /// </summary>
         private void EnableDisableButtons()
         {
             if (this.finalDiagnosis)
@@ -149,11 +153,11 @@ namespace Clinic.View
                 this.addDiagnosisButton.Enabled = true;
                 if (this.diagnosisOutputLabel.Text == "")
                 {
-                    this.orderTestButton.Enabled = true;
+                    this.orderTestButton.Enabled = false;
                 }
                 else
                 {
-                    this.orderTestButton.Enabled = false;
+                    this.orderTestButton.Enabled = true;
                 }
             }
         }

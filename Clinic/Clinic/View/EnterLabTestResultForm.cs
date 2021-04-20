@@ -1,13 +1,6 @@
 ﻿using Clinic.Controller;
 using Clinic.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Clinic.View
@@ -37,7 +30,7 @@ namespace Clinic.View
             this.theConductedLabTestController = new ConductedLabTestController();
             this.referringForm = referringForm;          
             this.referringForm.Enabled = false;
-            this.currentConductedLabTest = this.getCurrentConductedLabTest();
+            this.currentConductedLabTest = this.GetCurrentConductedLabTest();
             this.SetPrefilledValues();
         }
 
@@ -46,7 +39,7 @@ namespace Clinic.View
         /// </summary>
         private void SetPrefilledValues()
         {
-            this.prefillPatientNameLabel.Text = "Still Need to Implement :) ";  //TDOD:  Need to implement finding the name of the patient.
+            this.prefillPatientNameLabel.Text = this.currentConductedLabTest.LabTest.FullName; 
             this.prefillTestNameLabel.Text = this.currentConductedLabTest.LabTest.Name;
             this.resultDateTimePicker.Value = DateTime.Now;
         }
@@ -55,7 +48,7 @@ namespace Clinic.View
         /// Get the conducted current test object based on the unique key information (appointment ID and testcode)
         /// </summary>
         /// <returns></returns>
-        private ConductedLabTest getCurrentConductedLabTest()
+        private ConductedLabTest GetCurrentConductedLabTest()
         {
             foreach (ConductedLabTest test in this.theConductedLabTestController.GetConductedLabTests(this.appointmentId))
             {
@@ -137,7 +130,6 @@ namespace Clinic.View
         {
             this.referringForm.Enabled = true;
         }
-
-       
+      
     }
 }

@@ -48,7 +48,10 @@ namespace Clinic.View
             this.LoadTests();
         }
 
-        private void LoadDiagnosis()
+        /// <summary>
+        /// Method that can be called to refresh the list of diagnoses.
+        /// </summary>
+        public void LoadDiagnosis()
         {
             String theAllDiagnosis = "";
             int indexOfDiagnosis = 1;

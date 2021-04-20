@@ -131,8 +131,6 @@ namespace Clinic.UserControls
         /// <summary>
         /// Method removes default value for DOB
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void DateOfBirthDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             if (this.dateOfBirthDateTimePicker.Value == DateTimePicker.MinimumDateTime)

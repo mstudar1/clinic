@@ -66,7 +66,6 @@ namespace Clinic.View
             this.nurseAdminTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.nurseAdminTabControl.TabIndex = 2;
             this.nurseAdminTabControl.TabStop = false;
-            this.nurseAdminTabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.RefreshNurseList);
             // 
             // appointmentTabPage
             // 

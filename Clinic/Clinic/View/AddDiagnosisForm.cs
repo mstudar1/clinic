@@ -17,14 +17,13 @@ namespace Clinic.View
         /// <summary>
         /// Constructor for the form
         /// </summary>
-        /// <param name="appointmentId">the appointmentId associated with the diagnosis</param>
         /// <param name="referringForm">the form from which this form was opened</param>
-        public AddDiagnosisForm(int appointmentId, ViewVisitForm referringForm)
+        public AddDiagnosisForm(ViewVisitForm referringForm)
         {
-            InitializeComponent();
-            this.appointmentId = appointmentId;          
+            InitializeComponent();        
             this.theDiagnosisController = new DiagnosisController();
             this.referringForm = referringForm;
+            this.appointmentId = this.referringForm.GetAppointmentId();
             this.referringForm.Enabled = false;
         }
 

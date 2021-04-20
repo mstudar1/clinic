@@ -76,6 +76,7 @@ namespace Clinic.View
             this.labTestComboBox.Size = new System.Drawing.Size(300, 21);
             this.labTestComboBox.TabIndex = 17;
             this.labTestComboBox.ValueMember = "TestCode";
+            this.labTestComboBox.SelectedIndexChanged += new System.EventHandler(this.labTestComboBox_SelectedIndexChanged);
             // 
             // labTestBindingSource
             // 

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="LabTestsConducted" targetNamespace="http://tempuri.org/LabTestsConducted.xsd" xmlns:mstns="http://tempuri.org/LabTestsConducted.xsd" xmlns="http://tempuri.org/LabTestsConducted.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="cs6232_g2ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="cs6232_g2ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Clinic.Properties.Settings.GlobalReference.Default.cs6232_g2ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LabConductedTestTableAdapter" GeneratorDataComponentClassName="LabConductedTestTableAdapter" Name="LabConductedTest" UserDataComponentName="LabConductedTestTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="cs6232_g2ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT l.name, c.datePerformed, c.results, c.isNormal FROM dbo.ConductedLabTest c JOIN dbo.LabTest l ON c.testCode = l.testCode</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="datePerformed" DataSetColumn="datePerformed" />
+              <Mapping SourceColumn="results" DataSetColumn="results" />
+              <Mapping SourceColumn="isNormal" DataSetColumn="isNormal" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="LabTestsConducted" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="LabTestsConducted" msprop:Generator_UserDSName="LabTestsConducted">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="LabConductedTest" msprop:Generator_TableClassName="LabConductedTestDataTable" msprop:Generator_TableVarName="tableLabConductedTest" msprop:Generator_RowChangedName="LabConductedTestRowChanged" msprop:Generator_TablePropName="LabConductedTest" msprop:Generator_RowDeletingName="LabConductedTestRowDeleting" msprop:Generator_RowChangingName="LabConductedTestRowChanging" msprop:Generator_RowEvHandlerName="LabConductedTestRowChangeEventHandler" msprop:Generator_RowDeletedName="LabConductedTestRowDeleted" msprop:Generator_RowClassName="LabConductedTestRow" msprop:Generator_UserTableName="LabConductedTest" msprop:Generator_RowEvArgName="LabConductedTestRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="datePerformed" msprop:Generator_ColumnVarNameInTable="columndatePerformed" msprop:Generator_ColumnPropNameInRow="datePerformed" msprop:Generator_ColumnPropNameInTable="datePerformedColumn" msprop:Generator_UserColumnName="datePerformed" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="results" msprop:Generator_ColumnVarNameInTable="columnresults" msprop:Generator_ColumnPropNameInRow="results" msprop:Generator_ColumnPropNameInTable="resultsColumn" msprop:Generator_UserColumnName="results" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="isNormal" msprop:Generator_ColumnVarNameInTable="columnisNormal" msprop:Generator_ColumnPropNameInRow="isNormal" msprop:Generator_ColumnPropNameInTable="isNormalColumn" msprop:Generator_UserColumnName="isNormal" type="xs:boolean" minOccurs="0" />
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -43,6 +43,7 @@ namespace Clinic.View
             System.Windows.Forms.Label diagnosisLabel;
             this.viewVisitTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.symptomsOutputLabel = new System.Windows.Forms.Label();
+            this.visitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bodyTemperatureOutputLabel = new System.Windows.Forms.Label();
             this.diastolicBloodPressureOutputLabel = new System.Windows.Forms.Label();
             this.weightOutputLabel = new System.Windows.Forms.Label();
@@ -52,19 +53,27 @@ namespace Clinic.View
             this.nurseFullNameOutputLabel = new System.Windows.Forms.Label();
             this.patientFullNameOutputLabel = new System.Windows.Forms.Label();
             this.visitDateOutputLabel = new System.Windows.Forms.Label();
-            this.conductedLabTestBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.conductedLabTestsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.labTestDataGridView = new System.Windows.Forms.DataGridView();
             this.buttonTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.addDiagnosisButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.orderTestButton = new System.Windows.Forms.Button();
             this.diagnosisOutputLabel = new System.Windows.Forms.Label();
             this.visitInformationLabel = new System.Windows.Forms.Label();
+            this.conductedLabTestBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.conductedLabTestsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.conductedLabTestBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.visitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.conductedLabTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.EnterResult = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.labTestDataGridView = new System.Windows.Forms.DataGridView();
+            this.labTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.conductedLabTestBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.labTestsConducted = new Clinic.LabTestsConducted();
+            this.labConductedTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.labConductedTestTableAdapter = new Clinic.LabTestsConductedTableAdapters.LabConductedTestTableAdapter();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datePerformedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isNormalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.EditResult = new System.Windows.Forms.DataGridViewButtonColumn();
             bodyTemperatureLabel = new System.Windows.Forms.Label();
             diastolicBloodPressureLabel = new System.Windows.Forms.Label();
             doctorFullNameLabel = new System.Windows.Forms.Label();
@@ -77,13 +86,17 @@ namespace Clinic.View
             weightLabel = new System.Windows.Forms.Label();
             diagnosisLabel = new System.Windows.Forms.Label();
             this.viewVisitTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.visitBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.labTestDataGridView)).BeginInit();
+            this.buttonTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestsBindingSource)).BeginInit();
-            this.buttonTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.visitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.labTestDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.labTestBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.labTestsConducted)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.labConductedTestBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bodyTemperatureLabel
@@ -268,6 +281,10 @@ namespace Clinic.View
             this.symptomsOutputLabel.Size = new System.Drawing.Size(793, 31);
             this.symptomsOutputLabel.TabIndex = 33;
             // 
+            // visitBindingSource
+            // 
+            this.visitBindingSource.DataSource = typeof(Clinic.Model.Visit);
+            // 
             // bodyTemperatureOutputLabel
             // 
             this.bodyTemperatureOutputLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -358,15 +375,25 @@ namespace Clinic.View
             this.visitDateOutputLabel.Size = new System.Drawing.Size(793, 31);
             this.visitDateOutputLabel.TabIndex = 37;
             // 
-            // conductedLabTestBindingSource2
+            // labTestDataGridView
             // 
-            this.conductedLabTestBindingSource2.DataMember = "ConductedLabTest";
-            this.conductedLabTestBindingSource2.DataSource = this.conductedLabTestsBindingSource;
-            // 
-            // conductedLabTestsBindingSource
-            // 
-            this.conductedLabTestsBindingSource.Position = 0;
-            // 
+            this.labTestDataGridView.AutoGenerateColumns = false;
+            this.labTestDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.labTestDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.datePerformedDataGridViewTextBoxColumn,
+            this.resultsDataGridViewTextBoxColumn,
+            this.isNormalDataGridViewCheckBoxColumn,
+            this.EditResult});
+            this.viewVisitTableLayoutPanel.SetColumnSpan(this.labTestDataGridView, 2);
+            this.labTestDataGridView.DataSource = this.labConductedTestBindingSource;
+            this.labTestDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labTestDataGridView.Location = new System.Drawing.Point(4, 609);
+            this.labTestDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.labTestDataGridView.Name = "labTestDataGridView";
+            this.labTestDataGridView.RowHeadersWidth = 62;
+            this.labTestDataGridView.Size = new System.Drawing.Size(1146, 210);
+            this.labTestDataGridView.TabIndex = 41;
             // 
             // buttonTableLayoutPanel
             // 
@@ -450,44 +477,85 @@ namespace Clinic.View
             this.visitInformationLabel.TabIndex = 16;
             this.visitInformationLabel.Text = "Visit Information";
             // 
+            // conductedLabTestBindingSource2
+            // 
+            this.conductedLabTestBindingSource2.DataMember = "ConductedLabTest";
+            this.conductedLabTestBindingSource2.DataSource = this.conductedLabTestsBindingSource;
+            // 
             // conductedLabTestBindingSource1
             // 
             this.conductedLabTestBindingSource1.DataMember = "ConductedLabTest";
-            // 
-            // conductedLabTestTableAdapter
-            // 
-            // 
-            // visitBindingSource
-            // 
-            this.visitBindingSource.DataSource = typeof(Clinic.Model.Visit);
             // 
             // conductedLabTestBindingSource
             // 
             this.conductedLabTestBindingSource.DataSource = typeof(Clinic.Model.ConductedLabTest);
             // 
-            // EnterResult
+            // labTestBindingSource
             // 
-            this.EnterResult.DataPropertyName = "AppointmentId";
-            this.EnterResult.HeaderText = "";
-            this.EnterResult.MinimumWidth = 8;
-            this.EnterResult.Name = "EnterResult";
-            this.EnterResult.Text = "Enter Result";
-            this.EnterResult.UseColumnTextForButtonValue = true;
-            this.EnterResult.Width = 150;
+            this.labTestBindingSource.DataSource = typeof(Clinic.Model.LabTest);
             // 
-            // labTestDataGridView
+            // conductedLabTestBindingSource3
             // 
-            this.labTestDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.labTestDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.EnterResult});
-            this.viewVisitTableLayoutPanel.SetColumnSpan(this.labTestDataGridView, 2);
-            this.labTestDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labTestDataGridView.Location = new System.Drawing.Point(4, 609);
-            this.labTestDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.labTestDataGridView.Name = "labTestDataGridView";
-            this.labTestDataGridView.RowHeadersWidth = 62;
-            this.labTestDataGridView.Size = new System.Drawing.Size(1146, 210);
-            this.labTestDataGridView.TabIndex = 41;
+            this.conductedLabTestBindingSource3.DataSource = typeof(Clinic.Model.ConductedLabTest);
+            // 
+            // labTestsConducted
+            // 
+            this.labTestsConducted.DataSetName = "LabTestsConducted";
+            this.labTestsConducted.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // labConductedTestBindingSource
+            // 
+            this.labConductedTestBindingSource.DataMember = "LabConductedTest";
+            this.labConductedTestBindingSource.DataSource = this.labTestsConducted;
+            // 
+            // labConductedTestTableAdapter
+            // 
+            this.labConductedTestTableAdapter.ClearBeforeFill = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // datePerformedDataGridViewTextBoxColumn
+            // 
+            this.datePerformedDataGridViewTextBoxColumn.DataPropertyName = "datePerformed";
+            this.datePerformedDataGridViewTextBoxColumn.HeaderText = "Date Performed";
+            this.datePerformedDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.datePerformedDataGridViewTextBoxColumn.Name = "datePerformedDataGridViewTextBoxColumn";
+            this.datePerformedDataGridViewTextBoxColumn.ReadOnly = true;
+            this.datePerformedDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // resultsDataGridViewTextBoxColumn
+            // 
+            this.resultsDataGridViewTextBoxColumn.DataPropertyName = "results";
+            this.resultsDataGridViewTextBoxColumn.HeaderText = "Results";
+            this.resultsDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.resultsDataGridViewTextBoxColumn.Name = "resultsDataGridViewTextBoxColumn";
+            this.resultsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.resultsDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // isNormalDataGridViewCheckBoxColumn
+            // 
+            this.isNormalDataGridViewCheckBoxColumn.DataPropertyName = "isNormal";
+            this.isNormalDataGridViewCheckBoxColumn.HeaderText = "Is Normal?";
+            this.isNormalDataGridViewCheckBoxColumn.MinimumWidth = 8;
+            this.isNormalDataGridViewCheckBoxColumn.Name = "isNormalDataGridViewCheckBoxColumn";
+            this.isNormalDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.isNormalDataGridViewCheckBoxColumn.Width = 150;
+            // 
+            // EditResult
+            // 
+            this.EditResult.HeaderText = "";
+            this.EditResult.MinimumWidth = 8;
+            this.EditResult.Name = "EditResult";
+            this.EditResult.Text = "Edit Result";
+            this.EditResult.UseColumnTextForButtonValue = true;
+            this.EditResult.Width = 150;
             // 
             // ViewVisitForm
             // 
@@ -505,13 +573,17 @@ namespace Clinic.View
             this.Load += new System.EventHandler(this.ViewVisitForm_Load);
             this.viewVisitTableLayoutPanel.ResumeLayout(false);
             this.viewVisitTableLayoutPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.visitBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.labTestDataGridView)).EndInit();
             this.buttonTableLayoutPanel.ResumeLayout(false);
             this.buttonTableLayoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.visitBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.labTestDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.labTestBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.labTestsConducted)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.labConductedTestBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -541,6 +613,15 @@ namespace Clinic.View
         private System.Windows.Forms.BindingSource conductedLabTestBindingSource2;
         private System.Windows.Forms.Label diagnosisOutputLabel;
         private System.Windows.Forms.DataGridView labTestDataGridView;
-        private System.Windows.Forms.DataGridViewButtonColumn EnterResult;
+        private System.Windows.Forms.BindingSource conductedLabTestBindingSource3;
+        private System.Windows.Forms.BindingSource labTestBindingSource;
+        private LabTestsConducted labTestsConducted;
+        private System.Windows.Forms.BindingSource labConductedTestBindingSource;
+        private LabTestsConductedTableAdapters.LabConductedTestTableAdapter labConductedTestTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datePerformedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resultsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isNormalDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn EditResult;
     }
 }

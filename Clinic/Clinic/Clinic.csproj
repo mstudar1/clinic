@@ -64,6 +64,11 @@
     <Compile Include="DAL\DiagnosisDAL.cs" />
     <Compile Include="DAL\DoctorDAL.cs" />
     <Compile Include="DAL\LabTestDAL.cs" />
+    <Compile Include="LabTestsConducted.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LabTestsConducted.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\ConductedLabTest.cs" />
     <Compile Include="Model\Diagnosis.cs" />
     <Compile Include="Model\LabTest.cs" />
@@ -251,6 +256,17 @@
     <EmbeddedResource Include="View\ViewVisitForm.resx">
       <DependentUpon>ViewVisitForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="LabTestsConducted.xsc">
+      <DependentUpon>LabTestsConducted.xsd</DependentUpon>
+    </None>
+    <None Include="LabTestsConducted.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LabTestsConducted.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LabTestsConducted.xss">
+      <DependentUpon>LabTestsConducted.xsd</DependentUpon>
+    </None>
     <None Include="Properties\DataSources\Clinic.Controller.DoctorController.datasource" />
     <None Include="Properties\DataSources\Clinic.Model.Appointment.datasource" />
     <None Include="Properties\DataSources\Clinic.Model.ConductedLabTest.datasource" />

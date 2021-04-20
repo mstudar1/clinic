@@ -10,7 +10,6 @@ namespace Clinic.View
     /// </summary>
     public partial class AddDiagnosisForm : Form
     {
-        private readonly int appointmentId;
         private readonly DiagnosisController theDiagnosisController;
         private readonly ViewVisitForm referringForm;
 
@@ -23,7 +22,6 @@ namespace Clinic.View
             InitializeComponent();        
             this.theDiagnosisController = new DiagnosisController();
             this.referringForm = referringForm;
-            this.appointmentId = this.referringForm.GetAppointmentId();
             this.referringForm.Enabled = false;
         }
 
@@ -72,7 +70,7 @@ namespace Clinic.View
             {
                 try
                 {
-                    this.theDiagnosisController.AddDiagnosis(this.appointmentId, diagnosisName, isFinal);
+                    this.theDiagnosisController.AddDiagnosis(this.referringForm.GetAppointmentId(), diagnosisName, isFinal);
                     string boxMessage = "The diagnosis was successfully added to the visit record.";
                     string boxTitle = "Diagnosis Submitted";
                     DialogResult dialogResult = MessageBox.Show(boxMessage, boxTitle);

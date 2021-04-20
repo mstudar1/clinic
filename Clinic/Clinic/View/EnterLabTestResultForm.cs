@@ -10,7 +10,6 @@ namespace Clinic.View
     /// </summary>
     public partial class EnterLabTestResultForm : Form
     {
-        private readonly int appointmentId;
         private readonly int testCode;
         private readonly ConductedLabTestController theConductedLabTestController;
         private readonly ViewVisitForm referringForm;
@@ -27,7 +26,6 @@ namespace Clinic.View
             this.testCode = testCode;
             this.theConductedLabTestController = new ConductedLabTestController();
             this.referringForm = referringForm;
-            this.appointmentId = this.referringForm.GetAppointmentId();
             this.referringForm.Enabled = false;
             this.currentConductedLabTest = this.GetCurrentConductedLabTest();
             this.SetPrefilledValues();
@@ -49,7 +47,7 @@ namespace Clinic.View
         /// <returns></returns>
         private ConductedLabTest GetCurrentConductedLabTest()
         {
-            foreach (ConductedLabTest test in this.theConductedLabTestController.GetConductedLabTests(this.appointmentId))
+            foreach (ConductedLabTest test in this.theConductedLabTestController.GetConductedLabTests(this.referringForm.GetAppointmentId()))
             {
                 if (test.LabTest.TestCode == this.testCode)
                 {
@@ -85,7 +83,7 @@ namespace Clinic.View
                 bool isNormal = this.normalRadioButton.Checked;
                 try
                 {
-                    this.theConductedLabTestController.AddLabTestResults(this.appointmentId, labTest, datePerformed, results, isNormal);
+                    this.theConductedLabTestController.AddLabTestResults(this.referringForm.GetAppointmentId(), labTest, datePerformed, results, isNormal);
                     string boxMessage = "The lab result was successfully recorded";
                     string boxTitle = "Lab Test Result Update Success";
                     MessageBox.Show(boxMessage, boxTitle);

@@ -65,8 +65,6 @@ namespace Clinic.View
             this.conductedLabTestTableAdapter = new Clinic.ConductedLabTestsTableAdapters.ConductedLabTestTableAdapter();
             this.visitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.conductedLabTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.EnterResult = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.labTestDataGridView = new System.Windows.Forms.DataGridView();
             bodyTemperatureLabel = new System.Windows.Forms.Label();
             diastolicBloodPressureLabel = new System.Windows.Forms.Label();
             doctorFullNameLabel = new System.Windows.Forms.Label();
@@ -86,7 +84,6 @@ namespace Clinic.View
             ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.visitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.labTestDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // bodyTemperatureLabel
@@ -236,7 +233,6 @@ namespace Clinic.View
             this.viewVisitTableLayoutPanel.Controls.Add(systolicBloodPressureLabel, 0, 6);
             this.viewVisitTableLayoutPanel.Controls.Add(patientFullNameLabel, 0, 2);
             this.viewVisitTableLayoutPanel.Controls.Add(visitDateLabel, 0, 1);
-            this.viewVisitTableLayoutPanel.Controls.Add(this.labTestDataGridView, 0, 12);
             this.viewVisitTableLayoutPanel.Controls.Add(this.buttonTableLayoutPanel, 0, 13);
             this.viewVisitTableLayoutPanel.Controls.Add(diagnosisLabel, 0, 11);
             this.viewVisitTableLayoutPanel.Controls.Add(this.diagnosisOutputLabel, 1, 11);
@@ -475,30 +471,6 @@ namespace Clinic.View
             // 
             this.conductedLabTestBindingSource.DataSource = typeof(Clinic.Model.ConductedLabTest);
             // 
-            // EnterResult
-            // 
-            this.EnterResult.DataPropertyName = "AppointmentId";
-            this.EnterResult.HeaderText = "";
-            this.EnterResult.MinimumWidth = 8;
-            this.EnterResult.Name = "EnterResult";
-            this.EnterResult.Text = "Enter Result";
-            this.EnterResult.UseColumnTextForButtonValue = true;
-            this.EnterResult.Width = 150;
-            // 
-            // labTestDataGridView
-            // 
-            this.labTestDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.labTestDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.EnterResult});
-            this.viewVisitTableLayoutPanel.SetColumnSpan(this.labTestDataGridView, 2);
-            this.labTestDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labTestDataGridView.Location = new System.Drawing.Point(4, 609);
-            this.labTestDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.labTestDataGridView.Name = "labTestDataGridView";
-            this.labTestDataGridView.RowHeadersWidth = 62;
-            this.labTestDataGridView.Size = new System.Drawing.Size(1146, 210);
-            this.labTestDataGridView.TabIndex = 41;
-            // 
             // ViewVisitForm
             // 
             this.AcceptButton = this.closeButton;
@@ -523,7 +495,6 @@ namespace Clinic.View
             ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.visitBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.labTestDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -554,7 +525,5 @@ namespace Clinic.View
         private ConductedLabTestsTableAdapters.ConductedLabTestTableAdapter conductedLabTestTableAdapter;
         private System.Windows.Forms.BindingSource conductedLabTestBindingSource2;
         private System.Windows.Forms.Label diagnosisOutputLabel;
-        private System.Windows.Forms.DataGridView labTestDataGridView;
-        private System.Windows.Forms.DataGridViewButtonColumn EnterResult;
     }
 }

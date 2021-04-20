@@ -11,7 +11,7 @@ namespace Clinic.View
     /// </summary>
     public partial class OrderNewLabTestForm : Form
     {
-        private readonly ViewVisitForm theViewVisitForm;
+        private readonly ViewVisitForm referringForm;
         private readonly LabTestController theLabTestController;
         private readonly ConductedLabTestController theConductedLabTestController;
         private List<LabTest> labTestList;
@@ -25,8 +25,8 @@ namespace Clinic.View
         {
             this.theLabTestController = new LabTestController();
             this.theConductedLabTestController = new ConductedLabTestController();
-            this.theViewVisitForm = theViewVisitForm;
-            this.theViewVisitForm.Enabled = false;
+            this.referringForm = theViewVisitForm;
+            this.referringForm.Enabled = false;
             InitializeComponent();
             this.SetLabTestComboBox();
         }
@@ -54,18 +54,20 @@ namespace Clinic.View
             } 
             else
             {
-                LabTest selectedLabTest = new LabTest();
-                selectedLabTest.TestCode = int.Parse(this.labTestComboBox.SelectedValue.ToString());
-                selectedLabTest.Name = this.labTestComboBox.Text;
+                LabTest selectedLabTest = new LabTest
+                {
+                    TestCode = int.Parse(this.labTestComboBox.SelectedValue.ToString()),
+                    Name = this.labTestComboBox.Text
+                };
                 try
                 {
-                    this.theConductedLabTestController.OrderLabTest(this.theViewVisitForm.GetAppointmentId(), selectedLabTest);
+                    this.theConductedLabTestController.OrderLabTest(this.referringForm.GetAppointmentId(), selectedLabTest);
                     string boxMessage = "Lab test successfully ordered.";
                     string boxTitle = "Lab Test Order Confirmation";
                     DialogResult dialogResult = MessageBox.Show(boxMessage, boxTitle);
                     this.CloseForm();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     this.alertTextLable.Text = "Test has already been ordered for this patient on this visit.";
                 }
@@ -77,8 +79,8 @@ namespace Clinic.View
         /// </summary>
         private void CloseForm()
         {
-            this.theViewVisitForm.Enabled = true;
-            // TODO: force reload of ViewVisit form
+            this.referringForm.Enabled = true;
+            this.referringForm.LoadTests();
             this.Close();
         }
 
@@ -99,7 +101,7 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void OrderNewLabTestForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.theViewVisitForm.Enabled = true;
+            this.referringForm.Enabled = true;
         }
 
         /// <summary>
@@ -107,7 +109,7 @@ namespace Clinic.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void labTestComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void LabTestComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.alertTextLable.Text = "";
         }

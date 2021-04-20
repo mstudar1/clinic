@@ -32,8 +32,6 @@ namespace Clinic.UserControls
         /// <summary>
         /// When button clicked the add nurse form should be called
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void RegisterNurseButton_Click(object sender, System.EventArgs e)
         {
             this.theAddNurseForm = new AddNurseForm(this);
@@ -46,6 +44,9 @@ namespace Clinic.UserControls
             this.PopulateList();
         }
 
+        /// <summary>
+        /// The Method clears list and removes items from the list
+        /// </summary>
         public void ClearList()
         {
             foreach (ListViewItem item in this.nurseListView.Items)

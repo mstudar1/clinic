@@ -100,5 +100,15 @@ namespace Clinic.View
         {
             this.theViewVsitForm.Enabled = true;
         }
+
+        /// <summary>
+        /// Reset alert message when combobox selected index changes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void labTestComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.alertTextLable.Text = "";
+        }
     }
 }

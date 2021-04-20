@@ -88,7 +88,17 @@ namespace Clinic.View
             {
                 theConductedLabTest = this.theTests[i];
                 this.testsListView.Items.Add(theConductedLabTest.LabTest.Name);
-                this.testsListView.Items[i].SubItems.Add(theConductedLabTest.DatePerformed.ToShortDateString());
+
+                string datePerformed;
+                if (theConductedLabTest.DatePerformed == default)
+                {
+                    datePerformed = "";
+                } else
+                {
+                    datePerformed = theConductedLabTest.DatePerformed.ToShortDateString();
+                }
+                this.testsListView.Items[i].SubItems.Add(datePerformed);
+
                 this.testsListView.Items[i].SubItems.Add(theConductedLabTest.Results);
                 if (theConductedLabTest.IsNormal)
                 {

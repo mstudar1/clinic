@@ -54,9 +54,11 @@ namespace Clinic.View
             } 
             else
             {
-                LabTest selectedLabTest = new LabTest();
-                selectedLabTest.TestCode = int.Parse(this.labTestComboBox.SelectedValue.ToString());
-                selectedLabTest.Name = this.labTestComboBox.Text;
+                LabTest selectedLabTest = new LabTest
+                {
+                    TestCode = int.Parse(this.labTestComboBox.SelectedValue.ToString()),
+                    Name = this.labTestComboBox.Text
+                };
                 try
                 {
                     this.theConductedLabTestController.OrderLabTest(this.referringForm.GetAppointmentId(), selectedLabTest);
@@ -65,7 +67,7 @@ namespace Clinic.View
                     DialogResult dialogResult = MessageBox.Show(boxMessage, boxTitle);
                     this.CloseForm();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     this.alertTextLable.Text = "Test has already been ordered for this patient on this visit.";
                 }
@@ -107,7 +109,7 @@ namespace Clinic.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void labTestComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void LabTestComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.alertTextLable.Text = "";
         }

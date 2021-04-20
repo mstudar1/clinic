@@ -111,10 +111,5 @@ namespace Clinic.View
         {
             this.patientUserControl1.RefreshPatientsListData();
         }
-
-        private void RefreshNurseList(object sender, TabControlEventArgs e)
-        {
-
-        }
     }
 }

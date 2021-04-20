@@ -5,10 +5,17 @@ using System.Windows.Forms;
 
 namespace Clinic.View
 {
+    /// <summary>
+    /// This class will create and manage actions within the view patient form
+    /// </summary>
     public partial class ViewPatientForm : Form
     {
         private readonly Patient thePatient;
         private readonly PatientUserControl thePatientUserControl;
+
+        /// <summary>
+        /// Constructor for view patient form
+        /// </summary>
         public ViewPatientForm(PatientUserControl theInputPatientUserControl, Patient theInputedPatient)
         {
             InitializeComponent();

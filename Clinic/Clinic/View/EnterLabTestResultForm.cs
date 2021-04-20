@@ -1,4 +1,5 @@
 ﻿using Clinic.Controller;
+using Clinic.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,16 +15,39 @@ namespace Clinic.View
     public partial class EnterLabTestResultForm : Form
     {
         private readonly int appointmentId;
+        private readonly int testCode;
         private readonly ConductedLabTestController theConductedLabTestController;
         private readonly ViewVisitForm referringForm;
+        private readonly ConductedLabTest currentConductedLabTest;
 
-        public EnterLabTestResultForm(int appointmentId, ViewVisitForm referringForm)
+        public EnterLabTestResultForm(int appointmentId, int testCode, ViewVisitForm referringForm)
         {
             InitializeComponent();
             this.appointmentId = appointmentId;
+            this.testCode = testCode;
             this.theConductedLabTestController = new ConductedLabTestController();
             this.referringForm = referringForm;
+            this.currentConductedLabTest = this.getCurrentConductedLabTest();
             this.referringForm.Enabled = false;
+            this.resultDateTimePicker.Value = DateTime.Now;         
+        }
+
+        private void SetPrefilledValues()
+        {
+            this.prefillPatientNameLabel.Text = "Still Need to Implement :) ";
+            this.prefillTestNameLabel.Text = this.currentConductedLabTest.LabTest.Name;
+        }
+
+        private ConductedLabTest getCurrentConductedLabTest()
+        {
+            foreach (ConductedLabTest test in this.theConductedLabTestController.GetConductedLabTests(this.appointmentId))
+            {
+                if (test.LabTest.TestCode == this.testCode)
+                {
+                    return test;
+                }
+            }
+            throw new Exception("No conducted test found");
         }
 
         private void SubmitButton_Click(object sender, EventArgs e)
@@ -31,16 +55,32 @@ namespace Clinic.View
             this.alertTextLabel.Text = "";
             if (this.normalRadioButton.Checked == false && this.abnormalRadioButton.Checked == false)
             {
-                this.alertTextLabel.Text = "Please select a conclusion.";
+                this.alertTextLabel.Text += "Please select a conclusion.";
+            }
+            if (this.resultTextBox.Text == "")
+            {
+                this.alertTextLabel.Text += "Please enter a result in the space provided.";
             }
 
             if (this.alertTextLabel.Text == "")
             {
-                LabTestController labTest = new LabTestController();
-               // DateTime datePerformed = this.resultDateTimePicker;
+                LabTest labTest = this.currentConductedLabTest.LabTest; 
+                DateTime datePerformed = this.resultDateTimePicker.Value;
                 string results = this.resultTextBox.Text;
                 bool isNormal = this.normalRadioButton.Checked;
-                //this.theConductedLabTestController.AddLabTestResults(this.appointmentId, labTest, datePerformed, results, isNormal);
+                try
+                {
+                    this.theConductedLabTestController.AddLabTestResults(this.appointmentId, labTest, datePerformed, results, isNormal);
+                }
+                catch (Exception ex)
+                {
+                    string boxMessage = "The lab result was not successfully recorded for the following reason: \n" +
+                        ex.Message;
+                    string boxTitle = "Lab Test Result Update Failure";
+                    MessageBox.Show(boxMessage, boxTitle);
+                    this.CloseForm();
+                }
+                
             }
             
         }

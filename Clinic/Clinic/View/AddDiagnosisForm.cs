@@ -95,6 +95,7 @@ namespace Clinic.View
         private void CloseForm()
         {
             this.referringForm.Enabled = true;
+            this.referringForm.LoadTests();
             this.Close();
         }
 
@@ -128,8 +129,5 @@ namespace Clinic.View
             this.alertMessage.Text = "";
         }
 
-        // TODO:
-        // Verify that text diagnosis is not equal to one already used in that diagnosis (it is a key)
-        // Test form when I can merge back to master and wire to the ViewVisitForm
     }
 }

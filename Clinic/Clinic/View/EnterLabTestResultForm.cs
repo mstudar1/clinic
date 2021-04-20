@@ -110,6 +110,7 @@ namespace Clinic.View
         private void CloseForm()
         {
             this.referringForm.Enabled = true;
+            this.referringForm.LoadTests();
             this.Close();
         }
 

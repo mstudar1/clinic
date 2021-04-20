@@ -17,6 +17,10 @@ namespace Clinic.View
         private List<LabTest> labTestList;
 
 
+        /// <summary>
+        /// Constructor for form
+        /// </summary>
+        /// <param name="theViewVsitForm"></param>
         public OrderNewLabTestForm(ViewVisitForm theViewVsitForm)
         {
             this.theLabTestController = new LabTestController();
@@ -36,6 +40,11 @@ namespace Clinic.View
             this.labTestComboBox.DataSource = this.labTestList;
         }
 
+        /// <summary>
+        /// Handler for order test button clicks.  Validates input and then attempts to add record to DB
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OrderTestButton_Click(object sender, EventArgs e)
         {
             if (this.labTestComboBox.SelectedIndex == -1)
@@ -58,7 +67,7 @@ namespace Clinic.View
                 }
                 catch (Exception ex)
                 {
-                    this.alertTextLable.Text = ex.Message;
+                    this.alertTextLable.Text = "Test has already been ordered for this patient on this visit.";
                 }
             }
         }

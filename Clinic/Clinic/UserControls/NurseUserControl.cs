@@ -55,6 +55,9 @@ namespace Clinic.UserControls
             }
         }
 
+        /// <summary>
+        /// The Method populates the list of nurses
+        /// </summary>
         public void PopulateList()
         {
             try
@@ -105,8 +108,6 @@ namespace Clinic.UserControls
         /// <summary>
         /// Handles edit nurse button clicks to open the edit nurse form with selected nurse info
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void EditNurseButton_Click(object sender, EventArgs e)
         {
             this.ResetFormMessages();
@@ -126,8 +127,6 @@ namespace Clinic.UserControls
         /// <summary>
         /// Handles view nurse button click events to open view nurse details form for selected nurse
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ViewNurseButton_Click(object sender, EventArgs e)
         {
             this.ResetFormMessages();

@@ -167,8 +167,16 @@ namespace Clinic.View
             }
             int selectedIndex = this.testsListView.SelectedIndices[0];
             ConductedLabTest selectedTest = this.theTests[selectedIndex];
-            EnterLabTestResultForm enterLabTestResultForm = new EnterLabTestResultForm(selectedTest.LabTest.TestCode, this);
-            enterLabTestResultForm.Show();
+            try
+            {
+                EnterLabTestResultForm enterLabTestResultForm = new EnterLabTestResultForm(selectedTest.LabTest.TestCode, this);
+                enterLabTestResultForm.Show();
+            }
+            catch (Exception)
+            {
+                this.Enabled = true;
+            }
+                     
         }
 
         /// <summary>

@@ -123,11 +123,11 @@ namespace Clinic.View
                 this.addDiagnosisButton.Enabled = true;
                 if (this.diagnosisOutputLabel.Text == "")
                 {
-                    this.orderTestButton.Enabled = false;
+                    this.orderTestButton.Enabled = true;
                 }
                 else
                 {
-                    this.orderTestButton.Enabled = true;
+                    this.orderTestButton.Enabled = false;
                 }
             }
             

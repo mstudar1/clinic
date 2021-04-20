@@ -35,10 +35,10 @@ namespace Clinic.View
             this.appointmentId = appointmentId;
             this.testCode = testCode;
             this.theConductedLabTestController = new ConductedLabTestController();
-            this.referringForm = referringForm;
-            this.currentConductedLabTest = this.getCurrentConductedLabTest();
+            this.referringForm = referringForm;          
             this.referringForm.Enabled = false;
-            this.resultDateTimePicker.Value = DateTime.Now;         
+            this.currentConductedLabTest = this.getCurrentConductedLabTest();
+            this.SetPrefilledValues();
         }
 
         /// <summary>
@@ -48,6 +48,7 @@ namespace Clinic.View
         {
             this.prefillPatientNameLabel.Text = "Still Need to Implement :) ";  //TDOD:  Need to implement finding the name of the patient.
             this.prefillTestNameLabel.Text = this.currentConductedLabTest.LabTest.Name;
+            this.resultDateTimePicker.Value = DateTime.Now;
         }
 
         /// <summary>

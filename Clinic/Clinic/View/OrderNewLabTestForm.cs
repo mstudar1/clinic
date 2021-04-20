@@ -11,7 +11,7 @@ namespace Clinic.View
     /// </summary>
     public partial class OrderNewLabTestForm : Form
     {
-        private readonly ViewVisitForm theViewVsitForm;
+        private readonly ViewVisitForm theViewVisitForm;
         private readonly LabTestController theLabTestController;
         private readonly ConductedLabTestController theConductedLabTestController;
         private List<LabTest> labTestList;
@@ -20,13 +20,13 @@ namespace Clinic.View
         /// <summary>
         /// Constructor for form
         /// </summary>
-        /// <param name="theViewVsitForm"></param>
-        public OrderNewLabTestForm(ViewVisitForm theViewVsitForm)
+        /// <param name="theViewVisitForm"></param>
+        public OrderNewLabTestForm(ViewVisitForm theViewVisitForm)
         {
             this.theLabTestController = new LabTestController();
             this.theConductedLabTestController = new ConductedLabTestController();
-            this.theViewVsitForm = theViewVsitForm;
-            this.theViewVsitForm.Enabled = false;
+            this.theViewVisitForm = theViewVisitForm;
+            this.theViewVisitForm.Enabled = false;
             InitializeComponent();
             this.SetLabTestComboBox();
         }
@@ -59,7 +59,7 @@ namespace Clinic.View
                 selectedLabTest.Name = this.labTestComboBox.Text;
                 try
                 {
-                    this.theConductedLabTestController.OrderLabTest(this.theViewVsitForm.GetAppointmentId(), selectedLabTest);
+                    this.theConductedLabTestController.OrderLabTest(this.theViewVisitForm.GetAppointmentId(), selectedLabTest);
                     string boxMessage = "Lab test successfully ordered.";
                     string boxTitle = "Lab Test Order Confirmation";
                     DialogResult dialogResult = MessageBox.Show(boxMessage, boxTitle);
@@ -77,7 +77,8 @@ namespace Clinic.View
         /// </summary>
         private void CloseForm()
         {
-            this.theViewVsitForm.Enabled = true;
+            this.theViewVisitForm.Enabled = true;
+            // TODO: force reload of ViewVisit form
             this.Close();
         }
 
@@ -98,7 +99,7 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void OrderNewLabTestForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.theViewVsitForm.Enabled = true;
+            this.theViewVisitForm.Enabled = true;
         }
 
         /// <summary>

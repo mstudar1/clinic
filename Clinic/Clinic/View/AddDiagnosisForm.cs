@@ -74,7 +74,7 @@ namespace Clinic.View
                     string boxMessage = "The diagnosis was successfully added to the visit record.";
                     string boxTitle = "Diagnosis Submitted";
                     DialogResult dialogResult = MessageBox.Show(boxMessage, boxTitle);
-                    this.Close();
+                    this.CloseForm();
                 }
                 catch (Exception ex)
                 {

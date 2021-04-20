@@ -166,7 +166,7 @@ namespace Clinic.View
             this.resultDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultDateTimePicker.Location = new System.Drawing.Point(154, 123);
             this.resultDateTimePicker.Name = "resultDateTimePicker";
-            this.resultDateTimePicker.Size = new System.Drawing.Size(200, 23);
+            this.resultDateTimePicker.Size = new System.Drawing.Size(296, 23);
             this.resultDateTimePicker.TabIndex = 8;
             // 
             // resultTextBox

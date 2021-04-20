@@ -86,6 +86,10 @@ namespace Clinic.View
                 try
                 {
                     this.theConductedLabTestController.AddLabTestResults(this.appointmentId, labTest, datePerformed, results, isNormal);
+                    string boxMessage = "The lab result was successfully recorded";
+                    string boxTitle = "Lab Test Result Update Success";
+                    MessageBox.Show(boxMessage, boxTitle);
+                    this.CloseForm();
                 }
                 catch (Exception ex)
                 {

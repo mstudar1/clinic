@@ -75,7 +75,10 @@ namespace Clinic.View
             this.DialogResult = DialogResult.OK;
         }
 
-        private void LoadTests()
+        /// <summary>
+        /// Method that can be called to refresh the list of tests.
+        /// </summary>
+        public void LoadTests()
         {
             this.ClearList();
             this.theTests = this.theConductedLabTestController.GetConductedLabTests(this.GetAppointmentId());

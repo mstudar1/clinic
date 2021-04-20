@@ -1,4 +1,4 @@
-# Clinic project in CS6232.
+# Clinic project in CS6232
 
 ## Group: G2
 

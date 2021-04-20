@@ -268,7 +268,7 @@ namespace Clinic.View
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel2.Controls.Add(this.enterResultButton, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(148, 623);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -282,11 +282,11 @@ namespace Clinic.View
             this.enterResultButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enterResultButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enterResultButton.Location = new System.Drawing.Point(26, 4);
-            this.enterResultButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.enterResultButton.Margin = new System.Windows.Forms.Padding(4);
             this.enterResultButton.Name = "enterResultButton";
             this.enterResultButton.Size = new System.Drawing.Size(576, 41);
             this.enterResultButton.TabIndex = 1;
-            this.enterResultButton.Text = "Enter Result for the Selected Test";
+            this.enterResultButton.Text = "Enter Lab Test Result";
             this.enterResultButton.UseVisualStyleBackColor = true;
             this.enterResultButton.Click += new System.EventHandler(this.EnterResult_Click);
             // 
@@ -406,7 +406,7 @@ namespace Clinic.View
             this.buttonTableLayoutPanel.Controls.Add(this.closeButton, 2, 0);
             this.buttonTableLayoutPanel.Controls.Add(this.orderTestButton, 0, 0);
             this.buttonTableLayoutPanel.Location = new System.Drawing.Point(148, 694);
-            this.buttonTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this.buttonTableLayoutPanel.Name = "buttonTableLayoutPanel";
             this.buttonTableLayoutPanel.RowCount = 1;
             this.buttonTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -450,7 +450,7 @@ namespace Clinic.View
             this.orderTestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.orderTestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orderTestButton.Location = new System.Drawing.Point(20, 4);
-            this.orderTestButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.orderTestButton.Margin = new System.Windows.Forms.Padding(4);
             this.orderTestButton.Name = "orderTestButton";
             this.orderTestButton.Size = new System.Drawing.Size(179, 44);
             this.orderTestButton.TabIndex = 2;
@@ -488,7 +488,7 @@ namespace Clinic.View
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel1.Controls.Add(this.testsListView, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 447);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));

@@ -22,12 +22,19 @@ namespace Clinic.View
         /// <param name="referringForm">the referring ViewVisitForm</param>
         public EnterLabTestResultForm(int testCode, ViewVisitForm referringForm)
         {
-            InitializeComponent();           
+            InitializeComponent();
+            this.referringForm = referringForm;
             this.testCode = testCode;
             this.theConductedLabTestController = new ConductedLabTestController();
-            this.referringForm = referringForm;
-            this.referringForm.Enabled = false;
             this.currentConductedLabTest = this.GetCurrentConductedLabTest();
+            if (this.currentConductedLabTest.Results != null)
+            {
+                string boxMessage = "The lab result has already been recorded and cannot be edited.";
+                string boxTitle = "Lab Test Result Previously Recorded";
+                MessageBox.Show(boxMessage, boxTitle);
+                this.Close();
+            }                              
+            this.referringForm.Enabled = false;
             this.SetPrefilledValues();
         }
 

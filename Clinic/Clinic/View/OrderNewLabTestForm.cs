@@ -17,6 +17,10 @@ namespace Clinic.View
         private List<LabTest> labTestList;
 
 
+        /// <summary>
+        /// Constructor for form
+        /// </summary>
+        /// <param name="theViewVsitForm"></param>
         public OrderNewLabTestForm(ViewVisitForm theViewVsitForm)
         {
             this.theLabTestController = new LabTestController();
@@ -36,25 +40,35 @@ namespace Clinic.View
             this.labTestComboBox.DataSource = this.labTestList;
         }
 
+        /// <summary>
+        /// Handler for order test button clicks.  Validates input and then attempts to add record to DB
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OrderTestButton_Click(object sender, EventArgs e)
         {
-            // TODO: Add GetAppointmentId() method to ViewVisitForm
             if (this.labTestComboBox.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a lab test.", "Form Incomplete");
                 return;
-            } else
+            } 
+            else
             {
-                LabTest selectedLabTest = this.labTestList[this.labTestComboBox.SelectedIndex];
-            }
-            try
-            {
-                // TODO: Once ViewVisitForm is revised uncomment this.
-                // this.theConductedLabTestController.OrderLabTest(this.theViewVsitForm.GetAppointmentId(), selectedLabTest);
-            }
-            catch (Exception ex)
-            {
-                this.alertTextLable.Text = ex.Message;
+                LabTest selectedLabTest = new LabTest();
+                selectedLabTest.TestCode = int.Parse(this.labTestComboBox.SelectedValue.ToString());
+                selectedLabTest.Name = this.labTestComboBox.Text;
+                try
+                {
+                    this.theConductedLabTestController.OrderLabTest(this.theViewVsitForm.GetAppointmentId(), selectedLabTest);
+                    string boxMessage = "Lab test successfully ordered.";
+                    string boxTitle = "Lab Test Order Confirmation";
+                    DialogResult dialogResult = MessageBox.Show(boxMessage, boxTitle);
+                    this.CloseForm();
+                }
+                catch (Exception ex)
+                {
+                    this.alertTextLable.Text = "Test has already been ordered for this patient on this visit.";
+                }
             }
         }
 
@@ -85,6 +99,16 @@ namespace Clinic.View
         private void OrderNewLabTestForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.theViewVsitForm.Enabled = true;
+        }
+
+        /// <summary>
+        /// Reset alert message when combobox selected index changes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void labTestComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.alertTextLable.Text = "";
         }
     }
 }

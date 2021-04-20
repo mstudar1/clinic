@@ -12,6 +12,9 @@ using System.Windows.Forms;
 
 namespace Clinic.View
 {
+    /// <summary>
+    /// Form to handle the entering of test result information
+    /// </summary>
     public partial class EnterLabTestResultForm : Form
     {
         private readonly int appointmentId;
@@ -20,6 +23,12 @@ namespace Clinic.View
         private readonly ViewVisitForm referringForm;
         private readonly ConductedLabTest currentConductedLabTest;
 
+        /// <summary>
+        /// Constructor for the form
+        /// </summary>
+        /// <param name="appointmentId">the appointment ID associated with the lab test (part of the key)</param>
+        /// <param name="testCode">the test code associated with the conducted test (part of the key)</param>
+        /// <param name="referringForm">the referring ViewVisitForm</param>
         public EnterLabTestResultForm(int appointmentId, int testCode, ViewVisitForm referringForm)
         {
             InitializeComponent();
@@ -32,12 +41,19 @@ namespace Clinic.View
             this.resultDateTimePicker.Value = DateTime.Now;         
         }
 
+        /// <summary>
+        /// Set the prefilled values of the form
+        /// </summary>
         private void SetPrefilledValues()
         {
-            this.prefillPatientNameLabel.Text = "Still Need to Implement :) ";
+            this.prefillPatientNameLabel.Text = "Still Need to Implement :) ";  //TDOD:  Need to implement finding the name of the patient.
             this.prefillTestNameLabel.Text = this.currentConductedLabTest.LabTest.Name;
         }
 
+        /// <summary>
+        /// Get the conducted current test object based on the unique key information (appointment ID and testcode)
+        /// </summary>
+        /// <returns></returns>
         private ConductedLabTest getCurrentConductedLabTest()
         {
             foreach (ConductedLabTest test in this.theConductedLabTestController.GetConductedLabTests(this.appointmentId))
@@ -50,6 +66,12 @@ namespace Clinic.View
             throw new Exception("No conducted test found");
         }
 
+        /// <summary>
+        /// Handles events that need to happen when submit button is clicked:
+        /// Validate form entries, attempt to update DV and report out.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             this.alertTextLabel.Text = "";
@@ -94,11 +116,22 @@ namespace Clinic.View
             this.Close();
         }
 
+        /// <summary>
+        /// Handles cancel button clicks
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.CloseForm();
         }
 
+        /// <summary>
+        /// Handles re-enabling the referring form when the form is closed using some means other than 
+        /// the cancel button or successful submission
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EnterLabTestResultForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.referringForm.Enabled = true;

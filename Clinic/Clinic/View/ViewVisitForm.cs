@@ -25,8 +25,6 @@ namespace Clinic.View
             InitializeComponent();
             this.theDiagnosisController = new DiagnosisController();
             this.theVisit = theVisit ?? throw new ArgumentNullException("theVisit", "The visit object cannot be null.");
-            this.LoadDiagnosis();
-            this.EnableDisableButtons();
         }
 
         /// <summary>
@@ -43,6 +41,10 @@ namespace Clinic.View
             this.EnableDisableButtons();
         }
 
+        /// <summary>
+        /// Loads all the diagnosis entries recorded in the DB and determines if a final 
+        /// diagnosis has been entered.
+        /// </summary>
         private void LoadDiagnosis()
         {
             String theAllDiagnosis = "";
@@ -97,11 +99,11 @@ namespace Clinic.View
                 this.addDiagnosisButton.Enabled = true;
                 if (this.diagnosisOutputLabel.Text == "")
                 {
-                    this.orderTestButton.Enabled = false;
+                    this.orderTestButton.Enabled = true;
                 }
                 else
                 {
-                    this.orderTestButton.Enabled = true;
+                    this.orderTestButton.Enabled = false;
                 }
             }
             

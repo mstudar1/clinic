@@ -39,7 +39,7 @@ namespace Clinic.View
         /// </summary>
         private void SetPrefilledValues()
         {
-            this.prefillPatientNameLabel.Text = this.currentConductedLabTest.LabTest.FullName; 
+            this.prefillPatientNameLabel.Text = this.currentConductedLabTest.FullName; 
             this.prefillTestNameLabel.Text = this.currentConductedLabTest.LabTest.Name;
             this.resultDateTimePicker.Value = DateTime.Now;
         }

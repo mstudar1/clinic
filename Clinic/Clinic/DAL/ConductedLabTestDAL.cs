@@ -108,9 +108,12 @@ namespace Clinic.DAL
             List<ConductedLabTest> conductedLabTests = new List<ConductedLabTest>();
 
             string selectStatement =
-                "SELECT clt.appointmentId, clt.testCode, lt.name, clt.datePerformed, clt.results, clt.isNormal " +
+                "SELECT clt.appointmentId, clt.testCode, lt.name, clt.datePerformed, clt.results, clt.isNormal, pers.firstName, pers.lastName " +
                 "FROM ConductedLabTest clt " +
                 "JOIN LabTest lt ON lt.testCode = clt.testCode " +
+                "JOIN Appointment a ON clt.appointmentId = a.appointmentId " +
+                "JOIN Patient pat ON a.patientId = pat.patientId " +
+                "JOIN Person pers ON pat.personId = pers.personId " +
                 "WHERE appointmentId = @AppointmentId";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
@@ -127,6 +130,8 @@ namespace Clinic.DAL
                         int datePerformedOrdinal = reader.GetOrdinal("datePerformed");
                         int resultsOrdinal = reader.GetOrdinal("results");
                         int isNormalOrdinal = reader.GetOrdinal("isNormal");
+                        int firstNameOrdinal = reader.GetOrdinal("firstName");
+                        int lastNameOrdinal = reader.GetOrdinal("lastName");
                         while (reader.Read())
                         {
                             LabTest labTest = new LabTest();
@@ -142,6 +147,8 @@ namespace Clinic.DAL
                             if (!reader.IsDBNull(datePerformedOrdinal)) { conductedLabTest.DatePerformed = reader.GetDateTime(datePerformedOrdinal); }
                             if (!reader.IsDBNull(resultsOrdinal)) { conductedLabTest.Results = reader.GetString(resultsOrdinal); }
                             if (!reader.IsDBNull(isNormalOrdinal)) { conductedLabTest.IsNormal = reader.GetBoolean(isNormalOrdinal); }
+                            if (!reader.IsDBNull(firstNameOrdinal)) { conductedLabTest.FirstName = reader.GetString(firstNameOrdinal); }
+                            if (!reader.IsDBNull(lastNameOrdinal)) { conductedLabTest.LastName = reader.GetString(lastNameOrdinal); }
                             conductedLabTests.Add(conductedLabTest);
                         }
                     }

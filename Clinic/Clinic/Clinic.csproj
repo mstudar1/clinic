@@ -47,14 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConductedLabTests.cs">
-      <DependentUpon>ConductedLabTests.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ConductedLabTests.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ConductedLabTests.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Controller\AppointmentController.cs" />
     <Compile Include="Controller\ConductedLabTestController.cs" />
     <Compile Include="Controller\DiagnosisController.cs" />
@@ -268,17 +260,6 @@
     <EmbeddedResource Include="View\ViewVisitForm.resx">
       <DependentUpon>ViewVisitForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ConductedLabTests.xsc">
-      <DependentUpon>ConductedLabTests.xsd</DependentUpon>
-    </None>
-    <None Include="ConductedLabTests.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ConductedLabTests.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ConductedLabTests.xss">
-      <DependentUpon>ConductedLabTests.xsd</DependentUpon>
-    </None>
     <None Include="Properties\DataSources\Clinic.Controller.DoctorController.datasource" />
     <None Include="Properties\DataSources\Clinic.Model.Appointment.datasource" />
     <None Include="Properties\DataSources\Clinic.Model.ConductedLabTest.datasource" />

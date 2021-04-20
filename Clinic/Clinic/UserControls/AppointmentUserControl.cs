@@ -75,8 +75,6 @@ namespace Clinic.UserControls
         /// <summary>
         /// Handler for clicks of the set appointment button
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void SetAppointmentButton_Click(object sender, System.EventArgs e)
         {
             this.ResetFormMessages();
@@ -88,8 +86,6 @@ namespace Clinic.UserControls
         /// Event handler for search by date button.  Searches for appointments with
         /// matching date
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void SearchDateButton_Click(object sender, System.EventArgs e)
         {
             this.ResetFormMessages();
@@ -114,8 +110,6 @@ namespace Clinic.UserControls
         /// Event handler for search by name button.  Searches for appointments with 
         /// matching last name to that provided
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void SearchNameButton_Click(object sender, EventArgs e)
         {
             this.ResetFormMessages();
@@ -146,8 +140,6 @@ namespace Clinic.UserControls
         /// <summary>
         /// Event handler for edit appointment button clicks
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void EditAppointmentButton_Click(object sender, EventArgs e)
         {
             this.ResetFormMessages();
@@ -167,8 +159,6 @@ namespace Clinic.UserControls
         /// <summary>
         /// Opens the visit information form to begin a new visit from an appointment
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void BeginVisitButton_Click(object sender, EventArgs e)
         {
             this.ResetFormMessages();
@@ -188,8 +178,6 @@ namespace Clinic.UserControls
         /// <summary>
         /// Event handler for reset button clicks
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ResetButton_Click(object sender, EventArgs e)
         {
             this.ResetAppointmentListResults();

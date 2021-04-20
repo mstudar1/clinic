@@ -87,6 +87,12 @@ namespace Clinic.DAL
             }
         }
 
+        /// <summary>
+        /// Method returns the role of the person for the given username. 
+        /// The role can be nurse or administrator.
+        /// </summary>
+        /// <param name="username">username of the person</param>
+        /// <returns>the role of the person</returns>
         public string GetRole(string username)
         {
             if (string.IsNullOrEmpty(username))

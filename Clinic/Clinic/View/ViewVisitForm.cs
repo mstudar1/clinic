@@ -48,7 +48,10 @@ namespace Clinic.View
             this.LoadTests();
         }
 
-        private void LoadDiagnosis()
+        /// <summary>
+        /// Method that can be called to refresh the list of diagnoses.
+        /// </summary>
+        public void LoadDiagnosis()
         {
             String theAllDiagnosis = "";
             int indexOfDiagnosis = 1;
@@ -75,7 +78,10 @@ namespace Clinic.View
             this.DialogResult = DialogResult.OK;
         }
 
-        private void LoadTests()
+        /// <summary>
+        /// Method that can be called to refresh the list of tests.
+        /// </summary>
+        public void LoadTests()
         {
             this.ClearList();
             this.theTests = this.theConductedLabTestController.GetConductedLabTests(this.GetAppointmentId());
@@ -85,7 +91,17 @@ namespace Clinic.View
             {
                 theConductedLabTest = this.theTests[i];
                 this.testsListView.Items.Add(theConductedLabTest.LabTest.Name);
-                this.testsListView.Items[i].SubItems.Add(theConductedLabTest.DatePerformed.ToShortDateString());
+
+                string datePerformed;
+                if (theConductedLabTest.DatePerformed == default)
+                {
+                    datePerformed = "";
+                } else
+                {
+                    datePerformed = theConductedLabTest.DatePerformed.ToShortDateString();
+                }
+                this.testsListView.Items[i].SubItems.Add(datePerformed);
+
                 this.testsListView.Items[i].SubItems.Add(theConductedLabTest.Results);
                 if (theConductedLabTest.IsNormal)
                 {

@@ -38,23 +38,28 @@ namespace Clinic.View
 
         private void OrderTestButton_Click(object sender, EventArgs e)
         {
-            // TODO: Add GetAppointmentId() method to ViewVisitForm
             if (this.labTestComboBox.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a lab test.", "Form Incomplete");
                 return;
-            } else
+            } 
+            else
             {
-                LabTest selectedLabTest = this.labTestList[this.labTestComboBox.SelectedIndex];
-            }
-            try
-            {
-                // TODO: Once ViewVisitForm is revised uncomment this.
-                // this.theConductedLabTestController.OrderLabTest(this.theViewVsitForm.GetAppointmentId(), selectedLabTest);
-            }
-            catch (Exception ex)
-            {
-                this.alertTextLable.Text = ex.Message;
+                LabTest selectedLabTest = new LabTest();
+                selectedLabTest.TestCode = int.Parse(this.labTestComboBox.SelectedValue.ToString());
+                selectedLabTest.Name = this.labTestComboBox.Text;
+                try
+                {
+                    this.theConductedLabTestController.OrderLabTest(this.theViewVsitForm.GetAppointmentId(), selectedLabTest);
+                    string boxMessage = "Lab test successfully ordered.";
+                    string boxTitle = "Lab Test Order Confirmation";
+                    DialogResult dialogResult = MessageBox.Show(boxMessage, boxTitle);
+                    this.CloseForm();
+                }
+                catch (Exception ex)
+                {
+                    this.alertTextLable.Text = ex.Message;
+                }
             }
         }
 

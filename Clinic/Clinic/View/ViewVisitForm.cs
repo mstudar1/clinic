@@ -149,5 +149,16 @@ namespace Clinic.View
             //Create new EnterResult Form
             //EnterResultForm.ShowDialog();
         }
+
+        /// <summary>
+        /// On button click open up new AddDiagnosis form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddDiagnosisButton_Click(object sender, EventArgs e)
+        {
+            AddDiagnosisForm addDiagnosisForm = new AddDiagnosisForm(this);
+            addDiagnosisForm.Show();
+        }
     }
 }

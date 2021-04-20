@@ -13,7 +13,9 @@ namespace Clinic.View
     public partial class ViewVisitForm : Form
     {
         private readonly Visit theVisit;
+        private List<ConductedLabTest> theTests;
         private DiagnosisController theDiagnosisController;
+        private ConductedLabTestController theConductedLabTestController;
         private bool finalDiagnosis;
 
         /// <summary>
@@ -24,9 +26,11 @@ namespace Clinic.View
         {
             InitializeComponent();
             this.theDiagnosisController = new DiagnosisController();
+            this.theConductedLabTestController = new ConductedLabTestController();
             this.theVisit = theVisit ?? throw new ArgumentNullException("theVisit", "The visit object cannot be null.");
             this.LoadDiagnosis();
             this.EnableDisableButtons();
+            this.LoadTests();
         }
 
         /// <summary>
@@ -41,6 +45,7 @@ namespace Clinic.View
             this.finalDiagnosis = false;
             this.LoadDiagnosis();
             this.EnableDisableButtons();
+            this.LoadTests();
         }
 
         private void LoadDiagnosis()
@@ -70,6 +75,27 @@ namespace Clinic.View
             this.DialogResult = DialogResult.OK;
         }
 
+        private void LoadTests()
+        {
+            this.theTests = this.theConductedLabTestController.GetConductedLabTests(this.GetAppointmentId());
+            ConductedLabTest theConductedLabTest;
+            for (int i = 0; i < this.theTests.Count; i++)
+            {
+                theConductedLabTest = this.theTests[i];
+                this.testsListView.Items.Add(theConductedLabTest.LabTest.Name);
+                this.testsListView.Items[i].SubItems.Add(theConductedLabTest.DatePerformed.ToShortDateString());
+                this.testsListView.Items[i].SubItems.Add(theConductedLabTest.Results);
+                if (theConductedLabTest.IsNormal)
+                {
+                    this.testsListView.Items[i].SubItems.Add("Yes");
+                }
+                else
+                {
+                    this.testsListView.Items[i].SubItems.Add("No");
+                }
+            }
+        }
+
         private void OrderTestButton_Click(object sender, EventArgs e)
         {
             OrderNewLabTestForm theOrderNewLabtestForm = new OrderNewLabTestForm(this);
@@ -97,17 +123,31 @@ namespace Clinic.View
                 this.addDiagnosisButton.Enabled = true;
                 if (this.diagnosisOutputLabel.Text == "")
                 {
-                    this.orderTestButton.Enabled = false;
+                    this.orderTestButton.Enabled = true;
                 }
                 else
                 {
-                    this.orderTestButton.Enabled = true;
+                    this.orderTestButton.Enabled = false;
                 }
             }
             
 
             
 
+        }
+
+        private void EnterResult_Click(object sender, EventArgs e)
+        {
+            if (this.testsListView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select a Test, then click the button again.", "Select a Test to Enter Results");
+                return;
+            }
+
+            int selectedIndex = this.testsListView.SelectedIndices[0];
+            ConductedLabTest selectedTest = this.theTests[selectedIndex];
+            //Create new EnterResult Form
+            //EnterResultForm.ShowDialog();
         }
     }
 }

@@ -65,10 +65,8 @@ namespace Clinic.View
             this.dateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.resultColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.isValidColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.conductedLabTestBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.conductedLabTestsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.conductedLabTestBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.conductedLabTestBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.enterResultButton = new System.Windows.Forms.Button();
             bodyTemperatureLabel = new System.Windows.Forms.Label();
             diastolicBloodPressureLabel = new System.Windows.Forms.Label();
             doctorFullNameLabel = new System.Windows.Forms.Label();
@@ -84,10 +82,7 @@ namespace Clinic.View
             ((System.ComponentModel.ISupportInitialize)(this.visitBindingSource)).BeginInit();
             this.buttonTableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // bodyTemperatureLabel
@@ -217,6 +212,7 @@ namespace Clinic.View
             this.viewVisitTableLayoutPanel.ColumnCount = 2;
             this.viewVisitTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.76257F));
             this.viewVisitTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.23743F));
+            this.viewVisitTableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 0, 13);
             this.viewVisitTableLayoutPanel.Controls.Add(this.symptomsOutputLabel, 1, 10);
             this.viewVisitTableLayoutPanel.Controls.Add(this.bodyTemperatureOutputLabel, 1, 9);
             this.viewVisitTableLayoutPanel.Controls.Add(bodyTemperatureLabel, 0, 9);
@@ -237,14 +233,14 @@ namespace Clinic.View
             this.viewVisitTableLayoutPanel.Controls.Add(systolicBloodPressureLabel, 0, 6);
             this.viewVisitTableLayoutPanel.Controls.Add(patientFullNameLabel, 0, 2);
             this.viewVisitTableLayoutPanel.Controls.Add(visitDateLabel, 0, 1);
-            this.viewVisitTableLayoutPanel.Controls.Add(this.buttonTableLayoutPanel, 0, 13);
+            this.viewVisitTableLayoutPanel.Controls.Add(this.buttonTableLayoutPanel, 0, 14);
             this.viewVisitTableLayoutPanel.Controls.Add(diagnosisLabel, 0, 11);
             this.viewVisitTableLayoutPanel.Controls.Add(this.diagnosisOutputLabel, 1, 11);
             this.viewVisitTableLayoutPanel.Controls.Add(this.visitInformationLabel, 1, 0);
             this.viewVisitTableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 0, 12);
             this.viewVisitTableLayoutPanel.Location = new System.Drawing.Point(14, 14);
             this.viewVisitTableLayoutPanel.Name = "viewVisitTableLayoutPanel";
-            this.viewVisitTableLayoutPanel.RowCount = 14;
+            this.viewVisitTableLayoutPanel.RowCount = 15;
             this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
@@ -256,9 +252,10 @@ namespace Clinic.View
             this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 220F));
-            this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
+            this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 72F));
+            this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
             this.viewVisitTableLayoutPanel.Size = new System.Drawing.Size(1040, 906);
             this.viewVisitTableLayoutPanel.TabIndex = 2;
             // 
@@ -377,13 +374,13 @@ namespace Clinic.View
             this.buttonTableLayoutPanel.Controls.Add(this.addDiagnosisButton, 0, 0);
             this.buttonTableLayoutPanel.Controls.Add(this.closeButton, 2, 0);
             this.buttonTableLayoutPanel.Controls.Add(this.orderTestButton, 0, 0);
-            this.buttonTableLayoutPanel.Location = new System.Drawing.Point(167, 833);
+            this.buttonTableLayoutPanel.Location = new System.Drawing.Point(167, 851);
             this.buttonTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonTableLayoutPanel.Name = "buttonTableLayoutPanel";
             this.buttonTableLayoutPanel.RowCount = 1;
             this.buttonTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.buttonTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
-            this.buttonTableLayoutPanel.Size = new System.Drawing.Size(706, 68);
+            this.buttonTableLayoutPanel.Size = new System.Drawing.Size(706, 50);
             this.buttonTableLayoutPanel.TabIndex = 40;
             // 
             // addDiagnosisButton
@@ -392,10 +389,10 @@ namespace Clinic.View
             this.addDiagnosisButton.AutoSize = true;
             this.addDiagnosisButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addDiagnosisButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addDiagnosisButton.Location = new System.Drawing.Point(252, 5);
+            this.addDiagnosisButton.Location = new System.Drawing.Point(252, 8);
             this.addDiagnosisButton.Name = "addDiagnosisButton";
-            this.addDiagnosisButton.Size = new System.Drawing.Size(201, 60);
-            this.addDiagnosisButton.TabIndex = 23;
+            this.addDiagnosisButton.Size = new System.Drawing.Size(201, 39);
+            this.addDiagnosisButton.TabIndex = 3;
             this.addDiagnosisButton.Text = "Add Diagnosis";
             this.addDiagnosisButton.UseVisualStyleBackColor = true;
             // 
@@ -405,10 +402,10 @@ namespace Clinic.View
             this.closeButton.AutoSize = true;
             this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeButton.Location = new System.Drawing.Point(481, 5);
+            this.closeButton.Location = new System.Drawing.Point(481, 8);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(201, 60);
-            this.closeButton.TabIndex = 20;
+            this.closeButton.Size = new System.Drawing.Size(201, 39);
+            this.closeButton.TabIndex = 4;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.OkayButton_Click);
@@ -418,11 +415,11 @@ namespace Clinic.View
             this.orderTestButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.orderTestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.orderTestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderTestButton.Location = new System.Drawing.Point(23, 6);
+            this.orderTestButton.Location = new System.Drawing.Point(23, 5);
             this.orderTestButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.orderTestButton.Name = "orderTestButton";
-            this.orderTestButton.Size = new System.Drawing.Size(201, 57);
-            this.orderTestButton.TabIndex = 22;
+            this.orderTestButton.Size = new System.Drawing.Size(201, 40);
+            this.orderTestButton.TabIndex = 2;
             this.orderTestButton.Text = "Order New Test";
             this.orderTestButton.UseVisualStyleBackColor = true;
             this.orderTestButton.Click += new System.EventHandler(this.OrderTestButton_Click);
@@ -432,9 +429,9 @@ namespace Clinic.View
             this.diagnosisOutputLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.diagnosisOutputLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "Symptoms", true));
             this.diagnosisOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.diagnosisOutputLabel.Location = new System.Drawing.Point(322, 411);
+            this.diagnosisOutputLabel.Location = new System.Drawing.Point(322, 404);
             this.diagnosisOutputLabel.Name = "diagnosisOutputLabel";
-            this.diagnosisOutputLabel.Size = new System.Drawing.Size(565, 193);
+            this.diagnosisOutputLabel.Size = new System.Drawing.Size(565, 150);
             this.diagnosisOutputLabel.TabIndex = 43;
             // 
             // visitInformationLabel
@@ -456,7 +453,7 @@ namespace Clinic.View
             this.viewVisitTableLayoutPanel.SetColumnSpan(this.tableLayoutPanel1, 2);
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel1.Controls.Add(this.testsListView, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 609);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 559);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -507,18 +504,36 @@ namespace Clinic.View
             this.isValidColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.isValidColumnHeader.Width = 106;
             // 
-            // conductedLabTestBindingSource2
             // 
-            this.conductedLabTestBindingSource2.DataMember = "ConductedLabTest";
-            this.conductedLabTestBindingSource2.DataSource = this.conductedLabTestsBindingSource;
+            // tableLayoutPanel2
             // 
-            // conductedLabTestBindingSource1
+            this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.viewVisitTableLayoutPanel.SetColumnSpan(this.tableLayoutPanel2, 2);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel2.Controls.Add(this.enterResultButton, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(167, 779);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(706, 62);
+            this.tableLayoutPanel2.TabIndex = 45;
             // 
-            this.conductedLabTestBindingSource1.DataMember = "ConductedLabTest";
+            // enterResultButton
             // 
-            // conductedLabTestBindingSource
-            // 
-            this.conductedLabTestBindingSource.DataSource = typeof(Clinic.Model.ConductedLabTest);
+            this.enterResultButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.enterResultButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.enterResultButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enterResultButton.Location = new System.Drawing.Point(29, 5);
+            this.enterResultButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.enterResultButton.Name = "enterResultButton";
+            this.enterResultButton.Size = new System.Drawing.Size(648, 52);
+            this.enterResultButton.TabIndex = 1;
+            this.enterResultButton.Text = "Enter Result for the Selected Test";
+            this.enterResultButton.UseVisualStyleBackColor = true;
+            this.enterResultButton.Click += new System.EventHandler(this.EnterResult_Click);
             // 
             // ViewVisitForm
             // 
@@ -540,10 +555,7 @@ namespace Clinic.View
             this.buttonTableLayoutPanel.ResumeLayout(false);
             this.buttonTableLayoutPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.conductedLabTestBindingSource)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -567,10 +579,6 @@ namespace Clinic.View
         private System.Windows.Forms.TableLayoutPanel buttonTableLayoutPanel;
         private System.Windows.Forms.Button orderTestButton;
         private System.Windows.Forms.Button addDiagnosisButton;
-        private System.Windows.Forms.BindingSource conductedLabTestBindingSource;
-        private System.Windows.Forms.BindingSource conductedLabTestsBindingSource;
-        private System.Windows.Forms.BindingSource conductedLabTestBindingSource1;
-        private System.Windows.Forms.BindingSource conductedLabTestBindingSource2;
         private System.Windows.Forms.Label diagnosisOutputLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ListView testsListView;
@@ -578,5 +586,7 @@ namespace Clinic.View
         private System.Windows.Forms.ColumnHeader dateColumnHeader;
         private System.Windows.Forms.ColumnHeader resultColumnHeader;
         private System.Windows.Forms.ColumnHeader isValidColumnHeader;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button enterResultButton;
     }
 }

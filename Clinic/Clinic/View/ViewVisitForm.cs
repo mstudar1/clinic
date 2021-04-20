@@ -13,6 +13,7 @@ namespace Clinic.View
     public partial class ViewVisitForm : Form
     {
         private readonly Visit theVisit;
+        private List<ConductedLabTest> theTests;
         private DiagnosisController theDiagnosisController;
         private ConductedLabTestController theConductedLabTestController;
         private bool finalDiagnosis;
@@ -76,11 +77,11 @@ namespace Clinic.View
 
         private void LoadTests()
         {
-            List <ConductedLabTest>  theTests = this.theConductedLabTestController.GetConductedLabTests(this.GetAppointmentId());
+            this.theTests = this.theConductedLabTestController.GetConductedLabTests(this.GetAppointmentId());
             ConductedLabTest theConductedLabTest;
-            for (int i = 0; i < theTests.Count; i++)
+            for (int i = 0; i < this.theTests.Count; i++)
             {
-                theConductedLabTest = theTests[i];
+                theConductedLabTest = this.theTests[i];
                 this.testsListView.Items.Add(theConductedLabTest.LabTest.Name);
                 this.testsListView.Items[i].SubItems.Add(theConductedLabTest.DatePerformed.ToShortDateString());
                 this.testsListView.Items[i].SubItems.Add(theConductedLabTest.Results);
@@ -133,6 +134,20 @@ namespace Clinic.View
 
             
 
+        }
+
+        private void EnterResult_Click(object sender, EventArgs e)
+        {
+            if (this.testsListView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select a Test, then click the button again.", "Select a Test to Enter Results");
+                return;
+            }
+
+            int selectedIndex = this.testsListView.SelectedIndices[0];
+            ConductedLabTest selectedTest = this.theTests[selectedIndex];
+            //Create new EnterResult Form
+            //EnterResultForm.ShowDialog();
         }
     }
 }

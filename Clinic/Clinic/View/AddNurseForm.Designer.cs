@@ -79,7 +79,7 @@ namespace Clinic.View
             // 
             this.cityTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityTextBox.Location = new System.Drawing.Point(29, 13);
+            this.cityTextBox.Location = new System.Drawing.Point(28, 13);
             this.cityTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(196, 30);
@@ -102,7 +102,7 @@ namespace Clinic.View
             this.cityAndStateTableLayoutPanel.ColumnCount = 3;
             this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.50427F));
             this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.49573F));
-            this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148F));
+            this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
             this.cityAndStateTableLayoutPanel.Controls.Add(this.cityTextBox, 0, 0);
             this.cityAndStateTableLayoutPanel.Controls.Add(this.stateLabel, 1, 0);
             this.cityAndStateTableLayoutPanel.Controls.Add(this.stateComboBox, 2, 0);
@@ -120,7 +120,7 @@ namespace Clinic.View
             this.stateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.stateLabel.AutoSize = true;
             this.stateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stateLabel.Location = new System.Drawing.Point(243, 20);
+            this.stateLabel.Location = new System.Drawing.Point(242, 20);
             this.stateLabel.Name = "stateLabel";
             this.stateLabel.Size = new System.Drawing.Size(64, 25);
             this.stateLabel.TabIndex = 11;
@@ -185,8 +185,8 @@ namespace Clinic.View
             "WV",
             "WI",
             "WY"});
-            this.stateComboBox.Location = new System.Drawing.Point(314, 17);
-            this.stateComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.stateComboBox.Location = new System.Drawing.Point(313, 16);
+            this.stateComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(83, 24);
             this.stateComboBox.TabIndex = 12;
@@ -225,7 +225,7 @@ namespace Clinic.View
             this.genderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.genderLabel.AutoSize = true;
             this.genderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genderLabel.Location = new System.Drawing.Point(248, 19);
+            this.genderLabel.Location = new System.Drawing.Point(247, 19);
             this.genderLabel.Name = "genderLabel";
             this.genderLabel.Size = new System.Drawing.Size(83, 25);
             this.genderLabel.TabIndex = 13;
@@ -236,7 +236,7 @@ namespace Clinic.View
             // 
             this.ssnTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ssnTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ssnTextBox.Location = new System.Drawing.Point(30, 12);
+            this.ssnTextBox.Location = new System.Drawing.Point(29, 12);
             this.ssnTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ssnTextBox.Name = "ssnTextBox";
             this.ssnTextBox.Size = new System.Drawing.Size(204, 30);
@@ -315,7 +315,7 @@ namespace Clinic.View
             this.ssnAndGenderTableLayoutPanel.ColumnCount = 3;
             this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.80103F));
             this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.19897F));
-            this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 124F));
+            this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.genderComboBox, 2, 0);
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.genderLabel, 1, 0);
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.ssnTextBox, 0, 0);
@@ -501,7 +501,7 @@ namespace Clinic.View
             this.dateOfBirthDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateOfBirthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateOfBirthDateTimePicker.Location = new System.Drawing.Point(209, 211);
-            this.dateOfBirthDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateOfBirthDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
             this.dateOfBirthDateTimePicker.Size = new System.Drawing.Size(428, 30);
             this.dateOfBirthDateTimePicker.TabIndex = 30;
@@ -524,7 +524,7 @@ namespace Clinic.View
             this.ClientSize = new System.Drawing.Size(703, 704);
             this.Controls.Add(this.registerPatientTableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddNurseForm";

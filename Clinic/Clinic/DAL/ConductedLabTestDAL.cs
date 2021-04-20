@@ -114,7 +114,7 @@ namespace Clinic.DAL
                 "JOIN Appointment a ON clt.appointmentId = a.appointmentId " +
                 "JOIN Patient pat ON a.patientId = pat.patientId " +
                 "JOIN Person pers ON pat.personId = pers.personId " +
-                "WHERE appointmentId = @AppointmentId";
+                "WHERE clt.appointmentId = @AppointmentId";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {

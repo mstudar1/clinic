@@ -14,6 +14,7 @@ namespace Clinic.View
     {
         private readonly Visit theVisit;
         private DiagnosisController theDiagnosisController;
+        private ConductedLabTestController theConductedLabTestController;
         private bool finalDiagnosis;
 
         /// <summary>
@@ -24,9 +25,11 @@ namespace Clinic.View
         {
             InitializeComponent();
             this.theDiagnosisController = new DiagnosisController();
+            this.theConductedLabTestController = new ConductedLabTestController();
             this.theVisit = theVisit ?? throw new ArgumentNullException("theVisit", "The visit object cannot be null.");
             this.LoadDiagnosis();
             this.EnableDisableButtons();
+            this.LoadTests();
         }
 
         /// <summary>
@@ -41,6 +44,7 @@ namespace Clinic.View
             this.finalDiagnosis = false;
             this.LoadDiagnosis();
             this.EnableDisableButtons();
+            this.LoadTests();
         }
 
         private void LoadDiagnosis()
@@ -68,6 +72,27 @@ namespace Clinic.View
         private void OkayButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void LoadTests()
+        {
+            List <ConductedLabTest>  theTests = this.theConductedLabTestController.GetConductedLabTests(this.GetAppointmentId());
+            ConductedLabTest theConductedLabTest;
+            for (int i = 0; i < theTests.Count; i++)
+            {
+                theConductedLabTest = theTests[i];
+                this.testsListView.Items.Add(theConductedLabTest.LabTest.Name);
+                this.testsListView.Items[i].SubItems.Add(theConductedLabTest.DatePerformed.ToShortDateString());
+                this.testsListView.Items[i].SubItems.Add(theConductedLabTest.Results);
+                if (theConductedLabTest.IsNormal)
+                {
+                    this.testsListView.Items[i].SubItems.Add("Yes");
+                }
+                else
+                {
+                    this.testsListView.Items[i].SubItems.Add("No");
+                }
+            }
         }
 
         private void OrderTestButton_Click(object sender, EventArgs e)

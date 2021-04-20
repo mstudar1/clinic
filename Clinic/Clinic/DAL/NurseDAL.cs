@@ -5,6 +5,9 @@ using System.Data.SqlClient;
 
 namespace Clinic.DAL
 {
+    /// <summary>
+    /// Class for accessing nurse information in the Clinic database.
+    /// </summary>
     public class NurseDAL
     {
         private readonly PersonDAL thePersonDAL;

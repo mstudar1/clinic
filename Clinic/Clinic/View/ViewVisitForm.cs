@@ -99,7 +99,7 @@ namespace Clinic.View
                 } 
                 else
                 {
-                    datePerformed = theConductedLabTest.DatePerformed.ToShortDateString();
+                    datePerformed = theConductedLabTest.DatePerformed.ToString();
                 }
                 this.testsListView.Items[i].SubItems.Add(datePerformed);
                 if (theConductedLabTest.Results == null)

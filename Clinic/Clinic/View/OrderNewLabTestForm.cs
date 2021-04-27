@@ -54,14 +54,17 @@ namespace Clinic.View
             } 
             else
             {
-                this.DisplayOrderConfirmationDialog();
-                
+                this.DisplayOrderConfirmationDialog();              
             }
         }
 
+        /// <summary>
+        /// Displays the confirmation dialog listing the selected tests.  If user confirms then the 
+        /// list is sent to be processed, if not then the user is returned to the order form where 
+        /// the current selections are still shown and editable.
+        /// </summary>
         private void DisplayOrderConfirmationDialog ()
         {
-            // TODO:  Deal with ZERO selected
             string selectedTestNames = "";
             foreach (LabTest labTest in this.labTestListBox.SelectedItems)
             {
@@ -83,6 +86,10 @@ namespace Clinic.View
             }
         }
 
+        /// <summary>
+        /// Submits each lab test as an order.  User is alerted if any test is already ordered (and thus 
+        /// cannot be ordered).  A report of ordered tests is provided at the conclusion of the operation.
+        /// </summary>
         private void OrderSelectedTests()
         {
             string successfulTestNameList = "";

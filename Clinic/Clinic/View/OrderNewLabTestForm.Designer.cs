@@ -77,7 +77,7 @@ namespace Clinic.View
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(426, 54);
             this.titleLabel.TabIndex = 17;
-            this.titleLabel.Text = "Order New Lab Test";
+            this.titleLabel.Text = "Order New Lab Tests";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // testChoiceLabel

@@ -60,13 +60,13 @@ namespace Clinic.View
             this.closeButton = new System.Windows.Forms.Button();
             this.orderTestButton = new System.Windows.Forms.Button();
             this.diagnosisOutputLabel = new System.Windows.Forms.Label();
-            this.visitInformationLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.testsListView = new System.Windows.Forms.ListView();
             this.nameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.resultColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.isValidColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.visitInformationLabel = new System.Windows.Forms.Label();
             bodyTemperatureLabel = new System.Windows.Forms.Label();
             diastolicBloodPressureLabel = new System.Windows.Forms.Label();
             doctorFullNameLabel = new System.Windows.Forms.Label();
@@ -249,7 +249,7 @@ namespace Clinic.View
             this.viewVisitTableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 0, 12);
             this.viewVisitTableLayoutPanel.Controls.Add(this.visitInformationLabel, 0, 0);
             this.viewVisitTableLayoutPanel.Location = new System.Drawing.Point(9, 9);
-            this.viewVisitTableLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewVisitTableLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.viewVisitTableLayoutPanel.Name = "viewVisitTableLayoutPanel";
             this.viewVisitTableLayoutPanel.RowCount = 15;
             this.viewVisitTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
@@ -438,7 +438,7 @@ namespace Clinic.View
             this.addDiagnosisButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addDiagnosisButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addDiagnosisButton.Location = new System.Drawing.Point(166, 3);
-            this.addDiagnosisButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addDiagnosisButton.Margin = new System.Windows.Forms.Padding(2);
             this.addDiagnosisButton.Name = "addDiagnosisButton";
             this.addDiagnosisButton.Size = new System.Drawing.Size(136, 37);
             this.addDiagnosisButton.TabIndex = 3;
@@ -453,7 +453,7 @@ namespace Clinic.View
             this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeButton.Location = new System.Drawing.Point(321, 3);
-            this.closeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.closeButton.Margin = new System.Windows.Forms.Padding(2);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(134, 37);
             this.closeButton.TabIndex = 4;
@@ -485,22 +485,6 @@ namespace Clinic.View
             this.diagnosisOutputLabel.Size = new System.Drawing.Size(475, 92);
             this.diagnosisOutputLabel.TabIndex = 43;
             // 
-            // visitInformationLabel
-            // 
-            this.visitInformationLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.visitInformationLabel.AutoSize = true;
-            this.viewVisitTableLayoutPanel.SetColumnSpan(this.visitInformationLabel, 2);
-            this.visitInformationLabel.Font = new System.Drawing.Font("Javanese Text", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.visitInformationLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.visitInformationLabel.Location = new System.Drawing.Point(2, 0);
-            this.visitInformationLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.visitInformationLabel.Name = "visitInformationLabel";
-            this.visitInformationLabel.Size = new System.Drawing.Size(689, 35);
-            this.visitInformationLabel.TabIndex = 16;
-            this.visitInformationLabel.Text = "Visit Information";
-            this.visitInformationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -512,7 +496,7 @@ namespace Clinic.View
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 136F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(687, 136);
             this.tableLayoutPanel1.TabIndex = 44;
             // 
@@ -528,7 +512,7 @@ namespace Clinic.View
             this.testsListView.FullRowSelect = true;
             this.testsListView.HideSelection = false;
             this.testsListView.Location = new System.Drawing.Point(2, 2);
-            this.testsListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.testsListView.Margin = new System.Windows.Forms.Padding(2);
             this.testsListView.Name = "testsListView";
             this.testsListView.Size = new System.Drawing.Size(683, 132);
             this.testsListView.TabIndex = 41;
@@ -559,6 +543,22 @@ namespace Clinic.View
             this.isValidColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.isValidColumnHeader.Width = 106;
             // 
+            // visitInformationLabel
+            // 
+            this.visitInformationLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.visitInformationLabel.AutoSize = true;
+            this.viewVisitTableLayoutPanel.SetColumnSpan(this.visitInformationLabel, 2);
+            this.visitInformationLabel.Font = new System.Drawing.Font("Javanese Text", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.visitInformationLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.visitInformationLabel.Location = new System.Drawing.Point(2, 0);
+            this.visitInformationLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.visitInformationLabel.Name = "visitInformationLabel";
+            this.visitInformationLabel.Size = new System.Drawing.Size(689, 35);
+            this.visitInformationLabel.TabIndex = 16;
+            this.visitInformationLabel.Text = "Visit Information";
+            this.visitInformationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ViewVisitForm
             // 
             this.AcceptButton = this.closeButton;
@@ -567,13 +567,14 @@ namespace Clinic.View
             this.ClientSize = new System.Drawing.Size(723, 629);
             this.Controls.Add(this.viewVisitTableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ViewVisitForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View Visit Details";
             this.Load += new System.EventHandler(this.ViewVisitForm_Load);
+            this.EnabledChanged += new System.EventHandler(this.ViewVisitForm_EnabledChanged);
             this.viewVisitTableLayoutPanel.ResumeLayout(false);
             this.viewVisitTableLayoutPanel.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

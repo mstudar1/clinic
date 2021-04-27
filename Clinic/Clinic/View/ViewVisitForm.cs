@@ -102,6 +102,7 @@ namespace Clinic.View
                     datePerformed = theConductedLabTest.DatePerformed.ToString();
                 }
                 this.testsListView.Items[i].SubItems.Add(datePerformed);
+
                 if (theConductedLabTest.Results == null)
                 {
                     this.testsListView.Items[i].SubItems.Add("N/A");
@@ -109,7 +110,8 @@ namespace Clinic.View
                 else
                 {
                     this.testsListView.Items[i].SubItems.Add(theConductedLabTest.Results);
-                }               
+                }    
+                
                 if (theConductedLabTest.IsNormal && datePerformed != "Not performed yet")
                 {
                     this.testsListView.Items[i].SubItems.Add("Yes");
@@ -196,6 +198,13 @@ namespace Clinic.View
         {
             AddDiagnosisForm addDiagnosisForm = new AddDiagnosisForm(this);
             addDiagnosisForm.Show();
+        }
+
+        private void ViewVisitForm_EnabledChanged(object sender, EventArgs e)
+        {
+            this.LoadDiagnosis();
+            this.EnableDisableButtons();
+            this.LoadTests();
         }
     }
 }

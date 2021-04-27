@@ -109,6 +109,7 @@ namespace Clinic.DAL
                         Console.WriteLine("Rollback Exception Type: {0}", ex2.GetType());
                         Console.WriteLine("    Message: {0}", ex2.Message);
                     }
+                    throw new ArgumentException("The patient was not added.");
                 }
             }
         }

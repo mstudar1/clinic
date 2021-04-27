@@ -28,16 +28,16 @@ namespace Clinic.View
             this.referringForm = theViewVisitForm;
             this.referringForm.Enabled = false;
             InitializeComponent();
-            this.SetLabTestComboBox();
+            this.SetLabTestListBox();
         }
 
         /// <summary>
         /// Populate and set lab test combobox
         /// </summary>
-        private void SetLabTestComboBox()
+        private void SetLabTestListBox()
         {
             this.labTestList = this.theLabTestController.GetAllLabTests();
-            this.labTestComboBox.DataSource = this.labTestList;
+            this.labTestListBox.DataSource = this.labTestList;
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void OrderTestButton_Click(object sender, EventArgs e)
         {
-            if (this.labTestComboBox.SelectedIndex == -1)
+            if (this.labTestListBox.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a lab test.", "Form Incomplete");
                 return;
@@ -56,8 +56,8 @@ namespace Clinic.View
             {
                 LabTest selectedLabTest = new LabTest
                 {
-                    TestCode = int.Parse(this.labTestComboBox.SelectedValue.ToString()),
-                    Name = this.labTestComboBox.Text
+                    TestCode = int.Parse(this.labTestListBox.SelectedValue.ToString()),
+                    Name = this.labTestListBox.Text
                 };
                 try
                 {

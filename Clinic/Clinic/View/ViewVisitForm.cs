@@ -127,6 +127,9 @@ namespace Clinic.View
             }
         }
 
+        /// <summary>
+        /// Clears the list view
+        /// </summary>
         private void ClearList()
         {
             foreach (ListViewItem item in this.testsListView.Items)
@@ -135,6 +138,11 @@ namespace Clinic.View
             }
         }
 
+        /// <summary>
+        /// Handles order test button click events
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OrderTestButton_Click(object sender, EventArgs e)
         {
             OrderNewLabTestForm theOrderNewLabtestForm = new OrderNewLabTestForm(this);
@@ -170,6 +178,11 @@ namespace Clinic.View
             }
         }
 
+        /// <summary>
+        /// HAndles the enter results button click events
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EnterResult_Click(object sender, EventArgs e)
         {
             if (this.testsListView.SelectedItems.Count == 0)
@@ -202,6 +215,11 @@ namespace Clinic.View
             addDiagnosisForm.Show();
         }
 
+        /// <summary>
+        /// Refresh needed elements when form is re-enabled
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ViewVisitForm_EnabledChanged(object sender, EventArgs e)
         {
             this.LoadDiagnosis();

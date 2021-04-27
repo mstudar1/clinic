@@ -54,7 +54,32 @@ namespace Clinic.View
             } 
             else
             {
+                this.DisplayOrderConfirmationDialog();
+                
+            }
+        }
+
+        private void DisplayOrderConfirmationDialog ()
+        {
+            // TODO:  Deal with ZERO selected
+            string selectedTestNames = "";
+            foreach (LabTest labTest in this.labTestListBox.SelectedItems)
+            {
+                selectedTestNames += "\n" + labTest.Name;
+            }
+                DialogResult res = MessageBox.Show(
+                "Are you sure you want to order the following tests:" + selectedTestNames, 
+                "Confirmation", 
+                MessageBoxButtons.OKCancel, 
+                MessageBoxIcon.Information
+                );
+            if (res == DialogResult.OK)
+            {
                 this.OrderSelectedTests();
+            }
+            if (res == DialogResult.Cancel)
+            {
+
             }
         }
 
@@ -63,14 +88,9 @@ namespace Clinic.View
             string successfulTestNameList = "";
             foreach (LabTest labTest in this.labTestListBox.SelectedItems)
             {
-                LabTest selectedLabTest = new LabTest
-                {
-                    TestCode = int.Parse(labTest.TestCode.ToString()),
-                    Name = labTest.Name  //TODO: might need toString here and below
-                };
                 try
                 {
-                    this.theConductedLabTestController.OrderLabTest(this.referringForm.GetAppointmentId(), selectedLabTest);
+                    this.theConductedLabTestController.OrderLabTest(this.referringForm.GetAppointmentId(), labTest);
                     successfulTestNameList += "\n" + labTest.Name;
                 }
                 catch (Exception)

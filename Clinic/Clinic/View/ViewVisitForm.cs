@@ -160,11 +160,13 @@ namespace Clinic.View
             {
                 this.orderTestButton.Enabled = false;
                 this.addDiagnosisButton.Enabled = false;
+                this.enterResultButton.Enabled = false;
             }
             else
             {
                 this.addDiagnosisButton.Enabled = true;
                 this.orderTestButton.Enabled = true;
+                this.enterResultButton.Enabled = true;
             }
         }
 

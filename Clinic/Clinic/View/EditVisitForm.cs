@@ -55,11 +55,9 @@ namespace Clinic.View
 
         private void CloseForm()
         {
-            this.viewVisitForm.Enabled = true;
+            this.viewVisitForm.Enabled = true;         
             this.Close();
         }
-
-       
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
@@ -78,14 +76,27 @@ namespace Clinic.View
                         BodyTemperature = this.bodyTemperature,
                         Symptoms = this.symptoms
                     };
-                    this.theVisitController.EditVisit(this.viewVisitForm.GetVisit(), revisedVisit);
-                    string title = "Success";
-                    string message = "Visit details successfully recorded.";
-                    var selectedOption = MessageBox.Show(message, title, MessageBoxButtons.OK);
-                    if (selectedOption == DialogResult.OK)
+                    if (this.theVisitController.EditVisit(this.viewVisitForm.GetVisit(), revisedVisit))
                     {
-                        this.CloseForm();
-                    }
+                        string title = "Success";
+                        string message = "Visit details successfully recorded.";
+                        var selectedOption = MessageBox.Show(message, title, MessageBoxButtons.OK);
+                        if (selectedOption == DialogResult.OK)
+                        {
+                            this.CloseForm();
+                            this.viewVisitForm.UpdateFormVisitInfo(revisedVisit);
+                        }
+                    }  
+                    else
+                    {
+                        string title = "Update Failed";
+                        string message = "Visit details were not recorded. Please try again.";
+                        var selectedOption = MessageBox.Show(message, title, MessageBoxButtons.OK);
+                        if (selectedOption == DialogResult.OK)
+                        {
+                            this.CloseForm();
+                        }
+                    }                   
                 }
                 catch (Exception ex)
                 {
@@ -153,7 +164,6 @@ namespace Clinic.View
             {
                 this.symptoms = this.symptomsTextBox.Text;
             }
-
             return allInputsAreValid;
         }
     }

@@ -451,7 +451,7 @@ namespace Clinic.View
             this.closeButton.TabIndex = 4;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
-            this.closeButton.Click += new System.EventHandler(this.OkayButton_Click);
+            this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // orderTestButton
             // 

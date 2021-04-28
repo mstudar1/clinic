@@ -68,13 +68,23 @@ namespace Clinic.View
         }
 
         /// <summary>
-        /// Hndler for button click events of the Okay (Close) button
+        /// Enables/Disables buttons depending on options that shoujld be available
+        /// to user
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OkayButton_Click(object sender, EventArgs e)
+        private void EnableDisableButtons()
         {
-            this.DialogResult = DialogResult.OK;
+            if (this.finalDiagnosis)
+            {
+                this.orderTestButton.Enabled = false;
+                this.addDiagnosisButton.Enabled = false;
+                this.enterResultButton.Enabled = false;
+            }
+            else
+            {
+                this.addDiagnosisButton.Enabled = true;
+                this.orderTestButton.Enabled = true;
+                this.enterResultButton.Enabled = true;
+            }
         }
 
         /// <summary>
@@ -95,7 +105,7 @@ namespace Clinic.View
                 if (theConductedLabTest.DatePerformed == default)
                 {
                     datePerformed = "Not performed yet";
-                } 
+                }
                 else
                 {
                     datePerformed = theConductedLabTest.DatePerformed.ToString();
@@ -109,8 +119,8 @@ namespace Clinic.View
                 else
                 {
                     this.testsListView.Items[i].SubItems.Add(theConductedLabTest.Results);
-                }    
-                
+                }
+
                 if (theConductedLabTest.IsNormal && datePerformed != "Not performed yet")
                 {
                     this.testsListView.Items[i].SubItems.Add("Yes");
@@ -127,14 +137,13 @@ namespace Clinic.View
         }
 
         /// <summary>
-        /// Clears the list view
+        /// Hndler for button click events of the Close button
         /// </summary>
-        private void ClearList()
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CloseButton_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in this.testsListView.Items)
-            {
-                this.testsListView.Items.Remove(item);
-            }
+            this.DialogResult = DialogResult.OK;
         }
 
         /// <summary>
@@ -146,41 +155,7 @@ namespace Clinic.View
         {
             OrderNewLabTestForm theOrderNewLabtestForm = new OrderNewLabTestForm(this);
             theOrderNewLabtestForm.Show();
-        }
-
-        /// <summary>
-        /// Gets the appointment ID associated with the form.
-        /// </summary>
-        /// <returns></returns>
-        public int GetAppointmentId()
-        {
-            return this.theVisit.AppointmentId;
-        }
-
-        public Visit GetVisit()
-        {
-            return this.theVisit;
-        }
-
-        /// <summary>
-        /// Enables/Disables buttons depending on options that shoujld be available
-        /// to user
-        /// </summary>
-        private void EnableDisableButtons()
-        {
-            if (this.finalDiagnosis)
-            {
-                this.orderTestButton.Enabled = false;
-                this.addDiagnosisButton.Enabled = false;
-                this.enterResultButton.Enabled = false;
-            }
-            else
-            {
-                this.addDiagnosisButton.Enabled = true;
-                this.orderTestButton.Enabled = true;
-                this.enterResultButton.Enabled = true;
-            }
-        }
+        } 
 
         /// <summary>
         /// HAndles the enter results button click events
@@ -231,14 +206,46 @@ namespace Clinic.View
             this.LoadTests();
         }
 
+        public void UpdateFormVisitInfo(Visit newVisit)
+        {
+            this.theVisit.Weight = newVisit.Weight;
+            this.theVisit.Pulse = newVisit.Pulse;
+            this.theVisit.SystolicBloodPressure = newVisit.SystolicBloodPressure;
+            this.theVisit.DiastolicBloodPressure = newVisit.DiastolicBloodPressure;
+            this.theVisit.BodyTemperature = newVisit.BodyTemperature;
+            this.theVisit.Symptoms = newVisit.Symptoms;
+            this.visitBindingSource.ResetBindings(false);
+        }
+
         private void EditVisitButton_Click(object sender, EventArgs e)
         {
-            // TODO: Refactor and get rid of these placeholders
-            Appointment theAppointment = new Appointment();
-            Nurse currentNurse = new Nurse();
-            // END
             EditVisitForm theEditVisitForm = new EditVisitForm(this, this.theVisit.AppointmentId, this.theVisit.NurseId);
             theEditVisitForm.Show();
+        }
+
+        /// <summary>
+        /// Clears the list view
+        /// </summary>
+        private void ClearList()
+        {
+            foreach (ListViewItem item in this.testsListView.Items)
+            {
+                this.testsListView.Items.Remove(item);
+            }
+        }
+
+        /// <summary>
+        /// Gets the appointment ID associated with the form.
+        /// </summary>
+        /// <returns></returns>
+        public int GetAppointmentId()
+        {
+            return this.theVisit.AppointmentId;
+        }
+
+        public Visit GetVisit()
+        {
+            return this.theVisit;
         }
     }
 }

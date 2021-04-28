@@ -226,5 +226,11 @@ namespace Clinic.View
             this.EnableDisableButtons();
             this.LoadTests();
         }
+
+        private void EditVisitButton_Click(object sender, EventArgs e)
+        {
+            EditVisitForm theEditVisitForm = new EditVisitForm(this);
+            theEditVisitForm.Show();
+        }
     }
 }

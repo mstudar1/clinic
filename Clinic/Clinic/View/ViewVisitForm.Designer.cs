@@ -45,6 +45,7 @@ namespace Clinic.View
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.enterResultButton = new System.Windows.Forms.Button();
             this.symptomsOutputLabel = new System.Windows.Forms.Label();
+            this.visitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bodyTemperatureOutputLabel = new System.Windows.Forms.Label();
             this.diastolicBloodPressureOutputLabel = new System.Windows.Forms.Label();
             this.weightOutputLabel = new System.Windows.Forms.Label();
@@ -68,7 +69,6 @@ namespace Clinic.View
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.visitDateOutputLabel = new System.Windows.Forms.Label();
             this.editVisitButton = new System.Windows.Forms.Button();
-            this.visitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             bodyTemperatureLabel = new System.Windows.Forms.Label();
             diastolicBloodPressureLabel = new System.Windows.Forms.Label();
             doctorFullNameLabel = new System.Windows.Forms.Label();
@@ -82,10 +82,10 @@ namespace Clinic.View
             diagnosisLabel = new System.Windows.Forms.Label();
             this.viewVisitTableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.visitBindingSource)).BeginInit();
             this.buttonTableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.visitBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bodyTemperatureLabel
@@ -312,6 +312,10 @@ namespace Clinic.View
             this.symptomsOutputLabel.Size = new System.Drawing.Size(377, 20);
             this.symptomsOutputLabel.TabIndex = 33;
             // 
+            // visitBindingSource
+            // 
+            this.visitBindingSource.DataSource = typeof(Clinic.Model.Visit);
+            // 
             // bodyTemperatureOutputLabel
             // 
             this.bodyTemperatureOutputLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -415,7 +419,7 @@ namespace Clinic.View
             this.buttonTableLayoutPanel.Name = "buttonTableLayoutPanel";
             this.buttonTableLayoutPanel.RowCount = 1;
             this.buttonTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.buttonTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.buttonTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.buttonTableLayoutPanel.Size = new System.Drawing.Size(471, 39);
             this.buttonTableLayoutPanel.TabIndex = 40;
             // 
@@ -580,10 +584,7 @@ namespace Clinic.View
             this.editVisitButton.TabIndex = 39;
             this.editVisitButton.Text = "Edit Visit Information";
             this.editVisitButton.UseVisualStyleBackColor = true;
-            // 
-            // visitBindingSource
-            // 
-            this.visitBindingSource.DataSource = typeof(Clinic.Model.Visit);
+            this.editVisitButton.Click += new System.EventHandler(this.EditVisitButton_Click);
             // 
             // ViewVisitForm
             // 
@@ -604,11 +605,11 @@ namespace Clinic.View
             this.viewVisitTableLayoutPanel.ResumeLayout(false);
             this.viewVisitTableLayoutPanel.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.visitBindingSource)).EndInit();
             this.buttonTableLayoutPanel.ResumeLayout(false);
             this.buttonTableLayoutPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.visitBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

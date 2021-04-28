@@ -43,7 +43,7 @@ namespace Clinic.View
             this.weightValidationLabel = new System.Windows.Forms.Label();
             this.diastolicBloodPressureLabel = new System.Windows.Forms.Label();
             this.symptomsLabel = new System.Windows.Forms.Label();
-            this.addButton = new System.Windows.Forms.Button();
+            this.submitButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.headerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.startDateTimeOutputLabel = new System.Windows.Forms.Label();
@@ -81,6 +81,39 @@ namespace Clinic.View
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // doctorFullNameLabel
+            // 
+            doctorFullNameLabel.AutoSize = true;
+            doctorFullNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            doctorFullNameLabel.Location = new System.Drawing.Point(2, 41);
+            doctorFullNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            doctorFullNameLabel.Name = "doctorFullNameLabel";
+            doctorFullNameLabel.Size = new System.Drawing.Size(54, 17);
+            doctorFullNameLabel.TabIndex = 5;
+            doctorFullNameLabel.Text = "Doctor:";
+            // 
+            // patientFullNameLabel
+            // 
+            patientFullNameLabel.AutoSize = true;
+            patientFullNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            patientFullNameLabel.Location = new System.Drawing.Point(2, 61);
+            patientFullNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            patientFullNameLabel.Name = "patientFullNameLabel";
+            patientFullNameLabel.Size = new System.Drawing.Size(56, 17);
+            patientFullNameLabel.TabIndex = 15;
+            patientFullNameLabel.Text = "Patient:";
+            // 
+            // startDateTimeLabel
+            // 
+            startDateTimeLabel.AutoSize = true;
+            startDateTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            startDateTimeLabel.Location = new System.Drawing.Point(2, 78);
+            startDateTimeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            startDateTimeLabel.Name = "startDateTimeLabel";
+            startDateTimeLabel.Size = new System.Drawing.Size(105, 17);
+            startDateTimeLabel.TabIndex = 23;
+            startDateTimeLabel.Text = "Date and Time:";
             // 
             // systolicBloodPressureValidationLabel
             // 
@@ -128,6 +161,7 @@ namespace Clinic.View
             this.pulseTextBox.Name = "pulseTextBox";
             this.pulseTextBox.Size = new System.Drawing.Size(256, 26);
             this.pulseTextBox.TabIndex = 40;
+            this.pulseTextBox.TextChanged += new System.EventHandler(this.ResetValidationLabelsListener);
             // 
             // bodyTemperatureLabel
             // 
@@ -166,6 +200,7 @@ namespace Clinic.View
             this.weightTextBox.Name = "weightTextBox";
             this.weightTextBox.Size = new System.Drawing.Size(256, 26);
             this.weightTextBox.TabIndex = 30;
+            this.weightTextBox.TextChanged += new System.EventHandler(this.ResetValidationLabelsListener);
             // 
             // weightValidationLabel
             // 
@@ -204,17 +239,18 @@ namespace Clinic.View
             this.symptomsLabel.Tag = "";
             this.symptomsLabel.Text = "Symptoms:";
             // 
-            // addButton
+            // submitButton
             // 
-            this.addButton.AutoSize = true;
-            this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addButton.Location = new System.Drawing.Point(2, 2);
-            this.addButton.Margin = new System.Windows.Forms.Padding(2);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(78, 35);
-            this.addButton.TabIndex = 10;
-            this.addButton.Text = "Submit";
-            this.addButton.UseVisualStyleBackColor = true;
+            this.submitButton.AutoSize = true;
+            this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitButton.Location = new System.Drawing.Point(2, 2);
+            this.submitButton.Margin = new System.Windows.Forms.Padding(2);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(78, 35);
+            this.submitButton.TabIndex = 10;
+            this.submitButton.Text = "Submit";
+            this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
             // cancelButton
             // 
@@ -227,6 +263,7 @@ namespace Clinic.View
             this.cancelButton.TabIndex = 20;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // headerTableLayoutPanel
             // 
@@ -287,39 +324,6 @@ namespace Clinic.View
             this.doctorFullNameOutputLabel.Size = new System.Drawing.Size(150, 19);
             this.doctorFullNameOutputLabel.TabIndex = 6;
             // 
-            // doctorFullNameLabel
-            // 
-            doctorFullNameLabel.AutoSize = true;
-            doctorFullNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            doctorFullNameLabel.Location = new System.Drawing.Point(2, 41);
-            doctorFullNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            doctorFullNameLabel.Name = "doctorFullNameLabel";
-            doctorFullNameLabel.Size = new System.Drawing.Size(54, 17);
-            doctorFullNameLabel.TabIndex = 5;
-            doctorFullNameLabel.Text = "Doctor:";
-            // 
-            // patientFullNameLabel
-            // 
-            patientFullNameLabel.AutoSize = true;
-            patientFullNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            patientFullNameLabel.Location = new System.Drawing.Point(2, 61);
-            patientFullNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            patientFullNameLabel.Name = "patientFullNameLabel";
-            patientFullNameLabel.Size = new System.Drawing.Size(56, 17);
-            patientFullNameLabel.TabIndex = 15;
-            patientFullNameLabel.Text = "Patient:";
-            // 
-            // startDateTimeLabel
-            // 
-            startDateTimeLabel.AutoSize = true;
-            startDateTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            startDateTimeLabel.Location = new System.Drawing.Point(2, 78);
-            startDateTimeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            startDateTimeLabel.Name = "startDateTimeLabel";
-            startDateTimeLabel.Size = new System.Drawing.Size(105, 17);
-            startDateTimeLabel.TabIndex = 23;
-            startDateTimeLabel.Text = "Date and Time:";
-            // 
             // addNewVisitLabel
             // 
             this.addNewVisitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -340,7 +344,7 @@ namespace Clinic.View
             this.buttonTableLayoutPanel.ColumnCount = 2;
             this.buttonTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.90164F));
             this.buttonTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.09836F));
-            this.buttonTableLayoutPanel.Controls.Add(this.addButton, 0, 0);
+            this.buttonTableLayoutPanel.Controls.Add(this.submitButton, 0, 0);
             this.buttonTableLayoutPanel.Controls.Add(this.cancelButton, 1, 0);
             this.buttonTableLayoutPanel.Location = new System.Drawing.Point(218, 534);
             this.buttonTableLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -359,6 +363,7 @@ namespace Clinic.View
             this.systolicBloodPressureTextBox.Name = "systolicBloodPressureTextBox";
             this.systolicBloodPressureTextBox.Size = new System.Drawing.Size(256, 26);
             this.systolicBloodPressureTextBox.TabIndex = 50;
+            this.systolicBloodPressureTextBox.TextChanged += new System.EventHandler(this.ResetValidationLabelsListener);
             // 
             // addVisitTableLayoutPanel
             // 
@@ -419,6 +424,7 @@ namespace Clinic.View
             this.symptomsTextBox.Name = "symptomsTextBox";
             this.symptomsTextBox.Size = new System.Drawing.Size(256, 26);
             this.symptomsTextBox.TabIndex = 71;
+            this.symptomsTextBox.TextChanged += new System.EventHandler(this.ResetValidationLabelsListener);
             // 
             // symptomsValidationLabel
             // 
@@ -479,6 +485,7 @@ namespace Clinic.View
             this.bodyTemperatureTextBox.Name = "bodyTemperatureTextBox";
             this.bodyTemperatureTextBox.Size = new System.Drawing.Size(256, 26);
             this.bodyTemperatureTextBox.TabIndex = 70;
+            this.bodyTemperatureTextBox.TextChanged += new System.EventHandler(this.ResetValidationLabelsListener);
             // 
             // pulseLabel
             // 
@@ -528,6 +535,7 @@ namespace Clinic.View
             this.diastolicBloodPressureTextBox.Name = "diastolicBloodPressureTextBox";
             this.diastolicBloodPressureTextBox.Size = new System.Drawing.Size(256, 26);
             this.diastolicBloodPressureTextBox.TabIndex = 60;
+            this.diastolicBloodPressureTextBox.TextChanged += new System.EventHandler(this.ResetValidationLabelsListener);
             // 
             // systolicBloodPressureLabel
             // 
@@ -569,6 +577,7 @@ namespace Clinic.View
             this.Name = "EditVisitForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Visit Information";
+            this.Load += new System.EventHandler(this.EditVisitForm_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -604,7 +613,7 @@ namespace Clinic.View
         private System.Windows.Forms.Label weightValidationLabel;
         private System.Windows.Forms.Label diastolicBloodPressureLabel;
         private System.Windows.Forms.Label symptomsLabel;
-        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.TableLayoutPanel headerTableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel addVisitTableLayoutPanel;

@@ -214,9 +214,9 @@ namespace Clinic.UserControls
             this.appointmentsLabel.Location = new System.Drawing.Point(2, 130);
             this.appointmentsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.appointmentsLabel.Name = "appointmentsLabel";
-            this.appointmentsLabel.Size = new System.Drawing.Size(122, 20);
+            this.appointmentsLabel.Size = new System.Drawing.Size(112, 20);
             this.appointmentsLabel.TabIndex = 2;
-            this.appointmentsLabel.Text = "Search Results:";
+            this.appointmentsLabel.Text = "Appointments:";
             // 
             // appointmentsSearchResultsListView
             // 

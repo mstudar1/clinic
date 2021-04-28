@@ -43,8 +43,7 @@ namespace Clinic.UserControls
             this.appointmentsSearchResultsListView = new System.Windows.Forms.ListView();
             this.lastNameCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.firstNameCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dobCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.patientIdCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.endTimeCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.startTimeCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.docCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -223,10 +222,9 @@ namespace Clinic.UserControls
             this.appointmentsSearchResultsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.lastNameCol,
             this.firstNameCol,
-            this.dobCol,
-            this.patientIdCol,
             this.dateCol,
             this.startTimeCol,
+            this.endTimeCol,
             this.docCol});
             this.tableLayoutPanel1.SetColumnSpan(this.appointmentsSearchResultsListView, 4);
             this.appointmentsSearchResultsListView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -253,17 +251,11 @@ namespace Clinic.UserControls
             this.firstNameCol.Text = "First Name";
             this.firstNameCol.Width = 113;
             // 
-            // dobCol
+            // endTimeCol
             // 
-            this.dobCol.Text = "D.O.B";
-            this.dobCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.dobCol.Width = 175;
-            // 
-            // patientIdCol
-            // 
-            this.patientIdCol.Text = "Patient ID#";
-            this.patientIdCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.patientIdCol.Width = 91;
+            this.endTimeCol.Text = "End Time";
+            this.endTimeCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.endTimeCol.Width = 91;
             // 
             // dateCol
             // 
@@ -273,7 +265,7 @@ namespace Clinic.UserControls
             // 
             // startTimeCol
             // 
-            this.startTimeCol.Text = "Time";
+            this.startTimeCol.Text = "Start Time";
             this.startTimeCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.startTimeCol.Width = 90;
             // 
@@ -369,12 +361,11 @@ namespace Clinic.UserControls
         private System.Windows.Forms.Button searchDateButton;
         public System.Windows.Forms.ListView appointmentsSearchResultsListView;
         private System.Windows.Forms.ColumnHeader lastNameCol;
-        private System.Windows.Forms.ColumnHeader dobCol;
         private System.Windows.Forms.ColumnHeader firstNameCol;
         private System.Windows.Forms.ColumnHeader dateCol;
         private System.Windows.Forms.ColumnHeader startTimeCol;
         private System.Windows.Forms.TextBox nameTextBox;
-        private System.Windows.Forms.ColumnHeader patientIdCol;
+        private System.Windows.Forms.ColumnHeader endTimeCol;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker searchDateTimePicker;

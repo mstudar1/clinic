@@ -12,7 +12,7 @@ namespace Clinic.View
     /// </summary>
     public partial class ViewVisitForm : Form
     {
-        private readonly Visit theVisit;
+        private Visit theVisit;
         private List<ConductedLabTest> theTests;
         private DiagnosisController theDiagnosisController;
         private ConductedLabTestController theConductedLabTestController;
@@ -158,6 +158,11 @@ namespace Clinic.View
             return this.theVisit.AppointmentId;
         }
 
+        public Visit GetVisit()
+        {
+            return this.theVisit;
+        }
+
         /// <summary>
         /// Enables/Disables buttons depending on options that shoujld be available
         /// to user
@@ -233,7 +238,7 @@ namespace Clinic.View
             Appointment theAppointment = new Appointment();
             Nurse currentNurse = new Nurse();
             // END
-            EditVisitForm theEditVisitForm = new EditVisitForm(this, theAppointment, currentNurse);
+            EditVisitForm theEditVisitForm = new EditVisitForm(this, this.theVisit.AppointmentId, this.theVisit.NurseId);
             theEditVisitForm.Show();
         }
     }

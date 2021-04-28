@@ -10,10 +10,11 @@ namespace Clinic.View
     /// </summary>
     public partial class EditVisitForm : Form
     {
-        private readonly ViewVisitForm viewVisitForm;
-        private readonly Appointment theAppointment;
+        private readonly ViewVisitForm viewVisitForm;       
         private readonly VisitController theVisitController;
-        private readonly Nurse currentUser;
+        private readonly AppointmentController theAppointmentController;
+        private readonly Appointment theAppointment;
+        private readonly int nurseId;
         private double weight;
         private int pulse;
         private int systolicBloodPressure;
@@ -25,19 +26,25 @@ namespace Clinic.View
         /// Constructor for the edit visit information form
         /// </summary>
         /// <param name="viewVisitForm">the referring form</param>
-        public EditVisitForm(ViewVisitForm viewVisitForm, Appointment theAppointment, Nurse currentUser)
+        public EditVisitForm(ViewVisitForm viewVisitForm, int appointmentId, int nurseId)
         {
             InitializeComponent();
             this.viewVisitForm = viewVisitForm;
             this.theVisitController = new VisitController();
-            this.theAppointment = theAppointment ?? throw new ArgumentNullException("theAppointment", "The appointment object cannot be null.");
-            this.currentUser = currentUser ?? throw new ArgumentNullException("currentUser", "The user object cannot be null.");
-            
+            this.theAppointmentController = new AppointmentController();
+            this.theAppointment = this.theAppointmentController.GetAppointment(appointmentId);
+            this.nurseId = nurseId;
+            this.InitializeFormData();
         }
 
         private void InitializeFormData()
         {
-
+            this.weightTextBox.Text = this.viewVisitForm.GetVisit().Weight.ToString();
+            this.pulseTextBox.Text = this.viewVisitForm.GetVisit().Pulse.ToString();
+            this.systolicBloodPressureTextBox.Text = this.viewVisitForm.GetVisit().SystolicBloodPressure.ToString();
+            this.diastolicBloodPressureTextBox.Text = this.viewVisitForm.GetVisit().DiastolicBloodPressure.ToString();
+            this.bodyTemperatureTextBox.Text = this.viewVisitForm.GetVisit().BodyTemperature.ToString();
+            this.symptomsTextBox.Text = this.viewVisitForm.GetVisit().Symptoms.ToString();
         }
 
         private void EditVisitForm_Load(object sender, EventArgs e)
@@ -49,6 +56,63 @@ namespace Clinic.View
         private void CloseForm()
         {
             this.viewVisitForm.Enabled = true;
+        }
+
+       
+
+        private void SubmitButton_Click(object sender, EventArgs e)
+        {
+            if (AllInputsAreValid())
+            {
+                try
+                {
+                    Visit theVisit = new Visit
+                    {
+                        AppointmentId = this.theAppointment.AppointmentId,
+                        NurseId = this.nurseId,
+                        Weight = this.weight,
+                        Pulse = this.pulse,
+                        SystolicBloodPressure = this.systolicBloodPressure,
+                        DiastolicBloodPressure = this.diastolicBloodPressure,
+                        BodyTemperature = this.bodyTemperature,
+                        Symptoms = this.symptoms
+                    };
+                    this.theVisitController.AddVisit(theVisit);  //TODO:  Edit not add--need to add in DAL/Controller
+                    string title = "Success";
+                    string message = "Visit details successfully recorded.";
+                    var selectedOption = MessageBox.Show(message, title, MessageBoxButtons.OK);
+                    if (selectedOption == DialogResult.OK)
+                    {
+                        this.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There was an error.  " + ex.Message, "Error");
+                }
+            }
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            string message = "Any information entered in this form will be lost.  " +
+                "Are you sure you want to cancel entering the visit information?";
+            string title = "Cancel Entering Visit Details";
+            var selectedOption = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (selectedOption == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void ResetValidationLabelsListener(object sender, EventArgs e)
+        {
+            this.weightValidationLabel.Text = "";
+            this.pulseValidationLabel.Text = "";
+            this.systolicBloodPressureValidationLabel.Text = "";
+            this.diastolicBloodPressureValidationLabel.Text = "";
+            this.bodyTemperatureValidationLabel.Text = "";
+            this.symptomsValidationLabel.Text = "";
         }
 
         private bool AllInputsAreValid()
@@ -102,63 +166,6 @@ namespace Clinic.View
             }
 
             return allInputsAreValid;
-        }
-
-        private void SubmitButton_Click(object sender, EventArgs e)
-        {
-            if (!AllInputsAreValid())
-            {
-                return;
-            }
-
-            try
-            {
-                Visit theVisit = new Visit
-                {
-                    AppointmentId = this.theAppointment.AppointmentId,
-                    NurseId = currentUser.NurseId,
-                    Weight = this.weight,
-                    Pulse = this.pulse,
-                    SystolicBloodPressure = this.systolicBloodPressure,
-                    DiastolicBloodPressure = this.diastolicBloodPressure,
-                    BodyTemperature = this.bodyTemperature,
-                    Symptoms = this.symptoms
-                };
-                this.theVisitController.AddVisit(theVisit);
-                string title = "Success";
-                string message = "Visit details successfully recorded.";
-                var selectedOption = MessageBox.Show(message, title, MessageBoxButtons.OK);
-                if (selectedOption == DialogResult.OK)
-                {
-                    this.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("There was an error.  " + ex.Message, "Error");
-            }
-        }
-
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            string message = "Any information entered in this form will be lost.  " +
-                "Are you sure you want to cancel entering the visit information?";
-            string title = "Cancel Entering Visit Details";
-            var selectedOption = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (selectedOption == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-
-        private void ResetValidationLabelsListener(object sender, EventArgs e)
-        {
-            this.weightValidationLabel.Text = "";
-            this.pulseValidationLabel.Text = "";
-            this.systolicBloodPressureValidationLabel.Text = "";
-            this.diastolicBloodPressureValidationLabel.Text = "";
-            this.bodyTemperatureValidationLabel.Text = "";
-            this.symptomsValidationLabel.Text = "";
         }
     }
 }

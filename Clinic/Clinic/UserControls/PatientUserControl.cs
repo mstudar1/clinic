@@ -170,18 +170,7 @@ namespace Clinic.UserControls
                 this.theNurseAdminForm.appointmentUserControl1.ResetSearchFields();
 
                 List < Appointment > theAppointments = this.theNurseAdminForm.appointmentUserControl1.appointmentController.FindAppointments(theSelectedPatient.PatientId);
-
-                foreach (Appointment current in theAppointments)
-                {
-                    ListViewItem item = new ListViewItem(current.PatientLastName.ToString());
-                    item.SubItems.Add(current.PatientFirstName.ToString());
-                    item.SubItems.Add(current.StartDateTime.ToString("dddd, dd MMMM yyyy"));
-                    item.SubItems.Add(current.StartDateTime.ToString("hh:mm tt"));
-                    item.SubItems.Add(current.EndDateTime.ToString("hh:mm tt"));
-                    item.SubItems.Add(current.DoctorLastName.ToString());
-                    this.theNurseAdminForm.appointmentUserControl1.appointmentsSearchResultsListView.Items.Add(item);
-                }
-
+                this.theNurseAdminForm.appointmentUserControl1.DisplayAppointmentList(theAppointments);
             }
         }
     }

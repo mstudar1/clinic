@@ -64,6 +64,16 @@ namespace Clinic.UserControls
             this.dobDateTimePicker.Value = DateTime.Now;
         }
 
+        public void DisplayAppointmentList(List<Appointment> appointments)
+        {
+            if (appointments == null)
+            {
+                throw new ArgumentException("The list of appointments cannot be null.", "appointments");
+            }
+            this.appointmentList = appointments;
+            this.RefreshAppointmentList();
+        }
+
         private void EnableOrDisableBeginVisitButton()
         {
             if (this.currentUser == default)
@@ -78,6 +88,22 @@ namespace Clinic.UserControls
             else
             {
                 this.beginVisitButton.Enabled = false;
+            }
+        }
+
+        private void RefreshAppointmentList()
+        {
+            this.ResetFormMessages();
+            this.ResetSearchFields();
+            foreach (Appointment current in this.appointmentList)
+            {
+                ListViewItem item = new ListViewItem(current.PatientLastName.ToString());
+                item.SubItems.Add(current.PatientFirstName.ToString());
+                item.SubItems.Add(current.StartDateTime.ToShortDateString());
+                item.SubItems.Add(current.StartDateTime.ToShortTimeString());
+                item.SubItems.Add(current.EndDateTime.ToShortTimeString());
+                item.SubItems.Add(current.DoctorLastName.ToString());
+                this.appointmentsSearchResultsListView.Items.Add(item);
             }
         }
 
@@ -102,17 +128,7 @@ namespace Clinic.UserControls
             this.nameTextBox.Text = "";
             DateTime searchDateTime = this.searchDateTimePicker.Value;
             this.appointmentList = this.appointmentController.GetAppointmentsOnDate(searchDateTime);
-            foreach (Appointment current in this.appointmentList)
-            {
-                ListViewItem item = new ListViewItem(current.PatientLastName.ToString());
-                item.SubItems.Add(current.PatientFirstName.ToString());
-                item.SubItems.Add(current.PatientDateOfBirth.ToString("MM/dd/yyyy"));
-                item.SubItems.Add(current.PatientId.ToString());
-                item.SubItems.Add(current.StartDateTime.ToString("dddd, dd MMMM yyyy"));
-                item.SubItems.Add(current.StartDateTime.ToString("hh:mm tt"));               
-                item.SubItems.Add(current.DoctorLastName.ToString());
-                this.appointmentsSearchResultsListView.Items.Add(item);
-            }
+            this.RefreshAppointmentList();
         }
 
         /// <summary>
@@ -132,17 +148,7 @@ namespace Clinic.UserControls
                 String searchName = this.nameTextBox.Text;
                 DateTime searchDOB = this.dobDateTimePicker.Value;         
                 this.appointmentList = this.appointmentController.GetAppointmentsForPatientLastNameAndDOB(searchName, searchDOB);
-                foreach (Appointment current in this.appointmentList)
-                {
-                    ListViewItem item = new ListViewItem(current.PatientLastName.ToString());
-                    item.SubItems.Add(current.PatientFirstName.ToString());
-                    item.SubItems.Add(current.PatientDateOfBirth.ToString("MM/dd/yyyy"));
-                    item.SubItems.Add(current.PatientId.ToString());
-                    item.SubItems.Add(current.StartDateTime.ToString("dddd, dd MMMM yyyy"));
-                    item.SubItems.Add(current.StartDateTime.ToString("hh:mm tt"));
-                    item.SubItems.Add(current.DoctorLastName.ToString());
-                    this.appointmentsSearchResultsListView.Items.Add(item);
-                }
+                this.RefreshAppointmentList();
             }
         }
 

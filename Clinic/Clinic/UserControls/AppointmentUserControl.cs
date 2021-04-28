@@ -16,6 +16,7 @@ namespace Clinic.UserControls
         private EditAppointmentForm editAppointmentForm;
         private AddVisitForm addVisitForm;
         private Person currentUser;
+        private VisitController visitController;
         public AppointmentController appointmentController;
         public List<Appointment> appointmentList;
 
@@ -26,6 +27,7 @@ namespace Clinic.UserControls
         {
             InitializeComponent();
             this.appointmentController = new AppointmentController();
+            this.visitController = new VisitController();
         }
 
         /// <summary>
@@ -169,17 +171,24 @@ namespace Clinic.UserControls
         private void BeginVisitButton_Click(object sender, EventArgs e)
         {
             this.ResetFormMessages();
+
             if (this.appointmentsSearchResultsListView.SelectedItems.Count == 0)
             {
                 this.alertTextLabel.Text = "Please select an appointment for this visit.";
+                return;
             }
-            else
+
+            int selectedIndex = this.appointmentsSearchResultsListView.SelectedIndices[0];
+            Appointment selectedAppointment = this.appointmentList[selectedIndex];
+
+            if (this.visitController.IsVisitPresent(selectedAppointment.AppointmentId))
             {
-                int selectedIndex = this.appointmentsSearchResultsListView.SelectedIndices[0];
-                Appointment selectedAppointment = this.appointmentList[selectedIndex];
-                this.addVisitForm = new AddVisitForm(selectedAppointment, (Nurse) this.currentUser);
-                this.addVisitForm.Show();
+                this.alertTextLabel.Text = "A visit has already been entered for this appointment.";
+                return;
             }
+            
+            this.addVisitForm = new AddVisitForm(selectedAppointment, (Nurse) this.currentUser);
+            this.addVisitForm.Show();
         }
 
         /// <summary>

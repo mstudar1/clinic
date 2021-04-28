@@ -25,13 +25,14 @@ namespace Clinic.View
         /// Constructor for the edit visit information form
         /// </summary>
         /// <param name="viewVisitForm">the referring form</param>
-        public EditVisitForm(ViewVisitForm viewVisitForm)
+        public EditVisitForm(ViewVisitForm viewVisitForm, Appointment theAppointment, Nurse currentUser)
         {
             InitializeComponent();
             this.viewVisitForm = viewVisitForm;
+            this.theVisitController = new VisitController();
             this.theAppointment = theAppointment ?? throw new ArgumentNullException("theAppointment", "The appointment object cannot be null.");
             this.currentUser = currentUser ?? throw new ArgumentNullException("currentUser", "The user object cannot be null.");
-            this.theVisitController = new VisitController();
+            
         }
 
         private void InitializeFormData()

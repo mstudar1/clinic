@@ -229,7 +229,11 @@ namespace Clinic.View
 
         private void EditVisitButton_Click(object sender, EventArgs e)
         {
-            EditVisitForm theEditVisitForm = new EditVisitForm(this);
+            // TODO: Refactor and get rid of these placeholders
+            Appointment theAppointment = new Appointment();
+            Nurse currentNurse = new Nurse();
+            // END
+            EditVisitForm theEditVisitForm = new EditVisitForm(this, theAppointment, currentNurse);
             theEditVisitForm.Show();
         }
     }

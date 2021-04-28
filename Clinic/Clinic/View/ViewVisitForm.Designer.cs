@@ -469,7 +469,6 @@ namespace Clinic.View
             // diagnosisOutputLabel
             // 
             this.diagnosisOutputLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.diagnosisOutputLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.visitBindingSource, "Symptoms", true));
             this.diagnosisOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.diagnosisOutputLabel.Location = new System.Drawing.Point(215, 282);
             this.diagnosisOutputLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);

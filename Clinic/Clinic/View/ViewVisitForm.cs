@@ -78,12 +78,14 @@ namespace Clinic.View
                 this.orderTestButton.Enabled = false;
                 this.addDiagnosisButton.Enabled = false;
                 this.enterResultButton.Enabled = false;
+                this.editVisitButton.Enabled = false;
             }
             else
             {
                 this.addDiagnosisButton.Enabled = true;
                 this.orderTestButton.Enabled = true;
                 this.enterResultButton.Enabled = true;
+                this.editVisitButton.Enabled = true;
             }
         }
 

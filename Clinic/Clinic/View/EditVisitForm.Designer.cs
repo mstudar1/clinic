@@ -577,6 +577,7 @@ namespace Clinic.View
             this.Name = "EditVisitForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Visit Information";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EditVisitForm_FormClosed);
             this.Load += new System.EventHandler(this.EditVisitForm_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

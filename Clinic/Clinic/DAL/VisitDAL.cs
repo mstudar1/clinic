@@ -59,23 +59,23 @@ namespace Clinic.DAL
 
             string updateStatement =
                 "UPDATE Visit SET " +
-                    "appointmentId = @RevisedAppointmentId " +
-                    "weight = @RevisedWeight " +
-                    "systolicBloodPressure = @RevisedSystolicBloodPressure " +
-                    "diastolicBloodPressure = @RevisedDiastolicBloodPressure " +
-                    "bodyTemperature = @RevisedBodyTemperature " +
-                    "pulse = @RevisedPulse " +
-                    "symptoms = @RevisedSymptoms " +
+                    "appointmentId = @RevisedAppointmentId, " +
+                    "weight = @RevisedWeight, " +
+                    "systolicBloodPressure = @RevisedSystolicBloodPressure, " +
+                    "diastolicBloodPressure = @RevisedDiastolicBloodPressure, " +
+                    "bodyTemperature = @RevisedBodyTemperature, " +
+                    "pulse = @RevisedPulse, " +
+                    "symptoms = @RevisedSymptoms, " +
                     "nurseId = @RevisedNurseId " +
-                "WHERE" +
+                "WHERE " +
                     "appointmentId = @OriginalAppointmentId " +
-                    "weight = @OriginalWeight " +
-                    "systolicBloodPressure = @OriginalSystolicBloodPressure " +
-                    "diastolicBloodPressure = @OriginalDiastolicBloodPressure " +
-                    "bodyTemperature = @OriginalBodyTemperature " +
-                    "pulse = @OriginalPulse " +
-                    "symptoms = @OriginalSymptoms " +
-                    "nurseId = @OriginalNurseId ";
+                    "AND weight = @OriginalWeight " +
+                    "AND systolicBloodPressure = @OriginalSystolicBloodPressure " +
+                    "AND diastolicBloodPressure = @OriginalDiastolicBloodPressure " +
+                    "AND bodyTemperature = @OriginalBodyTemperature " +
+                    "AND pulse = @OriginalPulse " +
+                    "AND symptoms = @OriginalSymptoms " +
+                    "AND nurseId = @OriginalNurseId";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {

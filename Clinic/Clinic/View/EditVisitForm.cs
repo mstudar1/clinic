@@ -66,7 +66,7 @@ namespace Clinic.View
             {
                 try
                 {
-                    Visit theVisit = new Visit
+                    Visit revisedVisit = new Visit
                     {
                         AppointmentId = this.theAppointment.AppointmentId,
                         NurseId = this.nurseId,
@@ -77,7 +77,7 @@ namespace Clinic.View
                         BodyTemperature = this.bodyTemperature,
                         Symptoms = this.symptoms
                     };
-                    this.theVisitController.AddVisit(theVisit);  //TODO:  Edit not add--need to add in DAL/Controller
+                    this.theVisitController.EditVisit(this.viewVisitForm.GetVisit(), revisedVisit);
                     string title = "Success";
                     string message = "Visit details successfully recorded.";
                     var selectedOption = MessageBox.Show(message, title, MessageBoxButtons.OK);

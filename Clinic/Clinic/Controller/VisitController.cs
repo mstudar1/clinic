@@ -35,11 +35,26 @@ namespace Clinic.Controller
         }
 
         /// <summary>
-        /// Method that finds all of the visits for the specified patient.
+        /// Edits the information for a Visit entry in the DB.  
         /// </summary>
-        /// <param name="patientId">The ID of the patient.</param>
-        /// <returns>A list of Visit objects associated with the specified patient.</returns>
-        public List<Visit> FindVisits(int patientId)
+        /// <param name="originalVisit">Visit object that was originally retrieved to be edited</param>
+        /// <param name="revisedVisit">Visit object holding revised info</param>
+        /// <returns>true if successful</returns>
+        public bool EditVisit(Visit originalVisit, Visit revisedVisit)
+        {
+            if (originalVisit == null || revisedVisit == null)
+            {
+                throw new ArgumentNullException("Visit cannot be null.");
+            }
+            return this.visitSource.EditVisit(originalVisit, revisedVisit);
+        }
+
+            /// <summary>
+            /// Method that finds all of the visits for the specified patient.
+            /// </summary>
+            /// <param name="patientId">The ID of the patient.</param>
+            /// <returns>A list of Visit objects associated with the specified patient.</returns>
+            public List<Visit> FindVisits(int patientId)
         {
             if (patientId < 0)
             {

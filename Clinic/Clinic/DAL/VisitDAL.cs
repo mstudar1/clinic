@@ -45,6 +45,66 @@ namespace Clinic.DAL
         }
 
         /// <summary>
+        /// Edits the information for a Visit entry in the DB.  
+        /// </summary>
+        /// <param name="originalVisit">Visit object that was originally retrieved to be edited</param>
+        /// <param name="revisedVisit">Visit object holding revised info</param>
+        /// <returns>true if successful</returns>
+        public bool EditVisit(Visit originalVisit, Visit revisedVisit)
+        {
+            if (originalVisit == null || revisedVisit == null)
+            {
+                throw new ArgumentNullException("Visit cannot be null.");
+            }
+
+            string updateStatement =
+                "UPDATE Visit SET " +
+                    "appointmentId = @RevisedAppointmentId, " +
+                    "weight = @RevisedWeight, " +
+                    "systolicBloodPressure = @RevisedSystolicBloodPressure, " +
+                    "diastolicBloodPressure = @RevisedDiastolicBloodPressure, " +
+                    "bodyTemperature = @RevisedBodyTemperature, " +
+                    "pulse = @RevisedPulse, " +
+                    "symptoms = @RevisedSymptoms, " +
+                    "nurseId = @RevisedNurseId " +
+                "WHERE " +
+                    "appointmentId = @OriginalAppointmentId " +
+                    "AND weight = @OriginalWeight " +
+                    "AND systolicBloodPressure = @OriginalSystolicBloodPressure " +
+                    "AND diastolicBloodPressure = @OriginalDiastolicBloodPressure " +
+                    "AND bodyTemperature = @OriginalBodyTemperature " +
+                    "AND pulse = @OriginalPulse " +
+                    "AND symptoms = @OriginalSymptoms " +
+                    "AND nurseId = @OriginalNurseId";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                {
+                    updateCommand.Parameters.AddWithValue("@OriginalAppointmentId", originalVisit.AppointmentId);
+                    updateCommand.Parameters.AddWithValue("@OriginalWeight", originalVisit.Weight);
+                    updateCommand.Parameters.AddWithValue("@OriginalSystolicBloodPressure", originalVisit.SystolicBloodPressure);
+                    updateCommand.Parameters.AddWithValue("@OriginalDiastolicBloodPressure", originalVisit.DiastolicBloodPressure);
+                    updateCommand.Parameters.AddWithValue("@OriginalBodyTemperature", originalVisit.BodyTemperature);
+                    updateCommand.Parameters.AddWithValue("@OriginalPulse", originalVisit.Pulse);
+                    updateCommand.Parameters.AddWithValue("@OriginalSymptoms", originalVisit.Symptoms);
+                    updateCommand.Parameters.AddWithValue("@OriginalNurseId", originalVisit.NurseId);
+                    updateCommand.Parameters.AddWithValue("@RevisedAppointmentId", revisedVisit.AppointmentId);
+                    updateCommand.Parameters.AddWithValue("@RevisedWeight", revisedVisit.Weight);
+                    updateCommand.Parameters.AddWithValue("@RevisedSystolicBloodPressure", revisedVisit.SystolicBloodPressure);
+                    updateCommand.Parameters.AddWithValue("@RevisedDiastolicBloodPressure", revisedVisit.DiastolicBloodPressure);
+                    updateCommand.Parameters.AddWithValue("@RevisedBodyTemperature", revisedVisit.BodyTemperature);
+                    updateCommand.Parameters.AddWithValue("@RevisedPulse", revisedVisit.Pulse);
+                    updateCommand.Parameters.AddWithValue("@RevisedSymptoms", revisedVisit.Symptoms);
+                    updateCommand.Parameters.AddWithValue("@RevisedNurseId", revisedVisit.NurseId);
+                    int count = updateCommand.ExecuteNonQuery();
+                    return (count > 0);
+                }
+            }
+        }
+
+        /// <summary>
         /// Method that finds all of the visits for the specified patient.
         /// </summary>
         /// <param name="patientId">The ID of the patient.</param>

@@ -55,6 +55,13 @@ namespace Clinic.UserControls
             this.EnableOrDisableBeginVisitButton();
         }
 
+        public void ResetSearchFields()
+        {
+            this.nameTextBox.Clear();
+            this.searchDateTimePicker.Value = DateTime.Now;
+            this.dobDateTimePicker.Value = DateTime.Now;
+        }
+
         private void EnableOrDisableBeginVisitButton()
         {
             if (this.currentUser == default)

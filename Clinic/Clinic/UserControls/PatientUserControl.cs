@@ -167,6 +167,7 @@ namespace Clinic.UserControls
                 this.theNurseAdminForm.appointmentUserControl1.ResetFormMessages();
 
                 this.theNurseAdminForm.appointmentUserControl1.appointmentsSearchResultsListView.Items.Clear();
+                this.theNurseAdminForm.appointmentUserControl1.ResetSearchFields();
 
                 List < Appointment > theAppointments = this.theNurseAdminForm.appointmentUserControl1.appointmentController.FindAppointments(theSelectedPatient.PatientId);
 

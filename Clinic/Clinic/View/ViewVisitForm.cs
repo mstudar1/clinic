@@ -12,10 +12,10 @@ namespace Clinic.View
     /// </summary>
     public partial class ViewVisitForm : Form
     {
-        private Visit theVisit;
+        private readonly Visit theVisit;
         private List<ConductedLabTest> theTests;
-        private DiagnosisController theDiagnosisController;
-        private ConductedLabTestController theConductedLabTestController;
+        private readonly DiagnosisController theDiagnosisController;
+        private readonly ConductedLabTestController theConductedLabTestController;
         private bool finalDiagnosis;
 
         /// <summary>

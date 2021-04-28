@@ -206,6 +206,10 @@ namespace Clinic.View
             this.LoadTests();
         }
 
+        /// <summary>
+        /// Updates the fields in the Visit instance 
+        /// </summary>
+        /// <param name="newVisit">the new Visit object holding the revised info</param>
         public void UpdateFormVisitInfo(Visit newVisit)
         {
             this.theVisit.Weight = newVisit.Weight;
@@ -217,6 +221,11 @@ namespace Clinic.View
             this.visitBindingSource.ResetBindings(false);
         }
 
+        /// <summary>
+        /// Handles edit button clicks.  Opens the EditVisit form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditVisitButton_Click(object sender, EventArgs e)
         {
             EditVisitForm theEditVisitForm = new EditVisitForm(this, this.theVisit.AppointmentId, this.theVisit.NurseId);
@@ -237,12 +246,16 @@ namespace Clinic.View
         /// <summary>
         /// Gets the appointment ID associated with the form.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>the appointment ID</returns>
         public int GetAppointmentId()
         {
             return this.theVisit.AppointmentId;
         }
 
+        /// <summary>
+        /// Gets the visit being used by this object
+        /// </summary>
+        /// <returns>the Visit object being used on this form</returns>
         public Visit GetVisit()
         {
             return this.theVisit;

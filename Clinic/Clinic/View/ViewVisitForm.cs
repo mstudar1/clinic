@@ -99,9 +99,10 @@ namespace Clinic.View
                 } 
                 else
                 {
-                    datePerformed = theConductedLabTest.DatePerformed.ToShortDateString();
+                    datePerformed = theConductedLabTest.DatePerformed.ToString();
                 }
                 this.testsListView.Items[i].SubItems.Add(datePerformed);
+
                 if (theConductedLabTest.Results == null)
                 {
                     this.testsListView.Items[i].SubItems.Add("N/A");
@@ -109,7 +110,8 @@ namespace Clinic.View
                 else
                 {
                     this.testsListView.Items[i].SubItems.Add(theConductedLabTest.Results);
-                }               
+                }    
+                
                 if (theConductedLabTest.IsNormal && datePerformed != "Not performed yet")
                 {
                     this.testsListView.Items[i].SubItems.Add("Yes");
@@ -125,6 +127,9 @@ namespace Clinic.View
             }
         }
 
+        /// <summary>
+        /// Clears the list view
+        /// </summary>
         private void ClearList()
         {
             foreach (ListViewItem item in this.testsListView.Items)
@@ -133,6 +138,11 @@ namespace Clinic.View
             }
         }
 
+        /// <summary>
+        /// Handles order test button click events
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OrderTestButton_Click(object sender, EventArgs e)
         {
             OrderNewLabTestForm theOrderNewLabtestForm = new OrderNewLabTestForm(this);
@@ -158,14 +168,21 @@ namespace Clinic.View
             {
                 this.orderTestButton.Enabled = false;
                 this.addDiagnosisButton.Enabled = false;
+                this.enterResultButton.Enabled = false;
             }
             else
             {
                 this.addDiagnosisButton.Enabled = true;
                 this.orderTestButton.Enabled = true;
+                this.enterResultButton.Enabled = true;
             }
         }
 
+        /// <summary>
+        /// HAndles the enter results button click events
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EnterResult_Click(object sender, EventArgs e)
         {
             if (this.testsListView.SelectedItems.Count == 0)
@@ -196,6 +213,18 @@ namespace Clinic.View
         {
             AddDiagnosisForm addDiagnosisForm = new AddDiagnosisForm(this);
             addDiagnosisForm.Show();
+        }
+
+        /// <summary>
+        /// Refresh needed elements when form is re-enabled
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ViewVisitForm_EnabledChanged(object sender, EventArgs e)
+        {
+            this.LoadDiagnosis();
+            this.EnableDisableButtons();
+            this.LoadTests();
         }
     }
 }

@@ -28,16 +28,16 @@ namespace Clinic.View
             this.referringForm = theViewVisitForm;
             this.referringForm.Enabled = false;
             InitializeComponent();
-            this.SetLabTestComboBox();
+            this.SetLabTestListBox();
         }
 
         /// <summary>
-        /// Populate and set lab test combobox
+        /// Populate and set lab test listbox
         /// </summary>
-        private void SetLabTestComboBox()
+        private void SetLabTestListBox()
         {
             this.labTestList = this.theLabTestController.GetAllLabTests();
-            this.labTestComboBox.DataSource = this.labTestList;
+            this.labTestListBox.DataSource = this.labTestList;
         }
 
         /// <summary>
@@ -47,31 +47,72 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void OrderTestButton_Click(object sender, EventArgs e)
         {
-            if (this.labTestComboBox.SelectedIndex == -1)
+            if (this.labTestListBox.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select a lab test.", "Form Incomplete");
+                MessageBox.Show("Please select at least one lab test.", "Form Incomplete");
                 return;
             } 
             else
             {
-                LabTest selectedLabTest = new LabTest
-                {
-                    TestCode = int.Parse(this.labTestComboBox.SelectedValue.ToString()),
-                    Name = this.labTestComboBox.Text
-                };
+                this.DisplayOrderConfirmationDialog();              
+            }
+        }
+
+        /// <summary>
+        /// Displays the confirmation dialog listing the selected tests.  If user confirms then the 
+        /// list is sent to be processed, if not then the user is returned to the order form where 
+        /// the current selections are still shown and editable.
+        /// </summary>
+        private void DisplayOrderConfirmationDialog ()
+        {
+            string selectedTestNames = "";
+            foreach (LabTest labTest in this.labTestListBox.SelectedItems)
+            {
+                selectedTestNames += "\n" + labTest.Name;
+            }
+                DialogResult res = MessageBox.Show(
+                "Are you sure you want to order the following tests:" + selectedTestNames, 
+                "Confirmation", 
+                MessageBoxButtons.OKCancel, 
+                MessageBoxIcon.Information
+                );
+            if (res == DialogResult.OK)
+            {
+                this.OrderSelectedTests();
+            }
+            if (res == DialogResult.Cancel)
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// Submits each lab test as an order.  User is alerted if any test is already ordered (and thus 
+        /// cannot be ordered).  A report of ordered tests is provided at the conclusion of the operation.
+        /// </summary>
+        private void OrderSelectedTests()
+        {
+            string successfulTestNameList = "";
+            foreach (LabTest labTest in this.labTestListBox.SelectedItems)
+            {
                 try
                 {
-                    this.theConductedLabTestController.OrderLabTest(this.referringForm.GetAppointmentId(), selectedLabTest);
-                    string boxMessage = "Lab test successfully ordered.";
-                    string boxTitle = "Lab Test Order Confirmation";
-                    DialogResult dialogResult = MessageBox.Show(boxMessage, boxTitle);
-                    this.CloseForm();
+                    this.theConductedLabTestController.OrderLabTest(this.referringForm.GetAppointmentId(), labTest);
+                    successfulTestNameList += "\n" + labTest.Name;
                 }
                 catch (Exception)
                 {
-                    this.alertTextLable.Text = "Test has already been ordered for this patient on this visit.";
+                    this.alertTextLable.Text = "Test (" + labTest.Name + ") has already been ordered for this patient on this visit.";
                 }
             }
+            string boxMessage = "No tests were ordered.";
+            if (successfulTestNameList != "")
+            { 
+                boxMessage = "The followinglab tests were successfully ordered:" + successfulTestNameList;
+            }           
+            string boxTitle = "Lab Test Order Confirmation";
+            DialogResult dialogResult = MessageBox.Show(boxMessage, boxTitle);
+            this.CloseForm();
         }
 
         /// <summary>

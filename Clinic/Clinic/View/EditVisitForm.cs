@@ -37,6 +37,9 @@ namespace Clinic.View
             this.InitializeFormData();
         }
 
+        /// <summary>
+        /// Get the Visit info from the referring form anf populate form fields
+        /// </summary>
         private void InitializeFormData()
         {
             this.weightTextBox.Text = this.viewVisitForm.GetVisit().Weight.ToString();
@@ -47,18 +50,32 @@ namespace Clinic.View
             this.symptomsTextBox.Text = this.viewVisitForm.GetVisit().Symptoms.ToString();
         }
 
+        /// <summary>
+        /// Handler for when the form loads.  Should diable referring from and set binding object
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditVisitForm_Load(object sender, EventArgs e)
         {
             this.viewVisitForm.Enabled = false;
             this.appointmentBindingSource.Add(this.theAppointment);
         }
 
+        /// <summary>
+        /// Executes actions to close form and re-enable referring form
+        /// </summary>
         private void CloseForm()
         {
             this.viewVisitForm.Enabled = true;         
             this.Close();
         }
 
+        /// <summary>
+        /// Handles submit button click events.  Creates a new Visit object and uses it to 
+        /// attempt to update the DB.  Supplies success or failire message.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             if (AllInputsAreValid())
@@ -105,6 +122,11 @@ namespace Clinic.View
             }
         }
 
+        /// <summary>
+        /// Handles cancel button clicks events.  Presents confirmation dialog before closing the form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             string message = "Any information entered in this form will be lost.  " +
@@ -117,6 +139,11 @@ namespace Clinic.View
             }
         }
 
+        /// <summary>
+        /// Handles events that are fired that require resetting the error messages
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ResetValidationLabelsListener(object sender, EventArgs e)
         {
             this.weightValidationLabel.Text = "";
@@ -127,6 +154,10 @@ namespace Clinic.View
             this.symptomsValidationLabel.Text = "";
         }
 
+        /// <summary>
+        /// Verifies that all input is valid and supplies meessages accordingly.
+        /// </summary>
+        /// <returns>true if no validation errors</returns>
         private bool AllInputsAreValid()
         {
             bool allInputsAreValid = true;

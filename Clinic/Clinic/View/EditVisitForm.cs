@@ -56,6 +56,7 @@ namespace Clinic.View
         private void CloseForm()
         {
             this.viewVisitForm.Enabled = true;
+            this.Close();
         }
 
        
@@ -83,7 +84,7 @@ namespace Clinic.View
                     var selectedOption = MessageBox.Show(message, title, MessageBoxButtons.OK);
                     if (selectedOption == DialogResult.OK)
                     {
-                        this.Close();
+                        this.CloseForm();
                     }
                 }
                 catch (Exception ex)
@@ -101,7 +102,7 @@ namespace Clinic.View
             var selectedOption = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (selectedOption == DialogResult.Yes)
             {
-                this.Close();
+                this.CloseForm();
             }
         }
 
@@ -118,44 +119,32 @@ namespace Clinic.View
         private bool AllInputsAreValid()
         {
             bool allInputsAreValid = true;
-
-            bool weightIsValid = double.TryParse(this.weightTextBox.Text, out this.weight);
-            if (!weightIsValid)
+            if (!double.TryParse(this.weightTextBox.Text, out this.weight))
             {
                 this.weightValidationLabel.Text = "The weight must be a valid number.";
                 allInputsAreValid = false;
             }
-
-            bool pulseIsValid = int.TryParse(this.pulseTextBox.Text, out this.pulse);
-            if (!pulseIsValid)
+            if (!int.TryParse(this.pulseTextBox.Text, out this.pulse))
             {
                 this.pulseValidationLabel.Text = "The pulse must be a valid integer.";
                 allInputsAreValid = false;
             }
-
-            bool systolicBloodPressureIsValid = int.TryParse(this.systolicBloodPressureTextBox.Text, out this.systolicBloodPressure);
-            if (!systolicBloodPressureIsValid)
+            if (!int.TryParse(this.systolicBloodPressureTextBox.Text, out this.systolicBloodPressure))
             {
                 this.systolicBloodPressureValidationLabel.Text = "The systolic blood pressure must be a valid integer.";
                 allInputsAreValid = false;
             }
-
-            bool diastolicBloodPressureIsValid = int.TryParse(this.diastolicBloodPressureTextBox.Text, out this.diastolicBloodPressure);
-            if (!diastolicBloodPressureIsValid)
+            if (!int.TryParse(this.diastolicBloodPressureTextBox.Text, out this.diastolicBloodPressure))
             {
                 this.diastolicBloodPressureValidationLabel.Text = "The diastolic blood pressure must be a valid integer.";
                 allInputsAreValid = false;
             }
-
-            bool bodyTemperatureIsValid = double.TryParse(this.bodyTemperatureTextBox.Text, out this.bodyTemperature);
-            if (!bodyTemperatureIsValid)
+            if (!double.TryParse(this.bodyTemperatureTextBox.Text, out this.bodyTemperature))
             {
                 this.bodyTemperatureValidationLabel.Text = "The body temperature must be a valid number.";
                 allInputsAreValid = false;
             }
-
-            bool symptomsAreValid = !string.IsNullOrWhiteSpace(this.symptomsTextBox.Text);
-            if (!symptomsAreValid)
+            if (string.IsNullOrWhiteSpace(this.symptomsTextBox.Text))
             {
                 this.symptomsValidationLabel.Text = "The symptoms field cannot be empty.";
                 allInputsAreValid = false;

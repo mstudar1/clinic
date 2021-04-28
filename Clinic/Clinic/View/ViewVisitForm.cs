@@ -40,7 +40,6 @@ namespace Clinic.View
         /// <param name="e"></param>
         private void ViewVisitForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'conductedLabTests.ConductedLabTest' table. You can move, or remove it, as needed.
             this.visitBindingSource.Add(this.theVisit);
             this.finalDiagnosis = false;
             this.LoadDiagnosis();

@@ -1,58 +1,66 @@
-USE cs6232-g2;
+USE [cs6232-g2]
+GO
 
-DROP PROCEDURE IF EXISTS getMostPerformedTestsDuringDates;
-DELIMITER $
+ /* Create main procedure for getting tests stats */ 
+DROP PROCEDURE IF EXISTS getMostPerformedTestsDuringDates
+GO
 
 CREATE PROCEDURE getMostPerformedTestsDuringDates( 
-    IN startDate DATE,
-    IN endDate DATE
+    @startDate AS DATE,
+    @endDate AS DATE
     )
+AS
 BEGIN
-	DECLARE newOrderID INT DEFAULT 0;   
-
 	/* Verify that dates are nto in the future */
-	IF startDate > CURDATE() OR endDate > CURDATE() THEN
-		SIGNAL SQLSTATE '22003'
-        SET MESSAGE_TEXT = 'Date cannot be in the future', 
-        MYSQL_ERRNO = 1264;
-	END IF;
+	IF @startDate > CURDATE()
+	BEGIN
+		RAISERROR('Invalid parameter: Start date cannot be in the future', 12, 1)
+		RETURN
+	END
     
     /* Verify that dates are not the same */
-	IF startDate = endDate  THEN
-		SIGNAL SQLSTATE '22003'
-        SET MESSAGE_TEXT = 'Dates cannot be the same', 
-        MYSQL_ERRNO = 1264;
-	END IF;
+	IF @startDate = @endDate 
+	BEGIN
+		RAISERROR('Invalid parameter: Dates cannot be the same', 12, 1)
+		RETURN
+	END
     
 	/* Verify that endDate is after startDate */
-	IF startDate > endDate  THEN
-		SIGNAL SQLSTATE '22003'
-        SET MESSAGE_TEXT = 'End date cannot be before start date', 
-        MYSQL_ERRNO = 1264;
-	END IF;
+	IF @startDate > @endDate 
+	BEGIN
+		RAISERROR('Invalid parameter: End date cannot be before start date', 12, 1)
+		RETURN
+	END
+
+	/* Get and store count of total tests performed */
+    SET @totalTestCount = (
+		SELECT COUNT(*) AS totalTests
+		FROM ConductedLabTest
+		WHERE resultsDate > @startdate
+			AND resultsDate < @enddate
+	);
     
     /* Build result */
 	SELECT
-		c.CategoryName AS `Category Name`,
-        s.CompanyName AS `Supplier Company Name`,
-        CONCAT("$ ", FORMAT(SUM(od.Quantity * (od.unitPrice - (od.unitPrice * od.Discount))), 2)) 
-			AS `Total Dollar Amount`,
-        COUNT(*) AS `Number of Orders`
+		clt.testCode, 
+		lt.name, 
+		COUNT(*) AS testCount,  
+		@totalTestCount AS totalTests,
+		CONCAT(ROUND((100 * COUNT(*) / @totalTestCount),1), "%") AS percent,   
+		COUNT(CASE WHEN clt.isNormal = 1 THEN 1 ELSE NULL END) AS normalCount,
+		COUNT(IF(clt.isNormal = 0, 1, NULL)) AS abnormalCount,
+		COUNT(dbo.isInAgeRange(clt.appointmentId, clt.testDate, 18, 29)) AS tests18to29,
+		COUNT(dbo.isInAgeRange(clt.appointmentId, clt.testDate, 30, 39)) AS tests30to39		
 	FROM
-		orders o
-        JOIN `order details` od ON o.OrderID = od.OrderID
-        JOIN products p ON od.ProductID = p.ProductID
-        JOIN categories c ON p.CategoryID = c.CategoryID
-        JOIN suppliers s ON p.SupplierID = s.SupplierID
-	WHERE
-		o.OrderDate > startDate
-        AND o.OrderDate < endDate
-	GROUP BY
-		c.CategoryID, s.SupplierID
-	ORDER BY
-		c.CategoryName, s.CompanyName
-	;	
-        
-
-END$
-DELIMITER ;
+		ConductedLabTest clt
+        JOIN LabTest lt ON clt.testCode = lt.testCode
+		JOIN Appointment a ON clt.appointmentId = a.appointmentId
+		JOIN Patient pat ON a.patientId = pat.patientId
+		JOIN Person per ON pat.personId = per.personId
+	WHERE resultsDate > @startdate
+		AND resultsDate < @enddate
+	GROUP BY lo.testCode
+	HAVING COUNT(*) > 1
+    ORDER BY COUNT(*) DESC, clt.testCode DESC
+	;
+END

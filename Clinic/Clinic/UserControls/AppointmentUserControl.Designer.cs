@@ -50,9 +50,9 @@ namespace Clinic.UserControls
             this.alertTextLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.setAppointmentButton = new System.Windows.Forms.Button();
-            this.editAppointmentButton = new System.Windows.Forms.Button();
             this.beginVisitButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.editAppointmentButton = new System.Windows.Forms.Button();
+            this.deleteAppointmentButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -296,7 +296,7 @@ namespace Clinic.UserControls
             this.tableLayoutPanel2.Controls.Add(this.setAppointmentButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.beginVisitButton, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.editAppointmentButton, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.deleteAppointmentButton, 3, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 253);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -317,17 +317,6 @@ namespace Clinic.UserControls
             this.setAppointmentButton.UseVisualStyleBackColor = true;
             this.setAppointmentButton.Click += new System.EventHandler(this.SetAppointmentButton_Click);
             // 
-            // editAppointmentButton
-            // 
-            this.editAppointmentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editAppointmentButton.Location = new System.Drawing.Point(269, 3);
-            this.editAppointmentButton.Name = "editAppointmentButton";
-            this.editAppointmentButton.Size = new System.Drawing.Size(127, 18);
-            this.editAppointmentButton.TabIndex = 80;
-            this.editAppointmentButton.Text = "Edit Selected Appointment";
-            this.editAppointmentButton.UseVisualStyleBackColor = true;
-            this.editAppointmentButton.Click += new System.EventHandler(this.EditAppointmentButton_Click);
-            // 
             // beginVisitButton
             // 
             this.beginVisitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -339,15 +328,27 @@ namespace Clinic.UserControls
             this.beginVisitButton.UseVisualStyleBackColor = true;
             this.beginVisitButton.Click += new System.EventHandler(this.BeginVisitButton_Click);
             // 
-            // button1
+            // editAppointmentButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(402, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 18);
-            this.button1.TabIndex = 92;
-            this.button1.Text = "Delete Selected";
-            this.button1.UseVisualStyleBackColor = true;
+            this.editAppointmentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editAppointmentButton.Location = new System.Drawing.Point(269, 3);
+            this.editAppointmentButton.Name = "editAppointmentButton";
+            this.editAppointmentButton.Size = new System.Drawing.Size(127, 18);
+            this.editAppointmentButton.TabIndex = 80;
+            this.editAppointmentButton.Text = "Edit Selected Appointment";
+            this.editAppointmentButton.UseVisualStyleBackColor = true;
+            this.editAppointmentButton.Click += new System.EventHandler(this.EditAppointmentButton_Click);
+            // 
+            // deleteAppointmentButton
+            // 
+            this.deleteAppointmentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteAppointmentButton.Location = new System.Drawing.Point(402, 3);
+            this.deleteAppointmentButton.Name = "deleteAppointmentButton";
+            this.deleteAppointmentButton.Size = new System.Drawing.Size(127, 18);
+            this.deleteAppointmentButton.TabIndex = 92;
+            this.deleteAppointmentButton.Text = "Delete Selected";
+            this.deleteAppointmentButton.UseVisualStyleBackColor = true;
+            this.deleteAppointmentButton.Click += new System.EventHandler(this.DeleteAppointmentButton_Click);
             // 
             // AppointmentUserControl
             // 
@@ -390,6 +391,6 @@ namespace Clinic.UserControls
         private System.Windows.Forms.ColumnHeader docCol;
         private System.Windows.Forms.DateTimePicker dobDateTimePicker;
         private System.Windows.Forms.Label searchDobLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button deleteAppointmentButton;
     }
 }

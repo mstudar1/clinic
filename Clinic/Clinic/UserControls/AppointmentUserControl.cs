@@ -212,5 +212,16 @@ namespace Clinic.UserControls
             this.ResetAppointmentListResults();
             this.ResetFormMessages();
         }
+
+        /// <summary>
+        /// Handles delete appointment button clicks.  Verifies the user's desire to delete 
+        /// and then verifies that delete does not violate any rules.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DeleteAppointmentButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

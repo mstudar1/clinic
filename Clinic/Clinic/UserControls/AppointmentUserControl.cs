@@ -57,6 +57,9 @@ namespace Clinic.UserControls
             this.EnableOrDisableBeginVisitButton();
         }
 
+        /// <summary>
+        /// Method that clears the last name text box, and resets the date time picker values to today's date.
+        /// </summary>
         public void ResetSearchFields()
         {
             this.nameTextBox.Clear();
@@ -64,6 +67,10 @@ namespace Clinic.UserControls
             this.dobDateTimePicker.Value = DateTime.Now;
         }
 
+        /// <summary>
+        /// Method that can be called to set the stored list of appointments and display it on the form.
+        /// </summary>
+        /// <param name="appointments"></param>
         public void DisplayAppointmentList(List<Appointment> appointments)
         {
             if (appointments == null)

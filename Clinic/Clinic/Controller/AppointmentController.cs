@@ -11,6 +11,7 @@ namespace Clinic.Controller
     public class AppointmentController
     {
         private readonly AppointmentDAL appointmentSource;
+        private readonly VisitDAL visitSource;
 
         /// <summary>
         /// Constructor for the AppointmentController class.
@@ -18,6 +19,7 @@ namespace Clinic.Controller
         public AppointmentController()
         {
             this.appointmentSource = new AppointmentDAL();
+            this.visitSource = new VisitDAL();
         }
 
         /// <summary>
@@ -136,6 +138,25 @@ namespace Clinic.Controller
         public Appointment GetAppointment(int appointmentId)
         {
             return this.appointmentSource.GetAppointment(appointmentId);
+        }
+
+        /// <summary>
+        /// Method that deletes the specified appointment from the database.
+        /// </summary>
+        /// <param name="appointmentId">The ID of the appointment being deleted from the database.</param>
+        public void DeleteAppointment(int appointmentId)
+        {
+            if (appointmentId < 0)
+            {
+                throw new ArgumentException("The appointment ID cannot be negative.", "appointmentId");
+            }
+
+            if (this.visitSource.IsVisitPresent(appointmentId))
+            {
+                throw new ArgumentException("The specified appointment already has a visit associated with it; therefore, it cannot be deleted.", "appointmentId");
+            }
+
+            //this.appointmentSource.DeleteAppointment(appointmentId);
         }
     }
 }

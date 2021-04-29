@@ -136,7 +136,7 @@ namespace Clinic.Controller
         {
             if (patientId < 0)
             {
-                throw new ArgumentNullException("patientId", "The patient ID cannot be negative.");
+                throw new ArgumentException("The patient ID cannot be negative.", "patientId");
             }
 
             //this.patientSource.DeletePatient(patientId);

@@ -141,14 +141,7 @@ namespace Clinic.View
 
         private void EditVisitForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            string message = "Any information entered in this form will be lost.  " +
-               "Are you sure you want to cancel entering the visit information?";
-            string title = "Cancel Entering Visit Details";
-            var selectedOption = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (selectedOption == DialogResult.Yes)
-            {
-                this.viewVisitForm.Enabled = true;
-            }
+            this.viewVisitForm.Enabled = true;
         }
 
         /// <summary>

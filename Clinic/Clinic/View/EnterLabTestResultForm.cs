@@ -45,7 +45,8 @@ namespace Clinic.View
         {
             this.prefillPatientNameLabel.Text = this.currentConductedLabTest.FullName; 
             this.prefillTestNameLabel.Text = this.currentConductedLabTest.LabTest.Name;
-            this.resultDateTimePicker.Value = DateTime.Now;
+            this.resultDateTimePicker.MinDate = this.referringForm.GetVisit().VisitDate;
+            this.resultDateTimePicker.Value = this.referringForm.GetVisit().VisitDate;
         }
 
         /// <summary>

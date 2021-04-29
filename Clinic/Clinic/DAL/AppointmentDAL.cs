@@ -11,6 +11,16 @@ namespace Clinic.DAL
     /// </summary>
     public class AppointmentDAL
     {
+        private readonly VisitDAL visitSource;
+
+        /// <summary>
+        /// Constructor for the AppointmentDAL class.
+        /// </summary>
+        public AppointmentDAL()
+        {
+            this.visitSource = new VisitDAL();
+        }
+
         /// <summary>
         /// Method that adds the specified Appointment object to the database.
         /// </summary>
@@ -531,6 +541,37 @@ namespace Clinic.DAL
                 }
             }
             return theAppointment;
+        }
+
+        /// <summary>
+        /// Method that deletes the specified appointment from the database.
+        /// </summary>
+        /// <param name="appointmentId">The ID of the appointment being deleted from the database.</param>
+        public void DeleteAppointment(int appointmentId)
+        {
+            if (appointmentId < 0)
+            {
+                throw new ArgumentException("The appointment ID cannot be negative.", "appointmentId");
+            }
+
+            if (this.visitSource.IsVisitPresent(appointmentId))
+            {
+                throw new ArgumentException("The specified appointment already has a visit associated with it; therefore, it cannot be deleted.", "appointmentId");
+            }
+
+            string deleteStatement =
+                "DELETE FROM Appointment " +
+                "WHERE appointmentId = @AppointmentId";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection))
+                {
+                    deleteCommand.Parameters.AddWithValue("@AppointmentId", appointmentId);
+                    deleteCommand.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

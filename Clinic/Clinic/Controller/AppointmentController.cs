@@ -156,7 +156,7 @@ namespace Clinic.Controller
                 throw new ArgumentException("The specified appointment already has a visit associated with it; therefore, it cannot be deleted.", "appointmentId");
             }
 
-            //this.appointmentSource.DeleteAppointment(appointmentId);
+            this.appointmentSource.DeleteAppointment(appointmentId);
         }
     }
 }

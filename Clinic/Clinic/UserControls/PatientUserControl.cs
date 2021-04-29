@@ -204,7 +204,7 @@ namespace Clinic.UserControls
 
             if (MessageBox.Show("Are you sure you want to delete the selected patient: " + theSelectedPatient.FirstName + " " + theSelectedPatient.LastName + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                this.thePatientController.DeletePatient(theSelectedPatient.PatientId);
+                this.thePatientController.DeletePatient(theSelectedPatient);
                 this.RefreshPatientsListData();
             }
         }

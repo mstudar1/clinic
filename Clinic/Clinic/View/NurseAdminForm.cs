@@ -107,6 +107,29 @@ namespace Clinic.View
             }
         }
 
+        /// <summary>
+        /// Method displays the Report tab only if the logged in user is admin and hides the Report tab for the nurses.
+        /// </summary>
+        public void ShowReportTabOnlyForAdmin()
+        {
+            Person user = this.theCredentialController.GetUser(this.username);
+
+            if (this.nurseAdminTabControl.TabPages.Contains(reportTabPage))
+            {
+                if (user is Nurse)
+                {
+                    this.nurseAdminTabControl.TabPages.Remove(reportTabPage);
+                }
+            }
+            else
+            {
+                if (user is Administrator)
+                {
+                    this.nurseAdminTabControl.TabPages.Add(reportTabPage);
+                }
+            }
+        }
+
         private void PatientUserControl_Load(object sender, EventArgs e)
         {
             this.patientUserControl1.RefreshPatientsListData();

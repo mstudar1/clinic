@@ -65,6 +65,7 @@ namespace Clinic
                         }
                         this.theNurseAdminForm.SetActiveUsername(username);
                         this.theNurseAdminForm.ShowNurseTabOnlyForAdmin();
+                        this.theNurseAdminForm.ShowReportTabOnlyForAdmin();
                         this.theNurseAdminForm.Show();
                         this.theNurseAdminForm.SetActiveUsername(usernameTextBox.Text);
                         this.theNurseAdminForm.SetCurrentUserOnAppointmentUserControl();

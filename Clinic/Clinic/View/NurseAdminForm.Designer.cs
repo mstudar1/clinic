@@ -31,23 +31,25 @@ namespace Clinic.View
         {
             this.nurseAdminTabControl = new System.Windows.Forms.TabControl();
             this.appointmentTabPage = new System.Windows.Forms.TabPage();
-            this.appointmentUserControl1 = new Clinic.UserControls.AppointmentUserControl();
             this.visitTabPage = new System.Windows.Forms.TabPage();
-            this.visitUserControl1 = new Clinic.UserControls.VisitUserControl();
             this.patientTabPage = new System.Windows.Forms.TabPage();
-            this.patientUserControl1 = new Clinic.UserControls.PatientUserControl();
             this.nurseTabPage = new System.Windows.Forms.TabPage();
-            this.nurse1 = new Clinic.UserControls.NurseUserControl();
             this.logoutLinkLabel = new System.Windows.Forms.LinkLabel();
             this.activeUsernameLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.reportTabPage = new System.Windows.Forms.TabPage();
+            this.appointmentUserControl1 = new Clinic.UserControls.AppointmentUserControl();
+            this.visitUserControl1 = new Clinic.UserControls.VisitUserControl();
+            this.patientUserControl1 = new Clinic.UserControls.PatientUserControl();
+            this.nurse1 = new Clinic.UserControls.NurseUserControl();
+            this.reportUserControl1 = new Clinic.UserControls.ReportUserControl();
             this.nurseAdminTabControl.SuspendLayout();
             this.appointmentTabPage.SuspendLayout();
             this.visitTabPage.SuspendLayout();
             this.patientTabPage.SuspendLayout();
             this.nurseTabPage.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.reportTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // nurseAdminTabControl
@@ -64,7 +66,7 @@ namespace Clinic.View
             this.nurseAdminTabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nurseAdminTabControl.Name = "nurseAdminTabControl";
             this.nurseAdminTabControl.SelectedIndex = 0;
-            this.nurseAdminTabControl.Size = new System.Drawing.Size(1478, 875);
+            this.nurseAdminTabControl.Size = new System.Drawing.Size(1518, 875);
             this.nurseAdminTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.nurseAdminTabControl.TabIndex = 2;
             this.nurseAdminTabControl.TabStop = false;
@@ -75,18 +77,10 @@ namespace Clinic.View
             this.appointmentTabPage.Location = new System.Drawing.Point(4, 44);
             this.appointmentTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.appointmentTabPage.Name = "appointmentTabPage";
-            this.appointmentTabPage.Size = new System.Drawing.Size(1470, 827);
+            this.appointmentTabPage.Size = new System.Drawing.Size(1510, 827);
             this.appointmentTabPage.TabIndex = 1;
             this.appointmentTabPage.Text = "Appointments";
             this.appointmentTabPage.UseVisualStyleBackColor = true;
-            // 
-            // appointmentUserControl1
-            // 
-            this.appointmentUserControl1.Location = new System.Drawing.Point(2, 2);
-            this.appointmentUserControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.appointmentUserControl1.Name = "appointmentUserControl1";
-            this.appointmentUserControl1.Size = new System.Drawing.Size(1468, 825);
-            this.appointmentUserControl1.TabIndex = 0;
             // 
             // visitTabPage
             // 
@@ -94,18 +88,10 @@ namespace Clinic.View
             this.visitTabPage.Location = new System.Drawing.Point(4, 44);
             this.visitTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.visitTabPage.Name = "visitTabPage";
-            this.visitTabPage.Size = new System.Drawing.Size(1470, 827);
+            this.visitTabPage.Size = new System.Drawing.Size(1510, 827);
             this.visitTabPage.TabIndex = 2;
             this.visitTabPage.Text = "Visits";
             this.visitTabPage.UseVisualStyleBackColor = true;
-            // 
-            // visitUserControl1
-            // 
-            this.visitUserControl1.Location = new System.Drawing.Point(3, 2);
-            this.visitUserControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.visitUserControl1.Name = "visitUserControl1";
-            this.visitUserControl1.Size = new System.Drawing.Size(1467, 826);
-            this.visitUserControl1.TabIndex = 0;
             // 
             // patientTabPage
             // 
@@ -113,19 +99,10 @@ namespace Clinic.View
             this.patientTabPage.Location = new System.Drawing.Point(4, 44);
             this.patientTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.patientTabPage.Name = "patientTabPage";
-            this.patientTabPage.Size = new System.Drawing.Size(1470, 827);
+            this.patientTabPage.Size = new System.Drawing.Size(1510, 827);
             this.patientTabPage.TabIndex = 3;
             this.patientTabPage.Text = "Patients";
             this.patientTabPage.UseVisualStyleBackColor = true;
-            // 
-            // patientUserControl1
-            // 
-            this.patientUserControl1.Location = new System.Drawing.Point(3, 2);
-            this.patientUserControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.patientUserControl1.Name = "patientUserControl1";
-            this.patientUserControl1.Size = new System.Drawing.Size(1467, 826);
-            this.patientUserControl1.TabIndex = 0;
-            this.patientUserControl1.Load += new System.EventHandler(this.PatientUserControl_Load);
             // 
             // nurseTabPage
             // 
@@ -133,18 +110,10 @@ namespace Clinic.View
             this.nurseTabPage.Location = new System.Drawing.Point(4, 44);
             this.nurseTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nurseTabPage.Name = "nurseTabPage";
-            this.nurseTabPage.Size = new System.Drawing.Size(1470, 827);
+            this.nurseTabPage.Size = new System.Drawing.Size(1510, 827);
             this.nurseTabPage.TabIndex = 0;
             this.nurseTabPage.Text = "Nurses";
             this.nurseTabPage.UseVisualStyleBackColor = true;
-            // 
-            // nurse1
-            // 
-            this.nurse1.Location = new System.Drawing.Point(2, 2);
-            this.nurse1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.nurse1.Name = "nurse1";
-            this.nurse1.Size = new System.Drawing.Size(1468, 825);
-            this.nurse1.TabIndex = 0;
             // 
             // logoutLinkLabel
             // 
@@ -187,19 +156,61 @@ namespace Clinic.View
             // 
             // reportTabPage
             // 
+            this.reportTabPage.Controls.Add(this.reportUserControl1);
             this.reportTabPage.Location = new System.Drawing.Point(4, 44);
             this.reportTabPage.Name = "reportTabPage";
             this.reportTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.reportTabPage.Size = new System.Drawing.Size(1470, 827);
+            this.reportTabPage.Size = new System.Drawing.Size(1510, 827);
             this.reportTabPage.TabIndex = 4;
             this.reportTabPage.Text = "Report";
             this.reportTabPage.UseVisualStyleBackColor = true;
+            // 
+            // appointmentUserControl1
+            // 
+            this.appointmentUserControl1.Location = new System.Drawing.Point(2, 2);
+            this.appointmentUserControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.appointmentUserControl1.Name = "appointmentUserControl1";
+            this.appointmentUserControl1.Size = new System.Drawing.Size(1468, 825);
+            this.appointmentUserControl1.TabIndex = 0;
+            // 
+            // visitUserControl1
+            // 
+            this.visitUserControl1.Location = new System.Drawing.Point(3, 2);
+            this.visitUserControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.visitUserControl1.Name = "visitUserControl1";
+            this.visitUserControl1.Size = new System.Drawing.Size(1467, 826);
+            this.visitUserControl1.TabIndex = 0;
+            // 
+            // patientUserControl1
+            // 
+            this.patientUserControl1.Location = new System.Drawing.Point(3, 2);
+            this.patientUserControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.patientUserControl1.Name = "patientUserControl1";
+            this.patientUserControl1.Size = new System.Drawing.Size(1467, 826);
+            this.patientUserControl1.TabIndex = 0;
+            this.patientUserControl1.Load += new System.EventHandler(this.PatientUserControl_Load);
+            // 
+            // nurse1
+            // 
+            this.nurse1.Location = new System.Drawing.Point(2, 2);
+            this.nurse1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nurse1.Name = "nurse1";
+            this.nurse1.Size = new System.Drawing.Size(1468, 825);
+            this.nurse1.TabIndex = 0;
+            // 
+            // reportUserControl1
+            // 
+            this.reportUserControl1.Location = new System.Drawing.Point(8, 8);
+            this.reportUserControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.reportUserControl1.Name = "reportUserControl1";
+            this.reportUserControl1.Size = new System.Drawing.Size(1492, 800);
+            this.reportUserControl1.TabIndex = 0;
             // 
             // NurseAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1478, 945);
+            this.ClientSize = new System.Drawing.Size(1518, 945);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.nurseAdminTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -217,6 +228,7 @@ namespace Clinic.View
             this.nurseTabPage.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.reportTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -235,5 +247,6 @@ namespace Clinic.View
         public UserControls.AppointmentUserControl appointmentUserControl1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TabPage reportTabPage;
+        private UserControls.ReportUserControl reportUserControl1;
     }
 }

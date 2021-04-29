@@ -465,5 +465,69 @@ namespace Clinic.DAL
             }
             return patientList;
         }
+
+        /// <summary>
+        /// Method that deletes the specified patient from the Person and Patient tables in the database.
+        /// </summary>
+        /// <param name="thePatient">An object representing the patient being deleted from the database.</param>
+        public void DeletePatient(Patient thePatient)
+        {
+            if (thePatient == null)
+            {
+                throw new ArgumentNullException("thePatient", "The patient object cannot be null.");
+            }
+
+            string deletePersonStatement =
+                "DELETE FROM Person " +
+                "WHERE personId = @PersonId";
+
+            string deletePatientStatement =
+                "DELETE FROM Patient " +
+                "WHERE patientId = @PatientId";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                SqlCommand deleteCommand = connection.CreateCommand();
+                SqlTransaction transaction;
+
+                //Start a local transaction
+                transaction = connection.BeginTransaction("DeletePatient");
+
+                deleteCommand.Connection = connection;
+                deleteCommand.Transaction = transaction;
+                deleteCommand.Parameters.AddWithValue("@PersonId", thePatient.PersonId);
+                deleteCommand.Parameters.AddWithValue("@PatientId", thePatient.PatientId);
+
+                try
+                {
+                    deleteCommand.CommandText = deletePatientStatement;
+                    deleteCommand.ExecuteNonQuery();
+                    deleteCommand.CommandText = deletePersonStatement;
+                    deleteCommand.ExecuteNonQuery();
+
+                    //Attemp to commit the transaction
+                    transaction.Commit();
+                    Console.WriteLine("Data was deleted from both tables.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Commit Exception Type: {0}", ex.GetType());
+                    Console.WriteLine("   Message: {0}", ex.Message);
+
+                    // Attemp to roll back the transaction
+                    try
+                    {
+                        transaction.Rollback();
+                    }
+                    catch (Exception ex2)
+                    {
+                        Console.WriteLine("Rollback Exception Type: {0}", ex2.GetType());
+                        Console.WriteLine("    Message: {0}", ex2.Message);
+                    }
+                    throw new ArgumentException("The patient was not deleted.");
+                }
+            }
+        }
     }
 }

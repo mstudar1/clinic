@@ -127,5 +127,15 @@ namespace Clinic.Controller
         {
             return this.appointmentSource.GetAppointmentsForPatientLastNameAndDOB(lastName, dob);
         }
+
+        /// <summary>
+        /// Retrieves an Appointment object matching the appoitnmentId
+        /// </summary>
+        /// <param name="appointmentId">The Id of the appointment</param>
+        /// <returns>Appointment object matching the id</returns>
+        public Appointment GetAppointment(int appointmentId)
+        {
+            return this.appointmentSource.GetAppointment(appointmentId);
+        }
     }
 }

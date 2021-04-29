@@ -17,6 +17,7 @@ namespace Clinic.UserControls
     {
         private NurseAdminForm theNurseAdminForm;
         private readonly PatientController thePatientController;
+        private List<Patient> thePatientList;
 
         /// <summary>
         /// The constructor initializes the components
@@ -98,8 +99,8 @@ namespace Clinic.UserControls
         /// </summary>
         public void RefreshPatientsListData()
         {
-            List<Patient> patientsList = this.thePatientController.GetPatientsList();
-            this.UpdateListView(patientsList);
+            this.thePatientList = this.thePatientController.GetPatientsList();
+            this.UpdateListView(this.thePatientList);
         }
 
         /// <summary>
@@ -109,22 +110,21 @@ namespace Clinic.UserControls
         /// <param name="patientsList">the patient List</param>
         private void UpdateListView(List<Patient> patientsList)
         {
-            try
+            this.ClearList();
+            foreach (Patient thePatient in patientsList)
             {
-                this.patientBindingSource.Clear();
-
-
-                if (patientsList.Count > 0)
-                {
-                    for (int i = 0; i < patientsList.Count; i++)
-                    {
-                        this.patientBindingSource.Add(patientsList[i]);
-                    }
-                }
+                ListViewItem item = new ListViewItem(thePatient.FirstName.ToString());
+                item.SubItems.Add(thePatient.LastName.ToString());
+                item.SubItems.Add(thePatient.DateOfBirth.ToShortDateString());
+                this.patientsListView.Items.Add(item);
             }
-            catch (Exception ex)
+        }
+
+        private void ClearList()
+        {
+            foreach (ListViewItem item in this.patientsListView.Items)
             {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                this.patientsListView.Items.Remove(item);
             }
         }
 
@@ -145,32 +145,67 @@ namespace Clinic.UserControls
             }
         }
 
-        private void PatientDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ViewPatientDetailsButton_Click(object sender, EventArgs e)
         {
-            if (this.patientDataGridView.Columns[e.ColumnIndex].Name == "Edit")
+            if (this.patientsListView.SelectedItems.Count == 0)
             {
-                Patient theSelectedPatient = (Patient)this.patientBindingSource.Current;
-                EditPatientForm theEditPatientForm = new EditPatientForm(this, theSelectedPatient);
-                theEditPatientForm.Show();
-                this.Enabled = false;
-            } else if (this.patientDataGridView.Columns[e.ColumnIndex].Name == "View")
+                MessageBox.Show("Please select a Patient, then click the button again.", "Select a Patient to View Details");
+                return;
+            }
+            int selectedIndex = this.patientsListView.SelectedIndices[0];
+            Patient theSelectedPatient = this.thePatientList[selectedIndex];
+            ViewPatientForm theViewPatientForm = new ViewPatientForm(this, theSelectedPatient);
+            theViewPatientForm.Show();
+            this.Enabled = false;
+        }
+
+        private void EditPatientDetailsButton_Click(object sender, EventArgs e)
+        {
+            if (this.patientsListView.SelectedItems.Count == 0)
             {
-                Patient theSelectedPatient = (Patient)this.patientBindingSource.Current;
-                ViewPatientForm theViewPatientForm = new ViewPatientForm(this,theSelectedPatient);
-                theViewPatientForm.Show();
-                this.Enabled = false;
+                MessageBox.Show("Please select a Patient, then click the button again.", "Select a Patient to Edit Details");
+                return;
+            }
+            int selectedIndex = this.patientsListView.SelectedIndices[0];
+            Patient theSelectedPatient = this.thePatientList[selectedIndex];
+            EditPatientForm theEditPatientForm = new EditPatientForm(this, theSelectedPatient);
+            theEditPatientForm.Show();
+            this.Enabled = false;
+        }
 
-            } else if (this.patientDataGridView.Columns[e.ColumnIndex].Name == "Appointments")
+        private void ViewPatientAppointmentsButton_Click(object sender, EventArgs e)
+        {
+            if (this.patientsListView.SelectedItems.Count == 0)
             {
-                Patient theSelectedPatient = (Patient)this.patientBindingSource.Current;
-                this.theNurseAdminForm.nurseAdminTabControl.SelectedTab = theNurseAdminForm.appointmentTabPage;
-                this.theNurseAdminForm.appointmentUserControl1.ResetFormMessages();
+                MessageBox.Show("Please select a Patient, then click the button again.", "Select a Patient to View his/her Appointments");
+                return;
+            }
+            int selectedIndex = this.patientsListView.SelectedIndices[0];
+            Patient theSelectedPatient = this.thePatientList[selectedIndex];
+            this.theNurseAdminForm.nurseAdminTabControl.SelectedTab = theNurseAdminForm.appointmentTabPage;
+            this.theNurseAdminForm.appointmentUserControl1.ResetFormMessages();
 
-                this.theNurseAdminForm.appointmentUserControl1.appointmentsSearchResultsListView.Items.Clear();
-                this.theNurseAdminForm.appointmentUserControl1.ResetSearchFields();
+            this.theNurseAdminForm.appointmentUserControl1.appointmentsSearchResultsListView.Items.Clear();
+            this.theNurseAdminForm.appointmentUserControl1.ResetSearchFields();
 
-                List < Appointment > theAppointments = this.theNurseAdminForm.appointmentUserControl1.appointmentController.FindAppointments(theSelectedPatient.PatientId);
-                this.theNurseAdminForm.appointmentUserControl1.DisplayAppointmentList(theAppointments);
+            List<Appointment> theAppointments = this.theNurseAdminForm.appointmentUserControl1.appointmentController.FindAppointments(theSelectedPatient.PatientId);
+            this.theNurseAdminForm.appointmentUserControl1.DisplayAppointmentList(theAppointments);
+        }
+
+        private void DeletePatientButton_Click(object sender, EventArgs e)
+        {
+            if (this.patientsListView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select a Patient, then click the button again.", "Select a Patient to Delete");
+                return;
+            }
+            int selectedIndex = this.patientsListView.SelectedIndices[0];
+            Patient theSelectedPatient = this.thePatientList[selectedIndex];
+
+            if (MessageBox.Show("Are you sure you want to delete the selected patient: " + theSelectedPatient.FirstName + " " + theSelectedPatient.LastName + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.thePatientController.DeletePatient(theSelectedPatient.PatientId);
+                this.RefreshPatientsListData();
             }
         }
     }

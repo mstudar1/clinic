@@ -131,15 +131,15 @@ namespace Clinic.Controller
         /// <summary>
         /// Method that deletes the specified patient from the Person and Patient tables in the database.
         /// </summary>
-        /// <param name="patientId">The patient ID of the patient being deleted from the database.</param>
-        public void DeletePatient(int patientId)
+        /// <param name="thePatient">An object representing the patient being deleted from the database.</param>
+        public void DeletePatient(Patient thePatient)
         {
-            if (patientId < 0)
+            if (thePatient == null)
             {
-                throw new ArgumentException("The patient ID cannot be negative.", "patientId");
+                throw new ArgumentNullException("thePatient", "The patient object cannot be null.");
             }
 
-            //this.patientSource.DeletePatient(patientId);
+            this.patientSource.DeletePatient(thePatient);
         }
     }
 }

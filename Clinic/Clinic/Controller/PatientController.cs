@@ -127,5 +127,19 @@ namespace Clinic.Controller
         {
             return this.patientSource.GetPatientsList();
         }
+
+        /// <summary>
+        /// Method that deletes the specified patient from the Person and Patient tables in the database.
+        /// </summary>
+        /// <param name="patientId">The patient ID of the patient being deleted from the database.</param>
+        public void DeletePatient(int patientId)
+        {
+            if (patientId < 0)
+            {
+                throw new ArgumentNullException("patientId", "The patient ID cannot be negative.");
+            }
+
+            //this.patientSource.DeletePatient(patientId);
+        }
     }
 }

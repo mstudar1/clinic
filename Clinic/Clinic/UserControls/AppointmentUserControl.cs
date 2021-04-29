@@ -212,5 +212,48 @@ namespace Clinic.UserControls
             this.ResetAppointmentListResults();
             this.ResetFormMessages();
         }
+
+        /// <summary>
+        /// Handles delete appointment button clicks.  Verifies the user's desire to delete 
+        /// and then verifies that delete does not violate any rules.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DeleteAppointmentButton_Click(object sender, EventArgs e)
+        {
+            this.ResetFormMessages();
+            if (this.appointmentsSearchResultsListView.SelectedItems.Count == 0)
+            {
+                this.alertTextLabel.Text = "Please select an appointment for this visit.";
+                return;
+            }
+
+            int selectedIndex = this.appointmentsSearchResultsListView.SelectedIndices[0];
+            Appointment selectedAppointment = this.appointmentList[selectedIndex];
+
+            if (this.visitController.IsVisitPresent(selectedAppointment.AppointmentId))
+            {
+                this.alertTextLabel.Text = "A visit has already been entered for this appointment. It cannot be deleted.";
+                return;
+            }
+
+            string title = "Confirm Delete Appointment";
+            string message = "Are you sure you want to delete this appointment?";
+            var selectedOption = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (selectedOption == DialogResult.Yes)
+            {
+                try
+                {
+                    this.appointmentController.DeleteAppointment(selectedAppointment.AppointmentId);
+                }
+                catch (Exception ex)
+                {
+                    string errorTitle = "Delete Appointment Failure";
+                    string errorMessage = "Unable to delete this appointment." + ex.Message;
+                    var errorSelectedOption = MessageBox.Show(errorMessage, errorTitle, MessageBoxButtons.OK);
+                }
+            }
+
+        }
     }
 }

@@ -62,11 +62,11 @@ namespace Clinic.View
             this.nurseAdminTabControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.nurseAdminTabControl.Font = new System.Drawing.Font("Microsoft Tai Le", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nurseAdminTabControl.ItemSize = new System.Drawing.Size(200, 40);
-            this.nurseAdminTabControl.Location = new System.Drawing.Point(0, 70);
+            this.nurseAdminTabControl.Location = new System.Drawing.Point(0, 98);
             this.nurseAdminTabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nurseAdminTabControl.Name = "nurseAdminTabControl";
             this.nurseAdminTabControl.SelectedIndex = 0;
-            this.nurseAdminTabControl.Size = new System.Drawing.Size(1518, 875);
+            this.nurseAdminTabControl.Size = new System.Drawing.Size(1518, 847);
             this.nurseAdminTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.nurseAdminTabControl.TabIndex = 2;
             this.nurseAdminTabControl.TabStop = false;
@@ -160,7 +160,7 @@ namespace Clinic.View
             this.reportTabPage.Location = new System.Drawing.Point(4, 44);
             this.reportTabPage.Name = "reportTabPage";
             this.reportTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.reportTabPage.Size = new System.Drawing.Size(1510, 827);
+            this.reportTabPage.Size = new System.Drawing.Size(1510, 799);
             this.reportTabPage.TabIndex = 4;
             this.reportTabPage.Text = "Report";
             this.reportTabPage.UseVisualStyleBackColor = true;
@@ -201,7 +201,7 @@ namespace Clinic.View
             // reportUserControl1
             // 
             this.reportUserControl1.Location = new System.Drawing.Point(8, 8);
-            this.reportUserControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.reportUserControl1.Margin = new System.Windows.Forms.Padding(5);
             this.reportUserControl1.Name = "reportUserControl1";
             this.reportUserControl1.Size = new System.Drawing.Size(1492, 800);
             this.reportUserControl1.TabIndex = 0;

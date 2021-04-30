@@ -52,8 +52,21 @@ BEGIN
 		CONCAT(ROUND((100 * COUNT(*) / @totalTestCount),1), '%') AS percentOfTests,   
 		COUNT(CASE WHEN clt.isNormal = 1 THEN 1 ELSE NULL END) AS normalCount,
 		COUNT(CASE WHEN clt.isNormal = 0 THEN 1 ELSE NULL END) AS abnormalCount,
-		COUNT(CASE WHEN dbo.isInAgeRange(clt.appointmentId, clt.testDate, 18, 29) = 1 THEN 1 ELSE NULL END) AS tests18to29,
-		COUNT(dbo.isInAgeRange(clt.appointmentId, clt.testDate, 30, 39)) AS tests30to39		
+		COUNT(CASE WHEN 
+			DATEDIFF(yy, per.dateOfBirth, clt.datePerformed) >= 0 
+				AND DATEDIFF(yy, per.dateOfBirth, clt.datePerformed) <= 17 
+			THEN 1 ELSE NULL END) AS testsBirthTo17,
+		COUNT(CASE WHEN 
+			DATEDIFF(yy, per.dateOfBirth, clt.datePerformed) >= 18 
+				AND DATEDIFF(yy, per.dateOfBirth, clt.datePerformed) <= 29 
+			THEN 1 ELSE NULL END) AS tests18to29,
+		COUNT(CASE WHEN 
+			DATEDIFF(yy, per.dateOfBirth, clt.datePerformed) >= 30 
+				AND DATEDIFF(yy, per.dateOfBirth, clt.datePerformed) <= 39 
+			THEN 1 ELSE NULL END) AS tests30to39,
+		COUNT(CASE WHEN 
+			DATEDIFF(yy, per.dateOfBirth, clt.datePerformed) >= 40  
+			THEN 1 ELSE NULL END) AS testsOver39
 	FROM
 		ConductedLabTest clt
         JOIN LabTest lt ON clt.testCode = lt.testCode
@@ -62,7 +75,7 @@ BEGIN
 		JOIN Person per ON pat.personId = per.personId
 	WHERE datePerformed > @startdate
 		AND datePerformed < @enddate
-	GROUP BY clt.testCode
+	GROUP BY clt.testCode, lt.name
 	HAVING COUNT(*) > 1
     ORDER BY COUNT(*) DESC, clt.testCode DESC
 	;

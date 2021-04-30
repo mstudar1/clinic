@@ -88,7 +88,7 @@ namespace Clinic.Controller
                 throw new ArgumentNullException("unhashedPassword", "The unhashed password cannot be null or empty.");
             }
 
-            //this.credentialSource.AddUser(username, personId, role, unhashedPassword);
+            this.credentialSource.AddUser(username, personId, role, unhashedPassword);
         }
     }
 }

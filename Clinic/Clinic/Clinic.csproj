@@ -176,6 +176,12 @@
     <Compile Include="View\NurseAdminForm.Designer.cs">
       <DependentUpon>NurseAdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\NurseDALEditNurseTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NurseDALEditNurseTestForm.Designer.cs">
+      <DependentUpon>NurseDALEditNurseTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\OrderNewLabTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NurseAdminForm.resx">
       <DependentUpon>NurseAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NurseDALEditNurseTestForm.resx">
+      <DependentUpon>NurseDALEditNurseTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\OrderNewLabTestForm.resx">
       <DependentUpon>OrderNewLabTestForm.cs</DependentUpon>

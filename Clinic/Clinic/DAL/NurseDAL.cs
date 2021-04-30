@@ -315,8 +315,9 @@ namespace Clinic.DAL
 
             string updateNurseStatement =
                 "UPDATE Nurse SET " +
-                    "isActive = @IsActive, " +
-                "WHERE nurseId = @NurseId";
+                    "isActive = @RevisedIsActive " +
+                "WHERE nurseId = @NurseId " +
+                    "AND isActive = @OriginalIsActive";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -327,6 +328,7 @@ namespace Clinic.DAL
                     updateCommand.Connection = connection;
                     updateCommand.Transaction = transaction;
                     updateCommand.Parameters.AddWithValue("@PersonId", originalNurse.PersonId);
+                    updateCommand.Parameters.AddWithValue("@NurseId", originalNurse.NurseId);
                     updateCommand.Parameters.AddWithValue("@OriginalLastName", originalNurse.LastName);
                     updateCommand.Parameters.AddWithValue("@OriginalFirstName", originalNurse.FirstName);
                     updateCommand.Parameters.AddWithValue("@OriginalDateOfBirth", originalNurse.DateOfBirth);
@@ -336,6 +338,7 @@ namespace Clinic.DAL
                     updateCommand.Parameters.AddWithValue("@OriginalCity", originalNurse.City);
                     updateCommand.Parameters.AddWithValue("@OriginalState", originalNurse.State);
                     updateCommand.Parameters.AddWithValue("@OriginalZipCode", originalNurse.ZipCode);
+                    updateCommand.Parameters.AddWithValue("@OriginalIsActive", originalNurse.IsActive);
                     updateCommand.Parameters.AddWithValue("@RevisedLastName", revisedNurse.LastName);
                     updateCommand.Parameters.AddWithValue("@RevisedFirstName", revisedNurse.FirstName);
                     updateCommand.Parameters.AddWithValue("@RevisedDateOfBirth", revisedNurse.DateOfBirth);
@@ -345,6 +348,7 @@ namespace Clinic.DAL
                     updateCommand.Parameters.AddWithValue("@RevisedCity", revisedNurse.City);
                     updateCommand.Parameters.AddWithValue("@RevisedState", revisedNurse.State);
                     updateCommand.Parameters.AddWithValue("@RevisedZipCode", revisedNurse.ZipCode);
+                    updateCommand.Parameters.AddWithValue("@RevisedIsActive", revisedNurse.IsActive);
 
                     if (originalNurse.PhoneNumber == default)
                     {

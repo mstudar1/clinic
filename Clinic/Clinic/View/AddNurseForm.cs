@@ -41,14 +41,14 @@ namespace Clinic.View
             string firstName = this.firstNameTextBox.Text;
             string lastName = this.lastNameTextBox.Text;
             DateTime dob = this.dateOfBirthDateTimePicker.Value;
-            string ssn = this.ssnTextBox.Text;
+            string ssn = this.ssnMaskedTextBox.Text;
             string gender = this.genderComboBox.Text;
-            string phone = this.phoneNumberTextBox.Text;
+            string phone = this.phoneNumberMaskedTextBox.Text;
             string address1 = this.address1TextBox.Text;
             string address2 = this.address2TextBox.Text;
             string city = this.cityTextBox.Text;
             string state = this.stateComboBox.Text;
-            string zip = this.zipTextBox.Text;
+            string zip = this.zipMaskedTextBox.Text;
             try
             {
                 Nurse newNurse = new Nurse

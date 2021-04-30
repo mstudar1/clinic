@@ -7,6 +7,6 @@
     {
         public int NurseId { get; set; }
 
-
+        public bool IsActive { get; set; }
     }
 }

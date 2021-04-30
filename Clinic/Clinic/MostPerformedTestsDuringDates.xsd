@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="labTestReport_dataset" targetNamespace="http://tempuri.org/labTestReport_dataset.xsd" xmlns:mstns="http://tempuri.org/labTestReport_dataset.xsd" xmlns="http://tempuri.org/labTestReport_dataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="MostPerformedTestsDuringDates" targetNamespace="http://tempuri.org/MostPerformedTestsDuringDates.xsd" xmlns:mstns="http://tempuri.org/MostPerformedTestsDuringDates.xsd" xmlns="http://tempuri.org/MostPerformedTestsDuringDates.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -42,7 +42,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="labTestReport_dataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="labTestReport_dataset" msprop:Generator_UserDSName="labTestReport_dataset">
+  <xs:element name="MostPerformedTestsDuringDates" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="MostPerformedTestsDuringDates" msprop:Generator_UserDSName="MostPerformedTestsDuringDates">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="getMostPerformedTestsDuringDates" msprop:Generator_TableClassName="getMostPerformedTestsDuringDatesDataTable" msprop:Generator_TableVarName="tablegetMostPerformedTestsDuringDates" msprop:Generator_TablePropName="getMostPerformedTestsDuringDates" msprop:Generator_RowDeletingName="getMostPerformedTestsDuringDatesRowDeleting" msprop:Generator_RowChangingName="getMostPerformedTestsDuringDatesRowChanging" msprop:Generator_RowEvHandlerName="getMostPerformedTestsDuringDatesRowChangeEventHandler" msprop:Generator_RowDeletedName="getMostPerformedTestsDuringDatesRowDeleted" msprop:Generator_UserTableName="getMostPerformedTestsDuringDates" msprop:Generator_RowChangedName="getMostPerformedTestsDuringDatesRowChanged" msprop:Generator_RowEvArgName="getMostPerformedTestsDuringDatesRowChangeEvent" msprop:Generator_RowClassName="getMostPerformedTestsDuringDatesRow">

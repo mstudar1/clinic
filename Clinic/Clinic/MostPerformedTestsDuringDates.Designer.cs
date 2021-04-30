@@ -20,9 +20,9 @@ namespace Clinic {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("labTestReport_dataset")]
+    [global::System.Xml.Serialization.XmlRootAttribute("MostPerformedTestsDuringDates")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class labTestReport_dataset : global::System.Data.DataSet {
+    public partial class MostPerformedTestsDuringDates : global::System.Data.DataSet {
         
         private getMostPerformedTestsDuringDatesDataTable tablegetMostPerformedTestsDuringDates;
         
@@ -30,7 +30,7 @@ namespace Clinic {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public labTestReport_dataset() {
+        public MostPerformedTestsDuringDates() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace Clinic {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected labTestReport_dataset(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected MostPerformedTestsDuringDates(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace Clinic {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            labTestReport_dataset cln = ((labTestReport_dataset)(base.Clone()));
+            MostPerformedTestsDuringDates cln = ((MostPerformedTestsDuringDates)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace Clinic {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "labTestReport_dataset";
+            this.DataSetName = "MostPerformedTestsDuringDates";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/labTestReport_dataset.xsd";
+            this.Namespace = "http://tempuri.org/MostPerformedTestsDuringDates.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tablegetMostPerformedTestsDuringDates = new getMostPerformedTestsDuringDatesDataTable();
@@ -225,7 +225,7 @@ namespace Clinic {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            labTestReport_dataset ds = new labTestReport_dataset();
+            MostPerformedTestsDuringDates ds = new MostPerformedTestsDuringDates();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -613,7 +613,7 @@ namespace Clinic {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                labTestReport_dataset ds = new labTestReport_dataset();
+                MostPerformedTestsDuringDates ds = new MostPerformedTestsDuringDates();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1005,7 +1005,7 @@ namespace Clinic {
         }
     }
 }
-namespace Clinic.labTestReport_datasetTableAdapters {
+namespace Clinic.MostPerformedTestsDuringDatesTableAdapters {
     
     
     /// <summary>
@@ -1167,7 +1167,7 @@ namespace Clinic.labTestReport_datasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(labTestReport_dataset.getMostPerformedTestsDuringDatesDataTable dataTable, global::System.Nullable<global::System.DateTime> startDate, global::System.Nullable<global::System.DateTime> endDate) {
+        public virtual int Fill(MostPerformedTestsDuringDates.getMostPerformedTestsDuringDatesDataTable dataTable, global::System.Nullable<global::System.DateTime> startDate, global::System.Nullable<global::System.DateTime> endDate) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((startDate.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(startDate.Value));
@@ -1192,7 +1192,7 @@ namespace Clinic.labTestReport_datasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual labTestReport_dataset.getMostPerformedTestsDuringDatesDataTable GetData(global::System.Nullable<global::System.DateTime> startDate, global::System.Nullable<global::System.DateTime> endDate) {
+        public virtual MostPerformedTestsDuringDates.getMostPerformedTestsDuringDatesDataTable GetData(global::System.Nullable<global::System.DateTime> startDate, global::System.Nullable<global::System.DateTime> endDate) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((startDate.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(startDate.Value));
@@ -1206,7 +1206,7 @@ namespace Clinic.labTestReport_datasetTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            labTestReport_dataset.getMostPerformedTestsDuringDatesDataTable dataTable = new labTestReport_dataset.getMostPerformedTestsDuringDatesDataTable();
+            MostPerformedTestsDuringDates.getMostPerformedTestsDuringDatesDataTable dataTable = new MostPerformedTestsDuringDates.getMostPerformedTestsDuringDatesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1280,7 +1280,7 @@ namespace Clinic.labTestReport_datasetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(labTestReport_dataset dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(MostPerformedTestsDuringDates dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1290,7 +1290,7 @@ namespace Clinic.labTestReport_datasetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(labTestReport_dataset dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(MostPerformedTestsDuringDates dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1300,7 +1300,7 @@ namespace Clinic.labTestReport_datasetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(labTestReport_dataset dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(MostPerformedTestsDuringDates dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1334,7 +1334,7 @@ namespace Clinic.labTestReport_datasetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(labTestReport_dataset dataSet) {
+        public virtual int UpdateAll(MostPerformedTestsDuringDates dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

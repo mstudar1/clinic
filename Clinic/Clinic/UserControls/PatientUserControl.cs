@@ -204,8 +204,15 @@ namespace Clinic.UserControls
 
             if (MessageBox.Show("Are you sure you want to delete the selected patient: " + theSelectedPatient.FirstName + " " + theSelectedPatient.LastName + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                this.thePatientController.DeletePatient(theSelectedPatient.PatientId);
-                this.RefreshPatientsListData();
+                try
+                {
+                    this.thePatientController.DeletePatient(theSelectedPatient);
+                    this.RefreshPatientsListData();
+                }
+                catch
+                {
+                    MessageBox.Show("Records for the patient already exist; therefore, he/she cannot be deleted.", "Could Not Delete Patient");
+                }
             }
         }
     }

@@ -58,5 +58,37 @@ namespace Clinic.Controller
 
             return this.credentialSource.GetUser(username);
         }
+
+        /// <summary>
+        /// Method that can be called to add a user to the database.
+        /// </summary>
+        /// <param name="username">Username for the new user.</param>
+        /// <param name="personId">Person ID of the new user.</param>
+        /// <param name="role">Role of the new user.</param>
+        /// <param name="unhashedPassword">Unhashed password for the new user.</param>
+        public void AddUser(string username, int personId, string role, string unhashedPassword)
+        {
+            if (string.IsNullOrEmpty(username))
+            {
+                throw new ArgumentNullException("username", "The username cannot be null or empty.");
+            }
+
+            if (personId < 0)
+            {
+                throw new ArgumentException("The person ID cannot be negative.", "personId");
+            }
+
+            if (string.IsNullOrEmpty(role))
+            {
+                throw new ArgumentNullException("role", "The role cannot be null or empty.");
+            }
+
+            if (string.IsNullOrEmpty(unhashedPassword))
+            {
+                throw new ArgumentNullException("unhashedPassword", "The unhashed password cannot be null or empty.");
+            }
+
+            //this.credentialSource.AddUser(username, personId, role, unhashedPassword);
+        }
     }
 }

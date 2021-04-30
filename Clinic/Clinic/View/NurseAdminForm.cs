@@ -89,22 +89,7 @@ namespace Clinic.View
         /// </summary>
         public void ShowNurseTabOnlyForAdmin()
         {
-            Person user = this.theCredentialController.GetUser(this.username);
-      
-            if (this.nurseAdminTabControl.TabPages.Contains(nurseTabPage))
-            {
-                if (user is Nurse)
-                {
-                    this.nurseAdminTabControl.TabPages.Remove(nurseTabPage);
-                }
-            } 
-            else
-            {
-                if (user is Administrator)
-                {
-                    this.nurseAdminTabControl.TabPages.Add(nurseTabPage);
-                }
-            }
+            this.ShowTabPagesForAdmin(nurseTabPage);
         }
 
         /// <summary>
@@ -112,20 +97,72 @@ namespace Clinic.View
         /// </summary>
         public void ShowReportTabOnlyForAdmin()
         {
+            this.ShowTabPagesForAdmin(reportTabPage);
+        }
+
+        /// <summary>
+        /// Method displays the Appointments tab only if the logged in user is nurse and hides 
+        /// the Appointments tab for the admins.
+        /// </summary>
+        public void ShowAppointmentsTabOnlyForNurse()
+        {
+            this.ShowTabPagesForNurse(appointmentTabPage);
+        }
+
+        /// <summary>
+        /// Method displays the Visits tab only if the logged in user is nurse and hides 
+        /// the Visits tab for the admins.
+        /// </summary>
+        public void ShowVisitsTabOnlyForNurse()
+        {
+            this.ShowTabPagesForNurse(visitTabPage);
+        }
+
+        /// <summary>
+        /// Method displays the Patients tab only if the logged in user is nurse and hides 
+        /// the Patients tab for the admins.
+        /// </summary>
+        public void ShowPatientsTabOnlyForNurse()
+        {
+            this.ShowTabPagesForNurse(patientTabPage);
+        }
+
+        private void ShowTabPagesForNurse(System.Windows.Forms.TabPage tabPage)
+        {
             Person user = this.theCredentialController.GetUser(this.username);
 
-            if (this.nurseAdminTabControl.TabPages.Contains(reportTabPage))
+            if (this.nurseAdminTabControl.TabPages.Contains(tabPage))
+            {
+                if (user is Administrator)
+                {
+                    this.nurseAdminTabControl.TabPages.Remove(tabPage);
+                }
+            }
+            else
             {
                 if (user is Nurse)
                 {
-                    this.nurseAdminTabControl.TabPages.Remove(reportTabPage);
+                    this.nurseAdminTabControl.TabPages.Add(tabPage);
+                }
+            }
+        }
+
+        private void ShowTabPagesForAdmin(System.Windows.Forms.TabPage tabPage)
+        {
+            Person user = this.theCredentialController.GetUser(this.username);
+
+            if (this.nurseAdminTabControl.TabPages.Contains(tabPage))
+            {
+                if (user is Nurse)
+                {
+                    this.nurseAdminTabControl.TabPages.Remove(tabPage);
                 }
             }
             else
             {
                 if (user is Administrator)
                 {
-                    this.nurseAdminTabControl.TabPages.Add(reportTabPage);
+                    this.nurseAdminTabControl.TabPages.Add(tabPage);
                 }
             }
         }

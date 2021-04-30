@@ -23,7 +23,7 @@ namespace Clinic.DAL
         /// <summary>
         /// Method that adds the specified Nurse object to the Person and Nurse tables in the database.
         /// </summary>
-        /// <param name="thePatient">The Nurse object being added to the database.</param>
+        /// <param name="theNurse">The Nurse object being added to the database.</param>
         public void AddNurse(Nurse theNurse)
         {
             if (theNurse == null)
@@ -42,8 +42,8 @@ namespace Clinic.DAL
 
 
             string insertNurseStatement =
-                "INSERT Nurse (personId) " +
-                "VALUES (@@identity)";
+                "INSERT Nurse (personId, isActive) " +
+                "VALUES (@@identity, @IsActive)";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -56,6 +56,7 @@ namespace Clinic.DAL
 
                 insertCommand.Connection = connection;
                 insertCommand.Transaction = transaction;
+                insertCommand.Parameters.AddWithValue("@IsActive", theNurse.IsActive);
                 insertCommand.Parameters.AddWithValue("@LastName", theNurse.LastName);
                 insertCommand.Parameters.AddWithValue("@FirstName", theNurse.FirstName);
                 insertCommand.Parameters.AddWithValue("@DateOfBirth", theNurse.DateOfBirth);
@@ -129,6 +130,7 @@ namespace Clinic.DAL
 
             string selectStatement =
                 "SELECT Nurse.nurseId, " +
+                    "Nurse.isActive, " +
                     "Person.personId, " +
                     "Person.lastName, " +
                     "Person.firstName, " +
@@ -155,6 +157,7 @@ namespace Clinic.DAL
                     {
                         int personIdOrdinal = reader.GetOrdinal("personId");
                         int nurseIdOrdinal = reader.GetOrdinal("nurseId");
+                        int isActiveOrdinal = reader.GetOrdinal("isActive");
                         int lastNameOrdinal = reader.GetOrdinal("lastName");
                         int firstNameOrdinal = reader.GetOrdinal("firstName");
                         int dateOfBirthOrdinal = reader.GetOrdinal("dateOfBirth");
@@ -171,6 +174,7 @@ namespace Clinic.DAL
                             Nurse theNurse = new Nurse();
                             if (!reader.IsDBNull(personIdOrdinal)) { theNurse.PersonId = reader.GetInt32(personIdOrdinal); }
                             if (!reader.IsDBNull(nurseIdOrdinal)) { theNurse.NurseId = reader.GetInt32(nurseIdOrdinal); }
+                            if (!reader.IsDBNull(isActiveOrdinal)) { theNurse.IsActive = reader.GetBoolean(isActiveOrdinal); }
                             if (!reader.IsDBNull(lastNameOrdinal)) { theNurse.LastName = reader.GetString(lastNameOrdinal); }
                             if (!reader.IsDBNull(firstNameOrdinal)) { theNurse.FirstName = reader.GetString(firstNameOrdinal); }
                             if (!reader.IsDBNull(dateOfBirthOrdinal)) { theNurse.DateOfBirth = reader.GetDateTime(dateOfBirthOrdinal); }
@@ -200,6 +204,7 @@ namespace Clinic.DAL
 
             string selectStatement =
                 "SELECT Nurse.nurseId, " +
+                    "Nurse.isActive, " +
                     "Person.personId, " +
                     "Person.lastName, " +
                     "Person.firstName, " +
@@ -225,6 +230,7 @@ namespace Clinic.DAL
                     {
                         int personIdOrdinal = reader.GetOrdinal("personId");
                         int nurseIdOrdinal = reader.GetOrdinal("nurseId");
+                        int isActiveOrdinal = reader.GetOrdinal("isActive");
                         int lastNameOrdinal = reader.GetOrdinal("lastName");
                         int firstNameOrdinal = reader.GetOrdinal("firstName");
                         int dateOfBirthOrdinal = reader.GetOrdinal("dateOfBirth");
@@ -241,6 +247,7 @@ namespace Clinic.DAL
                             Nurse theNurse = new Nurse();
                             if (!reader.IsDBNull(personIdOrdinal)) { theNurse.PersonId = reader.GetInt32(personIdOrdinal); }
                             if (!reader.IsDBNull(nurseIdOrdinal)) { theNurse.NurseId = reader.GetInt32(nurseIdOrdinal); }
+                            if (!reader.IsDBNull(isActiveOrdinal)) { theNurse.IsActive = reader.GetBoolean(isActiveOrdinal); }
                             if (!reader.IsDBNull(lastNameOrdinal)) { theNurse.LastName = reader.GetString(lastNameOrdinal); }
                             if (!reader.IsDBNull(firstNameOrdinal)) { theNurse.FirstName = reader.GetString(firstNameOrdinal); }
                             if (!reader.IsDBNull(dateOfBirthOrdinal)) { theNurse.DateOfBirth = reader.GetDateTime(dateOfBirthOrdinal); }
@@ -290,7 +297,36 @@ namespace Clinic.DAL
                 throw new ArgumentException("The patient ID must be the same for both Patient objects.");
             }
 
-            return this.thePersonDAL.EditPerson(originalNurse, revisedNurse);
+            // TODO: wrap both table updates in a transaction
+            return (this.thePersonDAL.EditPerson(originalNurse, revisedNurse) && this.EditNurseTableOnly(revisedNurse));
+        }
+
+        private bool EditNurseTableOnly(Nurse revisedNurse)
+        {
+            string updateStatement =
+                "UPDATE Nurse SET " +
+                    "isActive = @IsActive, " +
+                "WHERE nurseId = @NurseId";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                {
+                    updateCommand.Parameters.AddWithValue("@NurseId", revisedNurse.NurseId);
+                    updateCommand.Parameters.AddWithValue("@IsActive", revisedNurse.IsActive);
+
+                    int count = updateCommand.ExecuteNonQuery();
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
         }
     }
 }

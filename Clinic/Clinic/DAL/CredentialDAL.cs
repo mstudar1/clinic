@@ -2,6 +2,8 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Clinic.DAL
 {
@@ -118,6 +120,60 @@ namespace Clinic.DAL
                     selectCommand.Parameters.AddWithValue("@Username", username);
                     selectCommand.ExecuteNonQuery();
                     return roleParameter.Value.ToString();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Method that can be called to add a user to the database.
+        /// </summary>
+        /// <param name="username">Username for the new user.</param>
+        /// <param name="personId">Person ID of the new user.</param>
+        /// <param name="role">Role of the new user.</param>
+        /// <param name="unhashedPassword">Unhashed password for the new user.</param>
+        public void AddUser(string username, int personId, string role, string unhashedPassword)
+        {
+            if (string.IsNullOrEmpty(username))
+            {
+                throw new ArgumentNullException("username", "The username cannot be null or empty.");
+            }
+
+            if (personId < 0)
+            {
+                throw new ArgumentException("The person ID cannot be negative.", "personId");
+            }
+
+            if (string.IsNullOrEmpty(role))
+            {
+                throw new ArgumentNullException("role", "The role cannot be null or empty.");
+            }
+
+            if (string.IsNullOrEmpty(unhashedPassword))
+            {
+                throw new ArgumentNullException("unhashedPassword", "The unhashed password cannot be null or empty.");
+            }
+
+            string hashedPassword;
+            using (var sha256 = SHA256.Create())
+            {
+                var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(unhashedPassword));
+                hashedPassword = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            }
+
+            string insertStatement =
+                "INSERT Credential (username, personId, role, password) " +
+                "VALUES (@Username, @PersonId, @Role, @HashedPassword)";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
+                {
+                    insertCommand.Parameters.AddWithValue("@Username", username);
+                    insertCommand.Parameters.AddWithValue("@PersonId", personId);
+                    insertCommand.Parameters.AddWithValue("@Role", role);
+                    insertCommand.Parameters.AddWithValue("@HashedPassword", hashedPassword);
+                    insertCommand.ExecuteNonQuery();
                 }
             }
         }

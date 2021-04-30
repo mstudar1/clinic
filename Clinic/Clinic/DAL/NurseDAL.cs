@@ -10,16 +10,6 @@ namespace Clinic.DAL
     /// </summary>
     public class NurseDAL
     {
-        private readonly PersonDAL thePersonDAL;
-
-        /// <summary>
-        /// Constructor for the PatientDAL class.
-        /// </summary>
-        public NurseDAL()
-        {
-            this.thePersonDAL = new PersonDAL();
-        }
-
         /// <summary>
         /// Method that adds the specified Nurse object to the Person and Nurse tables in the database.
         /// </summary>
@@ -279,31 +269,51 @@ namespace Clinic.DAL
         {
             if (originalNurse == null)
             {
-                throw new ArgumentNullException("originalPatient", "The original patient cannot be null.");
+                throw new ArgumentNullException("originalPatient", "The original nurse cannot be null.");
             }
 
             if (revisedNurse == null)
             {
-                throw new ArgumentNullException("revisedPatient", "The revised patient cannot be null.");
+                throw new ArgumentNullException("revisedPatient", "The revised nurse cannot be null.");
             }
 
             if (originalNurse.PersonId != revisedNurse.PersonId)
             {
-                throw new ArgumentException("The person ID must be the same for both Patient objects.");
+                throw new ArgumentException("The person ID must be the same for both Nurse objects.");
             }
 
             if (originalNurse.NurseId != revisedNurse.NurseId)
             {
-                throw new ArgumentException("The patient ID must be the same for both Patient objects.");
+                throw new ArgumentException("The nurse ID must be the same for both Nurse objects.");
             }
 
-            // TODO: wrap both table updates in a transaction
-            return (this.thePersonDAL.EditPerson(originalNurse, revisedNurse) && this.EditNurseTableOnly(revisedNurse));
-        }
+            string updatePersonStatement =
+                "UPDATE Person SET " +
+                    "lastName = @RevisedLastName, " +
+                    "firstName = @RevisedFirstName, " +
+                    "dateOfBirth = @RevisedDateOfBirth, " +
+                    "ssn = @RevisedSocialSecurityNumber, " +
+                    "gender = @RevisedGender, " +
+                    "phoneNumber = @RevisedPhoneNumber, " +
+                    "addressLine1 = @RevisedAddressLine1, " +
+                    "addressLine2 = @RevisedAddressLine2, " +
+                    "city = @RevisedCity, " +
+                    "state = @RevisedState, " +
+                    "zipCode = @RevisedZipCode " +
+                "WHERE personId = @PersonId " +
+                    "AND lastName = @OriginalLastName " +
+                    "AND firstName = @OriginalFirstName " +
+                    "AND dateOfBirth = @OriginalDateOfBirth " +
+                    "AND ssn = @OriginalSocialSecurityNumber " +
+                    "AND gender = @OriginalGender " +
+                    "AND phoneNumber = @OriginalPhoneNumber " +
+                    "AND addressLine1 = @OriginalAddressLine1 " +
+                    "AND (addressLine2 = @OriginalAddressLine2 OR addressLine2 IS NULL AND @OriginalAddressLine2 IS NULL) " +
+                    "AND city = @OriginalCity " +
+                    "AND state = @OriginalState " +
+                    "AND zipCode = @OriginalZipCode";
 
-        private bool EditNurseTableOnly(Nurse revisedNurse)
-        {
-            string updateStatement =
+            string updateNurseStatement =
                 "UPDATE Nurse SET " +
                     "isActive = @IsActive, " +
                 "WHERE nurseId = @NurseId";
@@ -311,18 +321,79 @@ namespace Clinic.DAL
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
                 connection.Open();
-                using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                using (SqlCommand updateCommand = connection.CreateCommand())
                 {
-                    updateCommand.Parameters.AddWithValue("@NurseId", revisedNurse.NurseId);
-                    updateCommand.Parameters.AddWithValue("@IsActive", revisedNurse.IsActive);
+                    SqlTransaction transaction = connection.BeginTransaction();
+                    updateCommand.Connection = connection;
+                    updateCommand.Transaction = transaction;
+                    updateCommand.Parameters.AddWithValue("@PersonId", originalNurse.PersonId);
+                    updateCommand.Parameters.AddWithValue("@OriginalLastName", originalNurse.LastName);
+                    updateCommand.Parameters.AddWithValue("@OriginalFirstName", originalNurse.FirstName);
+                    updateCommand.Parameters.AddWithValue("@OriginalDateOfBirth", originalNurse.DateOfBirth);
+                    updateCommand.Parameters.AddWithValue("@OriginalSocialSecurityNumber", originalNurse.SocialSecurityNumber);
+                    updateCommand.Parameters.AddWithValue("@OriginalGender", originalNurse.Gender);
+                    updateCommand.Parameters.AddWithValue("@OriginalAddressLine1", originalNurse.AddressLine1);
+                    updateCommand.Parameters.AddWithValue("@OriginalCity", originalNurse.City);
+                    updateCommand.Parameters.AddWithValue("@OriginalState", originalNurse.State);
+                    updateCommand.Parameters.AddWithValue("@OriginalZipCode", originalNurse.ZipCode);
+                    updateCommand.Parameters.AddWithValue("@RevisedLastName", revisedNurse.LastName);
+                    updateCommand.Parameters.AddWithValue("@RevisedFirstName", revisedNurse.FirstName);
+                    updateCommand.Parameters.AddWithValue("@RevisedDateOfBirth", revisedNurse.DateOfBirth);
+                    updateCommand.Parameters.AddWithValue("@RevisedSocialSecurityNumber", revisedNurse.SocialSecurityNumber);
+                    updateCommand.Parameters.AddWithValue("@RevisedGender", revisedNurse.Gender);
+                    updateCommand.Parameters.AddWithValue("@RevisedAddressLine1", revisedNurse.AddressLine1);
+                    updateCommand.Parameters.AddWithValue("@RevisedCity", revisedNurse.City);
+                    updateCommand.Parameters.AddWithValue("@RevisedState", revisedNurse.State);
+                    updateCommand.Parameters.AddWithValue("@RevisedZipCode", revisedNurse.ZipCode);
 
-                    int count = updateCommand.ExecuteNonQuery();
-                    if (count > 0)
+                    if (originalNurse.PhoneNumber == default)
                     {
-                        return true;
+                        updateCommand.Parameters.AddWithValue("@OriginalPhoneNumber", DBNull.Value);
                     }
                     else
                     {
+                        updateCommand.Parameters.AddWithValue("@OriginalPhoneNumber", originalNurse.PhoneNumber);
+                    }
+
+                    if (revisedNurse.PhoneNumber == default)
+                    {
+                        updateCommand.Parameters.AddWithValue("@RevisedPhoneNumber", DBNull.Value);
+                    }
+                    else
+                    {
+                        updateCommand.Parameters.AddWithValue("@RevisedPhoneNumber", revisedNurse.PhoneNumber);
+                    }
+
+                    if (originalNurse.AddressLine2 == default)
+                    {
+                        updateCommand.Parameters.AddWithValue("@OriginalAddressLine2", DBNull.Value);
+                    }
+                    else
+                    {
+                        updateCommand.Parameters.AddWithValue("@OriginalAddressLine2", originalNurse.AddressLine2);
+                    }
+
+                    if (revisedNurse.AddressLine2 == default)
+                    {
+                        updateCommand.Parameters.AddWithValue("@RevisedAddressLine2", DBNull.Value);
+                    }
+                    else
+                    {
+                        updateCommand.Parameters.AddWithValue("@RevisedAddressLine2", revisedNurse.AddressLine2);
+                    }
+
+                    try
+                    {
+                        updateCommand.CommandText = updatePersonStatement;
+                        updateCommand.ExecuteNonQuery();
+                        updateCommand.CommandText = updateNurseStatement;
+                        updateCommand.ExecuteNonQuery();
+                        transaction.Commit();
+                        return true;
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
                         return false;
                     }
                 }

@@ -1,6 +1,7 @@
 ﻿using Clinic.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Clinic.DAL
@@ -28,7 +29,7 @@ namespace Clinic.DAL
 
             string insertPersonStatement =
                 "INSERT Person (lastName, firstName, dateOfBirth, ssn, gender, phoneNumber, addressLine1, addressLine2, city, state, zipCode) " +
-                "VALUES (@LastName, @FirstName, @DateOfBirth, @SocialSecurityNumber, @Gender, @PhoneNumber, @AddressLine1, @AddressLine2, @City, @State, @ZipCode)" +
+                "VALUES (@LastName, @FirstName, @DateOfBirth, @SocialSecurityNumber, @Gender, @PhoneNumber, @AddressLine1, @AddressLine2, @City, @State, @ZipCode) " +
                 "SET @PersonId = SCOPE_IDENTITY()";
 
             string insertNurseStatement =
@@ -42,7 +43,7 @@ namespace Clinic.DAL
                 SqlTransaction transaction;
 
                 //Start a local transaction
-                transaction = connection.BeginTransaction("InsertPatient");
+                transaction = connection.BeginTransaction("InsertNurse");
 
                 insertCommand.Connection = connection;
                 insertCommand.Transaction = transaction;
@@ -72,19 +73,20 @@ namespace Clinic.DAL
                 insertCommand.Parameters.AddWithValue("@City", theNurse.City);
                 insertCommand.Parameters.AddWithValue("@State", theNurse.State);
                 insertCommand.Parameters.AddWithValue("@ZipCode", theNurse.ZipCode);
-
-
+                insertCommand.Parameters.Add("@PersonId", SqlDbType.Int);
+                insertCommand.Parameters["@PersonId"].Direction = ParameterDirection.Output;
                 try
                 {
                     insertCommand.CommandText = insertPersonStatement;
                     insertCommand.ExecuteNonQuery();
+                    int personId = int.Parse(insertCommand.Parameters["@PersonId"].Value.ToString());
                     insertCommand.CommandText = insertNurseStatement;
                     insertCommand.ExecuteNonQuery();
 
                     //Attemp to commit the transaction
                     transaction.Commit();
                     Console.WriteLine("Data was inserted in both tables");
-                    return Convert.ToInt32(insertCommand.Parameters["@PersonId"].Value);
+                    return personId;
                 }
                 catch (Exception ex)
                 {
@@ -167,7 +169,7 @@ namespace Clinic.DAL
                             Nurse theNurse = new Nurse();
                             if (!reader.IsDBNull(personIdOrdinal)) { theNurse.PersonId = reader.GetInt32(personIdOrdinal); }
                             if (!reader.IsDBNull(nurseIdOrdinal)) { theNurse.NurseId = reader.GetInt32(nurseIdOrdinal); }
-                            if (!reader.IsDBNull(isActiveOrdinal)) { theNurse.IsActive = reader.GetBoolean(isActiveOrdinal); }
+                            if (!reader.IsDBNull(isActiveOrdinal)) { theNurse.IsActive = Convert.ToBoolean(reader.GetByte(isActiveOrdinal)); }
                             if (!reader.IsDBNull(lastNameOrdinal)) { theNurse.LastName = reader.GetString(lastNameOrdinal); }
                             if (!reader.IsDBNull(firstNameOrdinal)) { theNurse.FirstName = reader.GetString(firstNameOrdinal); }
                             if (!reader.IsDBNull(dateOfBirthOrdinal)) { theNurse.DateOfBirth = reader.GetDateTime(dateOfBirthOrdinal); }
@@ -240,7 +242,7 @@ namespace Clinic.DAL
                             Nurse theNurse = new Nurse();
                             if (!reader.IsDBNull(personIdOrdinal)) { theNurse.PersonId = reader.GetInt32(personIdOrdinal); }
                             if (!reader.IsDBNull(nurseIdOrdinal)) { theNurse.NurseId = reader.GetInt32(nurseIdOrdinal); }
-                            if (!reader.IsDBNull(isActiveOrdinal)) { theNurse.IsActive = reader.GetBoolean(isActiveOrdinal); }
+                            if (!reader.IsDBNull(isActiveOrdinal)) { theNurse.IsActive = Convert.ToBoolean(reader.GetByte(isActiveOrdinal)); }
                             if (!reader.IsDBNull(lastNameOrdinal)) { theNurse.LastName = reader.GetString(lastNameOrdinal); }
                             if (!reader.IsDBNull(firstNameOrdinal)) { theNurse.FirstName = reader.GetString(firstNameOrdinal); }
                             if (!reader.IsDBNull(dateOfBirthOrdinal)) { theNurse.DateOfBirth = reader.GetDateTime(dateOfBirthOrdinal); }

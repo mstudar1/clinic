@@ -14,7 +14,7 @@ namespace Clinic.DAL
         /// Method that adds the specified Nurse object to the Person and Nurse tables in the database.
         /// </summary>
         /// <param name="theNurse">The Nurse object being added to the database.</param>
-        public void AddNurse(Nurse theNurse)
+        public int AddNurse(Nurse theNurse)
         {
             if (theNurse == null)
             {
@@ -28,8 +28,8 @@ namespace Clinic.DAL
 
             string insertPersonStatement =
                 "INSERT Person (lastName, firstName, dateOfBirth, ssn, gender, phoneNumber, addressLine1, addressLine2, city, state, zipCode) " +
-                "VALUES (@LastName, @FirstName, @DateOfBirth, @SocialSecurityNumber, @Gender, @PhoneNumber, @AddressLine1, @AddressLine2, @City, @State, @ZipCode) ";
-
+                "VALUES (@LastName, @FirstName, @DateOfBirth, @SocialSecurityNumber, @Gender, @PhoneNumber, @AddressLine1, @AddressLine2, @City, @State, @ZipCode)" +
+                "SET @PersonId = SCOPE_IDENTITY()";
 
             string insertNurseStatement =
                 "INSERT Nurse (personId, isActive) " +
@@ -84,6 +84,7 @@ namespace Clinic.DAL
                     //Attemp to commit the transaction
                     transaction.Commit();
                     Console.WriteLine("Data was inserted in both tables");
+                    return Convert.ToInt32(insertCommand.Parameters["@PersonId"].Value);
                 }
                 catch (Exception ex)
                 {
@@ -94,11 +95,13 @@ namespace Clinic.DAL
                     try
                     {
                         transaction.Rollback();
+                        throw new ArgumentException("The new nurse was not added.");
                     }
                     catch (Exception ex2)
                     {
                         Console.WriteLine("Rollback Exception Type: {0}", ex2.GetType());
                         Console.WriteLine("    Message: {0}", ex2.Message);
+                        throw new ArgumentException("The new nurse was not added.");
                     }
                 }
             }

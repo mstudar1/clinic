@@ -89,11 +89,11 @@ namespace Clinic.View
 
             if (String.IsNullOrEmpty(this.lastNameTextBox.Text))
             {
-                alertText += "Patient last name cannot be blank. ";
+                alertText += "Patient first name cannot be blank. ";
             }
             if (String.IsNullOrEmpty(this.firstNameTextBox.Text))
             {
-                alertText += "Patient first name cannot be blank. ";
+                alertText += "Patient last name cannot be blank. ";
             }
             if (DateTime.Compare(this.dateOfBirthDateTimePicker.Value, DateTime.Now) > 0)
             {
@@ -130,6 +130,14 @@ namespace Clinic.View
             if (this.zipMaskedTextBox.Text.Length != 5)
             {
                 alertText += "Five digit zip number is required. ";
+            }
+            if (String.IsNullOrEmpty(this.usernameTextBox.Text))
+            {
+                alertText += "The user name cannot be blank. ";
+            }
+            if (String.IsNullOrEmpty(this.passwordTextBox.Text))
+            {
+                alertText += "The password cannot be blank. ";
             }
 
             if (alertText == "")

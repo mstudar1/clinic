@@ -131,6 +131,14 @@ namespace Clinic.View
             {
                 alertText += "Five digit zip number is required. ";
             }
+            if (String.IsNullOrEmpty(this.usernameTextBox.Text))
+            {
+                alertText += "The user name cannot be blank. ";
+            }
+            if (String.IsNullOrEmpty(this.passwordTextBox.Text))
+            {
+                alertText += "The password cannot be blank. ";
+            }
 
             if (alertText == "")
             {

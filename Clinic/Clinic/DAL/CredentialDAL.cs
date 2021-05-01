@@ -161,7 +161,7 @@ namespace Clinic.DAL
             }
 
             string insertStatement =
-                "INSERT Credential (username, personId, role, password) " +
+                "INSERT Credential (userName, personId, role, passwordHash) " +
                 "VALUES (@Username, @PersonId, @Role, @HashedPassword)";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())

@@ -13,6 +13,7 @@ namespace Clinic.View
     {
         private readonly NurseController theNursecontroller;
         private readonly NurseUserControl nurseUserControl;
+        private readonly CredentialController theCredentialController;
 
         /// <summary>
         /// Constructor for the add nurse form
@@ -22,6 +23,7 @@ namespace Clinic.View
         {
             InitializeComponent();
             this.theNursecontroller = new NurseController();
+            this.theCredentialController = new CredentialController();
             this.nurseUserControl = theInputNurseUserControl;
         }
 
@@ -78,7 +80,26 @@ namespace Clinic.View
             {
                 alertText += "Five digit zip number is required. ";
             }
+            if (String.IsNullOrEmpty(this.usernameTextBox.Text))
+            {
+                alertText += "The user name is required. ";
+            }
+            if (String.IsNullOrEmpty(this.passwordTextBox.Text))
+            {
+                alertText += "The password is required. ";
+            }
+            try
+            {
+                if (this.theCredentialController.GetUser(this.usernameTextBox.Text).GetType() == typeof(Nurse) || this.theCredentialController.GetUser(this.usernameTextBox.Text).GetType() == typeof(Administrator))
+                {
+                    alertText += "The username is already used. ";
+                }
+            }
+            catch (Exception ex)
+            {
+            }
             this.noticeLabel.Text = alertText;
+
             if (alertText == "")
             {
                 string firstName = this.firstNameTextBox.Text;
@@ -92,6 +113,8 @@ namespace Clinic.View
                 string city = this.cityTextBox.Text;
                 string state = this.stateComboBox.Text;
                 string zip = this.zipMaskedTextBox.Text;
+                string username = this.usernameTextBox.Text;
+                string password = this.passwordTextBox.Text;
                 try
                 {
                     Nurse newNurse = new Nurse
@@ -108,7 +131,12 @@ namespace Clinic.View
                         State = state,
                         ZipCode = zip
                     };
+                    
+
+
+
                     this.theNursecontroller.AddNurse(newNurse);
+                    this.theCredentialController.AddUser(username,newNurse.PersonId,"Nurse",password);
                     String successText = "Nurse  (" + firstName + " " + lastName + ") successfully added.";
                     var dialogeResult = MessageBox.Show(successText, "Nurse Added Success");
                     if (dialogeResult == DialogResult.OK)
@@ -118,7 +146,7 @@ namespace Clinic.View
                 }
                 catch (Exception ex)
                 {
-                    this.noticeLabel.Text = "Form data not submitted.\n" + ex.Message + " Please fix and try again. ";
+                   this.noticeLabel.Text = "Form data not submitted.\n" + ex.Message + " Please fix and try again. "; 
                 }
             }
         }

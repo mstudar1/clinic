@@ -24,14 +24,14 @@ namespace Clinic.Controller
         /// Method that adds the specified Nurse object to the Person and Nurse tables in the database.
         /// </summary>
         /// <param name="thePatient">The Patient object being added to the database.</param>
-        public void AddNurse(Nurse theNurse)
+        public int AddNurse(Nurse theNurse)
         {
             if (theNurse == null)
             {
                 throw new ArgumentNullException("theNurse", "The nurse cannot be null.");
             }
 
-            this.nurseSource.AddNurse(theNurse);
+            return this.nurseSource.AddNurse(theNurse);
         }
 
         /// <summary>

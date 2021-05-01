@@ -32,5 +32,15 @@ namespace Clinic.Properties {
                 return ((string)(this["cs6232_g2ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-F1H58VD;Initial Catalog=cs6232-g2;Integrated Security=True")]
+        public string cs6232_g2ConnectionString1 {
+            get {
+                return ((string)(this["cs6232_g2ConnectionString1"]));
+            }
+        }
     }
 }

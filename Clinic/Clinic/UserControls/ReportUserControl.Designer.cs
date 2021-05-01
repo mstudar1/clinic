@@ -86,7 +86,7 @@ namespace Clinic.UserControls
             this.generateReportButton.TabIndex = 5;
             this.generateReportButton.Text = "Generate Report";
             this.generateReportButton.UseVisualStyleBackColor = true;
-            this.generateReportButton.Click += new System.EventHandler(this.generateReportButton_Click);
+            this.generateReportButton.Click += new System.EventHandler(this.GenerateReportButton_Click);
             // 
             // reportViewer
             // 

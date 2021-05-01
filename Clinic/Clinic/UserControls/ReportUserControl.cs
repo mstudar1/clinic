@@ -22,7 +22,7 @@ namespace Clinic.UserControls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void generateReportButton_Click(object sender, EventArgs e)
+        private void GenerateReportButton_Click(object sender, EventArgs e)
         {
             DateTime start = this.startDateTimePicker.Value;
             DateTime end = this.endDateTimePicker.Value;
@@ -43,6 +43,12 @@ namespace Clinic.UserControls
             
         }
 
+        /// <summary>
+        /// Verifies that the end date comes chronologically after the start date
+        /// </summary>
+        /// <param name="startDate">start date</param>
+        /// <param name="endDate">end date</param>
+        /// <returns>true if condition is met</returns>
         private bool DatesAreValid(DateTime startDate, DateTime endDate)
         {
             return (DateTime.Compare(startDate, endDate) < 0);

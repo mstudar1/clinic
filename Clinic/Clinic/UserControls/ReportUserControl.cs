@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Reporting.WinForms;
 
 namespace Clinic.UserControls
 {
@@ -19,9 +20,15 @@ namespace Clinic.UserControls
 
         private void generateReportButton_Click(object sender, EventArgs e)
         {
-            DateTime startDate = this.startDateTimePicker.Value;
-            DateTime endDate = this.endDateTimePicker.Value;
-            this.getMostPerformedTestsDuringDatesTableAdapter.Fill(_labTestReportDataSet.getMostPerformedTestsDuringDates, startDate, endDate);
+            DateTime start = this.startDateTimePicker.Value;
+            DateTime end = this.endDateTimePicker.Value;
+
+            ReportParameter[] parameters = new ReportParameter[2];
+            parameters[0] = new ReportParameter("startDate", start.ToString("D"));
+            parameters[1] = new ReportParameter("endDate", end.ToString("D"));
+            this.reportViewer.LocalReport.SetParameters(parameters);
+
+            this.getMostPerformedTestsDuringDatesTableAdapter.Fill(_labTestReportDataSet.getMostPerformedTestsDuringDates, start, end);
             this.reportViewer.RefreshReport();
         }
     }

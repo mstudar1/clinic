@@ -238,7 +238,7 @@ SELECT roleName FROM Role WHERE (roleName = @roleName)</CommandText>
   <xs:element name="_labTestReportDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="_labTestReportDataSet" msprop:Generator_UserDSName="_labTestReportDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Administrator" msprop:Generator_TableClassName="AdministratorDataTable" msprop:Generator_TableVarName="tableAdministrator" msprop:Generator_TablePropName="Administrator" msprop:Generator_RowDeletingName="AdministratorRowDeleting" msprop:Generator_RowChangingName="AdministratorRowChanging" msprop:Generator_RowEvHandlerName="AdministratorRowChangeEventHandler" msprop:Generator_RowDeletedName="AdministratorRowDeleted" msprop:Generator_UserTableName="Administrator" msprop:Generator_RowChangedName="AdministratorRowChanged" msprop:Generator_RowEvArgName="AdministratorRowChangeEvent" msprop:Generator_RowClassName="AdministratorRow">
+        <xs:element name="Administrator" msprop:Generator_TableClassName="AdministratorDataTable" msprop:Generator_TableVarName="tableAdministrator" msprop:Generator_RowChangedName="AdministratorRowChanged" msprop:Generator_TablePropName="Administrator" msprop:Generator_RowDeletingName="AdministratorRowDeleting" msprop:Generator_RowChangingName="AdministratorRowChanging" msprop:Generator_RowEvHandlerName="AdministratorRowChangeEventHandler" msprop:Generator_RowDeletedName="AdministratorRowDeleted" msprop:Generator_RowClassName="AdministratorRow" msprop:Generator_UserTableName="Administrator" msprop:Generator_RowEvArgName="AdministratorRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="personId" msprop:Generator_ColumnVarNameInTable="columnpersonId" msprop:Generator_ColumnPropNameInRow="personId" msprop:Generator_ColumnPropNameInTable="personIdColumn" msprop:Generator_UserColumnName="personId" type="xs:int" />
@@ -246,7 +246,7 @@ SELECT roleName FROM Role WHERE (roleName = @roleName)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Person" msprop:Generator_TableClassName="PersonDataTable" msprop:Generator_TableVarName="tablePerson" msprop:Generator_TablePropName="Person" msprop:Generator_RowDeletingName="PersonRowDeleting" msprop:Generator_RowChangingName="PersonRowChanging" msprop:Generator_RowEvHandlerName="PersonRowChangeEventHandler" msprop:Generator_RowDeletedName="PersonRowDeleted" msprop:Generator_UserTableName="Person" msprop:Generator_RowChangedName="PersonRowChanged" msprop:Generator_RowEvArgName="PersonRowChangeEvent" msprop:Generator_RowClassName="PersonRow">
+        <xs:element name="Person" msprop:Generator_TableClassName="PersonDataTable" msprop:Generator_TableVarName="tablePerson" msprop:Generator_RowChangedName="PersonRowChanged" msprop:Generator_TablePropName="Person" msprop:Generator_RowDeletingName="PersonRowDeleting" msprop:Generator_RowChangingName="PersonRowChanging" msprop:Generator_RowEvHandlerName="PersonRowChangeEventHandler" msprop:Generator_RowDeletedName="PersonRowDeleted" msprop:Generator_RowClassName="PersonRow" msprop:Generator_UserTableName="Person" msprop:Generator_RowEvArgName="PersonRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="personId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnpersonId" msprop:Generator_ColumnPropNameInRow="personId" msprop:Generator_ColumnPropNameInTable="personIdColumn" msprop:Generator_UserColumnName="personId" type="xs:int" />
@@ -324,7 +324,7 @@ SELECT roleName FROM Role WHERE (roleName = @roleName)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Role" msprop:Generator_TableClassName="RoleDataTable" msprop:Generator_TableVarName="tableRole" msprop:Generator_TablePropName="Role" msprop:Generator_RowDeletingName="RoleRowDeleting" msprop:Generator_RowChangingName="RoleRowChanging" msprop:Generator_RowEvHandlerName="RoleRowChangeEventHandler" msprop:Generator_RowDeletedName="RoleRowDeleted" msprop:Generator_UserTableName="Role" msprop:Generator_RowChangedName="RoleRowChanged" msprop:Generator_RowEvArgName="RoleRowChangeEvent" msprop:Generator_RowClassName="RoleRow">
+        <xs:element name="Role" msprop:Generator_TableClassName="RoleDataTable" msprop:Generator_TableVarName="tableRole" msprop:Generator_RowChangedName="RoleRowChanged" msprop:Generator_TablePropName="Role" msprop:Generator_RowDeletingName="RoleRowDeleting" msprop:Generator_RowChangingName="RoleRowChanging" msprop:Generator_RowEvHandlerName="RoleRowChangeEventHandler" msprop:Generator_RowDeletedName="RoleRowDeleted" msprop:Generator_RowClassName="RoleRow" msprop:Generator_UserTableName="Role" msprop:Generator_RowEvArgName="RoleRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="roleName" msprop:Generator_ColumnVarNameInTable="columnroleName" msprop:Generator_ColumnPropNameInRow="roleName" msprop:Generator_ColumnPropNameInTable="roleNameColumn" msprop:Generator_UserColumnName="roleName">
@@ -337,7 +337,7 @@ SELECT roleName FROM Role WHERE (roleName = @roleName)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="getMostPerformedTestsDuringDates" msprop:Generator_TableClassName="getMostPerformedTestsDuringDatesDataTable" msprop:Generator_TableVarName="tablegetMostPerformedTestsDuringDates" msprop:Generator_TablePropName="getMostPerformedTestsDuringDates" msprop:Generator_RowDeletingName="getMostPerformedTestsDuringDatesRowDeleting" msprop:Generator_RowChangingName="getMostPerformedTestsDuringDatesRowChanging" msprop:Generator_RowEvHandlerName="getMostPerformedTestsDuringDatesRowChangeEventHandler" msprop:Generator_RowDeletedName="getMostPerformedTestsDuringDatesRowDeleted" msprop:Generator_UserTableName="getMostPerformedTestsDuringDates" msprop:Generator_RowChangedName="getMostPerformedTestsDuringDatesRowChanged" msprop:Generator_RowEvArgName="getMostPerformedTestsDuringDatesRowChangeEvent" msprop:Generator_RowClassName="getMostPerformedTestsDuringDatesRow">
+        <xs:element name="getMostPerformedTestsDuringDates" msprop:Generator_TableClassName="getMostPerformedTestsDuringDatesDataTable" msprop:Generator_TableVarName="tablegetMostPerformedTestsDuringDates" msprop:Generator_RowChangedName="getMostPerformedTestsDuringDatesRowChanged" msprop:Generator_TablePropName="getMostPerformedTestsDuringDates" msprop:Generator_RowDeletingName="getMostPerformedTestsDuringDatesRowDeleting" msprop:Generator_RowChangingName="getMostPerformedTestsDuringDatesRowChanging" msprop:Generator_RowEvHandlerName="getMostPerformedTestsDuringDatesRowChangeEventHandler" msprop:Generator_RowDeletedName="getMostPerformedTestsDuringDatesRowDeleted" msprop:Generator_RowClassName="getMostPerformedTestsDuringDatesRow" msprop:Generator_UserTableName="getMostPerformedTestsDuringDates" msprop:Generator_RowEvArgName="getMostPerformedTestsDuringDatesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="testCode" msprop:Generator_ColumnVarNameInTable="columntestCode" msprop:Generator_ColumnPropNameInRow="testCode" msprop:Generator_ColumnPropNameInTable="testCodeColumn" msprop:Generator_UserColumnName="testCode" type="xs:int" />
@@ -383,7 +383,7 @@ SELECT roleName FROM Role WHERE (roleName = @roleName)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Administrator_Person" msdata:parent="Person" msdata:child="Administrator" msdata:parentkey="personId" msdata:childkey="personId" msprop:Generator_UserChildTable="Administrator" msprop:Generator_ChildPropName="GetAdministratorRows" msprop:Generator_UserRelationName="FK_Administrator_Person" msprop:Generator_RelationVarName="relationFK_Administrator_Person" msprop:Generator_UserParentTable="Person" msprop:Generator_ParentPropName="PersonRow" />
+      <msdata:Relationship name="FK_Administrator_Person" msdata:parent="Person" msdata:child="Administrator" msdata:parentkey="personId" msdata:childkey="personId" msprop:Generator_UserChildTable="Administrator" msprop:Generator_ChildPropName="GetAdministratorRows" msprop:Generator_UserRelationName="FK_Administrator_Person" msprop:Generator_ParentPropName="PersonRow" msprop:Generator_RelationVarName="relationFK_Administrator_Person" msprop:Generator_UserParentTable="Person" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

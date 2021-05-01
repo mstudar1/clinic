@@ -32,6 +32,9 @@ namespace Clinic.UserControls
                 parameters[1] = new ReportParameter("endDate", end.ToString("D"));
                 this.reportViewer.LocalReport.SetParameters(parameters);
                 this.getMostPerformedTestsDuringDatesTableAdapter.Fill(_labTestReportDataSet.getMostPerformedTestsDuringDates, start, end);
+                System.Drawing.Printing.PageSettings ps = reportViewer.GetPageSettings();
+                ps.Landscape = true;
+                reportViewer.SetPageSettings(ps);
                 this.reportViewer.RefreshReport();
             }
             else

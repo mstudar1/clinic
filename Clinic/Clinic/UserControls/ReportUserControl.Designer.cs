@@ -31,20 +31,35 @@ namespace Clinic.UserControls
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.getMostPerformedTestsDuringDatesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.labTestReportDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._labTestReportDataSet = new Clinic._labTestReportDataSet();
             this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.endDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.startDateLabel = new System.Windows.Forms.Label();
             this.endDateLabel = new System.Windows.Forms.Label();
             this.generateReportButton = new System.Windows.Forms.Button();
             this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.labTestReportDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._labTestReportDataSet = new Clinic._labTestReportDataSet();
             this.getMostPerformedTestsDuringDatesTableAdapter = new Clinic._labTestReportDataSetTableAdapters.getMostPerformedTestsDuringDatesTableAdapter();
-            this.getMostPerformedTestsDuringDatesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.getMostPerformedTestsDuringDatesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labTestReportDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._labTestReportDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.getMostPerformedTestsDuringDatesBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // getMostPerformedTestsDuringDatesBindingSource
+            // 
+            this.getMostPerformedTestsDuringDatesBindingSource.DataMember = "getMostPerformedTestsDuringDates";
+            this.getMostPerformedTestsDuringDatesBindingSource.DataSource = this.labTestReportDataSetBindingSource;
+            // 
+            // labTestReportDataSetBindingSource
+            // 
+            this.labTestReportDataSetBindingSource.DataSource = this._labTestReportDataSet;
+            this.labTestReportDataSetBindingSource.Position = 0;
+            // 
+            // _labTestReportDataSet
+            // 
+            this._labTestReportDataSet.DataSetName = "_labTestReportDataSet";
+            this._labTestReportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // startDateTimePicker
             // 
@@ -97,28 +112,13 @@ namespace Clinic.UserControls
             this.reportViewer.Location = new System.Drawing.Point(0, 76);
             this.reportViewer.Name = "reportViewer";
             this.reportViewer.ServerReport.BearerToken = null;
-            this.reportViewer.Size = new System.Drawing.Size(561, 246);
+            this.reportViewer.Size = new System.Drawing.Size(561, 214);
             this.reportViewer.TabIndex = 6;
             this.reportViewer.ZoomPercent = 75;
-            // 
-            // labTestReportDataSetBindingSource
-            // 
-            this.labTestReportDataSetBindingSource.DataSource = this._labTestReportDataSet;
-            this.labTestReportDataSetBindingSource.Position = 0;
-            // 
-            // _labTestReportDataSet
-            // 
-            this._labTestReportDataSet.DataSetName = "_labTestReportDataSet";
-            this._labTestReportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // getMostPerformedTestsDuringDatesTableAdapter
             // 
             this.getMostPerformedTestsDuringDatesTableAdapter.ClearBeforeFill = true;
-            // 
-            // getMostPerformedTestsDuringDatesBindingSource
-            // 
-            this.getMostPerformedTestsDuringDatesBindingSource.DataMember = "getMostPerformedTestsDuringDates";
-            this.getMostPerformedTestsDuringDatesBindingSource.DataSource = this.labTestReportDataSetBindingSource;
             // 
             // ReportUserControl
             // 
@@ -133,9 +133,9 @@ namespace Clinic.UserControls
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ReportUserControl";
             this.Size = new System.Drawing.Size(561, 322);
+            ((System.ComponentModel.ISupportInitialize)(this.getMostPerformedTestsDuringDatesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.labTestReportDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._labTestReportDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.getMostPerformedTestsDuringDatesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

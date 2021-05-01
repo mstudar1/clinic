@@ -131,11 +131,7 @@ namespace Clinic.View
                         State = state,
                         ZipCode = zip
                     };
-                    
-
-
-
-                    this.theNursecontroller.AddNurse(newNurse);
+                    newNurse.PersonId = this.theNursecontroller.AddNurse(newNurse);
                     this.theCredentialController.AddUser(username,newNurse.PersonId,"Nurse",password);
                     String successText = "Nurse  (" + firstName + " " + lastName + ") successfully added.";
                     var dialogeResult = MessageBox.Show(successText, "Nurse Added Success");

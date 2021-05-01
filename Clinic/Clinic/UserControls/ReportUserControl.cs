@@ -11,13 +11,24 @@ using Microsoft.Reporting.WinForms;
 
 namespace Clinic.UserControls
 {
+    /// <summary>
+    /// Provides UI for generating a report of lab test stas over a given date range
+    /// </summary>
     public partial class ReportUserControl: UserControl
     {
+        /// <summary>
+        /// Constructor for the control
+        /// </summary>
         public ReportUserControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles the generate button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void generateReportButton_Click(object sender, EventArgs e)
         {
             DateTime start = this.startDateTimePicker.Value;

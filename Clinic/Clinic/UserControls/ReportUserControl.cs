@@ -22,18 +22,36 @@ namespace Clinic.UserControls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void generateReportButton_Click(object sender, EventArgs e)
+        private void GenerateReportButton_Click(object sender, EventArgs e)
         {
             DateTime start = this.startDateTimePicker.Value;
             DateTime end = this.endDateTimePicker.Value;
+            if (this.DatesAreValid(start, end)) {
+                ReportParameter[] parameters = new ReportParameter[2];
+                parameters[0] = new ReportParameter("startDate", start.ToString("D"));
+                parameters[1] = new ReportParameter("endDate", end.ToString("D"));
+                this.reportViewer.LocalReport.SetParameters(parameters);
+                this.getMostPerformedTestsDuringDatesTableAdapter.Fill(_labTestReportDataSet.getMostPerformedTestsDuringDates, start, end);
+                this.reportViewer.RefreshReport();
+            }
+            else
+            {
+                string boxTitle = "Date Error";
+                string boxMessage = "The end date must be later than the start date.";              
+                MessageBox.Show(boxMessage, boxTitle);
+            }
+            
+        }
 
-            ReportParameter[] parameters = new ReportParameter[2];
-            parameters[0] = new ReportParameter("startDate", start.ToString("D"));
-            parameters[1] = new ReportParameter("endDate", end.ToString("D"));
-            this.reportViewer.LocalReport.SetParameters(parameters);
-
-            this.getMostPerformedTestsDuringDatesTableAdapter.Fill(_labTestReportDataSet.getMostPerformedTestsDuringDates, start, end);
-            this.reportViewer.RefreshReport();
+        /// <summary>
+        /// Verifies that the end date comes chronologically after the start date
+        /// </summary>
+        /// <param name="startDate">start date</param>
+        /// <param name="endDate">end date</param>
+        /// <returns>true if condition is met</returns>
+        private bool DatesAreValid(DateTime startDate, DateTime endDate)
+        {
+            return (DateTime.Compare(startDate, endDate) < 0);
         }
     }
 }

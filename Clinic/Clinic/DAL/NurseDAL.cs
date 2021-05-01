@@ -169,7 +169,7 @@ namespace Clinic.DAL
                             Nurse theNurse = new Nurse();
                             if (!reader.IsDBNull(personIdOrdinal)) { theNurse.PersonId = reader.GetInt32(personIdOrdinal); }
                             if (!reader.IsDBNull(nurseIdOrdinal)) { theNurse.NurseId = reader.GetInt32(nurseIdOrdinal); }
-                            if (!reader.IsDBNull(isActiveOrdinal)) { theNurse.IsActive = reader.GetBoolean(isActiveOrdinal); }
+                            if (!reader.IsDBNull(isActiveOrdinal)) { theNurse.IsActive = Convert.ToBoolean(reader.GetByte(isActiveOrdinal)); }
                             if (!reader.IsDBNull(lastNameOrdinal)) { theNurse.LastName = reader.GetString(lastNameOrdinal); }
                             if (!reader.IsDBNull(firstNameOrdinal)) { theNurse.FirstName = reader.GetString(firstNameOrdinal); }
                             if (!reader.IsDBNull(dateOfBirthOrdinal)) { theNurse.DateOfBirth = reader.GetDateTime(dateOfBirthOrdinal); }
@@ -242,7 +242,7 @@ namespace Clinic.DAL
                             Nurse theNurse = new Nurse();
                             if (!reader.IsDBNull(personIdOrdinal)) { theNurse.PersonId = reader.GetInt32(personIdOrdinal); }
                             if (!reader.IsDBNull(nurseIdOrdinal)) { theNurse.NurseId = reader.GetInt32(nurseIdOrdinal); }
-                            if (!reader.IsDBNull(isActiveOrdinal)) { theNurse.IsActive = reader.GetBoolean(isActiveOrdinal); }
+                            if (!reader.IsDBNull(isActiveOrdinal)) { theNurse.IsActive = Convert.ToBoolean(reader.GetByte(isActiveOrdinal)); }
                             if (!reader.IsDBNull(lastNameOrdinal)) { theNurse.LastName = reader.GetString(lastNameOrdinal); }
                             if (!reader.IsDBNull(firstNameOrdinal)) { theNurse.FirstName = reader.GetString(firstNameOrdinal); }
                             if (!reader.IsDBNull(dateOfBirthOrdinal)) { theNurse.DateOfBirth = reader.GetDateTime(dateOfBirthOrdinal); }

@@ -93,7 +93,7 @@ namespace Clinic.UserControls
             reportDataSource1.Name = "LabTestReportDataSet";
             reportDataSource1.Value = this.getMostPerformedTestsDuringDatesBindingSource;
             this.reportViewer.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer.LocalReport.ReportEmbeddedResource = "Clinic.View.Report1.rdlc";
+            this.reportViewer.LocalReport.ReportEmbeddedResource = "Clinic.View.LabTestFrequencyReport.rdlc";
             this.reportViewer.Location = new System.Drawing.Point(0, 76);
             this.reportViewer.Name = "reportViewer";
             this.reportViewer.ServerReport.BearerToken = null;

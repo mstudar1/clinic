@@ -23,9 +23,6 @@ namespace Clinic.UserControls
             DateTime endDate = this.endDateTimePicker.Value;
             this.getMostPerformedTestsDuringDatesTableAdapter.Fill(_labTestReportDataSet.getMostPerformedTestsDuringDates, startDate, endDate);
             this.reportViewer.RefreshReport();
-            //_labTestReportDataSet.getMostPerformedTestsDuringDates.Fill(startDate, endDate);
-
-
         }
     }
 }

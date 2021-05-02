@@ -179,7 +179,7 @@ namespace Clinic.DAL
         }
 
         /// <summary>
-        /// Method that can be called to change a user's credentials.
+        /// Method that can be called to change a user's username and/or password.
         /// </summary>
         /// <param name="originalUsername">The username of the user before the change is made.</param>
         /// <param name="newUsername">The new username for the user.</param>
@@ -222,6 +222,50 @@ namespace Clinic.DAL
                     updateCommand.Parameters.AddWithValue("@OriginalUsername", originalUsername);
                     updateCommand.Parameters.AddWithValue("@NewUsername", newUsername);
                     updateCommand.Parameters.AddWithValue("@NewHashedPassword", hashedPassword);
+
+                    int count = updateCommand.ExecuteNonQuery();
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Method that can be called to change a user's username.
+        /// </summary>
+        /// <param name="originalUsername">The username of the user before the change is made.</param>
+        /// <param name="newUsername">The new username for the user.</param>
+        /// <returns>True if the operation is successful, false otherwise.</returns>
+        public bool EditCredentials(string originalUsername, string newUsername)
+        {
+            if (string.IsNullOrEmpty(originalUsername))
+            {
+                throw new ArgumentNullException("originalUsername", "The original username cannot be null.");
+            }
+
+            if (string.IsNullOrEmpty(newUsername))
+            {
+                throw new ArgumentNullException("newUsername", "The new username cannot be null.");
+            }
+
+            string updateStatement =
+                "UPDATE Credential SET " +
+                    "username = @NewUsername " +
+                "WHERE username = @OriginalUsername";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                {
+                    updateCommand.Parameters.AddWithValue("@OriginalUsername", originalUsername);
+                    updateCommand.Parameters.AddWithValue("@NewUsername", newUsername);
 
                     int count = updateCommand.ExecuteNonQuery();
                     if (count > 0)

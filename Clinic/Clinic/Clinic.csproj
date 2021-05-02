@@ -145,12 +145,6 @@
     <Compile Include="View\AddVisitForm.Designer.cs">
       <DependentUpon>AddVisitForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\EditCredentialsTestForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\EditCredentialsTestForm.Designer.cs">
-      <DependentUpon>EditCredentialsTestForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\EditNurseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,9 +265,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\AddVisitForm.resx">
       <DependentUpon>AddVisitForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\EditCredentialsTestForm.resx">
-      <DependentUpon>EditCredentialsTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\EditNurseForm.resx">
       <DependentUpon>EditNurseForm.cs</DependentUpon>

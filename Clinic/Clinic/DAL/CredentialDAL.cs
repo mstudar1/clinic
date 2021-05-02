@@ -211,7 +211,7 @@ namespace Clinic.DAL
             string updateStatement =
                 "UPDATE Credential SET " +
                     "username = @NewUsername, " +
-                    "password = @NewHashedPassword " +
+                    "passwordHash = @NewHashedPassword " +
                 "WHERE username = @OriginalUsername";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())

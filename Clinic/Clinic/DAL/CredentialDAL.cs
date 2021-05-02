@@ -178,6 +178,64 @@ namespace Clinic.DAL
             }
         }
 
+        /// <summary>
+        /// Method that can be called to change a user's credentials.
+        /// </summary>
+        /// <param name="originalUsername">The username of the user before the change is made.</param>
+        /// <param name="newUsername">The new username for the user.</param>
+        /// <param name="newUnhashedPassword">The new unhashed password for the user.</param>
+        /// <returns>True if the operation is successful, false otherwise.</returns>
+        public bool EditCredentials(string originalUsername, string newUsername, string newUnhashedPassword)
+        {
+            if (string.IsNullOrEmpty(originalUsername)) {
+                throw new ArgumentNullException("originalUsername", "The original username cannot be null.");
+            }
+
+            if (string.IsNullOrEmpty(newUsername))
+            {
+                throw new ArgumentNullException("newUsername", "The new username cannot be null.");
+            }
+
+            if (string.IsNullOrEmpty(newUnhashedPassword))
+            {
+                throw new ArgumentNullException("newUnhashedPassword", "The new password cannot be null.");
+            }
+
+            string hashedPassword;
+            using (var sha256 = SHA256.Create())
+            {
+                var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(newUnhashedPassword));
+                hashedPassword = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            }
+
+            string updateStatement =
+                "UPDATE Credential SET " +
+                    "username = @NewUsername, " +
+                    "password = @NewHashedPassword " +
+                "WHERE username = @OriginalUsername";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                {
+                    updateCommand.Parameters.AddWithValue("@OriginalUsername", originalUsername);
+                    updateCommand.Parameters.AddWithValue("@NewUsername", newUsername);
+                    updateCommand.Parameters.AddWithValue("@NewHashedPassword", hashedPassword);
+
+                    int count = updateCommand.ExecuteNonQuery();
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
         private Nurse GetNurse(string username)
         {
             if (string.IsNullOrEmpty(username))

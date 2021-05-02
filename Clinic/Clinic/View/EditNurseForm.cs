@@ -83,91 +83,9 @@ namespace Clinic.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void updateNurseButton_Click(object sender, EventArgs e)
+        private void UpdateNurseButton_Click(object sender, EventArgs e)
         {
-            String alertText = "";
 
-            if (String.IsNullOrEmpty(this.lastNameTextBox.Text))
-            {
-                alertText += "Patient first name cannot be blank. ";
-            }
-            if (String.IsNullOrEmpty(this.firstNameTextBox.Text))
-            {
-                alertText += "Patient last name cannot be blank. ";
-            }
-            if (DateTime.Compare(this.dateOfBirthDateTimePicker.Value, DateTime.Now) > 0)
-            {
-                alertText += "The date of birth cannot be in the future. ";
-            }
-            if (this.ssnMaskedTextBox.Text.Length != 11)
-            {
-                alertText += "Nine digit social security number is required. ";
-            }
-            if (String.IsNullOrEmpty(this.genderComboBox.Text))
-            {
-                alertText += "Gender must be selected. ";
-            }
-            if (this.phoneNumberMaskedTextBox.Text.Length != 14)
-            {
-                alertText += "Ten digit phone number is required. ";
-            }
-            if (String.IsNullOrEmpty(this.address1TextBox.Text))
-            {
-                alertText += "Address cannot be blank. ";
-            }
-            if (String.IsNullOrEmpty(this.stateComboBox.Text))
-            {
-                alertText += "State must be selected. ";
-            }
-            if (String.IsNullOrEmpty(this.cityTextBox.Text))
-            {
-                alertText += "City is required. ";
-            }
-            else if (char.IsLower(cityTextBox.Text[0]))
-            {
-                alertText += "City name should start with a capital letter. ";
-            }
-            if (this.zipMaskedTextBox.Text.Length != 5)
-            {
-                alertText += "Five digit zip number is required. ";
-            }
-            if (String.IsNullOrEmpty(this.usernameTextBox.Text))
-            {
-                alertText += "The user name cannot be blank. ";
-            }
-            if (String.IsNullOrEmpty(this.passwordTextBox.Text))
-            {
-                alertText += "The password cannot be blank. ";
-            }
-
-            if (alertText == "")
-            {
-                if (MessageBox.Show("Are you sure you want to save the changes?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    Nurse updatedNurse = new Nurse
-                    {
-                        LastName = this.lastNameTextBox.Text,
-                        FirstName = this.firstNameTextBox.Text,
-                        DateOfBirth = this.dateOfBirthDateTimePicker.Value,
-                        SocialSecurityNumber = this.ssnMaskedTextBox.Text,
-                        Gender = this.genderComboBox.Text,
-                        PhoneNumber = this.phoneNumberMaskedTextBox.Text,
-                        AddressLine1 = this.address1TextBox.Text,
-                        AddressLine2 = this.address2TextBox.Text,
-                        City = this.cityTextBox.Text,
-                        State = this.stateComboBox.Text,
-                        ZipCode = this.zipMaskedTextBox.Text,
-                        PersonId = this.theNurse.PersonId,
-                        NurseId = this.theNurse.NurseId
-                    };
-
-                    this.theNurseController.EditNurse(this.theNurse, updatedNurse);
-                    this.theNurseUserControl.Enabled = true;
-                    this.theNurseUserControl.RefreshNursesListData();
-                    this.Close();
-                }
-            }
-            this.alertNoticeLabel.Text = alertText;
         }
     }
 }

@@ -82,6 +82,11 @@
     <Compile Include="DAL\DiagnosisDAL.cs" />
     <Compile Include="DAL\DoctorDAL.cs" />
     <Compile Include="DAL\LabTestDAL.cs" />
+    <Compile Include="labTestReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>labTestReportDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\ConductedLabTest.cs" />
     <Compile Include="Model\Diagnosis.cs" />
     <Compile Include="Model\LabTest.cs" />
@@ -288,6 +293,7 @@
     <EmbeddedResource Include="View\RegisterPatientForm.resx">
       <DependentUpon>RegisterPatientForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Report1.rdlc" />
     <EmbeddedResource Include="View\ViewNurseForm.resx">
       <DependentUpon>ViewNurseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,8 +303,20 @@
     <EmbeddedResource Include="View\ViewVisitForm.resx">
       <DependentUpon>ViewVisitForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="labTestReportDataSet.xsc">
+      <DependentUpon>labTestReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="labTestReportDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>labTestReportDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="labTestReportDataSet.xss">
+      <DependentUpon>labTestReportDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Clinic.Controller.DoctorController.datasource" />
+    <None Include="Properties\DataSources\Clinic.Controller.DoctorController1.datasource" />
     <None Include="Properties\DataSources\Clinic.Model.Appointment.datasource" />
     <None Include="Properties\DataSources\Clinic.Model.ConductedLabTest.datasource" />
     <None Include="Properties\DataSources\Clinic.Model.Doctor.datasource" />

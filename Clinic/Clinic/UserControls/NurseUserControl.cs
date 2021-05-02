@@ -27,6 +27,7 @@ namespace Clinic.UserControls
         {
             InitializeComponent();
             this.theNurseController = new NurseController();
+            this.RefreshNursesListData();
         }
 
         /// <summary>
@@ -67,14 +68,7 @@ namespace Clinic.UserControls
 
                 if (this.nurseList.Count > 0)
                 {
-                    Nurse theNurse;
-                    for (int i = 0; i < this.nurseList.Count; i++)
-                    {
-                        theNurse = this.nurseList[i];
-                        this.nurseListView.Items.Add(theNurse.FirstName);
-                        this.nurseListView.Items[i].SubItems.Add(theNurse.LastName);
-                        this.nurseListView.Items[i].SubItems.Add(theNurse.DateOfBirth.ToShortDateString());
-                    }
+                    this.UpdateListView(this.nurseList);
                 }
                 else
                 {
@@ -84,6 +78,26 @@ namespace Clinic.UserControls
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        public void RefreshNursesListData()
+        {
+            this.nurseList = this.theNurseController.GetAllNurses();
+            this.UpdateListView(this.nurseList);
+            this.lastNameTextBox.Text = "";
+            this.alertTextLabel.Text = "";
+        }
+
+        private void UpdateListView(List<Nurse> nursesList)
+        {
+            this.ClearList();
+            foreach (Nurse theNurse in nursesList)
+            {
+                ListViewItem item = new ListViewItem(theNurse.FirstName.ToString());
+                item.SubItems.Add(theNurse.LastName.ToString());
+                item.SubItems.Add(theNurse.DateOfBirth.ToShortDateString());
+                this.nurseListView.Items.Add(item);
             }
         }
 
@@ -102,7 +116,7 @@ namespace Clinic.UserControls
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            this.ClearList();
+            this.RefreshNursesListData();
         }
 
         /// <summary>

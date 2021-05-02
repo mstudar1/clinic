@@ -138,6 +138,7 @@ namespace Clinic.View
                     if (dialogeResult == DialogResult.OK)
                     {
                         this.CloseForm();
+                        this.nurseUserControl.RefreshNursesListData();
                     }
                 }
                 catch (Exception ex)

@@ -163,8 +163,7 @@ namespace Clinic.View
 
                     this.theNurseController.EditNurse(this.theNurse, updatedNurse);
                     this.theNurseUserControl.Enabled = true;
-                    this.theNurseUserControl.ClearList();
-                    this.theNurseUserControl.PopulateList();
+                    this.theNurseUserControl.RefreshNursesListData();
                     this.Close();
                 }
             }

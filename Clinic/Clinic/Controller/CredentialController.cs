@@ -117,5 +117,26 @@ namespace Clinic.Controller
 
             return this.credentialSource.EditCredentials(originalUsername, newUsername, newUnhashedPassword);
         }
+
+        /// <summary>
+        /// Method that can be called to change a user's username.
+        /// </summary>
+        /// <param name="originalUsername">The username of the user before the change is made.</param>
+        /// <param name="newUsername">The new username for the user.</param>
+        /// <returns>True if the operation is successful, false otherwise.</returns>
+        public bool EditCredentials(string originalUsername, string newUsername)
+        {
+            if (string.IsNullOrEmpty(originalUsername))
+            {
+                throw new ArgumentNullException("originalUsername", "The original username cannot be null.");
+            }
+
+            if (string.IsNullOrEmpty(newUsername))
+            {
+                throw new ArgumentNullException("newUsername", "The new username cannot be null.");
+            }
+
+            return this.credentialSource.EditCredentials(originalUsername, newUsername);
+        }
     }
 }

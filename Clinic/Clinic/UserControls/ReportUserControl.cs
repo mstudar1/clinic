@@ -35,55 +35,10 @@ namespace Clinic.UserControls
                 this.reportViewer1.LocalReport.SetParameters(parameters);
                 this.getMostPerformedTestsDuringDatesTableAdapter1.Fill(labTestReportDataSet1.getMostPerformedTestsDuringDates, start, end);
 
-
-
-                // BEGIN TESTING STUFF ----------------------------------------------
-                //DataSet ds = new DataSet();
-                //this.getMostPerformedTestsDuringDatesTableAdapter1.Fill(ds);
-                //DataTable dt = ds.Tables[0];
-
-                //DataSet ds = labTestReportDataSet1;
-                //DataTable dt = ds.Tables[0];
-                //this.reportViewer.Reset();
-                //this.reportViewer.ProcessingMode = ProcessingMode.Local;
-                //ReportDataSource reportDataSource = new ReportDataSource();
-                //// Must match the DataSet in the RDLC
-                //reportDataSource.Name = "labTestReportDataSet";
-                //reportDataSource.Value = ds.Tables[0];
-                //this.reportViewer.LocalReport.DataSources.Add(reportDataSource);
-                //this.reportViewer.RefreshReport();
-
-                //ReportDataSource reportDataSource = new ReportDataSource();
-                //// Must match the DataSource in the RDLC
-                //reportDataSource.Name = "ReportData";
-                //reportDataSource.Value = ds.Tables[0];
-
-                //this.reportViewer.LocalReport.DataSources.Add(reportDataSource);
-                //this.reportViewer.DataBind();
-                //var myDataTable = new dsReports.tsPrimaryMondayDataTable();
-                //var myDataTable = this.getMostPerformedTestsDuringDatesTableAdapter1.Fill(labTestReportDataSet1.getMostPerformedTestsDuringDates, start, end);
-                //var myTableAdapter = this.getMostPerformedTestsDuringDatesTableAdapter1;
-                //myTableAdapter.Fill(myDataTable, Convert.ToDateTime(dtp.Value));
-                //ReportDataSource theDataSource = new ReportDataSource();
-                //theDataSource.Name = "LabReportStatsSource";
-                //theDataSource.Value = labTestReportDataSet1.Tables.
-
-                //this.reportViewer.LocalReport.DataSources.Add(labTestReportDataSet.getMostPerformedTestsDuringDatesDataTable);
-
-                //var dataSource = new ReportDataSource("DataSet1", this.labTestReportDataSet1);
-
-                //this.reportViewer.LocalReport.DataSources.Clear();
-                //this.reportViewer.LocalReport.DataSources.Add(dataSource);
-                //this.reportViewer.RefreshReport();
-
-                // END ---------------------------------------------------------------
-
-
-
-                //System.Drawing.Printing.PageSettings ps = reportViewer.GetPageSettings();
-                //ps.Landscape = true;
-                //reportViewer.SetPageSettings(ps);
-                //this.reportViewer.RefreshReport();
+                System.Drawing.Printing.PageSettings ps = reportViewer1.GetPageSettings();
+                ps.Landscape = true;
+                reportViewer1.SetPageSettings(ps);
+                this.reportViewer1.RefreshReport();
             }
             else
             {

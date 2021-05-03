@@ -48,14 +48,23 @@ namespace Clinic.View
         }
 
         /// <summary>
-        /// Checks to see if the appointment is at least 24 hours away.  If not,
-        /// a dialogue box appears and user is then returned to the Appointment
-        /// User Control
+        /// Checks to see if the appointment is at least 24 hours away and not in the past.
+        /// If not, an appropriate a dialogue box appears and user is then returned 
+        /// to the Appointment User Control
         /// </summary>
         private void VerifyNotIn24HourWindow()
         {
             DateTime now = DateTime.Now;
-            if (now.AddHours(24) > this.theAppointment.StartDateTime)
+            if (now > this.theAppointment.StartDateTime)
+            {
+                String messageText = "This appointment is in the past and cannot be edited.";
+                var dialogeResult = MessageBox.Show(messageText, "Alert - Appointment in Past", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                if (dialogeResult == DialogResult.OK)
+                {
+                    this.CloseForm();
+                }
+            }
+            else if (now.AddHours(24) > this.theAppointment.StartDateTime)
             {
                 String messageText = "Appointments cannot be edited within 24 hours of the start of the appointment.";
                 var dialogeResult = MessageBox.Show(messageText, "Alert - Appointment Too Close For Editing", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

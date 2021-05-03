@@ -158,7 +158,7 @@ namespace Clinic.View
                     alertText += "The username is already used. ";
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
             this.alertNoticeLabel.Text = alertText;
@@ -199,11 +199,11 @@ namespace Clinic.View
                     this.theNurseController.EditNurse(this.theNurse, newNurse);
                     if (password == "")
                     {
-                        this.theCredentialController.EditCredentials(this.username, this.usernameTextBox.Text);
+                        this.theCredentialController.EditCredentials(this.username, username);
                     }
                     else
                     {
-                        this.theCredentialController.EditCredentials(this.username, this.usernameTextBox.Text, password);
+                        this.theCredentialController.EditCredentials(this.username, username, password);
                     }
                     String successText = "Nurse  (" + firstName + " " + lastName + ") successfully edited.";
                     var dialogeResult = MessageBox.Show(successText, "Nurse Edited Success");

@@ -111,7 +111,7 @@ namespace Clinic.View
                 boxMessage = "The followinglab tests were successfully ordered:" + successfulTestNameList;
             }           
             string boxTitle = "Lab Test Order Confirmation";
-            DialogResult dialogResult = MessageBox.Show(boxMessage, boxTitle);
+            _ = MessageBox.Show(boxMessage, boxTitle);
             this.CloseForm();
         }
 

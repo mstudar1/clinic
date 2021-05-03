@@ -16,10 +16,11 @@
 ### Credentials:
 
 admin:
-id: doe
-pwd: test1234
+
+- id: doe
+- pwd: test1234
 
 nurse:
-id: jane
-pwd: test1234
 
+- id: jane
+- pwd: test1234

@@ -16,7 +16,7 @@ namespace Clinic.UserControls
         private EditAppointmentForm editAppointmentForm;
         private AddVisitForm addVisitForm;
         private Person currentUser;
-        private VisitController visitController;
+        private readonly VisitController visitController;
         public AppointmentController appointmentController;
         public List<Appointment> appointmentList;
 
@@ -73,11 +73,7 @@ namespace Clinic.UserControls
         /// <param name="appointments"></param>
         public void DisplayAppointmentList(List<Appointment> appointments)
         {
-            if (appointments == null)
-            {
-                throw new ArgumentException("The list of appointments cannot be null.", "appointments");
-            }
-            this.appointmentList = appointments;
+            this.appointmentList = appointments ?? throw new ArgumentException("The list of appointments cannot be null.", "appointments");
             this.RefreshAppointmentList();
         }
 
@@ -114,7 +110,6 @@ namespace Clinic.UserControls
                 item.SubItems.Add(current.PatientFirstName.ToString());
                 item.SubItems.Add(current.StartDateTime.ToShortDateString());
                 item.SubItems.Add(current.StartDateTime.ToShortTimeString());
-                item.SubItems.Add(current.EndDateTime.ToShortTimeString());
                 item.SubItems.Add(current.DoctorLastName.ToString());
                 this.appointmentsSearchResultsListView.Items.Add(item);
             }
@@ -256,7 +251,7 @@ namespace Clinic.UserControls
                 {
                     string errorTitle = "Delete Appointment Failure";
                     string errorMessage = "Unable to delete this appointment." + ex.Message;
-                    var errorSelectedOption = MessageBox.Show(errorMessage, errorTitle, MessageBoxButtons.OK);
+                    _ = MessageBox.Show(errorMessage, errorTitle, MessageBoxButtons.OK);
                 }
             }
 

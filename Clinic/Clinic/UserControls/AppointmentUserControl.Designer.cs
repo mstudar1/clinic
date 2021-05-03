@@ -45,7 +45,6 @@ namespace Clinic.UserControls
             this.firstNameCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.startTimeCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.endTimeCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.docCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.alertTextLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -225,7 +224,6 @@ namespace Clinic.UserControls
             this.firstNameCol,
             this.dateCol,
             this.startTimeCol,
-            this.endTimeCol,
             this.docCol});
             this.tableLayoutPanel1.SetColumnSpan(this.appointmentsSearchResultsListView, 4);
             this.appointmentsSearchResultsListView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -263,12 +261,6 @@ namespace Clinic.UserControls
             this.startTimeCol.Text = "Start Time";
             this.startTimeCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.startTimeCol.Width = 90;
-            // 
-            // endTimeCol
-            // 
-            this.endTimeCol.Text = "End Time";
-            this.endTimeCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.endTimeCol.Width = 91;
             // 
             // docCol
             // 
@@ -379,7 +371,6 @@ namespace Clinic.UserControls
         private System.Windows.Forms.ColumnHeader dateCol;
         private System.Windows.Forms.ColumnHeader startTimeCol;
         private System.Windows.Forms.TextBox nameTextBox;
-        private System.Windows.Forms.ColumnHeader endTimeCol;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker searchDateTimePicker;

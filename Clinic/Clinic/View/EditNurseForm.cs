@@ -161,7 +161,7 @@ namespace Clinic.View
             catch (Exception ex)
             {
             }
-            this.noticeLabel.Text = alertText;
+            this.alertNoticeLabel.Text = alertText;
 
             if (alertText == "")
             {
@@ -215,7 +215,7 @@ namespace Clinic.View
                 }
                 catch (Exception ex)
                 {
-                    this.noticeLabel.Text = "Form data not submitted.\n" + ex.Message + " Please fix and try again. ";
+                    this.alertNoticeLabel.Text = "Form data not submitted.\n" + ex.Message + " Please fix and try again. ";
                 }
             }
         }

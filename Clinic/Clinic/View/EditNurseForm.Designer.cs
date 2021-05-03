@@ -219,7 +219,7 @@ namespace Clinic.View
             this.ssnAndGenderTableLayoutPanel.ColumnCount = 3;
             this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.80103F));
             this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.19897F));
-            this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 151F));
+            this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 153F));
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.ssnMaskedTextBox, 0, 0);
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.genderComboBox, 2, 0);
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.genderLabel, 1, 0);
@@ -235,7 +235,7 @@ namespace Clinic.View
             // 
             this.ssnMaskedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ssnMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ssnMaskedTextBox.Location = new System.Drawing.Point(23, 5);
+            this.ssnMaskedTextBox.Location = new System.Drawing.Point(22, 5);
             this.ssnMaskedTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ssnMaskedTextBox.Mask = "000-00-0000";
             this.ssnMaskedTextBox.Name = "ssnMaskedTextBox";
@@ -264,9 +264,9 @@ namespace Clinic.View
             this.genderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.genderLabel.AutoSize = true;
             this.genderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genderLabel.Location = new System.Drawing.Point(261, 13);
+            this.genderLabel.Location = new System.Drawing.Point(265, 0);
             this.genderLabel.Name = "genderLabel";
-            this.genderLabel.Size = new System.Drawing.Size(100, 29);
+            this.genderLabel.Size = new System.Drawing.Size(94, 42);
             this.genderLabel.TabIndex = 13;
             this.genderLabel.Tag = "";
             this.genderLabel.Text = "Gender:";
@@ -288,7 +288,7 @@ namespace Clinic.View
             this.cityAndStateTableLayoutPanel.ColumnCount = 3;
             this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.50427F));
             this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.49573F));
-            this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
+            this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 179F));
             this.cityAndStateTableLayoutPanel.Controls.Add(this.cityTextBox, 0, 0);
             this.cityAndStateTableLayoutPanel.Controls.Add(this.zipLabel, 1, 0);
             this.cityAndStateTableLayoutPanel.Controls.Add(this.zipMaskedTextBox, 2, 0);
@@ -305,7 +305,7 @@ namespace Clinic.View
             // 
             this.cityTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityTextBox.Location = new System.Drawing.Point(22, 9);
+            this.cityTextBox.Location = new System.Drawing.Point(21, 9);
             this.cityTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(224, 35);
@@ -316,7 +316,7 @@ namespace Clinic.View
             this.zipLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.zipLabel.AutoSize = true;
             this.zipLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zipLabel.Location = new System.Drawing.Point(283, 17);
+            this.zipLabel.Location = new System.Drawing.Point(281, 17);
             this.zipLabel.Name = "zipLabel";
             this.zipLabel.Size = new System.Drawing.Size(53, 29);
             this.zipLabel.TabIndex = 12;
@@ -540,7 +540,7 @@ namespace Clinic.View
             this.alertNoticeLabel.Location = new System.Drawing.Point(203, 691);
             this.alertNoticeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.alertNoticeLabel.Name = "alertNoticeLabel";
-            this.alertNoticeLabel.Size = new System.Drawing.Size(0, 22);
+            this.alertNoticeLabel.Size = new System.Drawing.Size(89, 22);
             this.alertNoticeLabel.TabIndex = 112;
             // 
             // tableLayoutPanel1
@@ -548,7 +548,7 @@ namespace Clinic.View
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.85207F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.14793F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 178F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 179F));
             this.tableLayoutPanel1.Controls.Add(this.address2TextBox, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.stateComboBox, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.stateLabel, 1, 0);

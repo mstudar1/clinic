@@ -73,11 +73,7 @@ namespace Clinic.UserControls
         /// <param name="appointments"></param>
         public void DisplayAppointmentList(List<Appointment> appointments)
         {
-            if (appointments == null)
-            {
-                throw new ArgumentException("The list of appointments cannot be null.", "appointments");
-            }
-            this.appointmentList = appointments;
+            this.appointmentList = appointments ?? throw new ArgumentException("The list of appointments cannot be null.", "appointments");
             this.RefreshAppointmentList();
         }
 

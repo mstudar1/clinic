@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 
@@ -27,15 +28,17 @@ namespace Clinic.UserControls
             DateTime start = this.startDateTimePicker.Value;
             DateTime end = this.endDateTimePicker.Value;
             if (this.DatesAreValid(start, end)) {
+
                 ReportParameter[] parameters = new ReportParameter[2];
                 parameters[0] = new ReportParameter("startDate", start.ToString("D"));
                 parameters[1] = new ReportParameter("endDate", end.ToString("D"));
-                this.reportViewer.LocalReport.SetParameters(parameters);
-                this.getMostPerformedTestsDuringDatesTableAdapter.Fill(_labTestReportDataSet.getMostPerformedTestsDuringDates, start, end);
-                System.Drawing.Printing.PageSettings ps = reportViewer.GetPageSettings();
+                this.reportViewer1.LocalReport.SetParameters(parameters);
+                this.getMostPerformedTestsDuringDatesTableAdapter1.Fill(labTestReportDataSet1.getMostPerformedTestsDuringDates, start, end);
+
+                System.Drawing.Printing.PageSettings ps = reportViewer1.GetPageSettings();
                 ps.Landscape = true;
-                reportViewer.SetPageSettings(ps);
-                this.reportViewer.RefreshReport();
+                reportViewer1.SetPageSettings(ps);
+                this.reportViewer1.RefreshReport();
             }
             else
             {
@@ -45,6 +48,7 @@ namespace Clinic.UserControls
             }
             
         }
+
 
         /// <summary>
         /// Verifies that the end date comes chronologically after the start date

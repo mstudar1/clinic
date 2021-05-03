@@ -251,7 +251,7 @@ namespace Clinic.UserControls
                 {
                     string errorTitle = "Delete Appointment Failure";
                     string errorMessage = "Unable to delete this appointment." + ex.Message;
-                    var errorSelectedOption = MessageBox.Show(errorMessage, errorTitle, MessageBoxButtons.OK);
+                    _ = MessageBox.Show(errorMessage, errorTitle, MessageBoxButtons.OK);
                 }
             }
 

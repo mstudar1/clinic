@@ -16,7 +16,7 @@ namespace Clinic.UserControls
         private EditAppointmentForm editAppointmentForm;
         private AddVisitForm addVisitForm;
         private Person currentUser;
-        private VisitController visitController;
+        private readonly VisitController visitController;
         public AppointmentController appointmentController;
         public List<Appointment> appointmentList;
 

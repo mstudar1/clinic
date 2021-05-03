@@ -34,7 +34,10 @@ namespace Clinic.UserControls
             this.startDateLabel = new System.Windows.Forms.Label();
             this.endDateLabel = new System.Windows.Forms.Label();
             this.generateReportButton = new System.Windows.Forms.Button();
-            this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.getMostPerformedTestsDuringDatesTableAdapter1 = new Clinic.labTestReportDataSetTableAdapters.getMostPerformedTestsDuringDatesTableAdapter();
+            this.labTestReportDataSet1 = new Clinic.labTestReportDataSet();
+            ((System.ComponentModel.ISupportInitialize)(this.labTestReportDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // startDateTimePicker
@@ -79,21 +82,29 @@ namespace Clinic.UserControls
             this.generateReportButton.UseVisualStyleBackColor = true;
             this.generateReportButton.Click += new System.EventHandler(this.GenerateReportButton_Click);
             // 
-            // reportViewer
+            // reportViewer1
             // 
-            this.reportViewer.LocalReport.ReportEmbeddedResource = "Clinic.View.LabTestStatsReport.rdlc";
-            this.reportViewer.Location = new System.Drawing.Point(0, 76);
-            this.reportViewer.Name = "reportViewer";
-            this.reportViewer.ServerReport.BearerToken = null;
-            this.reportViewer.Size = new System.Drawing.Size(561, 214);
-            this.reportViewer.TabIndex = 6;
-            this.reportViewer.ZoomPercent = 75;
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Clinic.View.LabTestStatsReport.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 76);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(561, 246);
+            this.reportViewer1.TabIndex = 6;
+            // 
+            // getMostPerformedTestsDuringDatesTableAdapter1
+            // 
+            this.getMostPerformedTestsDuringDatesTableAdapter1.ClearBeforeFill = true;
+            // 
+            // labTestReportDataSet1
+            // 
+            this.labTestReportDataSet1.DataSetName = "labTestReportDataSet";
+            this.labTestReportDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ReportUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.reportViewer);
+            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.generateReportButton);
             this.Controls.Add(this.endDateLabel);
             this.Controls.Add(this.startDateLabel);
@@ -102,6 +113,7 @@ namespace Clinic.UserControls
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ReportUserControl";
             this.Size = new System.Drawing.Size(561, 322);
+            ((System.ComponentModel.ISupportInitialize)(this.labTestReportDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,10 +125,8 @@ namespace Clinic.UserControls
         private System.Windows.Forms.Label startDateLabel;
         private System.Windows.Forms.Label endDateLabel;
         private System.Windows.Forms.Button generateReportButton;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer;
-        //private System.Windows.Forms.BindingSource labTestReportDataSetBindingSource;
-        //private _labTestReportDataSet _labTestReportDataSet;
-        //private System.Windows.Forms.BindingSource getMostPerformedTestsDuringDatesBindingSource;
-        //private _labTestReportDataSetTableAdapters.getMostPerformedTestsDuringDatesTableAdapter getMostPerformedTestsDuringDatesTableAdapter;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private labTestReportDataSetTableAdapters.getMostPerformedTestsDuringDatesTableAdapter getMostPerformedTestsDuringDatesTableAdapter1;
+        private labTestReportDataSet labTestReportDataSet1;
     }
 }

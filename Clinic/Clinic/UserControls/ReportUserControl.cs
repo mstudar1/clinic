@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 
@@ -27,24 +28,62 @@ namespace Clinic.UserControls
             DateTime start = this.startDateTimePicker.Value;
             DateTime end = this.endDateTimePicker.Value;
             if (this.DatesAreValid(start, end)) {
+
                 ReportParameter[] parameters = new ReportParameter[2];
                 parameters[0] = new ReportParameter("startDate", start.ToString("D"));
                 parameters[1] = new ReportParameter("endDate", end.ToString("D"));
-                this.reportViewer.LocalReport.SetParameters(parameters);
+                this.reportViewer1.LocalReport.SetParameters(parameters);
+                this.getMostPerformedTestsDuringDatesTableAdapter1.Fill(labTestReportDataSet1.getMostPerformedTestsDuringDates, start, end);
 
-                // TESTING STUFF
-                //System.Data.SqlClient.SqlDataAdapter ad = new System.Data.SqlClient.SqlDataAdapter(sql, sqlConn);
-                //System.Data.DataSet ds = new System.Data.DataSet();
-                //ad.Fill(ds);
-                //ReportDataSource rds = new ReportDataSource("LabReportData", labTestReportDataSetTableAdapters);
 
-                //this.getMostPerformedTestsDuringDatesTableAdapter.Fill(labTestReportDataSet.getMostPerformedTestsDuringDates, start, end);
-                // END
 
-                System.Drawing.Printing.PageSettings ps = reportViewer.GetPageSettings();
-                ps.Landscape = true;
-                reportViewer.SetPageSettings(ps);
-                this.reportViewer.RefreshReport();
+                // BEGIN TESTING STUFF ----------------------------------------------
+                //DataSet ds = new DataSet();
+                //this.getMostPerformedTestsDuringDatesTableAdapter1.Fill(ds);
+                //DataTable dt = ds.Tables[0];
+
+                //DataSet ds = labTestReportDataSet1;
+                //DataTable dt = ds.Tables[0];
+                //this.reportViewer.Reset();
+                //this.reportViewer.ProcessingMode = ProcessingMode.Local;
+                //ReportDataSource reportDataSource = new ReportDataSource();
+                //// Must match the DataSet in the RDLC
+                //reportDataSource.Name = "labTestReportDataSet";
+                //reportDataSource.Value = ds.Tables[0];
+                //this.reportViewer.LocalReport.DataSources.Add(reportDataSource);
+                //this.reportViewer.RefreshReport();
+
+                //ReportDataSource reportDataSource = new ReportDataSource();
+                //// Must match the DataSource in the RDLC
+                //reportDataSource.Name = "ReportData";
+                //reportDataSource.Value = ds.Tables[0];
+
+                //this.reportViewer.LocalReport.DataSources.Add(reportDataSource);
+                //this.reportViewer.DataBind();
+                //var myDataTable = new dsReports.tsPrimaryMondayDataTable();
+                //var myDataTable = this.getMostPerformedTestsDuringDatesTableAdapter1.Fill(labTestReportDataSet1.getMostPerformedTestsDuringDates, start, end);
+                //var myTableAdapter = this.getMostPerformedTestsDuringDatesTableAdapter1;
+                //myTableAdapter.Fill(myDataTable, Convert.ToDateTime(dtp.Value));
+                //ReportDataSource theDataSource = new ReportDataSource();
+                //theDataSource.Name = "LabReportStatsSource";
+                //theDataSource.Value = labTestReportDataSet1.Tables.
+
+                //this.reportViewer.LocalReport.DataSources.Add(labTestReportDataSet.getMostPerformedTestsDuringDatesDataTable);
+
+                //var dataSource = new ReportDataSource("DataSet1", this.labTestReportDataSet1);
+
+                //this.reportViewer.LocalReport.DataSources.Clear();
+                //this.reportViewer.LocalReport.DataSources.Add(dataSource);
+                //this.reportViewer.RefreshReport();
+
+                // END ---------------------------------------------------------------
+
+
+
+                //System.Drawing.Printing.PageSettings ps = reportViewer.GetPageSettings();
+                //ps.Landscape = true;
+                //reportViewer.SetPageSettings(ps);
+                //this.reportViewer.RefreshReport();
             }
             else
             {

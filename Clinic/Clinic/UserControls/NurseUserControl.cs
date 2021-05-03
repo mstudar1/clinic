@@ -20,6 +20,7 @@ namespace Clinic.UserControls
         private readonly NurseController theNurseController;
         public List<Nurse> nurseList;
 
+
         /// <summary>
         /// Initialize the form
         /// </summary>
@@ -137,6 +138,8 @@ namespace Clinic.UserControls
                 this.theEditNurseForm.Show();
             }
         }
+
+       
 
         /// <summary>
         /// Handles view nurse button click events to open view nurse details form for selected nurse

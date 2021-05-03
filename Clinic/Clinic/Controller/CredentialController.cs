@@ -138,5 +138,21 @@ namespace Clinic.Controller
 
             return this.credentialSource.EditCredentials(originalUsername, newUsername);
         }
+
+        /// <summary>
+        /// Method that can be called to get username of person.
+        /// </summary>
+        /// <param name="inputedPersonId">The person ID.</param>
+        /// <returns>The username of the person.</returns>
+        public string GetUsername(int inputedPersonId)
+        {
+            if (inputedPersonId < 0)
+            {
+                throw new ArgumentException("The person ID cannot be negative.", "inputedPersonId");
+            }
+            
+            return this.credentialSource.GetUsername(inputedPersonId);
+        }
+
     }
 }

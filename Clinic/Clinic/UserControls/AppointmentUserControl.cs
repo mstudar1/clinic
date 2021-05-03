@@ -114,7 +114,6 @@ namespace Clinic.UserControls
                 item.SubItems.Add(current.PatientFirstName.ToString());
                 item.SubItems.Add(current.StartDateTime.ToShortDateString());
                 item.SubItems.Add(current.StartDateTime.ToShortTimeString());
-                item.SubItems.Add(current.EndDateTime.ToShortTimeString());
                 item.SubItems.Add(current.DoctorLastName.ToString());
                 this.appointmentsSearchResultsListView.Items.Add(item);
             }

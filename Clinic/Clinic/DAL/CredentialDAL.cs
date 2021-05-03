@@ -473,5 +473,39 @@ namespace Clinic.DAL
             }
             return theAdministrator;
         }
+
+        /// <summary>
+        /// Method returns the username given personId.
+        /// </summary>
+        /// <param name="inputedPersonId">personId of the person</param>
+        /// <returns>the username of the person</returns>
+        public string GetUsername(int inputedPersonId)
+        {
+            if (inputedPersonId < 0)
+            {
+                throw new ArgumentException("The person ID cannot be negative.", "inputedPersonId");
+            }
+
+            string selectStatement =
+                "SELECT @Username = userName " +
+                "FROM Credential " +
+                "WHERE personId = @InputedPersonId";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    SqlParameter usernameParameter = new SqlParameter("@Username", SqlDbType.VarChar, 25)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    selectCommand.Parameters.Add(usernameParameter);
+                    selectCommand.Parameters.AddWithValue("@InputedPersonId", inputedPersonId);
+                    selectCommand.ExecuteNonQuery();
+                    return usernameParameter.Value.ToString();
+                }
+            }
+        }
     }
 }

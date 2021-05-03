@@ -11,7 +11,7 @@ namespace Clinic.View
     /// </summary>
     public partial class AddNurseForm : Form
     {
-        private readonly NurseController theNursecontroller;
+        private readonly NurseController theNurseController;
         private readonly NurseUserControl nurseUserControl;
         private readonly CredentialController theCredentialController;
 
@@ -22,7 +22,7 @@ namespace Clinic.View
         public AddNurseForm(NurseUserControl theInputNurseUserControl)
         {
             InitializeComponent();
-            this.theNursecontroller = new NurseController();
+            this.theNurseController = new NurseController();
             this.theCredentialController = new CredentialController();
             this.nurseUserControl = theInputNurseUserControl;
         }
@@ -131,7 +131,7 @@ namespace Clinic.View
                         State = state,
                         ZipCode = zip
                     };
-                    newNurse.PersonId = this.theNursecontroller.AddNurse(newNurse);
+                    newNurse.PersonId = this.theNurseController.AddNurse(newNurse);
                     this.theCredentialController.AddUser(username,newNurse.PersonId,"Nurse",password);
                     String successText = "Nurse  (" + firstName + " " + lastName + ") successfully added.";
                     var dialogeResult = MessageBox.Show(successText, "Nurse Added Success");

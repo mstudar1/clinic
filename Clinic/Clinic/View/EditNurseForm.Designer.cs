@@ -96,6 +96,7 @@ namespace Clinic.View
             this.cancelButton.TabIndex = 15;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // updateNurseButton
             // 
@@ -600,6 +601,7 @@ namespace Clinic.View
             this.passwordTextBox.Location = new System.Drawing.Point(228, 586);
             this.passwordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(491, 35);
             this.passwordTextBox.TabIndex = 13;
             // 

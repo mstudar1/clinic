@@ -63,6 +63,10 @@ namespace Clinic.View
             }
         }
 
+        /// <summary>
+        /// Verifies that all input fields on form are valid
+        /// </summary>
+        /// <returns>true if all fields are valid</returns>
         private bool AllInputsAreValid()
         {
             bool allInputsAreValid = true;
@@ -115,6 +119,9 @@ namespace Clinic.View
             return allInputsAreValid;
         }
 
+        /// <summary>
+        /// Reset all validation message labels to blank
+        /// </summary>
         private void ResetValidationLabels()
         {
             this.weightValidationLabel.Text = "";

@@ -81,6 +81,9 @@ namespace Clinic.UserControls
             this.RefreshAppointmentList();
         }
 
+        /// <summary>
+        /// Enables or disables begin visit button based on user
+        /// </summary>
         private void EnableOrDisableBeginVisitButton()
         {
             if (this.currentUser == default)
@@ -98,6 +101,9 @@ namespace Clinic.UserControls
             }
         }
 
+        /// <summary>
+        /// Helper method to refresh the appointment list
+        /// </summary>
         private void RefreshAppointmentList()
         {
             this.ResetFormMessages();

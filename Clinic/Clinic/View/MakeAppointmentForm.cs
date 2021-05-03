@@ -92,6 +92,11 @@ namespace Clinic.View
             this.SearchPatient();
         }
 
+        /// <summary>
+        /// Event handler for key down events to execute patient search
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchPatientFirstNameTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)

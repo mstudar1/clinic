@@ -82,6 +82,9 @@ namespace Clinic.UserControls
             }
         }
 
+        /// <summary>
+        /// Method that can be called to refresh the list of nurses.
+        /// </summary>
         public void RefreshNursesListData()
         {
             this.nurseList = this.theNurseController.GetAllNurses();

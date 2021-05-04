@@ -95,7 +95,7 @@ namespace Clinic.View
                     alertText += "The username is already used. ";
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
             this.noticeLabel.Text = alertText;

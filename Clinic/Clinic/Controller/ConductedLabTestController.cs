@@ -12,6 +12,9 @@ namespace Clinic.Controller
     {
         private readonly ConductedLabTestDAL conductedLabTestSource;
 
+        /// <summary>
+        /// Constructor for the ConductedLabTestController class.
+        /// </summary>
         public ConductedLabTestController()
         {
             this.conductedLabTestSource = new ConductedLabTestDAL();

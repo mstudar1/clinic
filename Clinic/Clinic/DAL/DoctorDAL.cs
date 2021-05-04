@@ -9,16 +9,6 @@ namespace Clinic.DAL
     /// </summary>
     public class DoctorDAL
     {
-        private readonly PersonDAL thePersonDAL;
-
-        /// <summary>
-        /// Constructor for the DoctorDAL class
-        /// </summary>
-        public DoctorDAL()
-        {
-            this.thePersonDAL = new PersonDAL();
-        }
-
         /// <summary>
         /// Method that returns a list of all the doctors.
         /// </summary>

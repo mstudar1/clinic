@@ -39,13 +39,22 @@ namespace Clinic.UserControls
             this.theNurseAdminForm = theInputedNurseAdminForm;
         }
 
-        
+        /// <summary>
+        /// Handler for resgister button clicks
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RegisterPatientButton_Click(object sender, System.EventArgs e)
         {
             RegisterPatientForm theRegisterPatientForm = new RegisterPatientForm(this);
             theRegisterPatientForm.Show();
         }
 
+        /// <summary>
+        /// Handler for search button clicks
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchButton_Click(object sender, System.EventArgs e)
         {
             String alertText = "";
@@ -76,6 +85,11 @@ namespace Clinic.UserControls
             this.alertNoticeLabel.Text = alertText;
         }
 
+        /// <summary>
+        /// Handler for reset button clicks
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ResetButton_Click(object sender, System.EventArgs e)
         {
             this.ResetFieldsAndRefresh();
@@ -120,6 +134,9 @@ namespace Clinic.UserControls
             }
         }
 
+        /// <summary>
+        /// Clears the list
+        /// </summary>
         private void ClearList()
         {
             foreach (ListViewItem item in this.patientsListView.Items)
@@ -145,6 +162,11 @@ namespace Clinic.UserControls
             }
         }
 
+        /// <summary>
+        /// Handles view patient details button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ViewPatientDetailsButton_Click(object sender, EventArgs e)
         {
             if (this.patientsListView.SelectedItems.Count == 0)
@@ -159,6 +181,11 @@ namespace Clinic.UserControls
             this.Enabled = false;
         }
 
+        /// <summary>
+        /// Handles edit patient details button clicks
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditPatientDetailsButton_Click(object sender, EventArgs e)
         {
             if (this.patientsListView.SelectedItems.Count == 0)
@@ -173,6 +200,11 @@ namespace Clinic.UserControls
             this.Enabled = false;
         }
 
+        /// <summary>
+        /// Handles view patient appointments button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ViewPatientAppointmentsButton_Click(object sender, EventArgs e)
         {
             if (this.patientsListView.SelectedItems.Count == 0)
@@ -192,6 +224,11 @@ namespace Clinic.UserControls
             this.theNurseAdminForm.appointmentUserControl1.DisplayAppointmentList(theAppointments);
         }
 
+        /// <summary>
+        /// Handles delete patient button clicks
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeletePatientButton_Click(object sender, EventArgs e)
         {
             if (this.patientsListView.SelectedItems.Count == 0)

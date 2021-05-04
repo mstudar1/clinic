@@ -67,16 +67,13 @@ namespace Clinic.View
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.passwordInfoLabel = new System.Windows.Forms.Label();
-            this.statusLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.statusComboBox = new System.Windows.Forms.ComboBox();
+            this.isActiveCheckBox = new System.Windows.Forms.CheckBox();
             this.ssnAndGenderTableLayoutPanel.SuspendLayout();
             this.cityAndStateTableLayoutPanel.SuspendLayout();
             this.buttonTableLayoutPanel.SuspendLayout();
             this.registerPatientTableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // addressLabel
@@ -226,7 +223,7 @@ namespace Clinic.View
             this.ssnAndGenderTableLayoutPanel.ColumnCount = 3;
             this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.80103F));
             this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.19897F));
-            this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
+            this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 157F));
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.ssnMaskedTextBox, 0, 0);
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.genderComboBox, 2, 0);
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.genderLabel, 1, 0);
@@ -271,7 +268,7 @@ namespace Clinic.View
             this.genderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.genderLabel.AutoSize = true;
             this.genderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genderLabel.Location = new System.Drawing.Point(262, 0);
+            this.genderLabel.Location = new System.Drawing.Point(261, 0);
             this.genderLabel.Name = "genderLabel";
             this.genderLabel.Size = new System.Drawing.Size(94, 40);
             this.genderLabel.TabIndex = 13;
@@ -295,7 +292,7 @@ namespace Clinic.View
             this.cityAndStateTableLayoutPanel.ColumnCount = 3;
             this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.50427F));
             this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.49573F));
-            this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 182F));
+            this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 183F));
             this.cityAndStateTableLayoutPanel.Controls.Add(this.cityTextBox, 0, 0);
             this.cityAndStateTableLayoutPanel.Controls.Add(this.zipLabel, 1, 0);
             this.cityAndStateTableLayoutPanel.Controls.Add(this.zipMaskedTextBox, 2, 0);
@@ -312,7 +309,7 @@ namespace Clinic.View
             // 
             this.cityTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityTextBox.Location = new System.Drawing.Point(26, 5);
+            this.cityTextBox.Location = new System.Drawing.Point(25, 5);
             this.cityTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(217, 35);
@@ -323,7 +320,7 @@ namespace Clinic.View
             this.zipLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.zipLabel.AutoSize = true;
             this.zipLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zipLabel.Location = new System.Drawing.Point(278, 13);
+            this.zipLabel.Location = new System.Drawing.Point(277, 13);
             this.zipLabel.Name = "zipLabel";
             this.zipLabel.Size = new System.Drawing.Size(53, 29);
             this.zipLabel.TabIndex = 12;
@@ -507,7 +504,7 @@ namespace Clinic.View
             this.registerPatientTableLayoutPanel.Controls.Add(this.usernameTextBox, 1, 9);
             this.registerPatientTableLayoutPanel.Controls.Add(this.passwordLabel, 0, 10);
             this.registerPatientTableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 1, 10);
-            this.registerPatientTableLayoutPanel.Controls.Add(this.tableLayoutPanel3, 1, 11);
+            this.registerPatientTableLayoutPanel.Controls.Add(this.isActiveCheckBox, 1, 11);
             this.registerPatientTableLayoutPanel.Location = new System.Drawing.Point(34, 8);
             this.registerPatientTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.registerPatientTableLayoutPanel.Name = "registerPatientTableLayoutPanel";
@@ -638,47 +635,17 @@ namespace Clinic.View
             this.passwordInfoLabel.TabIndex = 14;
             this.passwordInfoLabel.Text = "To change password, insert new one, otherwise leave it empty.";
             // 
-            // statusLabel
+            // isActiveCheckBox
             // 
-            this.statusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.statusLabel.AutoSize = true;
-            this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusLabel.Location = new System.Drawing.Point(97, 13);
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(85, 29);
-            this.statusLabel.TabIndex = 118;
-            this.statusLabel.Text = "Status:";
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.statusComboBox, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.statusLabel, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(202, 550);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(370, 42);
-            this.tableLayoutPanel3.TabIndex = 119;
-            // 
-            // statusComboBox
-            // 
-            this.statusComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.statusComboBox.DisplayMember = "1";
-            this.statusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.statusComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusComboBox.FormattingEnabled = true;
-            this.statusComboBox.Items.AddRange(new object[] {
-            "Active",
-            "Inactive"});
-            this.statusComboBox.Location = new System.Drawing.Point(243, 3);
-            this.statusComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.statusComboBox.Name = "statusComboBox";
-            this.statusComboBox.Size = new System.Drawing.Size(124, 37);
-            this.statusComboBox.TabIndex = 119;
-            this.statusComboBox.Tag = "";
+            this.isActiveCheckBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.isActiveCheckBox.AutoSize = true;
+            this.isActiveCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.isActiveCheckBox.Location = new System.Drawing.Point(397, 554);
+            this.isActiveCheckBox.Name = "isActiveCheckBox";
+            this.isActiveCheckBox.Size = new System.Drawing.Size(127, 33);
+            this.isActiveCheckBox.TabIndex = 119;
+            this.isActiveCheckBox.Text = "Is Active";
+            this.isActiveCheckBox.UseVisualStyleBackColor = true;
             // 
             // EditNurseForm
             // 
@@ -707,8 +674,6 @@ namespace Clinic.View
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -753,8 +718,6 @@ namespace Clinic.View
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label passwordInfoLabel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label statusLabel;
-        private System.Windows.Forms.ComboBox statusComboBox;
+        private System.Windows.Forms.CheckBox isActiveCheckBox;
     }
 }

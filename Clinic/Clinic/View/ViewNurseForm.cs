@@ -1,4 +1,5 @@
-﻿using Clinic.Model;
+﻿using Clinic.Controller;
+using Clinic.Model;
 using Clinic.UserControls;
 using System;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace Clinic.View
     {
         private readonly Nurse theNurse;
         private readonly NurseUserControl theNurseUserControl;
+        private readonly CredentialController theCredentialController;
 
         /// <summary>
         /// Constructor for view nurse form
@@ -21,6 +23,7 @@ namespace Clinic.View
         public ViewNurseForm(NurseUserControl theInputNurseUserControl, Nurse theInputedNurse)
         {
             InitializeComponent();
+            this.theCredentialController = new CredentialController();
             this.theNurseUserControl = theInputNurseUserControl;
             this.theNurse = theInputedNurse;
             this.theNurseUserControl.Enabled = false;
@@ -43,6 +46,17 @@ namespace Clinic.View
             this.nurseStateLabel.Text = this.theNurse.State;
             this.nurseCityLabel.Text = this.theNurse.City;
             this.nurseZipLabel.Text = this.theNurse.ZipCode;
+            this.nurseUsernameLabel.Text = this.theCredentialController.GetUsername(this.theNurse.PersonId);
+            if (this.theNurse.IsActive)
+            {
+                this.nurseIsActiveLabel.Text = "Yes";
+            }
+            else
+            {
+                this.nurseIsActiveLabel.Text = "No";
+            }
+            
+
         }
 
         /// <summary> 

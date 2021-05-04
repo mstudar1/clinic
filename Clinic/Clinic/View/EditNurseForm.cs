@@ -51,6 +51,7 @@ namespace Clinic.View
             this.zipMaskedTextBox.Text = this.theNurse.ZipCode;
             this.username = this.theCredentialController.GetUsername(this.theNurse.PersonId);
             this.usernameTextBox.Text = this.username;
+            this.isActiveCheckBox.Checked = this.theNurse.IsActive;
         }
 
         /// <summary>
@@ -178,6 +179,7 @@ namespace Clinic.View
                 string zip = this.zipMaskedTextBox.Text;
                 string username = this.usernameTextBox.Text;
                 string password = this.passwordTextBox.Text;
+                bool isActive = this.isActiveCheckBox.Checked;
                 try
                 {
                     Nurse newNurse = new Nurse
@@ -194,7 +196,8 @@ namespace Clinic.View
                         State = state,
                         ZipCode = zip,
                         PersonId = this.theNurse.PersonId,
-                        NurseId = this.theNurse.NurseId
+                        NurseId = this.theNurse.NurseId,
+                        IsActive = isActive
                     };
                     this.theNurseController.EditNurse(this.theNurse, newNurse);
                     if (password == "")

@@ -129,7 +129,8 @@ namespace Clinic.View
                         AddressLine2 = address2,
                         City = city,
                         State = state,
-                        ZipCode = zip
+                        ZipCode = zip,
+                        IsActive = true
                     };
                     newNurse.PersonId = this.theNurseController.AddNurse(newNurse);
                     this.theCredentialController.AddUser(username,newNurse.PersonId,"Nurse",password);

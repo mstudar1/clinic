@@ -98,6 +98,14 @@ namespace Clinic.UserControls
                 ListViewItem item = new ListViewItem(theNurse.FirstName.ToString());
                 item.SubItems.Add(theNurse.LastName.ToString());
                 item.SubItems.Add(theNurse.DateOfBirth.ToShortDateString());
+                if (theNurse.IsActive)
+                {
+                    item.SubItems.Add("Active");
+                }
+                else
+                {
+                    item.SubItems.Add("Inactive");
+                }
                 this.nurseListView.Items.Add(item);
             }
         }

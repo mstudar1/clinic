@@ -67,12 +67,16 @@ namespace Clinic.View
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.passwordInfoLabel = new System.Windows.Forms.Label();
+            this.statusLabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.statusComboBox = new System.Windows.Forms.ComboBox();
             this.ssnAndGenderTableLayoutPanel.SuspendLayout();
             this.cityAndStateTableLayoutPanel.SuspendLayout();
             this.buttonTableLayoutPanel.SuspendLayout();
             this.registerPatientTableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // addressLabel
@@ -92,10 +96,10 @@ namespace Clinic.View
             this.cancelButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cancelButton.AutoSize = true;
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(238, 6);
+            this.cancelButton.Location = new System.Drawing.Point(262, 11);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(147, 49);
+            this.cancelButton.Size = new System.Drawing.Size(99, 39);
             this.cancelButton.TabIndex = 15;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -106,10 +110,10 @@ namespace Clinic.View
             this.updateNurseButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.updateNurseButton.AutoSize = true;
             this.updateNurseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateNurseButton.Location = new System.Drawing.Point(3, 6);
+            this.updateNurseButton.Location = new System.Drawing.Point(12, 11);
             this.updateNurseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.updateNurseButton.Name = "updateNurseButton";
-            this.updateNurseButton.Size = new System.Drawing.Size(189, 49);
+            this.updateNurseButton.Size = new System.Drawing.Size(172, 39);
             this.updateNurseButton.TabIndex = 14;
             this.updateNurseButton.Text = "Update Nurse";
             this.updateNurseButton.UseVisualStyleBackColor = true;
@@ -222,7 +226,7 @@ namespace Clinic.View
             this.ssnAndGenderTableLayoutPanel.ColumnCount = 3;
             this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.80103F));
             this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.19897F));
-            this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 155F));
+            this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.ssnMaskedTextBox, 0, 0);
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.genderComboBox, 2, 0);
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.genderLabel, 1, 0);
@@ -238,7 +242,7 @@ namespace Clinic.View
             // 
             this.ssnMaskedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ssnMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ssnMaskedTextBox.Location = new System.Drawing.Point(26, 3);
+            this.ssnMaskedTextBox.Location = new System.Drawing.Point(25, 3);
             this.ssnMaskedTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ssnMaskedTextBox.Mask = "000-00-0000";
             this.ssnMaskedTextBox.Name = "ssnMaskedTextBox";
@@ -267,7 +271,7 @@ namespace Clinic.View
             this.genderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.genderLabel.AutoSize = true;
             this.genderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genderLabel.Location = new System.Drawing.Point(263, 0);
+            this.genderLabel.Location = new System.Drawing.Point(262, 0);
             this.genderLabel.Name = "genderLabel";
             this.genderLabel.Size = new System.Drawing.Size(94, 40);
             this.genderLabel.TabIndex = 13;
@@ -291,7 +295,7 @@ namespace Clinic.View
             this.cityAndStateTableLayoutPanel.ColumnCount = 3;
             this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.50427F));
             this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.49573F));
-            this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 181F));
+            this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 182F));
             this.cityAndStateTableLayoutPanel.Controls.Add(this.cityTextBox, 0, 0);
             this.cityAndStateTableLayoutPanel.Controls.Add(this.zipLabel, 1, 0);
             this.cityAndStateTableLayoutPanel.Controls.Add(this.zipMaskedTextBox, 2, 0);
@@ -319,7 +323,7 @@ namespace Clinic.View
             this.zipLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.zipLabel.AutoSize = true;
             this.zipLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zipLabel.Location = new System.Drawing.Point(279, 13);
+            this.zipLabel.Location = new System.Drawing.Point(278, 13);
             this.zipLabel.Name = "zipLabel";
             this.zipLabel.Size = new System.Drawing.Size(53, 29);
             this.zipLabel.TabIndex = 12;
@@ -434,7 +438,7 @@ namespace Clinic.View
             this.buttonTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.09836F));
             this.buttonTableLayoutPanel.Controls.Add(this.cancelButton, 1, 0);
             this.buttonTableLayoutPanel.Controls.Add(this.updateNurseButton, 0, 0);
-            this.buttonTableLayoutPanel.Location = new System.Drawing.Point(246, 549);
+            this.buttonTableLayoutPanel.Location = new System.Drawing.Point(246, 597);
             this.buttonTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonTableLayoutPanel.Name = "buttonTableLayoutPanel";
             this.buttonTableLayoutPanel.RowCount = 1;
@@ -447,7 +451,7 @@ namespace Clinic.View
             this.noticeLabel.AutoSize = true;
             this.noticeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.noticeLabel.ForeColor = System.Drawing.Color.Red;
-            this.noticeLabel.Location = new System.Drawing.Point(3, 691);
+            this.noticeLabel.Location = new System.Drawing.Point(3, 675);
             this.noticeLabel.Name = "noticeLabel";
             this.noticeLabel.Size = new System.Drawing.Size(0, 22);
             this.noticeLabel.TabIndex = 19;
@@ -493,20 +497,21 @@ namespace Clinic.View
             this.registerPatientTableLayoutPanel.Controls.Add(this.cityLabel, 0, 8);
             this.registerPatientTableLayoutPanel.Controls.Add(this.cityAndStateTableLayoutPanel, 1, 8);
             this.registerPatientTableLayoutPanel.Controls.Add(this.editNurseLabel, 1, 0);
-            this.registerPatientTableLayoutPanel.Controls.Add(this.buttonTableLayoutPanel, 1, 11);
+            this.registerPatientTableLayoutPanel.Controls.Add(this.buttonTableLayoutPanel, 1, 12);
             this.registerPatientTableLayoutPanel.Controls.Add(this.dateOfBirthDateTimePicker, 1, 3);
             this.registerPatientTableLayoutPanel.Controls.Add(this.phoneNumberMaskedTextBox, 1, 5);
-            this.registerPatientTableLayoutPanel.Controls.Add(this.noticeLabel, 0, 12);
-            this.registerPatientTableLayoutPanel.Controls.Add(this.alertNoticeLabel, 1, 12);
+            this.registerPatientTableLayoutPanel.Controls.Add(this.noticeLabel, 0, 13);
+            this.registerPatientTableLayoutPanel.Controls.Add(this.alertNoticeLabel, 1, 13);
             this.registerPatientTableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 1, 7);
             this.registerPatientTableLayoutPanel.Controls.Add(this.usernameLabel, 0, 9);
             this.registerPatientTableLayoutPanel.Controls.Add(this.usernameTextBox, 1, 9);
             this.registerPatientTableLayoutPanel.Controls.Add(this.passwordLabel, 0, 10);
             this.registerPatientTableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 1, 10);
+            this.registerPatientTableLayoutPanel.Controls.Add(this.tableLayoutPanel3, 1, 11);
             this.registerPatientTableLayoutPanel.Location = new System.Drawing.Point(34, 8);
             this.registerPatientTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.registerPatientTableLayoutPanel.Name = "registerPatientTableLayoutPanel";
-            this.registerPatientTableLayoutPanel.RowCount = 14;
+            this.registerPatientTableLayoutPanel.RowCount = 15;
             this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
@@ -518,8 +523,9 @@ namespace Clinic.View
             this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
-            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 144F));
-            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 188F));
+            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 224F));
             this.registerPatientTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.registerPatientTableLayoutPanel.Size = new System.Drawing.Size(722, 865);
             this.registerPatientTableLayoutPanel.TabIndex = 2;
@@ -540,7 +546,7 @@ namespace Clinic.View
             this.alertNoticeLabel.AutoSize = true;
             this.alertNoticeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.alertNoticeLabel.ForeColor = System.Drawing.Color.Red;
-            this.alertNoticeLabel.Location = new System.Drawing.Point(203, 691);
+            this.alertNoticeLabel.Location = new System.Drawing.Point(203, 675);
             this.alertNoticeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.alertNoticeLabel.Name = "alertNoticeLabel";
             this.alertNoticeLabel.Size = new System.Drawing.Size(0, 22);
@@ -592,7 +598,8 @@ namespace Clinic.View
             this.passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordLabel.Location = new System.Drawing.Point(70, 473);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(126, 29);
+            this.passwordLabel.Padding = new System.Windows.Forms.Padding(0, 17, 0, 0);
+            this.passwordLabel.Size = new System.Drawing.Size(126, 46);
             this.passwordLabel.TabIndex = 116;
             this.passwordLabel.Tag = "";
             this.passwordLabel.Text = "Password:";
@@ -615,7 +622,7 @@ namespace Clinic.View
             // 
             this.passwordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTextBox.Location = new System.Drawing.Point(26, 4);
+            this.passwordTextBox.Location = new System.Drawing.Point(26, 5);
             this.passwordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
@@ -625,11 +632,53 @@ namespace Clinic.View
             // passwordInfoLabel
             // 
             this.passwordInfoLabel.AutoSize = true;
-            this.passwordInfoLabel.Location = new System.Drawing.Point(3, 41);
+            this.passwordInfoLabel.Location = new System.Drawing.Point(3, 42);
             this.passwordInfoLabel.Name = "passwordInfoLabel";
-            this.passwordInfoLabel.Size = new System.Drawing.Size(491, 20);
+            this.passwordInfoLabel.Size = new System.Drawing.Size(447, 20);
             this.passwordInfoLabel.TabIndex = 14;
             this.passwordInfoLabel.Text = "To change password, insert new one, otherwise leave it empty.";
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusLabel.Location = new System.Drawing.Point(97, 13);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(85, 29);
+            this.statusLabel.TabIndex = 118;
+            this.statusLabel.Text = "Status:";
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.statusComboBox, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.statusLabel, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(202, 550);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(370, 42);
+            this.tableLayoutPanel3.TabIndex = 119;
+            // 
+            // statusComboBox
+            // 
+            this.statusComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.statusComboBox.DisplayMember = "1";
+            this.statusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.statusComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusComboBox.FormattingEnabled = true;
+            this.statusComboBox.Items.AddRange(new object[] {
+            "Active",
+            "Inactive"});
+            this.statusComboBox.Location = new System.Drawing.Point(243, 3);
+            this.statusComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.statusComboBox.Name = "statusComboBox";
+            this.statusComboBox.Size = new System.Drawing.Size(124, 37);
+            this.statusComboBox.TabIndex = 119;
+            this.statusComboBox.Tag = "";
             // 
             // EditNurseForm
             // 
@@ -658,6 +707,8 @@ namespace Clinic.View
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -702,5 +753,8 @@ namespace Clinic.View
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label passwordInfoLabel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label statusLabel;
+        private System.Windows.Forms.ComboBox statusComboBox;
     }
 }

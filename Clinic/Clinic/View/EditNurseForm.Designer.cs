@@ -97,7 +97,7 @@ namespace Clinic.View
             this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(99, 39);
-            this.cancelButton.TabIndex = 15;
+            this.cancelButton.TabIndex = 16;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
@@ -111,7 +111,7 @@ namespace Clinic.View
             this.updateNurseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.updateNurseButton.Name = "updateNurseButton";
             this.updateNurseButton.Size = new System.Drawing.Size(172, 39);
-            this.updateNurseButton.TabIndex = 14;
+            this.updateNurseButton.TabIndex = 15;
             this.updateNurseButton.Text = "Update Nurse";
             this.updateNurseButton.UseVisualStyleBackColor = true;
             this.updateNurseButton.Click += new System.EventHandler(this.UpdateNurseButton_Click);
@@ -223,7 +223,7 @@ namespace Clinic.View
             this.ssnAndGenderTableLayoutPanel.ColumnCount = 3;
             this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.80103F));
             this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.19897F));
-            this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 157F));
+            this.ssnAndGenderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.ssnMaskedTextBox, 0, 0);
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.genderComboBox, 2, 0);
             this.ssnAndGenderTableLayoutPanel.Controls.Add(this.genderLabel, 1, 0);
@@ -239,7 +239,7 @@ namespace Clinic.View
             // 
             this.ssnMaskedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ssnMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ssnMaskedTextBox.Location = new System.Drawing.Point(25, 3);
+            this.ssnMaskedTextBox.Location = new System.Drawing.Point(24, 3);
             this.ssnMaskedTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ssnMaskedTextBox.Mask = "000-00-0000";
             this.ssnMaskedTextBox.Name = "ssnMaskedTextBox";
@@ -268,7 +268,7 @@ namespace Clinic.View
             this.genderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.genderLabel.AutoSize = true;
             this.genderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genderLabel.Location = new System.Drawing.Point(261, 0);
+            this.genderLabel.Location = new System.Drawing.Point(260, 0);
             this.genderLabel.Name = "genderLabel";
             this.genderLabel.Size = new System.Drawing.Size(94, 40);
             this.genderLabel.TabIndex = 13;
@@ -292,7 +292,7 @@ namespace Clinic.View
             this.cityAndStateTableLayoutPanel.ColumnCount = 3;
             this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.50427F));
             this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.49573F));
-            this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 183F));
+            this.cityAndStateTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 184F));
             this.cityAndStateTableLayoutPanel.Controls.Add(this.cityTextBox, 0, 0);
             this.cityAndStateTableLayoutPanel.Controls.Add(this.zipLabel, 1, 0);
             this.cityAndStateTableLayoutPanel.Controls.Add(this.zipMaskedTextBox, 2, 0);
@@ -309,7 +309,7 @@ namespace Clinic.View
             // 
             this.cityTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityTextBox.Location = new System.Drawing.Point(25, 5);
+            this.cityTextBox.Location = new System.Drawing.Point(24, 5);
             this.cityTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(217, 35);
@@ -320,7 +320,7 @@ namespace Clinic.View
             this.zipLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.zipLabel.AutoSize = true;
             this.zipLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zipLabel.Location = new System.Drawing.Point(277, 13);
+            this.zipLabel.Location = new System.Drawing.Point(276, 13);
             this.zipLabel.Name = "zipLabel";
             this.zipLabel.Size = new System.Drawing.Size(53, 29);
             this.zipLabel.TabIndex = 12;
@@ -643,7 +643,7 @@ namespace Clinic.View
             this.isActiveCheckBox.Location = new System.Drawing.Point(397, 554);
             this.isActiveCheckBox.Name = "isActiveCheckBox";
             this.isActiveCheckBox.Size = new System.Drawing.Size(127, 33);
-            this.isActiveCheckBox.TabIndex = 119;
+            this.isActiveCheckBox.TabIndex = 14;
             this.isActiveCheckBox.Text = "Is Active";
             this.isActiveCheckBox.UseVisualStyleBackColor = true;
             // 

@@ -11,7 +11,8 @@
 ### Installation Notes:
 
 - Run Create DB script (CreateClinicDbScript20210429.sql) found in the project root directory.  This script was updated on 04/29/2021.
-- Run Stored Procedure script (clinic_SP_getMostPerformedTestsDuringDates.sql) found in the project root directory.
+- Stored Procedure is created within the Create DB script (no extra action required).
+- DB diagram is in the root project directory
 
 ### Credentials:
 
